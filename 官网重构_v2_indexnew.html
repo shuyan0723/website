@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>极致科技 | 为未来企业构建全栈数字引擎</title>
+    <script src="https://modao.cc/agent-py/static/source/js/tailwindcss.3.4.3.js"></script>
+    <script src="https://modao.cc/agent-py/static/source/js/iconify-icon.min.1.0.7.js"></script>
+    <script src="https://modao.cc/agent-py/static/source/js/echarts.min.5.4.3.js"></script>
+    <style>
+        body {
+            background-color: #020617;
+            color: #f8fafc;
+            font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif;
+        }
+
+        .glass-morphism {
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .tech-gradient-text {
+            background: linear-gradient(135deg, #22d3ee 0%, #3b82f6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .glow-effect {
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+        }
+
+        .scroll-mt-20 {
+            scroll-margin-top: 80px;
+        }
+
+        .bg-tech-dots {
+            background-image: radial-gradient(rgba(59, 130, 246, 0.1) 1px, transparent 1px);
+            background-size: 30px 30px;
+        }
+
+        /* 揭示动画效果 */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+
+<body class="bg-tech-dots">
+    <!-- 1. 顶部导航栏 -->
+    <nav class="fixed top-0 w-full z-50 glass-morphism">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="flex items-center space-x-2">
+                <div class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center glow-effect">
+                    <iconify-icon class="text-2xl text-white" icon="mdi:hexagon-multiple"></iconify-icon>
+                </div>
+                <span class="text-2xl font-bold tracking-wider">KUNLUN ERA</span>
+            </div>
+            <div class="hidden md:flex items-center space-x-10 text-sm font-medium">
+                <a class="text-blue-400 border-b-2 border-blue-400 pb-1"
+                    href="https://modao.cc/agent-py/workspace/69d6161d699cd049d5d64ae1/企业官网复刻_研发中心_v2.html/index.html?render_html=true">首页</a>
+                <a class="hover:text-blue-400 transition-colors"
+                    href="https://modao.cc/agent-py/workspace/69d6161d699cd049d5d64ae1/企业官网复刻_研发中心_v2.html/products.html?render_html=true">产品服务</a>
+                <a class="hover:text-blue-400 transition-colors" href="#research-center">研发中心</a>
+                <a class="hover:text-blue-400 transition-colors" href="#enterprise-dynamics">企业动态</a>
+                <a class="hover:text-blue-400 transition-colors" href="#news-center">新闻中心</a>
+                <a class="hover:text-blue-400 transition-colors"
+                    href="https://modao.cc/agent-py/workspace/69d6161d699cd049d5d64ae1/企业官网复刻_研发中心_v2.html/cases.html?render_html=true">客户案例</a>
+                <a class="hover:text-blue-400 transition-colors" href="#">关于我们</a>
+            </div>
+            <div class="flex items-center space-x-4">
+                <button
+                    class="px-5 py-2 rounded-full border border-blue-500/50 text-blue-400 hover:bg-blue-500/10 transition-all text-sm">登录控制台</button>
+                <button
+                    class="px-5 py-2 rounded-full bg-blue-600 hover:bg-blue-500 text-white transition-all text-sm glow-effect">申请演示</button>
+            </div>
+        </div>
+    </nav>
+    <!-- 2. Hero 区域 -->
+    <section class="relative pt-40 pb-20 overflow-hidden">
+        <div class="absolute top-20 right-0 w-[600px] h-[600px] bg-blue-600/10 rounded-full blur-[120px] -z-10"></div>
+        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+            <div class="space-y-8">
+                <div
+                    class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs">
+                    <span class="relative flex h-2 w-2">
+                        <span
+                            class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
+                    </span>
+                    <span>2026年技术白皮书已发布</span>
+                </div>
+                <h1 class="text-5xl md:text-6xl font-bold leading-tight">全球化软件与信息技术服务商</h1>
+                <p class="text-slate-400 text-lg leading-relaxed max-w-lg">
+                    专业软件技术服务与解决方案服务的IT综合服务商，根据客户需要可在中国、日本以及东南亚地区进行交付，面向全球提供服务。
+                </p>
+                <div class="flex items-center space-x-6">
+                    <a class="px-8 py-4 bg-blue-600 hover:bg-blue-500 rounded-lg font-semibold flex items-center group transition-all glow-effect"
+                        href="#research-center">
+                        探索研发实力
+                        <iconify-icon class="ml-2 group-hover:translate-x-1 transition-transform"
+                            icon="mdi:arrow-right"></iconify-icon>
+                    </a>
+                    <div class="flex -space-x-3">
+                        <img alt="User 1" class="w-10 h-10 rounded-full border-2 border-slate-900"
+                            src="https://modao.cc/agent-py/media/generated_images/2026-04-08/8c6c4653fc8344c18be1b31c38506dab.jpg" />
+                        <img alt="User 2" class="w-10 h-10 rounded-full border-2 border-slate-900"
+                            src="https://modao.cc/agent-py/media/generated_images/2026-04-08/9436339574264450ad07990fecf84856.jpg" />
+                        <img alt="User 3" class="w-10 h-10 rounded-full border-2 border-slate-900"
+                            src="https://modao.cc/agent-py/media/generated_images/2026-04-08/e746c839b9f240c1a6aff895c0e77eeb.jpg" />
+                        <div
+                            class="w-10 h-10 rounded-full bg-slate-800 border-2 border-slate-900 flex items-center justify-center text-[10px] font-bold">
+                            +2k</div>
+                    </div>
+                </div>
+            </div>
+            <div class="relative">
+                <div class="relative z-10 animate-float">
+                    <img alt="Tech Visualization" class="w-full h-auto drop-shadow-2xl rounded-2xl"
+                        src="https://modao.cc/agent-py/media/generated_images/2026-04-08/3f6e8b813736490d9a7834ef7c303998.jpg" />
+                    <!-- 浮动小卡片 -->
+                    <div class="absolute -top-6 -left-6 glass-morphism p-4 rounded-xl animate-pulse">
+                        <iconify-icon class="text-3xl text-green-400" icon="mdi:shield-check"></iconify-icon>
+                        <p class="text-[10px] text-slate-400">安全等级</p>
+                        <p class="font-bold">L4级防护</p>
+                    </div>
+                    <div class="absolute -bottom-8 -right-4 glass-morphism p-4 rounded-xl">
+                        <div class="flex items-end space-x-1 mb-1">
+                            <div class="w-2 h-4 bg-blue-500 rounded-t"></div>
+                            <div class="w-2 h-8 bg-blue-400 rounded-t"></div>
+                            <div class="w-2 h-6 bg-blue-600 rounded-t"></div>
+                        </div>
+                        <p class="text-[10px] text-slate-400">算力提升</p>
+                        <p class="font-bold">240% ↑</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- 3. 数据展示层 -->
+    <section class="py-20 border-y border-slate-800 bg-slate-900/50">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div class="text-center">
+                    <h3 class="text-4xl font-bold tech-gradient-text mb-2">40+</h3>
+                    <p class="text-slate-400 text-sm">全栈能力涵盖板块</p>
+                </div>
+                <div class="text-center">
+                    <h3 class="text-4xl font-bold tech-gradient-text mb-2">3000+</h3>
+                    <p class="text-slate-400 text-sm">全球交付重点项目</p>
+                </div>
+                <div class="text-center">
+                    <h3 class="text-4xl font-bold tech-gradient-text mb-2">120+</h3>
+                    <p class="text-slate-400 text-sm">核心技术专利申请</p>
+                </div>
+                <div class="text-center">
+                    <h3 class="text-4xl font-bold tech-gradient-text mb-2">24/7</h3>
+                    <p class="text-slate-400 text-sm">全自动化运维监控</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- 4. 业务覆盖能力 -->
+    <section class="py-24 max-w-7xl mx-auto px-6">
+        <div class="flex flex-col md:flex-row gap-16 items-center">
+            <div class="w-full md:w-1/2 order-2 md:order-1">
+                <img alt="Global Coverage Map" class="w-full opacity-80"
+                    src="https://modao.cc/agent-py/media/generated_images/2026-04-08/cddc937aa7784814a8143e66fce9b58e.jpg" />
+            </div>
+            <div class="w-full md:w-1/2 order-1 md:order-2 space-y-6">
+                <h2 class="text-3xl font-bold">国内业务覆盖能力</h2>
+                <div class="space-y-4">
+                    <div
+                        class="flex items-center p-4 rounded-xl bg-slate-900/80 border border-slate-800 hover:border-blue-500/50 transition-all cursor-default">
+                        <div class="w-12 h-12 bg-blue-500/10 rounded-lg flex items-center justify-center mr-4">
+                            <iconify-icon class="text-2xl text-blue-400" icon="mdi:office-building"></iconify-icon>
+                        </div>
+                        <div>
+                            <p class="font-bold">8家 全资子公司</p>
+                            <p class="text-xs text-slate-500">覆盖北京、上海、深圳、武汉、西安等核心枢纽</p>
+                        </div>
+                    </div>
+                    <div
+                        class="flex items-center p-4 rounded-xl bg-slate-900/80 border border-slate-800 hover:border-blue-500/50 transition-all cursor-default">
+                        <div class="w-12 h-12 bg-blue-500/10 rounded-lg flex items-center justify-center mr-4">
+                            <iconify-icon class="text-2xl text-blue-400" icon="mdi:account-group"></iconify-icon>
+                        </div>
+                        <div>
+                            <p class="font-bold">40+ 业务咨询团队</p>
+                            <p class="text-xs text-slate-500">深入各行业垂直场景，提供端到端解决方案</p>
+                        </div>
+                    </div>
+                    <div
+                        class="flex items-center p-4 rounded-xl bg-slate-900/80 border border-slate-800 hover:border-blue-500/50 transition-all cursor-default">
+                        <div class="w-12 h-12 bg-blue-500/10 rounded-lg flex items-center justify-center mr-4">
+                            <iconify-icon class="text-2xl text-blue-400" icon="mdi:server-network"></iconify-icon>
+                        </div>
+                        <div>
+                            <p class="font-bold">500+ 数据交付专家</p>
+                            <p class="text-xs text-slate-500">具备超大型分布式系统实施经验</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- 5. 全链路技术服务体系 -->
+    <section class="py-24 bg-slate-900/30">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold mb-4">全链路技术服务体系</h2>
+                <p class="text-slate-400 max-w-2xl mx-auto">提供从咨询规划、定制开发到运维保障的闭环服务，赋能企业数字化转型每一步。</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                <div class="p-8 glass-morphism rounded-2xl hover:-translate-y-2 transition-transform duration-300">
+                    <iconify-icon class="text-4xl text-blue-400 mb-6" icon="mdi:lightbulb-outline"></iconify-icon>
+                    <h4 class="text-xl font-bold mb-4">数字化咨询</h4>
+                    <p class="text-slate-400 text-sm leading-relaxed">基于行业洞察，为企业制定中长期数字化战略蓝图与实施路径。</p>
+                </div>
+                <div class="p-8 glass-morphism rounded-2xl hover:-translate-y-2 transition-transform duration-300">
+                    <iconify-icon class="text-4xl text-blue-400 mb-6" icon="mdi:xml"></iconify-icon>
+                    <h4 class="text-xl font-bold mb-4">定制化软件研发</h4>
+                    <p class="text-slate-400 text-sm leading-relaxed">敏捷交付高质量业务系统，支持高并发、高可用的互联网级架构。</p>
+                </div>
+                <div class="p-8 glass-morphism rounded-2xl hover:-translate-y-2 transition-transform duration-300">
+                    <iconify-icon class="text-4xl text-blue-400 mb-6" icon="mdi:cloud-sync"></iconify-icon>
+                    <h4 class="text-xl font-bold mb-4">云与基础设施</h4>
+                    <p class="text-slate-400 text-sm leading-relaxed">混合云架构部署与迁移，实现资源弹性伸缩与极致降本增效。</p>
+                </div>
+                <div class="p-8 glass-morphism rounded-2xl hover:-translate-y-2 transition-transform duration-300">
+                    <iconify-icon class="text-4xl text-blue-400 mb-6" icon="mdi:database-search"></iconify-icon>
+                    <h4 class="text-xl font-bold mb-4">AI与大数据分析</h4>
+                    <p class="text-slate-400 text-sm leading-relaxed">深度挖掘数据资产价值，构建智能算法模型驱动精准业务决策。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- 6. 研发中心 (新增核心模块) -->
+    <section class="py-24 scroll-mt-20 overflow-hidden relative" id="research-center">
+        <div class="absolute -left-20 top-1/2 w-96 h-96 bg-blue-500/5 blur-[100px] rounded-full"></div>
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex justify-between items-end mb-16">
+                <div>
+                    <h2 class="text-3xl font-bold mb-4">昆仑时代研发中心 <span
+                            class="text-blue-500 text-sm font-normal ml-3">Innovation R&amp;D Center</span></h2>
+                    <p class="text-slate-400">持续探索计算边界，以原创技术驱动产业革命。</p>
+                </div>
+                <div class="hidden md:block">
+                    <div class="flex space-x-2">
+                        <span class="px-3 py-1 bg-slate-800 rounded text-xs border border-slate-700">国家高新技术企业</span>
+                        <span class="px-3 py-1 bg-slate-800 rounded text-xs border border-slate-700">CNAS实验室认证</span>
+                    </div>
+                </div>
+            </div>
+            <!-- 子模块 1: 核心技术与专利 -->
+            <div class="grid md:grid-cols-2 gap-12 mb-20 items-center">
+                <div class="space-y-6">
+                    <div
+                        class="inline-block p-2 rounded-lg bg-blue-500/10 text-blue-400 text-xs font-bold uppercase tracking-widest">
+                        Core Technology</div>
+                    <h3 class="text-2xl font-bold">核心技术与专利成果</h3>
+                    <p class="text-slate-400">我们在分布式共识算法、自适应流计算和隐私保护计算领域拥有 120 余项发明专利，多项技术指标刷新行业记录。</p>
+                    <ul class="space-y-4">
+                        <li class="flex items-start space-x-3">
+                            <iconify-icon class="text-xl text-blue-500 mt-1" icon="mdi:check-circle"></iconify-icon>
+                            <span><strong class="text-slate-200">HyperFlow 调度引擎：</strong> 专利号 ZL202410... 支持百万级 QPS
+                                毫秒级响应。</span>
+                        </li>
+                        <li class="flex items-start space-x-3">
+                            <iconify-icon class="text-xl text-blue-500 mt-1" icon="mdi:check-circle"></iconify-icon>
+                            <span><strong class="text-slate-200">TitanGuard 隐私计算：</strong> 基于 TEE 的全链路数据加密，荣获 2025
+                                技术创新奖。</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 glow-effect">
+                    <div _echarts_instance_="ec_1775638456553" class="w-full h-64" id="tech-chart"
+                        style="user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
+                        <div
+                            style="position: relative; width: 533px; height: 256px; padding: 0px; margin: 0px; border-width: 0px; cursor: default;">
+                            <canvas class="" data-zr-dom-id="zr_0" height="256"
+                                style="position: absolute; left: 0px; top: 0px; width: 533px; height: 256px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); padding: 0px; margin: 0px; border-width: 0px;"
+                                width="533"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 子模块 2 & 3: 环境与人才 -->
+            <div class="grid md:grid-cols-2 gap-8 mb-20">
+                <div class="glass-morphism rounded-2xl overflow-hidden group">
+                    <div class="h-48 overflow-hidden">
+                        <img alt="R&amp;D Environment"
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                            src="https://modao.cc/agent-py/media/generated_images/2026-04-08/1444242ae2a24c279fff474d261da6f7.jpg" />
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold mb-3 flex items-center">
+                            <iconify-icon class="mr-2 text-blue-400" icon="mdi:flask"></iconify-icon>研发环境与设备
+                        </h4>
+                        <p class="text-slate-400 text-sm">中心配备了自有的千卡级 AIGC 算力集群，并建立了模拟城市级负载的硬件实验室，确保系统在极端环境下的稳定性。</p>
+                    </div>
+                </div>
+                <div class="glass-morphism rounded-2xl overflow-hidden group">
+                    <div class="h-48 overflow-hidden">
+                        <img alt="Expert Team"
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                            src="https://modao.cc/agent-py/media/generated_images/2026-04-08/faf8c4e19bbf4f9dbc8583335f1724c9.jpg" />
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold mb-3 flex items-center">
+                            <iconify-icon class="mr-2 text-blue-400" icon="mdi:account-school"></iconify-icon>技术专家与人才团队
+                        </h4>
+                        <p class="text-slate-400 text-sm">汇聚了来自 Google、阿里巴巴、腾讯的顶尖科学家，博士占比超过 15%，成员多次在顶级技术会议（如 SIGMOD,
+                            ICSE）发表论文。</p>
+                    </div>
+                </div>
+            </div>
+            <!-- 子模块 4: 在研项目与规划 -->
+            <div class="bg-blue-600/10 border border-blue-500/20 rounded-3xl p-8 md:p-12 relative overflow-hidden">
+                <iconify-icon class="absolute -right-8 -bottom-8 text-[200px] text-blue-500/5"
+                    icon="mdi:rocket-launch"></iconify-icon>
+                <div class="relative z-10">
+                    <h3 class="text-2xl font-bold mb-8 text-center">2026-2028 技术规划蓝图</h3>
+                    <div class="grid md:grid-cols-3 gap-8">
+                        <div class="relative pl-8 border-l-2 border-blue-500/30">
+                            <div class="absolute -left-[9px] top-0 w-4 h-4 bg-blue-500 rounded-full glow-effect"></div>
+                            <h5 class="font-bold text-blue-400 mb-2">Q2 2026</h5>
+                            <p class="text-sm text-slate-300 font-bold mb-1">自研大模型 Agent 架构</p>
+                            <p class="text-xs text-slate-500">实现跨异构系统的全自动化业务流程编排。</p>
+                        </div>
+                        <div class="relative pl-8 border-l-2 border-blue-500/30">
+                            <div class="absolute -left-[9px] top-0 w-4 h-4 bg-slate-600 rounded-full"></div>
+                            <h5 class="font-bold text-slate-400 mb-2">Q4 2026</h5>
+                            <p class="text-sm text-slate-300 font-bold mb-1">量子安全通信网关</p>
+                            <p class="text-xs text-slate-500">完成抗量子加密算法在金融级网关的落地测试。</p>
+                        </div>
+                        <div class="relative pl-8 border-l-2 border-blue-500/30">
+                            <div class="absolute -left-[9px] top-0 w-4 h-4 bg-slate-600 rounded-full"></div>
+                            <h5 class="font-bold text-slate-400 mb-2">2027+</h5>
+                            <p class="text-sm text-slate-300 font-bold mb-1">原生自治云系统</p>
+                            <p class="text-xs text-slate-500">构建完全无需人工干预的“无人驾驶”云底座。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- 6. 企业动态 (New Section) -->
+    <section class="py-24 scroll-mt-20 bg-slate-950/30" id="enterprise-dynamics">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-12">
+                <div class="reveal active">
+                    <h2 class="text-3xl font-bold mb-4">企业动态 <span
+                            class="text-blue-500 text-sm font-normal ml-3">Corporate Dynamics</span></h2>
+                    <p class="text-slate-400">紧贴前沿技术，实时共享极致科技的每一步成长与创新。</p>
+                </div>
+                <a class="text-blue-400 hover:text-blue-300 transition-all flex items-center space-x-1 text-sm font-semibold mt-4 md:mt-0 reveal active"
+                    href="#">
+                    <span>查看全部动态</span>
+                    <iconify-icon class="text-xl" icon="mdi:chevron-right"></iconify-icon>
+                </a>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- 动态卡片 1 -->
+                <div
+                    class="glass-morphism rounded-3xl overflow-hidden group hover:border-blue-500/50 transition-all duration-500 reveal active">
+                    <div class="relative h-60 overflow-hidden">
+                        <img alt="Tech Event"
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                            src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&amp;fit=crop&amp;q=80&amp;w=800" />
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-60">
+                        </div>
+                        <div
+                            class="absolute top-4 left-4 px-3 py-1 bg-blue-600 rounded-full text-[10px] font-bold tracking-wider uppercase">
+                            技术发布</div>
+                    </div>
+                    <div class="p-8">
+                        <p class="text-blue-400 text-xs font-medium mb-3">2026年04月05日</p>
+                        <h3 class="text-xl font-bold mb-4 group-hover:text-blue-400 transition-colors">昆仑时代正式发布 2.0
+                            版“星脉”分布式调度引擎</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                            新版本引入了基于量子纠缠理论改进的共识算法，大幅提升了在超大规模异构网络下的同步效率。</p>
+                        <div class="flex items-center justify-between border-t border-slate-800 pt-4">
+                            <div class="flex items-center space-x-2">
+                                <iconify-icon class="text-slate-500" icon="mdi:eye-outline"></iconify-icon>
+                                <span class="text-xs text-slate-500">1.2k 阅读</span>
+                            </div>
+                            <iconify-icon class="text-slate-500 hover:text-blue-400 cursor-pointer transition-colors"
+                                icon="mdi:share-variant-outline"></iconify-icon>
+                        </div>
+                    </div>
+                </div>
+                <!-- 动态卡片 2 -->
+                <div class="glass-morphism rounded-3xl overflow-hidden group hover:border-cyan-500/50 transition-all duration-500 reveal active"
+                    style="transition-delay: 100ms;">
+                    <div class="relative h-60 overflow-hidden">
+                        <img alt="Collaboration"
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                            src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&amp;fit=crop&amp;q=80&amp;w=800" />
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-60">
+                        </div>
+                        <div
+                            class="absolute top-4 left-4 px-3 py-1 bg-cyan-600 rounded-full text-[10px] font-bold tracking-wider uppercase">
+                            战略合作</div>
+                    </div>
+                    <div class="p-8">
+                        <p class="text-cyan-400 text-xs font-medium mb-3">2026年03月28日</p>
+                        <h3 class="text-xl font-bold mb-4 group-hover:text-cyan-400 transition-colors">
+                            携手全球云服务巨头，共建“零碳”数字基座计划</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed mb-6">极致科技将发挥其在算法降耗方面的专长，通过自适应算力路由技术降低数据中心 15%
+                            以上的电力消耗。</p>
+                        <div class="flex items-center justify-between border-t border-slate-800 pt-4">
+                            <div class="flex items-center space-x-2">
+                                <iconify-icon class="text-slate-500" icon="mdi:eye-outline"></iconify-icon>
+                                <span class="text-xs text-slate-500">856 阅读</span>
+                            </div>
+                            <iconify-icon class="text-slate-500 hover:text-blue-400 cursor-pointer transition-colors"
+                                icon="mdi:share-variant-outline"></iconify-icon>
+                        </div>
+                    </div>
+                </div>
+                <!-- 动态卡片 3 -->
+                <div class="glass-morphism rounded-3xl overflow-hidden group hover:border-purple-500/50 transition-all duration-500 reveal active"
+                    style="transition-delay: 200ms;">
+                    <div class="relative h-60 overflow-hidden">
+                        <img alt="Exhibition"
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                            src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&amp;fit=crop&amp;q=80&amp;w=800" />
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-60">
+                        </div>
+                        <div
+                            class="absolute top-4 left-4 px-3 py-1 bg-purple-600 rounded-full text-[10px] font-bold tracking-wider uppercase">
+                            行业荣誉</div>
+                    </div>
+                    <div class="p-8">
+                        <p class="text-purple-400 text-xs font-medium mb-3">2026年03月15日</p>
+                        <h3 class="text-xl font-bold mb-4 group-hover:text-purple-400 transition-colors">荣获 2026
+                            世界数字经济大会“最具影响力创新奖”</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed mb-6">凭借在隐私计算与分布式引擎方面的突破性表现，极致科技从全球 500
+                            多家参评机构中脱颖而出。</p>
+                        <div class="flex items-center justify-between border-t border-slate-800 pt-4">
+                            <div class="flex items-center space-x-2">
+                                <iconify-icon class="text-slate-500" icon="mdi:eye-outline"></iconify-icon>
+                                <span class="text-xs text-slate-500">2.1k 阅读</span>
+                            </div>
+                            <iconify-icon class="text-slate-500 hover:text-blue-400 cursor-pointer transition-colors"
+                                icon="mdi:share-variant-outline"></iconify-icon>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- 新闻中心 (New Section) -->
+    <section class="py-24 scroll-mt-20" id="news-center">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16 reveal active">
+                <h2 class="text-3xl font-bold mb-4">新闻中心</h2>
+                <p class="text-slate-400">洞察行业趋势，传递极致价值</p>
+                <div class="w-12 h-1 bg-blue-500 mx-auto mt-6"></div>
+            </div>
+            <div class="max-w-4xl mx-auto space-y-8">
+                <!-- 新闻列表项 1 -->
+                <div class="relative pl-12 md:pl-0 flex flex-col md:flex-row group reveal active">
+                    <div class="md:w-32 md:text-right md:pr-12 pt-1 mb-2 md:mb-0 shrink-0">
+                        <span
+                            class="text-slate-500 font-mono text-lg group-hover:text-blue-400 transition-colors">04-08</span>
+                    </div>
+                    <div
+                        class="absolute left-0 md:left-32 top-0 bottom-0 w-[1px] bg-slate-800 flex flex-col items-center">
+                        <div
+                            class="w-3 h-3 rounded-full border-2 border-blue-500 bg-slate-950 absolute top-2 -left-[6px] group-hover:scale-125 transition-transform">
+                        </div>
+                    </div>
+                    <div class="md:pl-12 pb-10">
+                        <h4 class="text-lg font-bold mb-3 group-hover:text-blue-400 transition-colors cursor-pointer">
+                            昆仑时代 2026 技术路线图正式发布：全面迈向自治化系统</h4>
+                        <p class="text-slate-400 text-sm leading-relaxed mb-4">今日，昆仑时代在上海研发总部发布了 2026-2028
+                            三年技术路线图，明确了将“原生自治”作为未来核心架构的目标...</p>
+                        <div class="flex items-center space-x-4">
+                            <span class="px-2 py-0.5 bg-slate-800 rounded text-[10px] text-slate-500">行业要闻</span>
+                            <a class="text-xs text-blue-500 hover:underline" href="#">查看详情</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- 新闻列表项 2 -->
+                <div class="relative pl-12 md:pl-0 flex flex-col md:flex-row group reveal active"
+                    style="transition-delay: 100ms;">
+                    <div class="md:w-32 md:text-right md:pr-12 pt-1 mb-2 md:mb-0 shrink-0">
+                        <span
+                            class="text-slate-500 font-mono text-lg group-hover:text-blue-400 transition-colors">03-25</span>
+                    </div>
+                    <div
+                        class="absolute left-0 md:left-32 top-0 bottom-0 w-[1px] bg-slate-800 flex flex-col items-center">
+                        <div
+                            class="w-3 h-3 rounded-full border-2 border-slate-700 bg-slate-950 absolute top-2 -left-[6px] group-hover:border-blue-500 transition-colors">
+                        </div>
+                    </div>
+                    <div class="md:pl-12 pb-10">
+                        <h4 class="text-lg font-bold mb-3 group-hover:text-blue-400 transition-colors cursor-pointer">
+                            关于昆仑时代在核心算法领域取得重大突破的公告</h4>
+                        <p class="text-slate-400 text-sm leading-relaxed mb-4">
+                            我司在非线性计算加速器设计上取得关键突破，已在内部实验室完成首轮千万级参数模型的推理验证...</p>
+                        <div class="flex items-center space-x-4">
+                            <span class="px-2 py-0.5 bg-slate-800 rounded text-[10px] text-slate-500">官方通告</span>
+                            <a class="text-xs text-blue-500 hover:underline" href="#">查看详情</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- 新闻列表项 3 -->
+                <div class="relative pl-12 md:pl-0 flex flex-col md:flex-row group reveal active"
+                    style="transition-delay: 200ms;">
+                    <div class="md:w-32 md:text-right md:pr-12 pt-1 mb-2 md:mb-0 shrink-0">
+                        <span
+                            class="text-slate-500 font-mono text-lg group-hover:text-blue-400 transition-colors">03-10</span>
+                    </div>
+                    <div
+                        class="absolute left-0 md:left-32 top-0 bottom-0 w-[1px] bg-slate-800 flex flex-col items-center">
+                        <div
+                            class="w-3 h-3 rounded-full border-2 border-slate-700 bg-slate-950 absolute top-2 -left-[6px] group-hover:border-blue-500 transition-colors">
+                        </div>
+                    </div>
+                    <div class="md:pl-12 pb-10">
+                        <h4 class="text-lg font-bold mb-3 group-hover:text-blue-400 transition-colors cursor-pointer">
+                            全球开发者大会：昆仑时代开源社区活跃度破纪录</h4>
+                        <p class="text-slate-400 text-sm leading-relaxed mb-4">根据最新统计，昆仑时代旗下 HyperFlow 核心组件的 GitHub Star
+                            数已突破 50k，成为全球最受欢迎的开源调度框架之一...</p>
+                        <div class="flex items-center space-x-4">
+                            <span class="px-2 py-0.5 bg-slate-800 rounded text-[10px] text-slate-500">社区动态</span>
+                            <a class="text-xs text-blue-500 hover:underline" href="#">查看详情</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-12 reveal active">
+                <button
+                    class="px-10 py-3 border border-slate-800 hover:border-blue-500 text-slate-400 hover:text-blue-400 rounded-full transition-all text-sm font-medium">查看历史新闻报道</button>
+            </div>
+        </div>
+    </section>
+    <!-- 7. 关于我们/公司愿景 -->
+    <section class="py-24 max-w-7xl mx-auto px-6">
+        <div class="flex flex-col md:flex-row gap-16 items-center">
+            <div class="w-full md:w-1/2 space-y-8">
+                <h2 class="text-4xl font-bold leading-tight">
+                    “以极致技术，<br />
+                    创造智能世界。”
+                </h2>
+                <p class="text-slate-400 leading-relaxed">
+                    昆仑时代始终坚持以人为核心，汇聚了来自全球顶尖科技公司的管理团队与技术骨干。我们不仅为企业提供工具，更为其创造在数字化时代持续领先的核心竞争力。
+                </p>
+                <div class="flex space-x-12">
+                    <div>
+                        <p class="text-3xl font-bold text-blue-400 mb-1">8,500+</p>
+                        <p class="text-slate-500 text-sm">全球服务客户</p>
+                    </div>
+                    <div>
+                        <p class="text-3xl font-bold text-blue-400 mb-1">24</p>
+                        <p class="text-slate-500 text-sm">分支机构分布</p>
+                    </div>
+                </div>
+                <button
+                    class="px-8 py-3 bg-slate-800 hover:bg-slate-700 rounded-lg font-medium transition-all">了解更多关于我们的故事</button>
+            </div>
+            <div class="w-full md:w-1/2">
+                <div class="relative">
+                    <img alt="Office Life" class="rounded-3xl border border-slate-800"
+                        src="https://modao.cc/agent-py/media/generated_images/2026-04-08/4924471dde6c4f52a7eafb6d72dc3299.jpg" />
+                    <div class="absolute -bottom-6 -left-6 glass-morphism p-6 rounded-2xl glow-effect">
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center">
+                                <iconify-icon class="text-2xl text-white" icon="mdi:play"></iconify-icon>
+                            </div>
+                            <div>
+                                <p class="text-sm font-bold">查看企业文化片</p>
+                                <p class="text-[10px] text-slate-400">DURATION 02:45</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- 8. 合作伙伴 -->
+    <section class="py-20 bg-slate-900/50">
+        <div class="max-w-7xl mx-auto px-6">
+            <p class="text-center text-slate-500 text-sm mb-12 uppercase tracking-widest">信任，源于成功的合作</p>
+            <div
+                class="grid grid-cols-3 md:grid-cols-6 gap-8 items-center opacity-40 hover:opacity-100 transition-opacity">
+                <div class="flex justify-center"><iconify-icon
+                        class="text-4xl grayscale hover:grayscale-0 transition-all" icon="logos:google"></iconify-icon>
+                </div>
+                <div class="flex justify-center"><iconify-icon
+                        class="text-4xl grayscale hover:grayscale-0 transition-all" icon="logos:aws"></iconify-icon>
+                </div>
+                <div class="flex justify-center"><iconify-icon
+                        class="text-4xl grayscale hover:grayscale-0 transition-all"
+                        icon="logos:microsoft"></iconify-icon></div>
+                <div class="flex justify-center"><iconify-icon
+                        class="text-4xl grayscale hover:grayscale-0 transition-all" icon="logos:huawei"></iconify-icon>
+                </div>
+                <div class="flex justify-center"><iconify-icon
+                        class="text-4xl grayscale hover:grayscale-0 transition-all" icon="logos:tencent"></iconify-icon>
+                </div>
+                <div class="flex justify-center"><iconify-icon
+                        class="text-4xl grayscale hover:grayscale-0 transition-all" icon="logos:alibaba"></iconify-icon>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- 9. 底部页脚 -->
+    <footer class="bg-slate-950 pt-24 pb-12 border-t border-slate-900">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-2 md:grid-cols-5 gap-12 mb-20">
+                <div class="col-span-2 space-y-6">
+                    <div class="flex items-center space-x-2">
+                        <div class="w-8 h-8 bg-blue-600 rounded flex items-center justify-center">
+                            <iconify-icon class="text-white" icon="mdi:hexagon-multiple"></iconify-icon>
+                        </div>
+                        <span class="text-xl font-bold tracking-wider">KUNLUN ERA</span>
+                    </div>
+                    <p class="text-slate-500 text-sm max-w-xs leading-relaxed">
+                        领先的全栈数字技术服务商，致力于通过 AI、云原生与大数据技术，推动全球企业实现智能进化。
+                    </p>
+                    <div class="flex space-x-4">
+                        <a class="w-8 h-8 rounded-full bg-slate-900 flex items-center justify-center text-slate-400 hover:bg-blue-600 hover:text-white transition-all"
+                            href="#"><iconify-icon icon="mdi:wechat"></iconify-icon></a>
+                        <a class="w-8 h-8 rounded-full bg-slate-900 flex items-center justify-center text-slate-400 hover:bg-blue-600 hover:text-white transition-all"
+                            href="#"><iconify-icon icon="mdi:linkedin"></iconify-icon></a>
+                        <a class="w-8 h-8 rounded-full bg-slate-900 flex items-center justify-center text-slate-400 hover:bg-blue-600 hover:text-white transition-all"
+                            href="#"><iconify-icon icon="mdi:github"></iconify-icon></a>
+                    </div>
+                </div>
+                <div>
+                    <h5 class="font-bold mb-6">核心服务</h5>
+                    <ul class="space-y-4 text-sm text-slate-500">
+                        <li><a class="hover:text-blue-400" href="#">数字化咨询</a></li>
+                        <li><a class="hover:text-blue-400" href="#">云原生架构</a></li>
+                        <li><a class="hover:text-blue-400" href="#">AI 大模型集成</a></li>
+                        <li><a class="hover:text-blue-400" href="#">隐私计算平台</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="font-bold mb-6">研发中心</h5>
+                    <ul class="space-y-4 text-sm text-slate-500">
+                        <li><a class="hover:text-blue-400" href="#">核心专利</a></li>
+                        <li><a class="hover:text-blue-400" href="#">开源项目</a></li>
+                        <li><a class="hover:text-blue-400" href="#">技术博客</a></li>
+                        <li><a class="hover:text-blue-400" href="#">加入我们</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="font-bold mb-6">联系我们</h5>
+                    <ul class="space-y-4 text-sm text-slate-500">
+                        <li class="flex items-start space-x-2">
+                            <iconify-icon class="mt-1" icon="mdi:map-marker"></iconify-icon>
+                            <span>上海市浦东新区张江高科技园区极致大厦</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <iconify-icon icon="mdi:phone"></iconify-icon>
+                            <span>400-888-9999</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <iconify-icon icon="mdi:email"></iconify-icon>
+                            <span>contact@jizhi-tech.com</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div
+                class="pt-8 border-t border-slate-900 flex flex-col md:flex-row justify-between items-center text-xs text-slate-600">
+                <p class="">© 2026 昆仑时代（上海）系统集成有限公司. 版权所有. 沪ICP备20240001号</p>
+                <div class="flex space-x-6 mt-4 md:mt-0">
+                    <a class="hover:text-blue-400" href="#">服务协议</a>
+                    <a class="hover:text-blue-400" href="#">隐私政策</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script>
+        // 初始化 ECharts
+        const techChart = echarts.init(document.getElementById('tech-chart'));
+        const option = {
+            backgroundColor: 'transparent',
+            radar: {
+                indicator: [
+                    { name: '计算效率', max: 100 },
+                    { name: '数据安全', max: 100 },
+                    { name: '响应延迟', max: 100 },
+                    { name: '并发处理', max: 100 },
+                    { name: 'AI智能化', max: 100 },
+                    { name: '稳定性', max: 100 }
+                ],
+                shape: 'circle',
+                splitNumber: 4,
+                axisName: { color: '#94a3b8' },
+                splitLine: { lineStyle: { color: 'rgba(59, 130, 246, 0.2)' } },
+                splitArea: { areaStyle: { color: 'transparent' } },
+                axisLine: { lineStyle: { color: 'rgba(59, 130, 246, 0.2)' } }
+            },
+            series: [{
+                name: '技术能力评估',
+                type: 'radar',
+                data: [
+                    {
+                        value: [95, 98, 92, 96, 88, 99],
+                        name: '极致科技核心技术指标',
+                        itemStyle: { color: '#3b82f6' },
+                        areaStyle: { color: 'rgba(59, 130, 246, 0.4)' },
+                        lineStyle: { width: 2 }
+                    }
+                ]
+            }]
+        };
+        techChart.setOption(option);
+
+        window.addEventListener('resize', () => {
+            techChart.resize();
+        });
+
+        // 页面滚动揭示逻辑
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.15
+        };
+
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    // observer.unobserve(entry.target); // 如果只想触发一次，可取消注释
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => {
+            revealObserver.observe(el);
+        });
+
+        // 导航平滑滚动
+        document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href !== '#') {
+                    e.preventDefault();
+                    document.querySelector(href).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,29 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="企业动态 - 企业官网">
+  <div class="page-container">
+    <Header />
+    <div class="page-content">
+      <h1>企业动态</h1>
+    </div>
+    <Footer />
+  </div>
+</Layout>
+
+<style>
+  .page-content {
+    min-height: calc(100vh - 80px);
+    padding: 120px 12% 60px;
+    text-align: center;
+  }
+
+  .page-content h1 {
+    font-size: 48px;
+    font-weight: 700;
+    color: #111827;
+  }
+</style>
