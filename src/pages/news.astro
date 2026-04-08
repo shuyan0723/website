@@ -7,30 +7,319 @@ import Footer from '../components/Footer.astro';
 <Layout title="新闻中心 - 企业官网">
   <div class="page-container">
     <Navbar />
-    <div class="page-content">
-      <h1>新闻中心</h1>
-      <p class="subtitle">洞察行业趋势，传递企业价值</p>
-    </div>
+
+    <!-- 新闻中心模块 -->
+    <section class="news-section" id="news-center">
+      <div class="news-container">
+        <!-- 头部标题 -->
+        <div class="news-header">
+          <h2 class="news-title">新闻中心</h2>
+          <p class="news-desc">洞察行业趋势，传递极致价值</p>
+          <div class="title-divider"></div>
+        </div>
+
+        <!-- 新闻列表 -->
+        <div class="news-list">
+          <!-- 新闻项 1 -->
+          <div class="news-item">
+            <div class="news-date">
+              <span>04-08</span>
+            </div>
+            <div class="news-divider">
+              <div class="news-dot"></div>
+            </div>
+            <div class="news-content">
+              <h4 class="news-heading">昆仑时代 2026 技术路线图正式发布：全面迈向自治化系统</h4>
+              <p class="news-excerpt">今日，昆仑时代在上海研发总部发布了 2026-2028 三年技术路线图，明确了将"原生自治"作为未来核心架构的目标...</p>
+              <div class="news-meta">
+                <span class="news-tag">行业要闻</span>
+                <a href="#" class="news-link">查看详情</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- 新闻项 2 -->
+          <div class="news-item">
+            <div class="news-date">
+              <span>03-25</span>
+            </div>
+            <div class="news-divider">
+              <div class="news-dot inactive"></div>
+            </div>
+            <div class="news-content">
+              <h4 class="news-heading">关于昆仑时代在核心算法领域取得重大突破的公告</h4>
+              <p class="news-excerpt">我司在非线性计算加速器设计上取得关键突破，已在内部实验室完成首轮千万级参数模型的推理验证...</p>
+              <div class="news-meta">
+                <span class="news-tag">官方通告</span>
+                <a href="#" class="news-link">查看详情</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- 新闻项 3 -->
+          <div class="news-item">
+            <div class="news-date">
+              <span>03-10</span>
+            </div>
+            <div class="news-divider">
+              <div class="news-dot inactive"></div>
+            </div>
+            <div class="news-content">
+              <h4 class="news-heading">全球开发者大会：昆仑时代开源社区活跃度破纪录</h4>
+              <p class="news-excerpt">根据最新统计，昆仑时代旗下 HyperFlow 核心组件的 GitHub Star 数已突破 50k，成为全球最受欢迎的开源调度框架之一...</p>
+              <div class="news-meta">
+                <span class="news-tag">社区动态</span>
+                <a href="#" class="news-link">查看详情</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 查看更多按钮 -->
+        <div class="news-footer">
+          <button class="view-more-btn">查看历史新闻报道</button>
+        </div>
+      </div>
+    </section>
+
     <Footer />
   </div>
 </Layout>
 
 <style>
-  .page-content {
-    min-height: calc(100vh - 80px);
-    padding: 120px 12% 60px;
-    text-align: center;
+  /* 全局样式 */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   }
 
-  .page-content h1 {
-    font-size: 48px;
+  body {
+    background: #f8fafc;
+    color: #0f172a;
+  }
+
+  .page-container {
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+  }
+
+  /* 新闻中心主容器 */
+  .news-section {
+    width: 100%;
+    padding: 96px 24px;
+    background: #ffffff;
+    scroll-margin-top: 80px;
+  }
+
+  .news-container {
+    max-width: 1024px;
+    margin: 0 auto;
+  }
+
+  /* 头部标题 */
+  .news-header {
+    text-align: center;
+    margin-bottom: 64px;
+  }
+
+  .news-title {
+    font-size: 30px;
     font-weight: 700;
-    color: #111827;
+    color: #0f172a;
     margin-bottom: 16px;
   }
 
-  .subtitle {
+  .news-desc {
+    color: #94a3b8;
+    font-size: 14px;
+  }
+
+  .title-divider {
+    width: 48px;
+    height: 4px;
+    background: #3b82f6;
+    margin: 24px auto 0;
+    border-radius: 2px;
+  }
+
+  /* 新闻列表 */
+  .news-list {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .news-item {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding-left: 48px;
+  }
+
+  /* 日期 */
+  .news-date {
+    flex-shrink: 0;
+  }
+
+  .news-date span {
+    color: #94a3b8;
+    font-family: ui-monospace, monospace;
     font-size: 18px;
-    color: #666;
+    transition: color 0.2s ease;
+  }
+
+  .news-item:hover .news-date span {
+    color: #60a5fa;
+  }
+
+  /* 分隔线 */
+  .news-divider {
+    position: absolute;
+    left: 0;
+    top: 4px;
+    bottom: 0;
+    width: 1px;
+    background: #1e293b;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .news-dot {
+    position: absolute;
+    top: 8px;
+    left: -6px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #020617;
+    border: 2px solid #3b82f6;
+    transition: all 0.2s ease;
+  }
+
+  .news-dot.inactive {
+    border-color: #334155;
+  }
+
+  .news-item:hover .news-dot {
+    transform: scale(1.25);
+  }
+
+  .news-item:hover .news-dot.inactive {
+    border-color: #3b82f6;
+  }
+
+  /* 新闻内容 */
+  .news-content {
+    padding-bottom: 40px;
+  }
+
+  .news-heading {
+    font-size: 18px;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 12px;
+    cursor: pointer;
+    transition: color 0.2s ease;
+  }
+
+  .news-item:hover .news-heading {
+    color: #3b82f6;
+  }
+
+  .news-excerpt {
+    font-size: 14px;
+    color: #64748b;
+    line-height: 1.7;
+    margin-bottom: 16px;
+  }
+
+  .news-meta {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .news-tag {
+    padding: 2px 8px;
+    background: #1e293b;
+    border-radius: 4px;
+    font-size: 10px;
+    color: #94a3b8;
+  }
+
+  .news-link {
+    font-size: 12px;
+    color: #3b82f6;
+    text-decoration: none;
+  }
+
+  .news-link:hover {
+    text-decoration: underline;
+  }
+
+  /* 底部按钮 */
+  .news-footer {
+    text-align: center;
+    margin-top: 48px;
+  }
+
+  .view-more-btn {
+    padding: 12px 40px;
+    background: transparent;
+    color: #94a3b8;
+    border: 1px solid #1e293b;
+    border-radius: 9999px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .view-more-btn:hover {
+    border-color: #3b82f6;
+    color: #3b82f6;
+  }
+
+  /* 响应式 */
+  @media (min-width: 768px) {
+    .news-item {
+      flex-direction: row;
+      align-items: flex-start;
+      padding-left: 0;
+    }
+
+    .news-date {
+      width: 128px;
+      text-align: right;
+      padding-right: 48px;
+      padding-top: 4px;
+      margin-bottom: 0;
+    }
+
+    .news-divider {
+      left: 128px;
+    }
+
+    .news-content {
+      padding-left: 48px;
+      padding-bottom: 40px;
+    }
+
+    .news-date span {
+      font-size: 18px;
+    }
   }
 </style>
+
+<script>
+  // 新闻项悬停效果
+  const newsItems = document.querySelectorAll('.news-item') as NodeListOf<HTMLElement>;
+  newsItems.forEach((item: HTMLElement, index: number) => {
+    item.style.setProperty('animation-delay', `${index * 100}ms`);
+  });
+</script>
