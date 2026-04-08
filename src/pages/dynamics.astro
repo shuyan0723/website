@@ -7,30 +7,369 @@ import Footer from '../components/Footer.astro';
 <Layout title="企业动态 - 企业官网">
   <div class="page-container">
     <Navbar />
-    <div class="page-content">
-      <h1>企业动态</h1>
-      <p class="subtitle">了解我们的最新发展</p>
-    </div>
+
+    <!-- 企业动态模块 -->
+    <section class="dynamics-section" id="enterprise-dynamics">
+      <div class="dynamics-container">
+        <!-- 头部 -->
+        <div class="dynamics-header">
+          <div class="header-left">
+            <h2 class="dynamics-title">企业动态 <span class="title-en">Corporate Dynamics</span></h2>
+            <p class="dynamics-desc">紧贴前沿技术，实时共享极致科技的每一步成长与创新。</p>
+          </div>
+          <a href="#" class="view-all-link">
+            <span>查看全部动态</span>
+            <span class="arrow-icon">›</span>
+          </a>
+        </div>
+
+        <!-- 动态卡片网格 -->
+        <div class="dynamics-grid">
+          <!-- 动态卡片 1 -->
+          <div class="dynamics-card card-blue">
+            <div class="card-image-wrapper">
+              <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=800" alt="Tech Event" class="card-image" />
+              <div class="image-overlay"></div>
+              <div class="card-tag tag-blue">技术发布</div>
+            </div>
+            <div class="card-content">
+              <p class="card-date date-blue">2026年04月05日</p>
+              <h3 class="card-title">昆仑时代正式发布 2.0 版"星脉"分布式调度引擎</h3>
+              <p class="card-text">新版本引入了基于量子纠缠理论改进的共识算法，大幅提升了在超大规模异构网络下的同步效率。</p>
+              <div class="card-footer">
+                <div class="view-count">
+                  <span class="eye-icon">👁</span>
+                  <span>1.2k 阅读</span>
+                </div>
+                <span class="share-icon">⤴</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 动态卡片 2 -->
+          <div class="dynamics-card card-cyan">
+            <div class="card-image-wrapper">
+              <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&q=80&w=800" alt="Collaboration" class="card-image" />
+              <div class="image-overlay"></div>
+              <div class="card-tag tag-cyan">战略合作</div>
+            </div>
+            <div class="card-content">
+              <p class="card-date date-cyan">2026年03月28日</p>
+              <h3 class="card-title">携手全球云服务巨头，共建"零碳"数字基座计划</h3>
+              <p class="card-text">极致科技将发挥其在算法降耗方面的专长，通过自适应算力路由技术降低数据中心 15% 以上的电力消耗。</p>
+              <div class="card-footer">
+                <div class="view-count">
+                  <span class="eye-icon">👁</span>
+                  <span>856 阅读</span>
+                </div>
+                <span class="share-icon">⤴</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 动态卡片 3 -->
+          <div class="dynamics-card card-purple">
+            <div class="card-image-wrapper">
+              <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=800" alt="Exhibition" class="card-image" />
+              <div class="image-overlay"></div>
+              <div class="card-tag tag-purple">行业荣誉</div>
+            </div>
+            <div class="card-content">
+              <p class="card-date date-purple">2026年03月15日</p>
+              <h3 class="card-title">荣获 2026 世界数字经济大会"最具影响力创新奖"</h3>
+              <p class="card-text">凭借在隐私计算与分布式引擎方面的突破性表现，极致科技从全球 500 多家参评机构中脱颖而出。</p>
+              <div class="card-footer">
+                <div class="view-count">
+                  <span class="eye-icon">👁</span>
+                  <span>2.1k 阅读</span>
+                </div>
+                <span class="share-icon">⤴</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <Footer />
   </div>
 </Layout>
 
 <style>
-  .page-content {
-    min-height: calc(100vh - 80px);
-    padding: 120px 12% 60px;
-    text-align: center;
+  /* 全局样式 */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   }
 
-  .page-content h1 {
-    font-size: 48px;
+  body {
+    background: #f8fafc;
+    color: #0f172a;
+  }
+
+  .page-container {
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+  }
+
+  /* 企业动态主容器 */
+  .dynamics-section {
+    width: 100%;
+    padding: 96px 24px 48px;
+    background: #ffffff;
+    position: relative;
+    scroll-margin-top: 80px;
+  }
+
+  .dynamics-container {
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+
+  /* 头部 */
+  .dynamics-header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 48px;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 16px 0;
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid #e2e8f0;
+  }
+
+  .header-left {
+    flex: 1;
+  }
+
+  .dynamics-title {
+    font-size: 30px;
     font-weight: 700;
-    color: #111827;
+    color: #0f172a;
     margin-bottom: 16px;
+    line-height: 1.3;
   }
 
-  .subtitle {
-    font-size: 18px;
-    color: #666;
+  .title-en {
+    font-size: 14px;
+    font-weight: 400;
+    color: #3b82f6;
+    margin-left: 12px;
+  }
+
+  .dynamics-desc {
+    color: #64748b;
+    font-size: 14px;
+  }
+
+  .view-all-link {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    color: #60a5fa;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    transition: color 0.2s ease;
+  }
+
+  .view-all-link:hover {
+    color: #93c5fd;
+  }
+
+  .arrow-icon {
+    font-size: 20px;
+    line-height: 1;
+  }
+
+  /* 卡片网格 */
+  .dynamics-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  /* 动态卡片 */
+  .dynamics-card {
+    border-radius: 24px;
+    overflow: hidden;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.5s ease, box-shadow 0.3s ease;
+  }
+
+  .card-blue:hover {
+    border-color: rgba(59, 130, 246, 0.5);
+  }
+
+  .card-cyan:hover {
+    border-color: rgba(6, 182, 212, 0.5);
+  }
+
+  .card-purple:hover {
+    border-color: rgba(168, 85, 247, 0.5);
+  }
+
+  /* 图片区域 */
+  .card-image-wrapper {
+    position: relative;
+    width: 100%;
+    height: 240px;
+    overflow: hidden;
+  }
+
+  .card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.7s ease;
+  }
+
+  .dynamics-card:hover .card-image {
+    transform: scale(1.1);
+  }
+
+  .image-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(255, 255, 255, 0.95) 0%, transparent 50%);
+    opacity: 0.6;
+  }
+
+  .card-tag {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    padding: 6px 12px;
+    border-radius: 9999px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .tag-blue {
+    background: #2563eb;
+  }
+
+  .tag-cyan {
+    background: #0891b2;
+  }
+
+  .tag-purple {
+    background: #9333ea;
+  }
+
+  /* 卡片内容 */
+  .card-content {
+    padding: 32px;
+  }
+
+  .card-date {
+    font-size: 12px;
+    font-weight: 500;
+    margin-bottom: 12px;
+  }
+
+  .date-blue {
+    color: #60a5fa;
+  }
+
+  .date-cyan {
+    color: #22d3ee;
+  }
+
+  .date-purple {
+    color: #c084fc;
+  }
+
+  .card-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 16px;
+    line-height: 1.4;
+    transition: color 0.2s ease;
+  }
+
+  .card-blue:hover .card-title {
+    color: #60a5fa;
+  }
+
+  .card-cyan:hover .card-title {
+    color: #22d3ee;
+  }
+
+  .card-purple:hover .card-title {
+    color: #c084fc;
+  }
+
+  .card-text {
+    font-size: 14px;
+    color: #64748b;
+    line-height: 1.7;
+    margin-bottom: 24px;
+  }
+
+  /* 卡片底部 */
+  .card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 16px;
+    border-top: 1px solid #e2e8f0;
+  }
+
+  .view-count {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    color: #94a3b8;
+  }
+
+  .eye-icon {
+    font-size: 16px;
+  }
+
+  .share-icon {
+    font-size: 20px;
+    color: #94a3b8;
+    cursor: pointer;
+    transition: color 0.2s ease;
+  }
+
+  .share-icon:hover {
+    color: #3b82f6;
+  }
+
+  /* 响应式 */
+  @media (min-width: 768px) {
+    .dynamics-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .dynamics-header {
+      flex-direction: row;
+    }
+
+    .view-all-link {
+      margin-top: 0;
+    }
   }
 </style>
+
+<script>
+  // 卡片悬停效果增强
+  const cards = document.querySelectorAll('.dynamics-card');
+  cards.forEach((card, index) => {
+    card.style.animationDelay = `${index * 100}ms`;
+  });
+</script>
