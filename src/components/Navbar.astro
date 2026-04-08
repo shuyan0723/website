@@ -5,10 +5,12 @@ const currentPath = Astro.url.pathname;
 <nav class="navbar">
   <ul class="nav-list">
     <li><a href="/" class={currentPath === '/' ? 'active' : ''}>首页</a></li>
-    <li><a href="/solutions" class={currentPath === '/solutions' ? 'active' : ''}>行业方案</a></li>
-    <li><a href="/services" class={currentPath === '/services' ? 'active' : ''}>服务范围</a></li>
-    <li><a href="/about" class={currentPath === '/about' ? 'active' : ''}>关于我们</a></li>
-    <li><a href="/cases" class={currentPath === '/cases' ? 'active' : ''}>成功案例</a></li>
+    <li><a href="/products" class={currentPath.startsWith('/products') ? 'active' : ''}>产品服务</a></li>
+    <li><a href="/research" class={currentPath.startsWith('/research') ? 'active' : ''}>研发中心</a></li>
+    <li><a href="/dynamics" class={currentPath.startsWith('/dynamics') ? 'active' : ''}>企业动态</a></li>
+    <li><a href="/news" class={currentPath.startsWith('/news') ? 'active' : ''}>新闻中心</a></li>
+    <li><a href="/cases" class={currentPath.startsWith('/cases') ? 'active' : ''}>客户案例</a></li>
+    <li><a href="/about" class={currentPath.startsWith('/about') ? 'active' : ''}>关于我们</a></li>
   </ul>
   <a href="/contact" class="contact-btn">联系我们</a>
 </nav>

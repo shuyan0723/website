@@ -1,14 +1,15 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Header from '../components/Header.astro';
+import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
 ---
 
-<Layout title="行业方案 - 企业官网">
+<Layout title="企业动态 - 企业官网">
   <div class="page-container">
-    <Header />
+    <Navbar />
     <div class="page-content">
-      <h1>行业方案</h1>
+      <h1>企业动态</h1>
+      <p class="subtitle">了解我们的最新发展</p>
     </div>
     <Footer />
   </div>
@@ -25,5 +26,11 @@ import Footer from '../components/Footer.astro';
     font-size: 48px;
     font-weight: 700;
     color: #111827;
+    margin-bottom: 16px;
+  }
+
+  .subtitle {
+    font-size: 18px;
+    color: #666;
   }
 </style>
