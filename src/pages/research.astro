@@ -131,7 +131,7 @@ import Footer from '../components/Footer.astro';
   /* 研发中心主容器 */
   .research-section {
     width: 100%;
-    padding: 96px 12%;
+    padding: 96px 24px;
     background: #020617;
     position: relative;
     overflow: hidden;
@@ -172,7 +172,7 @@ import Footer from '../components/Footer.astro';
   }
 
   .research-title {
-    font-size: 28px;
+    font-size: 30px;
     font-weight: 700;
     color: #f8fafc;
     margin-bottom: 16px;
@@ -188,7 +188,7 @@ import Footer from '../components/Footer.astro';
 
   .research-desc {
     color: #94a3b8;
-    font-size: 16px;
+    font-size: 14px;
   }
 
   .header-right {
@@ -241,7 +241,7 @@ import Footer from '../components/Footer.astro';
 
   .tech-text {
     color: #94a3b8;
-    font-size: 16px;
+    font-size: 14px;
     line-height: 1.7;
   }
 
@@ -386,7 +386,7 @@ import Footer from '../components/Footer.astro';
   .card-text {
     color: #94a3b8;
     font-size: 14px;
-    line-height: 1.6;
+    line-height: 1.7;
   }
 
   /* 技术规划蓝图 */
@@ -394,9 +394,15 @@ import Footer from '../components/Footer.astro';
     background: rgba(37, 99, 235, 0.1);
     border: 1px solid rgba(59, 130, 246, 0.2);
     border-radius: 24px;
-    padding: 48px;
+    padding: 32px;
     position: relative;
     overflow: hidden;
+  }
+
+  @media (min-width: 768px) {
+    .roadmap-section {
+      padding: 48px;
+    }
   }
 
   .roadmap-bg-icon {
@@ -506,7 +512,7 @@ import Footer from '../components/Footer.astro';
     }
 
     .roadmap-section {
-      padding: 32px 24px;
+      padding: 24px;
     }
 
     .roadmap-grid {
