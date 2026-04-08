@@ -35,6 +35,11 @@ import Footer from '../components/Footer.astro';
 
     <!-- 能力展示模块 -->
     <section class="capability-section">
+      <!-- 三个椭圆背景（我帮你加在这里，不影响你的原有结构） -->
+      <div class="ellipse-1"></div>
+      <div class="ellipse-2"></div>
+      <div class="ellipse-3"></div>
+
       <div class="capability-container">
         <div class="capability-left">
           <h2 class="capability-title">全域覆盖的能力保障，<br>赋能业务核心价值。</h2>
@@ -85,6 +90,7 @@ import Footer from '../components/Footer.astro';
           </div>
         </div>
       </div>
+
       <button class="scroll-top-btn" aria-label="回到顶部">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <path d="M18 15l-6-6-6 6"/>
@@ -473,113 +479,120 @@ import Footer from '../components/Footer.astro';
     }
   }
 
-  /* 能力展示模块样式 */
+  /* ========== 能力展示模块样式 ========== */
   .capability-section {
     width: 100%;
-    min-height: 600px;
-    background: linear-gradient(135deg, #0a1020 0%, #0f1a3a 50%, #0a1020 100%);
+    padding: 100px 12%;
+    background: #0a1028;
     position: relative;
     overflow: hidden;
-    display: flex;
-    align-items: center;
-    padding: 80px 12%;
+    box-sizing: border-box;
   }
 
-  /* 背景装饰 */
-  .capability-section::before,
-  .capability-section::after {
-    content: "";
+  /* 🔥 椭圆 1（最大，包裹全部内容） */
+  .ellipse-1 {
     position: absolute;
+    width: 130%;
+    height: 130%;
+    top: -15%;
+    left: -15%;
+    background: rgba(50, 65, 180, 0.08);
     border-radius: 50%;
-    background: rgba(58, 120, 245, 0.1);
-    z-index: 0;
+    z-index: 1;
+    pointer-events: none;
   }
 
-  .capability-section::before {
-    width: 600px;
-    height: 400px;
-    top: 10%;
-    left: 0;
-  }
-
-  .capability-section::after {
-    width: 800px;
-    height: 500px;
-    bottom: 0;
-    right: 0;
-  }
-
-  .capability-container {
+  /* 🔥 椭圆 2（中层） */
+  .ellipse-2 {
+    position: absolute;
     width: 100%;
-    max-width: 1400px;
+    height: 100%;
+    top: 0%;
+    left: 0%;
+    background: rgba(50, 65, 180, 0.12);
+    border-radius: 50%;
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  /* 🔥 椭圆 3（内层） */
+  .ellipse-3 {
+    position: absolute;
+    width: 75%;
+    height: 75%;
+    top: 12%;
+    left: 12%;
+    background: rgba(50, 65, 180, 0.16);
+    border-radius: 50%;
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  /* ========== 布局 ========== */
+  .capability-container {
+    max-width: 1300px;
     margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    display: flex;
+    justify-content: space-between;
     gap: 60px;
     position: relative;
-    z-index: 2;
+    z-index: 2; /* 内容在椭圆上方 */
   }
 
-  /* 左侧内容 */
   .capability-left {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    flex: 1;
+    max-width: 580px;
   }
 
+  .capability-right {
+    flex: 1;
+    max-width: 520px;
+  }
+
+  /* ========== 左侧文字 ========== */
   .capability-title {
-    font-size: 36px;
+    font-size: 42px;
     font-weight: 700;
-    color: #ffffff;
+    color: #fff;
     line-height: 1.3;
     margin-bottom: 24px;
   }
 
   .capability-desc {
     font-size: 17px;
-    color: #cccccc;
+    color: #c2c7d6;
     line-height: 1.8;
-    margin-bottom: 40px;
-    max-width: 600px;
+    margin-bottom: 36px;
   }
 
   .capability-stats {
     display: flex;
-    gap: 80px;
+    gap: 70px;
   }
 
   .stat-item {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 6px;
   }
 
   .stat-number {
-    font-size: 42px;
+    font-size: 44px;
     font-weight: 700;
-    color: #3a78f5;
-    line-height: 1;
+    color: #4a6fff;
   }
 
   .stat-label {
-    font-size: 15px;
-    color: #cccccc;
+    font-size: 16px;
+    color: #c2c7d6;
   }
 
-  /* 右侧卡片 */
-  .capability-right {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-  }
-
+  /* ========== 右侧卡片 ========== */
   .capability-card {
-    width: 100%;
-    max-width: 480px;
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(255, 255, 255, 0.04);
     border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 16px;
-    padding: 32px;
+    border-radius: 20px;
+    padding: 36px;
     backdrop-filter: blur(10px);
   }
 
@@ -591,33 +604,35 @@ import Footer from '../components/Footer.astro';
   }
 
   .header-icon {
-    width: 44px;
-    height: 44px;
+    width: 40px;
+    height: 40px;
+    background: rgba(74, 111, 255, 0.15);
     border-radius: 50%;
-    background: #3a78f5;
     position: relative;
   }
 
   .header-icon::after {
-    content: "";
+    content: "✓";
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 20px;
-    height: 20px;
-    background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 24 24" fill="white"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>') no-repeat center;
-    background-size: contain;
+    color: #4a6fff;
+    font-size: 18px;
+    font-weight: bold;
   }
 
   .card-header h3 {
-    font-size: 22px;
-    font-weight: 600;
-    color: #ffffff;
+    font-size: 24px;
+    color: #fff;
+    margin: 0;
   }
 
+  /* ========== 卡片列表 ========== */
   .card-list {
     list-style: none;
+    padding: 0;
+    margin: 0;
     display: flex;
     flex-direction: column;
     gap: 28px;
@@ -625,107 +640,47 @@ import Footer from '../components/Footer.astro';
 
   .card-item {
     display: flex;
-    gap: 16px;
+    gap: 18px;
   }
 
   .item-icon {
-    width: 20px;
-    height: 20px;
+    width: 10px;
+    height: 10px;
+    background: #4a6fff;
     border-radius: 50%;
-    background: #3a78f5;
+    margin-top: 8px;
     flex-shrink: 0;
-    margin-top: 2px;
-    position: relative;
-  }
-
-  .item-icon::after {
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 8px;
-    height: 8px;
-    background: #ffffff;
-    border-radius: 50%;
   }
 
   .item-content h4 {
     font-size: 18px;
-    font-weight: 600;
-    color: #ffffff;
-    margin-bottom: 8px;
+    color: #fff;
+    margin: 0 0 6px 0;
   }
 
   .item-content p {
     font-size: 15px;
-    color: #cccccc;
+    color: #aab2c7;
     line-height: 1.6;
+    margin: 0;
   }
 
-  /* 回到顶部按钮 */
+  /* ========== 回到顶部按钮 ========== */
   .scroll-top-btn {
-    position: absolute;
-    bottom: 40px;
+    position: fixed;
     right: 40px;
-    width: 48px;
-    height: 48px;
+    bottom: 40px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    color: #ffffff;
-    cursor: pointer;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.2);
+    color: #fff;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all 0.3s ease;
-    z-index: 10;
-  }
-
-  .scroll-top-btn:hover {
-    background: #3a78f5;
-    border-color: #3a78f5;
-    transform: translateY(-4px);
-  }
-
-  .scroll-top-btn svg {
-    width: 24px;
-    height: 24px;
-  }
-
-  /* 响应式适配 */
-  @media (max-width: 1200px) {
-    .capability-container {
-      grid-template-columns: 1fr;
-      gap: 40px;
-    }
-    .capability-right {
-      justify-content: center;
-    }
-    .capability-title {
-      font-size: 30px;
-    }
-  }
-
-  @media (max-width: 768px) {
-    .capability-section {
-      padding: 60px 5%;
-    }
-    .capability-title {
-      font-size: 26px;
-    }
-    .capability-stats {
-      gap: 40px;
-    }
-    .stat-number {
-      font-size: 36px;
-    }
-    .scroll-top-btn {
-      bottom: 20px;
-      right: 20px;
-      width: 40px;
-      height: 40px;
-    }
+    cursor: pointer;
+    z-index: 99;
   }
 
   /* 国内业务覆盖模块样式 */
@@ -763,7 +718,7 @@ import Footer from '../components/Footer.astro';
     display: grid;
     grid-template-columns: 320px 1fr 320px;
     gap: 32px;
-    align-items: center;
+    align-items: start;
   }
 
   /* 左侧标签栏 */
@@ -860,14 +815,14 @@ import Footer from '../components/Footer.astro';
 
   /* 右侧地图图标 */
   .coverage-right {
-    display: flex;
-    justify-content: center;
+    /* display: flex; */
+    /* justify-content: center; */
     align-items: center;
   }
 
   .map-icon {
-    width: 280px;
-    height: 280px;
+    width: 380px;
+    height: 380px;
     background: #ffffff;
     border-radius: 16px;
     position: relative;
