@@ -17,14 +17,19 @@ const currentPath = Astro.url.pathname;
 
 <style>
   .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
     height: 80px;
-    background: #fff;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
     display: flex;
     align-items: center;
     justify-content: center;
     border-bottom: 1px solid #f0f0f0;
-    position: relative;
-    z-index: 10;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    z-index: 100;
   }
 
   .nav-list {
