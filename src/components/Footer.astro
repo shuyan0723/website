@@ -1,0 +1,101 @@
+---
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>企业官网</h3>
+        <p>专业的企业服务解决方案提供商，助力企业数字化转型。</p>
+      </div>
+
+      <div class="footer-section">
+        <h4>快速链接</h4>
+        <ul>
+          <li><a href="/">首页</a></li>
+          <li><a href="/solutions">行业方案</a></li>
+          <li><a href="/services">服务范围</a></li>
+          <li><a href="/about">关于我们</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h4>更多</h4>
+        <ul>
+          <li><a href="/cases">成功案例</a></li>
+          <li><a href="/contact">联系我们</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h4>联系方式</h4>
+        <ul>
+          <li>电话：400-888-8888</li>
+          <li>邮箱：info@company.com</li>
+          <li>地址：北京市朝阳区xxx大厦</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; {currentYear} 企业官网. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    background: var(--color-text);
+    color: white;
+    padding: var(--spacing-2xl) 0 var(--spacing-lg);
+  }
+
+  .footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--spacing-xl);
+    margin-bottom: var(--spacing-xl);
+  }
+
+  .footer-section h3 {
+    font-size: var(--font-size-xl);
+    margin-bottom: var(--spacing-md);
+    color: white;
+  }
+
+  .footer-section h4 {
+    font-size: var(--font-size-base);
+    margin-bottom: var(--spacing-md);
+    color: rgba(255, 255, 255, 0.8);
+  }
+
+  .footer-section p {
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.8;
+  }
+
+  .footer-section ul {
+    list-style: none;
+  }
+
+  .footer-section li {
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .footer-section a {
+    color: rgba(255, 255, 255, 0.7);
+    transition: color 0.2s;
+  }
+
+  .footer-section a:hover {
+    color: white;
+  }
+
+  .footer-bottom {
+    padding-top: var(--spacing-lg);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+    color: rgba(255, 255, 255, 0.6);
+  }
+</style>
