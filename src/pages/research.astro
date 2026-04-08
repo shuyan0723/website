@@ -7,30 +7,525 @@ import Footer from '../components/Footer.astro';
 <Layout title="研发中心 - 企业官网">
   <div class="page-container">
     <Navbar />
-    <div class="page-content">
-      <h1>研发中心</h1>
-      <p class="subtitle">持续创新，引领技术前沿</p>
-    </div>
+
+    <!-- 研发中心模块 -->
+    <section class="research-section" id="research-center">
+      <div class="bg-decoration"></div>
+      <div class="research-container">
+        <!-- 头部标题 -->
+        <div class="research-header">
+          <div class="header-left">
+            <h2 class="research-title">昆仑时代研发中心 <span class="title-en">Innovation R&D Center</span></h2>
+            <p class="research-desc">持续探索计算边界，以原创技术驱动产业革命。</p>
+          </div>
+          <div class="header-right">
+            <span class="badge">国家高新技术企业</span>
+            <span class="badge">CNAS实验室认证</span>
+          </div>
+        </div>
+
+        <!-- 核心技术与专利 -->
+        <div class="tech-section">
+          <div class="tech-content">
+            <div class="tech-label">Core Technology</div>
+            <h3 class="tech-heading">核心技术与专利成果</h3>
+            <p class="tech-text">我们在分布式共识算法、自适应流计算和隐私保护计算领域拥有 120 余项发明专利，多项技术指标刷新行业记录。</p>
+            <ul class="tech-list">
+              <li class="tech-item">
+                <div class="check-icon"></div>
+                <span><strong>HyperFlow 调度引擎：</strong> 专利号 ZL202410... 支持百万级 QPS 毫秒级响应。</span>
+              </li>
+              <li class="tech-item">
+                <div class="check-icon"></div>
+                <span><strong>TitanGuard 隐私计算：</strong> 基于 TEE 的全链路数据加密，荣获 2025 技术创新奖。</span>
+              </li>
+            </ul>
+          </div>
+          <div class="tech-chart-wrapper">
+            <div class="tech-chart" id="tech-chart"></div>
+          </div>
+        </div>
+
+        <!-- 环境与人才 -->
+        <div class="cards-section">
+          <div class="card glass-card">
+            <div class="card-image">
+              <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80" alt="研发环境与设备" />
+            </div>
+            <div class="card-content">
+              <h4 class="card-title">
+                <div class="card-icon flask-icon"></div>
+                研发环境与设备
+              </h4>
+              <p class="card-text">中心配备了自有的千卡级 AIGC 算力集群，并建立了模拟城市级负载的硬件实验室，确保系统在极端环境下的稳定性。</p>
+            </div>
+          </div>
+          <div class="card glass-card">
+            <div class="card-image">
+              <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=800&q=80" alt="技术专家与人才团队" />
+            </div>
+            <div class="card-content">
+              <h4 class="card-title">
+                <div class="card-icon team-icon"></div>
+                技术专家与人才团队
+              </h4>
+              <p class="card-text">汇聚了来自 Google、阿里巴巴、腾讯的顶尖科学家，博士占比超过 15%，成员多次在顶级技术会议（如 SIGMOD, ICSE）发表论文。</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 技术规划蓝图 -->
+        <div class="roadmap-section">
+          <div class="roadmap-bg-icon"></div>
+          <div class="roadmap-container">
+            <h3 class="roadmap-title">2026-2028 技术规划蓝图</h3>
+            <div class="roadmap-grid">
+              <div class="roadmap-item active">
+                <div class="roadmap-dot"></div>
+                <h5 class="roadmap-date">Q2 2026</h5>
+                <p class="roadmap-project">自研大模型 Agent 架构</p>
+                <p class="roadmap-desc">实现跨异构系统的全自动化业务流程编排。</p>
+              </div>
+              <div class="roadmap-item">
+                <div class="roadmap-dot inactive"></div>
+                <h5 class="roadmap-date">Q4 2026</h5>
+                <p class="roadmap-project">量子安全通信网关</p>
+                <p class="roadmap-desc">完成抗量子加密算法在金融级网关的落地测试。</p>
+              </div>
+              <div class="roadmap-item">
+                <div class="roadmap-dot inactive"></div>
+                <h5 class="roadmap-date">2027+</h5>
+                <p class="roadmap-project">原生自治云系统</p>
+                <p class="roadmap-desc">构建完全无需人工干预的"无人驾驶"云底座。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <Footer />
   </div>
 </Layout>
 
 <style>
-  .page-content {
-    min-height: calc(100vh - 80px);
-    padding: 120px 12% 60px;
-    text-align: center;
+  /* 全局样式 */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   }
 
-  .page-content h1 {
-    font-size: 48px;
+  body {
+    background: #020617;
+    color: #f8fafc;
+  }
+
+  .page-container {
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+  }
+
+  /* 研发中心主容器 */
+  .research-section {
+    width: 100%;
+    padding: 96px 12%;
+    background: #020617;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* 背景装饰 */
+  .bg-decoration {
+    position: absolute;
+    left: -80px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 384px;
+    height: 384px;
+    background: rgba(59, 130, 246, 0.05);
+    border-radius: 50%;
+    filter: blur(100px);
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  .research-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* 头部 */
+  .research-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 64px;
+  }
+
+  .header-left {
+    flex: 1;
+  }
+
+  .research-title {
+    font-size: 28px;
     font-weight: 700;
-    color: #111827;
+    color: #f8fafc;
     margin-bottom: 16px;
+    line-height: 1.3;
   }
 
-  .subtitle {
-    font-size: 18px;
-    color: #666;
+  .title-en {
+    font-size: 14px;
+    font-weight: 400;
+    color: #3b82f6;
+    margin-left: 12px;
+  }
+
+  .research-desc {
+    color: #94a3b8;
+    font-size: 16px;
+  }
+
+  .header-right {
+    display: flex;
+    gap: 8px;
+  }
+
+  .badge {
+    padding: 6px 12px;
+    background: #1e293b;
+    border: 1px solid #334155;
+    border-radius: 6px;
+    font-size: 12px;
+    color: #e2e8f0;
+  }
+
+  /* 核心技术部分 */
+  .tech-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    margin-bottom: 80px;
+    align-items: center;
+  }
+
+  .tech-content {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .tech-label {
+    display: inline-block;
+    padding: 8px 12px;
+    background: rgba(59, 130, 246, 0.1);
+    color: #60a5fa;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    border-radius: 8px;
+    width: fit-content;
+  }
+
+  .tech-heading {
+    font-size: 24px;
+    font-weight: 700;
+    color: #f8fafc;
+  }
+
+  .tech-text {
+    color: #94a3b8;
+    font-size: 16px;
+    line-height: 1.7;
+  }
+
+  .tech-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .tech-item {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+  }
+
+  .check-icon {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #3b82f6;
+    flex-shrink: 0;
+    margin-top: 2px;
+    position: relative;
+  }
+
+  .check-icon::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 8px;
+    height: 4px;
+    border-left: 2px solid white;
+    border-bottom: 2px solid white;
+    transform: translate(-50%, -50%) rotate(-45deg);
+  }
+
+  .tech-item strong {
+    color: #e2e8f0;
+  }
+
+  .tech-item span {
+    color: #94a3b8;
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  /* 图表容器 */
+  .tech-chart-wrapper {
+    background: #0f172a;
+    border: 1px solid #1e293b;
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.15);
+  }
+
+  .tech-chart {
+    width: 100%;
+    height: 256px;
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(59, 130, 246, 0.05) 100%);
+    border-radius: 12px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .tech-chart::before {
+    content: "技术能力评估";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #60a5fa;
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  /* 卡片部分 */
+  .cards-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    margin-bottom: 80px;
+  }
+
+  .card {
+    border-radius: 16px;
+    overflow: hidden;
+    background: rgba(15, 23, 42, 0.6);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .card-image {
+    width: 100%;
+    height: 192px;
+    overflow: hidden;
+  }
+
+  .card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+
+  .card:hover .card-image img {
+    transform: scale(1.1);
+  }
+
+  .card-content {
+    padding: 24px;
+  }
+
+  .card-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 20px;
+    font-weight: 700;
+    color: #f8fafc;
+    margin-bottom: 12px;
+  }
+
+  .card-icon {
+    width: 20px;
+    height: 20px;
+    background: #3b82f6;
+    border-radius: 4px;
+    flex-shrink: 0;
+  }
+
+  .flask-icon {
+    clip-path: polygon(50% 0%, 100% 60%, 80% 60%, 80% 100%, 20% 100%, 20% 60%, 0% 60%);
+  }
+
+  .team-icon {
+    border-radius: 50%;
+  }
+
+  .card-text {
+    color: #94a3b8;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  /* 技术规划蓝图 */
+  .roadmap-section {
+    background: rgba(37, 99, 235, 0.1);
+    border: 1px solid rgba(59, 130, 246, 0.2);
+    border-radius: 24px;
+    padding: 48px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .roadmap-bg-icon {
+    position: absolute;
+    right: -32px;
+    bottom: -32px;
+    width: 200px;
+    height: 200px;
+    background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 24 24" fill="%233b82f6" opacity="0.05"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>') no-repeat center;
+    background-size: contain;
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  }
+
+  .roadmap-container {
+    position: relative;
+    z-index: 1;
+  }
+
+  .roadmap-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: #f8fafc;
+    text-align: center;
+    margin-bottom: 32px;
+  }
+
+  .roadmap-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+  }
+
+  .roadmap-item {
+    position: relative;
+    padding-left: 32px;
+    border-left: 2px solid rgba(59, 130, 246, 0.3);
+  }
+
+  .roadmap-dot {
+    position: absolute;
+    left: -9px;
+    top: 0;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+  }
+
+  .roadmap-dot.active {
+    background: #3b82f6;
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+  }
+
+  .roadmap-dot.inactive {
+    background: #475569;
+  }
+
+  .roadmap-date {
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+
+  .roadmap-date:first-child {
+    color: #60a5fa;
+  }
+
+  .roadmap-date + .roadmap-project ~ .roadmap-date {
+    color: #94a3b8;
+  }
+
+  .roadmap-project {
+    font-size: 14px;
+    font-weight: 700;
+    color: #e2e8f0;
+    margin-bottom: 4px;
+  }
+
+  .roadmap-desc {
+    font-size: 12px;
+    color: #64748b;
+    line-height: 1.5;
+  }
+
+  /* 响应式 */
+  @media (max-width: 768px) {
+    .research-section {
+      padding: 64px 5%;
+    }
+
+    .research-header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 24px;
+    }
+
+    .header-right {
+      display: none;
+    }
+
+    .tech-section {
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+
+    .cards-section {
+      grid-template-columns: 1fr;
+    }
+
+    .roadmap-section {
+      padding: 32px 24px;
+    }
+
+    .roadmap-grid {
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
   }
 </style>
+
+<script>
+  // 技术图表简单动画
+  const chart = document.getElementById('tech-chart');
+  if (chart) {
+    chart.addEventListener('mouseenter', () => {
+      chart.style.transform = 'scale(1.02)';
+      chart.style.transition = 'transform 0.3s ease';
+    });
+    chart.addEventListener('mouseleave', () => {
+      chart.style.transform = 'scale(1)';
+    });
+  }
+</script>
