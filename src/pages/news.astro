@@ -94,7 +94,6 @@ import Footer from '../components/Footer.astro';
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   }
 
   body {
@@ -133,6 +132,7 @@ import Footer from '../components/Footer.astro';
     font-weight: 700;
     color: #0f172a;
     margin-bottom: 16px;
+    line-height: 1.2;
   }
 
   .news-desc {
@@ -232,6 +232,7 @@ import Footer from '../components/Footer.astro';
     font-weight: 700;
     color: #0f172a;
     margin-bottom: 12px;
+    line-height: 1.5;
     cursor: pointer;
     transition: color 0.2s ease;
   }
@@ -243,7 +244,7 @@ import Footer from '../components/Footer.astro';
   .news-excerpt {
     font-size: 14px;
     color: #64748b;
-    line-height: 1.7;
+    line-height: 1.625;
     margin-bottom: 16px;
   }
 
@@ -328,7 +329,7 @@ import Footer from '../components/Footer.astro';
 <script>
   // 新闻项渐进显示效果（可选：配合CSS动画使用）
   document.addEventListener('DOMContentLoaded', () => {
-    const newsItems = document.querySelectorAll('.news-item');
+    const newsItems = document.querySelectorAll('.news-item') as NodeListOf<HTMLElement>;
     newsItems.forEach((item, index) => {
       item.style.opacity = '0';
       item.style.transform = 'translateY(20px)';
