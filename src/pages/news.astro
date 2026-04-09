@@ -19,7 +19,8 @@ import Footer from '../components/Footer.astro';
         </div>
 
         <!-- 新闻列表 -->
-        <div class="news-list">
+        <div class="news-list-wrapper">
+          <div class="news-list">
           <!-- 新闻项 1 -->
           <div class="news-item">
             <div class="news-date">
@@ -74,6 +75,7 @@ import Footer from '../components/Footer.astro';
             </div>
           </div>
         </div>
+        </div>
 
         <!-- 查看更多按钮 -->
         <div class="news-footer">
@@ -115,8 +117,9 @@ import Footer from '../components/Footer.astro';
   }
 
   .news-container {
-    max-width: 1024px;
+    max-width: 1280px;
     margin: 0 auto;
+    padding: 0 24px;
   }
 
   /* 头部标题 */
@@ -143,6 +146,12 @@ import Footer from '../components/Footer.astro';
     background: #3b82f6;
     margin: 24px auto 0;
     border-radius: 2px;
+  }
+
+  /* 新闻列表外层容器 */
+  .news-list-wrapper {
+    max-width: 896px;
+    margin: 0 auto;
   }
 
   /* 新闻列表 */
@@ -317,9 +326,19 @@ import Footer from '../components/Footer.astro';
 </style>
 
 <script>
-  // 新闻项悬停效果
-  const newsItems = document.querySelectorAll('.news-item') as NodeListOf<HTMLElement>;
-  newsItems.forEach((item: HTMLElement, index: number) => {
-    item.style.setProperty('animation-delay', `${index * 100}ms`);
+  // 新闻项渐进显示效果（可选：配合CSS动画使用）
+  document.addEventListener('DOMContentLoaded', () => {
+    const newsItems = document.querySelectorAll('.news-item');
+    newsItems.forEach((item, index) => {
+      item.style.opacity = '0';
+      item.style.transform = 'translateY(20px)';
+      item.style.transition = `opacity 0.5s ease ${index * 0.1}s, transform 0.5s ease ${index * 0.1}s`;
+
+      // 使用 setTimeout 触发动画
+      setTimeout(() => {
+        item.style.opacity = '1';
+        item.style.transform = 'translateY(0)';
+      }, 100);
+    });
   });
 </script>
