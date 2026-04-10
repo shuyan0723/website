@@ -7,30 +7,544 @@ import Footer from '../components/Footer.astro';
 <Layout title="客户案例 - 企业官网">
   <div class="page-container">
     <Navbar />
-    <div class="page-content">
-      <h1>客户案例</h1>
-      <p class="subtitle">携手共创，成就卓越</p>
-    </div>
+
+    <section class="case-container">
+      <!-- 顶部标题 -->
+      <div class="case-top">
+        <h2 class="case-title">见证数字化转型的力量</h2>
+        <p class="case-desc">
+          已为全球超过 8,500 家企业提供全球化软件与信息技术服务，助力业务敏捷增长。
+        </p>
+      </div>
+
+      <!-- 卡片列表 -->
+      <div class="case-wrapper">
+        <!-- 卡片 1 -->
+        <div class="case-card">
+          <div class="card-img">
+            <img src="https://picsum.photos/id/180/800/450" alt="案例图片" />
+          </div>
+          <div class="card-content">
+            <div class="card-tag-row">
+              <span class="tag blue">数字金融</span>
+              <span class="tag-text">某头部证券公司</span>
+            </div>
+            <h3 class="card-title">金融级核心系统外包研发与运维</h3>
+            <p class="card-info">
+              昆仑时代驻场专家团队接手了该机构的核心系统开发与运维外包，实现了从遗留单体架构向分布式微服务架构的平滑迁移，显著提升了系统的响应速度与稳定性。
+            </p>
+            <div class="card-divider"></div>
+            <div class="card-stats">
+              <div class="stat">
+                <div class="stat-num blue">96% ↓</div>
+                <div class="stat-label">响应延迟降低</div>
+              </div>
+              <div class="stat">
+                <div class="stat-num blue">10k+</div>
+                <div class="stat-label">每秒交易峰值</div>
+              </div>
+              <div class="stat">
+                <div class="stat-num blue">0 事故</div>
+                <div class="stat-label">系统运行安全</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 卡片 2 -->
+        <div class="case-card">
+          <div class="card-img">
+            <img src="https://picsum.photos/id/160/800/450" alt="案例图片" />
+          </div>
+          <div class="card-content">
+            <div class="card-tag-row">
+              <span class="tag purple">智能制造</span>
+              <span class="tag-text">世界500强制造企业</span>
+            </div>
+            <h3 class="card-title">全球供应链预测性决策系统</h3>
+            <p class="card-info">
+              整合全球 12 个生产基地的数据，通过 StreamFlow 数据中台实现库存周转率提升，大幅降低了呆滞物料比例。
+            </p>
+            <div class="card-divider"></div>
+            <div class="card-stats">
+              <div class="stat">
+                <div class="stat-num purple">24% ↑</div>
+                <div class="stat-label">生产效率提升</div>
+              </div>
+              <div class="stat">
+                <div class="stat-num purple">1.2亿</div>
+                <div class="stat-label">年度成本节约</div>
+              </div>
+              <div class="stat">
+                <div class="stat-num purple">100%</div>
+                <div class="stat-label">数据链路覆盖</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 更多案例 + CTA 行动区 -->
+    <section class="case-cta-section">
+      <!-- 案例卡片区 -->
+      <div class="case-cards">
+        <!-- 智慧政务案例 -->
+        <div class="case-card">
+          <div class="card-image">
+            <img src="https://picsum.photos/id/1011/800/400" alt="一网统管城市运行体征系统" />
+          </div>
+          <div class="card-content">
+            <div class="card-tags">
+              <span class="tag tag-green">智慧政务</span>
+              <span class="tag-sub">某一线城市政务中心</span>
+            </div>
+            <h3 class="card-title">"一网统管"城市运行体征系统</h3>
+            <p class="card-desc">
+              打通 40 余个委办局数据，构建城市级数字孪生底座，实现应急响应速度从小时级提升至分钟级。
+            </p>
+            <div class="card-stats">
+              <div class="stat-item">
+                <span class="stat-value stat-green">300+</span>
+                <span class="stat-label">业务场景接入</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-value stat-green">85% ↓</span>
+                <span class="stat-label">审批时长缩短</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-value stat-green">4,000万</span>
+                <span class="stat-label">服务覆盖人口</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 新零售案例 -->
+        <div class="case-card">
+          <div class="card-image">
+            <img src="https://picsum.photos/id/1059/800/400" alt="全渠道智慧零售与私域营销平台" />
+          </div>
+          <div class="card-content">
+            <div class="card-tags">
+              <span class="tag tag-orange">新零售</span>
+              <span class="tag-sub">大型跨国连锁超市</span>
+            </div>
+            <h3 class="card-title">全渠道智慧零售与私域营销平台</h3>
+            <p class="card-desc">
+              基于 MindEngine AI 根纽构建的个性化推荐引擎，使线上订单转化率翻倍，并大幅提升了会员活跃度。
+            </p>
+            <div class="card-stats">
+              <div class="stat-item">
+                <span class="stat-value stat-orange">110% ↑</span>
+                <span class="stat-label">转化率提升</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-value stat-orange">5,000万</span>
+                <span class="stat-label">会员管理规模</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-value stat-orange">24h</span>
+                <span class="stat-label">实时私域画像</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA行动区 -->
+      <div class="cta-section">
+        <h2 class="cta-title">准备好开启您的数字化之旅了吗?</h2>
+        <p class="cta-desc">
+          昆仑时代的专家团队将为您提供 1 对 1 的技术咨询与方案规划。
+        </p>
+        <div class="cta-buttons">
+          <button class="btn-primary">获取定制方案</button>
+          <button class="btn-outline">预约参观展厅</button>
+        </div>
+      </div>
+    </section>
+
     <Footer />
   </div>
 </Layout>
 
 <style>
-  .page-content {
-    min-height: calc(100vh - 80px);
-    padding: 120px 12% 60px;
-    text-align: center;
-  }
+/* 全局背景 */
+.page-container {
+  background-color: #0a1028;
+}
 
-  .page-content h1 {
-    font-size: 48px;
-    font-weight: 700;
-    color: #111827;
-    margin-bottom: 16px;
-  }
+/* 外层容器 */
+.case-container {
+  width: 100%;
+  background-color: #0a1028;
+  padding: 30px 120px;
+  box-sizing: border-box;
+}
 
-  .subtitle {
-    font-size: 18px;
-    color: #666;
+/* 标题区域 */
+.case-top {
+  margin-bottom: 60px;
+  text-align: left;
+}
+
+.case-title {
+  font-size: 34px;
+  font-weight: 700;
+  color: #fff;
+  margin: 40px 0 12px 0;
+  line-height: 1.2;
+}
+
+.case-desc {
+  font-size: 16px;
+  color: #b4bbd6;
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* 卡片并排布局 */
+.case-wrapper {
+  display: flex;
+  gap: 32px;
+  width: 100%;
+}
+
+/* 卡片主体 */
+.case-card {
+  flex: 1;
+  background-color: #111836;
+  border-radius: 20px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 图片区域 */
+.card-img {
+  width: 100%;
+  height: 260px;
+}
+
+.card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* 内容区域 */
+.card-content {
+  padding: 30px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* 标签行 */
+.card-tag-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.tag {
+  padding: 6px 14px;
+  border-radius: 100px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #fff;
+}
+
+.tag.blue {
+  background-color: #3870f0;
+}
+
+.tag.purple {
+  background-color: #8c51f9;
+}
+
+.tag-text {
+  font-size: 14px;
+  color: #b4bbd6;
+}
+
+/* 卡片标题 */
+.card-title {
+  font-size: 22px;
+  font-weight: 600;
+  color: #fff;
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* 描述 */
+.card-info {
+  font-size: 15px;
+  color: #b4bbd6;
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* 分割线 */
+.card-divider {
+  width: 100%;
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* 统计区域 */
+.card-stats {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 6px;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.stat-num {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.stat-num.blue {
+  color: #3870f0;
+}
+
+.stat-num.purple {
+  color: #8c51f9;
+}
+
+.stat-label {
+  font-size: 13px;
+  color: #b4bbd6;
+  font-weight: 400;
+}
+
+/* 响应式 */
+@media (max-width: 1200px) {
+  .case-wrapper {
+    flex-direction: column;
   }
+  .case-container {
+    padding: 60px 24px;
+  }
+}
+
+/* ========== 更多案例 + CTA 行动区 ========== */
+.case-cta-section {
+  width: 100%;
+  background: #0a1028;
+  padding: 20px 120px 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}
+
+/* 案例卡片区 */
+.case-cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+  width: 100%;
+}
+
+.case-cta-section .case-card {
+  background: #121a33;
+  border-radius: 20px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.case-cta-section .case-card:hover {
+  transform: translateY(-6px);
+}
+
+.card-image {
+  width: 100%;
+  height: 260px;
+  overflow: hidden;
+}
+
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.card-content {
+  padding: 28px 32px;
+}
+
+.card-tags {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.tag {
+  padding: 4px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.tag-green {
+  background: #10b981;
+}
+
+.tag-orange {
+  background: #f97316;
+}
+
+.tag-sub {
+  font-size: 13px;
+  color: #c2c7d6;
+  background: transparent;
+  padding: 0;
+  font-weight: 400;
+}
+
+.card-title {
+  font-size: 22px;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 16px;
+  line-height: 1.4;
+}
+
+.card-desc {
+  font-size: 14px;
+  color: #c2c7d6;
+  line-height: 1.7;
+  margin-bottom: 24px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.card-stats {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 16px;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.stat-value {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.stat-green {
+  color: #10b981;
+}
+
+.stat-orange {
+  color: #f97316;
+}
+
+.stat-label {
+  font-size: 12px;
+  color: #c2c7d6;
+  font-weight: 500;
+}
+
+/* CTA 行动区 */
+.cta-section {
+  text-align: center;
+  width: 100%;
+  padding: 100px 0 40px 0;
+}
+
+.cta-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 16px;
+}
+
+.cta-desc {
+  font-size: 16px;
+  color: #c2c7d6;
+  line-height: 1.7;
+  margin-bottom: 32px;
+}
+
+.cta-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+
+.btn-primary {
+  padding: 14px 32px;
+  background: #2563eb;
+  color: #ffffff;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.btn-primary:hover {
+  background: #1d4ed8;
+}
+
+.btn-outline {
+  padding: 14px 32px;
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.btn-outline:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* 新模块响应式适配 */
+@media (max-width: 1024px) {
+  .case-cards {
+    grid-template-columns: 1fr;
+  }
+  .cta-title {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .case-cta-section {
+    padding: 40px 24px 60px;
+  }
+  .card-stats {
+    flex-direction: column;
+    gap: 16px;
+  }
+  .cta-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+  .cta-title {
+    font-size: 22px;
+  }
+}
 </style>
