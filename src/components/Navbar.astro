@@ -6,6 +6,15 @@ const currentPath = Astro.url.pathname;
   <ul class="nav-list">
     <li><a href="/" class={currentPath === '/' ? 'active' : ''}>首页</a></li>
     <li class="nav-item-dropdown">
+      <a href="/solutions/fintech" class={currentPath.startsWith('/solutions') ? 'active' : ''}>行业方案</a>
+      <ul class="dropdown-menu">
+        <li><a href="/solutions/fintech">金融科技</a></li>
+        <li><a href="/solutions/terminal">智能终端</a></li>
+        <li><a href="/solutions/internet">互联网</a></li>
+        <li><a href="/solutions/energy">能源科技</a></li>
+      </ul>
+    </li>
+    <li class="nav-item-dropdown">
       <a href="/products/hardware" class={currentPath.startsWith('/products') ? 'active' : ''}>产品服务</a>
       <ul class="dropdown-menu">
         <li><a href="/products/hardware">软硬件产品开发</a></li>
