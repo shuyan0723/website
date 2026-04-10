@@ -7,30 +7,556 @@ import Footer from '../../components/Footer.astro';
 <Layout title="软硬件产品开发 - 企业官网">
   <div class="page-container">
     <Navbar />
-    <div class="page-content">
-      <h1>软硬件产品开发</h1>
-      <p class="subtitle">提供从硬件设计到软件开发的全栈产品解决方案</p>
-    </div>
+
+    <section class="dev-section">
+      <!-- 顶部椭圆装饰 -->
+      <div class="top-ellipse"></div>
+
+      <div class="dev-header">
+        <h2 class="dev-title">软硬件产品开发</h2>
+        <p class="dev-desc">
+          公司根据相关客户需求，完成软硬件产品的设计及开发工作，最终向客户交付完整的软硬件产品，为客户实现从咨询到落地的全业务过程实施服务。
+        </p>
+      </div>
+
+      <!-- 流程区域 -->
+      <div class="process-section">
+        <div class="process-header">
+          <h3 class="process-title">端到端交付流程</h3>
+          <div class="title-line"></div>
+        </div>
+
+        <div class="process-flow">
+          <!-- 第一行流程 -->
+          <div class="process-row">
+            <div class="process-item">
+              <div class="item-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#4a8eff" stroke-width="2">
+                  <path d="M9 21v-2a4 4 0 0 1-4-4H5a2 2 0 0 1-2-2v-2a2 2 0 0 1 2-2h.08A8.35 8.35 0 0 1 12 3a8.35 8.35 0 0 1 6.92 4.08H19a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2h-.08A8.35 8.35 0 0 1 12 21v-2a4 4 0 0 1-4-4z"/>
+                </svg>
+              </div>
+              <h4 class="item-title">需求分析</h4>
+              <p class="item-desc">深入理解业务痛点，明确功能指标</p>
+              <div class="item-line"></div>
+            </div>
+
+            <div class="process-item">
+              <div class="item-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#4a8eff" stroke-width="2">
+                  <rect x="3" y="3" width="7" height="7" />
+                  <rect x="14" y="3" width="7" height="7" />
+                  <rect x="14" y="14" width="7" height="7" />
+                  <rect x="3" y="14" width="7" height="7" />
+                </svg>
+              </div>
+              <h4 class="item-title">架构设计</h4>
+              <p class="item-desc">软硬件解耦设计，确保系统扩展性</p>
+              <div class="item-line"></div>
+            </div>
+
+            <div class="process-item">
+              <div class="item-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#4a8eff" stroke-width="2">
+                  <path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/>
+                </svg>
+              </div>
+              <h4 class="item-title">产品研发</h4>
+              <p class="item-desc">敏捷开发模式，高质量代码实现</p>
+              <div class="item-line"></div>
+            </div>
+          </div>
+
+          <!-- 第二行流程 -->
+          <div class="process-row">
+            <div class="process-item">
+              <div class="item-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#4a8eff" stroke-width="2">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                </svg>
+              </div>
+              <h4 class="item-title">集成测试</h4>
+              <p class="item-desc">软硬件联调，严苛环境模拟测试</p>
+              <div class="item-line"></div>
+            </div>
+
+            <div class="process-item">
+              <div class="item-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#4a8eff" stroke-width="2">
+                  <path d="M12 2v10m0 0l3-3m-3 3l-3-3m3 10v6m0 0l-3-3m3 3l3-3"/>
+                </svg>
+              </div>
+              <h4 class="item-title">交付运维</h4>
+              <p class="item-desc">全方位技术支持，持续迭代升级</p>
+              <div class="item-line"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 服务案例+服务优势模块 -->
+    <section class="service-case-section">
+      <!-- 椭圆背景装饰 -->
+      <div class="bg-ellipse ellipse-1"></div>
+      <div class="bg-ellipse ellipse-2"></div>
+
+      <!-- 服务案例区域 -->
+      <div class="case-section">
+        <div class="section-header">
+          <h2 class="section-title">服务案例</h2>
+          <div class="title-line"></div>
+        </div>
+
+        <div class="case-cards">
+          <div class="case-card">
+            <div class="card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#3a78f5" stroke-width="2">
+                <rect x="2" y="6" width="20" height="12" rx="2"/>
+                <line x1="6" y1="10" x2="6" y2="14"/>
+                <line x1="10" y1="10" x2="10" y2="14"/>
+                <line x1="14" y1="10" x2="14" y2="14"/>
+                <line x1="18" y1="10" x2="18" y2="14"/>
+              </svg>
+            </div>
+            <div class="card-tag">智能硬件</div>
+            <h3 class="card-title">工业级IoT网关开发</h3>
+            <p class="card-desc">
+              为某能源巨头开发的高可靠性数据采集网关，支持多种工业协议转换，实现百万级并发容错。
+            </p>
+          </div>
+
+          <div class="case-card">
+            <div class="card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#3a78f5" stroke-width="2">
+                <rect x="2" y="3" width="20" height="14" rx="2"/>
+                <line x1="8" y1="21" x2="8" y2="17"/>
+                <line x1="16" y1="21" x2="16" y2="17"/>
+                <line x1="12" y1="17" x2="12" y2="13"/>
+              </svg>
+            </div>
+            <div class="card-tag">软件系统</div>
+            <h3 class="card-title">智慧仓储管理系统(WMS)</h3>
+            <p class="card-desc">
+              融合AI视觉识别与自动寻径算法，助力客户实现仓储自动化，效率提升60%。
+            </p>
+          </div>
+
+          <div class="case-card">
+            <div class="card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#3a78f5" stroke-width="2">
+                <rect x="2" y="3" width="18" height="14" rx="2"/>
+                <rect x="16" y="13" width="4" height="8" rx="1"/>
+              </svg>
+            </div>
+            <div class="card-tag">集成解决方案</div>
+            <h3 class="card-title">智能医疗监测终端</h3>
+            <p class="card-desc">
+              定制化嵌入式主板与医疗级APP开发，实现患者生命体征的实时监测与预警。
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 服务优势区域 -->
+      <div class="advantage-section">
+        <div class="section-header">
+          <h2 class="section-title">服务优势</h2>
+          <div class="title-line"></div>
+        </div>
+
+        <div class="advantage-cards">
+          <div class="advantage-card">
+            <h3 class="adv-title">一体化交付</h3>
+            <p class="adv-desc">
+              打通软硬件研发壁垒，提供从工业设计、结构设计到嵌入式开发、上层应用的一站式服务。
+            </p>
+          </div>
+
+          <div class="advantage-card">
+            <h3 class="adv-title">严苛质量控制</h3>
+            <p class="adv-desc">
+              遵循CMMI5级认证流程，建立多维度软硬件联合测试体系，确保产品高可靠、高可用。
+            </p>
+          </div>
+
+          <div class="advantage-card">
+            <h3 class="adv-title">敏捷响应机制</h3>
+            <p class="adv-desc">
+              核心研发团队7*24小时响应，针对客户紧急需求快速调整研发优先级，缩短产品上市周期。
+            </p>
+          </div>
+
+          <div class="advantage-card">
+            <h3 class="adv-title">深厚技术积累</h3>
+            <p class="adv-desc">
+              拥有上百项自主知识产权，在低功耗设计、边缘计算、分布式架构等领域具备领先技术。
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <Footer />
   </div>
 </Layout>
 
 <style>
-  .page-content {
-    min-height: calc(100vh - 80px);
-    padding: 120px 12% 60px;
-    text-align: center;
-  }
+/* 全局样式重置 */
+.dev-section {
+  width: 100%;
+  min-height: 800px;
+  background: #0a1028;
+  position: relative;
+  overflow: hidden;
+  padding: 60px 12%;
+}
 
-  .page-content h1 {
-    font-size: 48px;
-    font-weight: 700;
-    color: #111827;
-    margin-bottom: 16px;
-  }
+/* 顶部椭圆装饰 */
+.top-ellipse {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 200px;
+  background: rgba(58, 78, 213, 0.15);
+  border-radius: 50% 50% 0 0;
+  z-index: 1;
+  pointer-events: none;
+}
 
-  .subtitle {
-    font-size: 18px;
-    color: #666;
+/* 头部标题区域 */
+.dev-header {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.dev-title {
+  font-size: 42px;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 20px;
+}
+
+.dev-desc {
+  font-size: 18px;
+  color: #c2c7d6;
+  line-height: 1.8;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* 流程区域 */
+.process-section {
+  position: relative;
+  z-index: 2;
+  background: rgba(58, 78, 213, 0.08);
+  border-radius: 0 0 50% 50%;
+  padding: 60px 0;
+}
+
+.process-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.process-title {
+  font-size: 28px;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 12px;
+}
+
+.title-line {
+  width: 80px;
+  height: 3px;
+  background: #3a78f5;
+  margin: 0 auto;
+  border-radius: 2px;
+}
+
+/* 流程行布局 */
+.process-flow {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.process-row {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  gap: 40px;
+  margin-bottom: 60px;
+}
+
+/* 流程项样式 */
+.process-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  flex: 1;
+  max-width: 280px;
+}
+
+.item-icon {
+  width: 60px;
+  height: 60px;
+  background: rgba(58, 120, 245, 0.15);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+  border: 1px solid rgba(58, 120, 245, 0.3);
+}
+
+.item-icon svg {
+  width: 28px;
+  height: 28px;
+}
+
+.item-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 8px;
+}
+
+.item-desc {
+  font-size: 14px;
+  color: #c2c7d6;
+  line-height: 1.6;
+}
+
+/* 流程连接线 */
+.item-line {
+  position: absolute;
+  top: 30px;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #3a78f5, transparent);
+  z-index: 1;
+}
+
+/* 第二行连接线位置调整 */
+.process-row:nth-child(2) .item-line {
+  top: -30px;
+}
+
+/* 响应式适配 */
+@media (max-width: 1024px) {
+  .process-row {
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
   }
+  .item-line {
+    display: none;
+  }
+  .dev-title {
+    font-size: 32px;
+  }
+}
+
+@media (max-width: 768px) {
+  .dev-section {
+    padding: 40px 5%;
+  }
+  .dev-title {
+    font-size: 28px;
+  }
+  .dev-desc {
+    font-size: 16px;
+  }
+}
+
+/* ========== 服务案例+服务优势模块 ========== */
+.service-case-section {
+  width: 100%;
+  background: #0a1028;
+  position: relative;
+  overflow: visible;
+  padding: 40px 12% 50px;
+}
+
+/* 椭圆背景装饰 */
+.bg-ellipse {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(58, 78, 213, 0.1);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.ellipse-1 {
+  width: 120%;
+  height: 200px;
+  top: 0;
+  left: -10%;
+  background: rgba(58, 78, 213, 0.12);
+}
+
+.ellipse-2 {
+  width: 120%;
+  height: 60%;
+  bottom: 0;
+  left: -10%;
+  background: rgba(58, 78, 213, 0.08);
+}
+
+/* 通用标题样式 */
+.section-header {
+  position: relative;
+  z-index: 2;
+  margin-bottom: 24px;
+}
+
+.section-title {
+  font-size: 24px;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 8px;
+}
+
+.service-case-section .title-line {
+  width: 50px;
+  height: 3px;
+  background: #3a78f5;
+  border-radius: 2px;
+}
+
+/* 服务案例区域 */
+.case-section {
+  position: relative;
+  z-index: 2;
+  margin-bottom: 40px;
+}
+
+.case-section .section-header {
+  position: absolute;
+  top: -15px;
+  left: 2px;
+  margin-bottom: 0;
+}
+
+.case-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  padding-top: 40px;
+}
+
+.case-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 20px 20px;
+  backdrop-filter: blur(8px);
+  transition: transform 0.3s ease;
+}
+
+.case-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(58, 120, 245, 0.4);
+}
+
+.card-icon {
+  width: 48px;
+  height: 48px;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.7;
+}
+
+.card-icon svg {
+  width: 26px;
+  height: 26px;
+}
+
+.card-tag {
+  font-size: 12px;
+  color: #3a78f5;
+  font-weight: 500;
+  margin-bottom: 6px;
+}
+
+.card-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 8px;
+  line-height: 1.4;
+}
+
+.card-desc {
+  font-size: 13px;
+  color: #c2c7d6;
+  line-height: 1.6;
+}
+
+/* 服务优势区域 */
+.advantage-section {
+  position: relative;
+  z-index: 2;
+}
+
+.advantage-cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.advantage-card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(58, 120, 245, 0.3);
+  border-radius: 12px;
+  padding: 18px 18px;
+  backdrop-filter: blur(8px);
+  transition: all 0.3s ease;
+}
+
+.advantage-card:hover {
+  background: rgba(58, 120, 245, 0.08);
+  border-color: rgba(58, 120, 245, 0.6);
+}
+
+.adv-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 8px;
+}
+
+.adv-desc {
+  font-size: 13px;
+  color: #c2c7d6;
+  line-height: 1.6;
+}
+
+/* 服务案例+服务优势 响应式 */
+@media (max-width: 1200px) {
+  .case-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .advantage-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .service-case-section {
+    padding: 40px 5%;
+  }
+  .case-cards, .advantage-cards {
+    grid-template-columns: 1fr;
+  }
+  .section-title {
+    font-size: 24px;
+  }
+}
 </style>
