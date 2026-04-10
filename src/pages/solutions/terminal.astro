@@ -4,33 +4,336 @@ import Navbar from '../../components/Navbar.astro';
 import Footer from '../../components/Footer.astro';
 ---
 
-<Layout title="智能终端 - 企业官网">
+<Layout title="智能终端 - 昆仑时代 - 全球化软件与信息技术服务商">
   <div class="page-container">
     <Navbar />
-    <div class="page-content">
-      <h1>智能终端</h1>
-      <p class="subtitle">智能硬件设备的端云一体化解决方案</p>
-    </div>
+
+    <!-- 英雄区 -->
+    <section class="hero-section" id="hero">
+      <div class="max-container">
+        <div class="hero-badge">
+          <span class="badge-text">🚀 智能未来</span>
+        </div>
+        <h1 class="hero-title">智能终端</h1>
+        <p class="hero-desc">
+          致力于智能硬件与移动终端的操作系统开发、人机交互设计及生态构建。提供从底层驱动到上层应用的全栈解决方案，助力终端厂商快速实现数字化转型与产品迭代。
+        </p>
+        <div class="hero-actions">
+          <a href="#services" class="btn-primary">探索服务 →</a>
+          <a href="#contact" class="btn-secondary">预约咨询</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 服务模块 -->
+    <section class="services-section" id="services">
+      <div class="max-container">
+        <div class="section-header fade-in">
+          <span class="section-badge">💼 核心服务</span>
+          <h2 class="section-title">提供的服务</h2>
+          <p class="section-desc">覆盖智能终端全栈技术领域，提供专业的解决方案</p>
+        </div>
+
+        <div class="services-grid">
+          <div class="service-card card-hover fade-in" data-delay="100">
+            <div class="service-icon blue">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"/>
+              </svg>
+            </div>
+            <h3 class="service-title">整车网络</h3>
+            <p class="service-desc">车载网络架构设计与优化</p>
+          </div>
+
+          <div class="service-card card-hover fade-in" data-delay="150">
+            <div class="service-icon purple">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"/>
+              </svg>
+            </div>
+            <h3 class="service-title">Android HMI</h3>
+            <p class="service-desc">人机界面设计与开发</p>
+          </div>
+
+          <div class="service-card card-hover fade-in" data-delay="200">
+            <div class="service-icon green">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01"/>
+              </svg>
+            </div>
+            <h3 class="service-title">QNX系统</h3>
+            <p class="service-desc">安全可靠的嵌入式系统</p>
+          </div>
+
+          <div class="service-card card-hover fade-in" data-delay="250">
+            <div class="service-icon orange">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4"/>
+              </svg>
+            </div>
+            <h3 class="service-title">Linux系统开发</h3>
+            <p class="service-desc">定制化Linux解决方案</p>
+          </div>
+
+          <div class="service-card card-hover fade-in" data-delay="300">
+            <div class="service-icon cyan">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>
+              </svg>
+            </div>
+            <h3 class="service-title">域控制器</h3>
+            <p class="service-desc">集中式电子电气架构</p>
+          </div>
+
+          <div class="service-card card-hover fade-in" data-delay="350">
+            <div class="service-icon pink">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071c3.904-3.905 10.236-3.905 14.14 0M1.394 9.393c5.857-5.857 15.355-5.857 21.213 0"/>
+              </svg>
+            </div>
+            <h3 class="service-title">车载以太网</h3>
+            <p class="service-desc">高速车载通信网络</p>
+          </div>
+
+          <div class="service-card card-hover fade-in" data-delay="400">
+            <div class="service-icon indigo">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+              </svg>
+            </div>
+            <h3 class="service-title">智能天线</h3>
+            <p class="service-desc">多频段智能通信天线</p>
+          </div>
+
+          <div class="service-card card-hover fade-in" data-delay="450">
+            <div class="service-icon yellow">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/>
+              </svg>
+            </div>
+            <h3 class="service-title">媒体互联</h3>
+            <p class="service-desc">多屏互动与内容共享</p>
+          </div>
+
+          <div class="service-card card-hover fade-in" data-delay="500">
+            <div class="service-icon teal">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M13 10V3L4 14h7v7l9-11h-7z"/>
+              </svg>
+            </div>
+            <h3 class="service-title">V2X</h3>
+            <p class="service-desc">车联网通信技术</p>
+          </div>
+
+          <div class="service-card card-hover fade-in" data-delay="550">
+            <div class="service-icon red">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                <path d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+              </svg>
+            </div>
+            <h3 class="service-title">ADAS</h3>
+            <p class="service-desc">高级驾驶辅助系统</p>
+          </div>
+
+          <div class="service-card card-hover fade-in" data-delay="600">
+            <div class="service-icon emerald">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"/>
+              </svg>
+            </div>
+            <h3 class="service-title">APP开发</h3>
+            <p class="service-desc">移动端应用开发服务</p>
+          </div>
+
+          <div class="service-card card-hover fade-in" data-delay="650">
+            <div class="service-icon rose">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+            </div>
+            <h3 class="service-title">软件测试</h3>
+            <p class="service-desc">全方位质量保障服务</p>
+          </div>
+
+          <div class="service-card card-hover fade-in" data-delay="700">
+            <div class="service-icon violet">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/>
+              </svg>
+            </div>
+            <h3 class="service-title">智能座舱整体解决方案</h3>
+            <p class="service-desc">一站式智能座舱服务</p>
+          </div>
+
+          <div class="service-card card-hover fade-in" data-delay="750">
+            <div class="service-icon amber">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"/>
+              </svg>
+            </div>
+            <h3 class="service-title">数据中台整体解决方案</h3>
+            <p class="service-desc">企业级数据平台建设</p>
+          </div>
+
+          <div class="service-card card-hover fade-in" data-delay="800">
+            <div class="service-icon sky">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+              </svg>
+            </div>
+            <h3 class="service-title">IT数字化转型方案</h3>
+            <p class="service-desc">企业数字化升级服务</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 服务案例 -->
+    <section class="cases-section" id="cases">
+      <div class="max-container">
+        <div class="section-header fade-in">
+          <span class="section-badge">🎯 成功案例</span>
+          <h2 class="section-title">行业标杆案例</h2>
+          <p class="section-desc">我们已成功为众多终端厂商提供智能化解决方案</p>
+        </div>
+
+        <div class="cases-grid">
+          <div class="case-card fade-in" onclick="showToast('某全球领先品牌旗舰手机系统优化项目已成功交付！')">
+            <img src="https://images.unsplash.com/photo-1546054454-aa26e2b734c7?auto=format&fit=crop&w=800&q=80" alt="移动终端" class="case-image" />
+            <div class="case-content">
+              <span class="case-tag blue">移动终端</span>
+              <h4 class="case-title">某全球领先品牌旗舰手机系统优化</h4>
+              <p class="case-desc">深度调优内核，显著降低功耗并提升流畅度。</p>
+            </div>
+          </div>
+
+          <div class="case-card fade-in" onclick="showToast('智能座舱人机交互系统开发项目已成功交付！')">
+            <img src="https://images.unsplash.com/photo-1558346490-a72e53ae2d4f?auto=format&fit=crop&w=800&q=80" alt="智能汽车" class="case-image" />
+            <div class="case-content">
+              <span class="case-tag purple">智能汽车</span>
+              <h4 class="case-title">智能座舱人机交互系统开发</h4>
+              <p class="case-desc">多屏联动与全场景语音交互，重定义智能驾驶体验。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 服务优势 -->
+    <section class="advantages-section" id="advantages">
+      <div class="max-container">
+        <div class="section-header fade-in">
+          <span class="section-badge">🏆 核心优势</span>
+          <h2 class="section-title">我们的优势</h2>
+          <p class="section-desc">专业团队与成熟技术体系，为您的智能终端业务保驾护航</p>
+        </div>
+
+        <div class="advantages-grid">
+          <div class="advantage-card fade-in" data-delay="100">
+            <div class="advantage-number blue">01</div>
+            <h4 class="advantage-title">经验丰富</h4>
+            <p class="advantage-desc">专注智能终端多年服务方案供应商</p>
+          </div>
+
+          <div class="advantage-card fade-in" data-delay="200">
+            <div class="advantage-number purple">02</div>
+            <h4 class="advantage-title">技术领先</h4>
+            <p class="advantage-desc">底层驱动与系统优化核心技术</p>
+          </div>
+
+          <div class="advantage-card fade-in" data-delay="300">
+            <div class="advantage-number green">03</div>
+            <h4 class="advantage-title">全栈覆盖</h4>
+            <p class="advantage-desc">从硬件到软件的全栈解决方案</p>
+          </div>
+
+          <div class="advantage-card fade-in" data-delay="400">
+            <div class="advantage-number orange">04</div>
+            <h4 class="advantage-title">品质保障</h4>
+            <p class="advantage-desc">端到端全过程测试服务</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" id="contact">
+      <div class="max-container">
+        <div class="cta-content fade-in">
+          <h2 class="cta-title">准备好开启智能终端新篇章了吗？</h2>
+          <p class="cta-desc">与我们的专家团队交流，获取定制化的智能终端解决方案</p>
+          <div class="cta-actions">
+            <a href="mailto:contact@kunlunera.com" class="btn-primary">预约咨询</a>
+            <a href="#services" class="btn-secondary">了解更多</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <Footer />
   </div>
 </Layout>
 
 <style>
-  .page-content {
-    min-height: calc(100vh - 80px);
-    padding: 120px 12% 60px;
-    text-align: center;
-  }
-
-  .page-content h1 {
-    font-size: 48px;
-    font-weight: 700;
-    color: #111827;
-    margin-bottom: 16px;
-  }
-
-  .subtitle {
-    font-size: 18px;
-    color: #666;
-  }
+  @import '../../styles/terminal.scss';
 </style>
+
+<script>
+  // Intersection Observer for animations
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const delay = entry.target.dataset.delay || 0;
+        setTimeout(() => {
+          entry.target.classList.add('visible');
+        }, delay);
+      }
+    });
+  }, observerOptions);
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  // Toast notification
+  function showToast(message) {
+    const toast = document.createElement('div');
+    toast.className = 'toast-notification';
+    toast.textContent = message;
+    toast.style.cssText = `
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      background: #10b981;
+      color: white;
+      padding: 1rem 1.5rem;
+      border-radius: 0.5rem;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+      z-index: 1000;
+      animation: slideIn 0.3s ease;
+    `;
+    document.body.appendChild(toast);
+    setTimeout(() => {
+      toast.style.animation = 'slideOut 0.3s ease';
+      setTimeout(() => toast.remove(), 300);
+    }, 3000);
+  }
+
+  // Add keyframe animations
+  const style = document.createElement('style');
+  style.textContent = `
+    @keyframes slideIn {
+      from { transform: translateX(100%); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
+    }
+    @keyframes slideOut {
+      from { transform: translateX(0); opacity: 1; }
+      to { transform: translateX(100%); opacity: 0; }
+    }
+  `;
+  document.head.appendChild(style);
+</script>

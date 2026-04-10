@@ -4,33 +4,216 @@ import Navbar from '../../components/Navbar.astro';
 import Footer from '../../components/Footer.astro';
 ---
 
-<Layout title="能源科技 - 企业官网">
+<Layout title="能源科技 - 昆仑时代 - 全球化软件与信息技术服务商">
   <div class="page-container">
     <Navbar />
-    <div class="page-content">
-      <h1>能源科技</h1>
-      <p class="subtitle">推动能源行业数字化转型升级</p>
-    </div>
+
+    <!-- 英雄区 -->
+    <section class="hero-section" id="hero">
+      <div class="max-container">
+        <div class="hero-badge">
+          <span class="badge-text">⚡ 绿色能源</span>
+        </div>
+        <h1 class="hero-title">能源科技</h1>
+        <p class="hero-desc">
+          聚焦智慧能源管理、碳中和数字化平台及智能电网调度。利用大数据与AI预测模型，优化能源配置效率，助力企业实现节能减排与可持续发展目标。
+        </p>
+        <div class="hero-actions">
+          <a href="#services" class="btn-primary">探索服务 →</a>
+          <a href="#contact" class="btn-secondary">预约咨询</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 服务模块 -->
+    <section class="services-section" id="services">
+      <div class="max-container">
+        <div class="section-header fade-in">
+          <span class="section-badge">💼 核心服务</span>
+          <h2 class="section-title">提供的服务</h2>
+          <p class="section-desc">覆盖能源行业全栈技术领域，提供专业的数字化解决方案</p>
+        </div>
+
+        <div class="services-grid">
+          <div class="service-card card-hover fade-in" data-delay="100">
+            <div class="service-icon blue">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z"/>
+                <path d="M9.879 16.121A3 3 0 1012.015 11L11 14H9c0 .768.293 1.536.879 2.121z"/>
+              </svg>
+            </div>
+            <h3 class="service-title">油气行业数字化</h3>
+            <p class="service-desc">助力油气行业数字化转型，提供智慧油田、智慧管道等专业数字化服务。</p>
+          </div>
+
+          <div class="service-card card-hover fade-in" data-delay="200">
+            <div class="service-icon green">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>
+              </svg>
+            </div>
+            <h3 class="service-title">石化行业数字化</h3>
+            <p class="service-desc">致力于助力客户推动网络科技与石化行业深度融合，打造集供应链管理、油站运营、智能制造的产业数字平台。</p>
+          </div>
+
+          <div class="service-card card-hover fade-in" data-delay="300">
+            <div class="service-icon purple">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M9 17V7m0 10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h2a2 2 0 012 2m0 10a2 2 0 002 2h2a2 2 0 002-2M9 7a2 2 0 012-2h2a2 2 0 012 2m0 10V7m0 10a2 2 0 002 2h2a2 2 0 002-2V7a2 2 0 00-2-2h-2a2 2 0 00-2 2"/>
+              </svg>
+            </div>
+            <h3 class="service-title">数字化管理服务</h3>
+            <p class="service-desc">助力客户构建起咨询、设计、研发、交付、运营，完整的数字化管理体系，实现智慧经营、智能制造、商业新业态。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 服务案例 -->
+    <section class="cases-section" id="cases">
+      <div class="max-container">
+        <div class="section-header fade-in">
+          <span class="section-badge">🎯 成功案例</span>
+          <h2 class="section-title">行业标杆案例</h2>
+          <p class="section-desc">我们已成功为众多能源企业提供智能化数字化解决方案</p>
+        </div>
+
+        <div class="cases-grid">
+          <div class="case-card fade-in" onclick="showToast('某省级电网智慧调度系统已成功交付！')">
+            <img src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=800&q=80" alt="智能电网" class="case-image" />
+            <div class="case-content">
+              <span class="case-tag blue">智能电网</span>
+              <h4 class="case-title">某省级电网智慧调度系统</h4>
+              <p class="case-desc">实现多源能源协同优化，有效提升可再生能源消纳比例。</p>
+            </div>
+          </div>
+
+          <div class="case-card fade-in" onclick="showToast('工业园区零碳管理平台已成功交付！')">
+            <img src="https://images.unsplash.com/photo-1466611653911-95282fc3656b?auto=format&fit=crop&w=800&q=80" alt="碳中和" class="case-image" />
+            <div class="case-content">
+              <span class="case-tag green">碳中和</span>
+              <h4 class="case-title">工业园区零碳管理平台</h4>
+              <p class="case-desc">通过微电网与能源回收利用，实现园区能耗下降20%。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 服务优势 -->
+    <section class="advantages-section" id="advantages">
+      <div class="max-container">
+        <div class="section-header fade-in">
+          <span class="section-badge">🏆 核心优势</span>
+          <h2 class="section-title">我们的优势</h2>
+          <p class="section-desc">专业团队与成熟技术体系，为您的能源业务保驾护航</p>
+        </div>
+
+        <div class="advantages-grid">
+          <div class="advantage-card fade-in" data-delay="100">
+            <div class="advantage-number blue">01</div>
+            <h4 class="advantage-title">经验丰富</h4>
+            <p class="advantage-desc">深耕能源行业多年</p>
+          </div>
+
+          <div class="advantage-card fade-in" data-delay="200">
+            <div class="advantage-number green">02</div>
+            <h4 class="advantage-title">绿色低碳</h4>
+            <p class="advantage-desc">助力碳中和目标实现</p>
+          </div>
+
+          <div class="advantage-card fade-in" data-delay="300">
+            <div class="advantage-number purple">03</div>
+            <h4 class="advantage-title">技术领先</h4>
+            <p class="advantage-desc">AI+大数据技术支撑</p>
+          </div>
+
+          <div class="advantage-card fade-in" data-delay="400">
+            <div class="advantage-number orange">04</div>
+            <h4 class="advantage-title">品质保障</h4>
+            <p class="advantage-desc">端到端全过程服务</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" id="contact">
+      <div class="max-container">
+        <div class="cta-content fade-in">
+          <h2 class="cta-title">准备好开启能源数字化转型了吗？</h2>
+          <p class="cta-desc">与我们的专家团队交流，获取定制化的能源科技解决方案</p>
+          <div class="cta-actions">
+            <a href="mailto:contact@kunlunera.com" class="btn-primary">预约咨询</a>
+            <a href="#services" class="btn-secondary">了解更多</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <Footer />
   </div>
 </Layout>
 
 <style>
-  .page-content {
-    min-height: calc(100vh - 80px);
-    padding: 120px 12% 60px;
-    text-align: center;
-  }
-
-  .page-content h1 {
-    font-size: 48px;
-    font-weight: 700;
-    color: #111827;
-    margin-bottom: 16px;
-  }
-
-  .subtitle {
-    font-size: 18px;
-    color: #666;
-  }
+  @import '../../styles/energy.scss';
 </style>
+
+<script>
+  // Intersection Observer for animations
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const delay = entry.target.dataset.delay || 0;
+        setTimeout(() => {
+          entry.target.classList.add('visible');
+        }, delay);
+      }
+    });
+  }, observerOptions);
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  // Toast notification
+  function showToast(message) {
+    const toast = document.createElement('div');
+    toast.className = 'toast-notification';
+    toast.textContent = message;
+    toast.style.cssText = `
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      background: #10b981;
+      color: white;
+      padding: 1rem 1.5rem;
+      border-radius: 0.5rem;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+      z-index: 1000;
+      animation: slideIn 0.3s ease;
+    `;
+    document.body.appendChild(toast);
+    setTimeout(() => {
+      toast.style.animation = 'slideOut 0.3s ease';
+      setTimeout(() => toast.remove(), 300);
+    }, 3000);
+  }
+
+  // Add keyframe animations
+  const style = document.createElement('style');
+  style.textContent = `
+    @keyframes slideIn {
+      from { transform: translateX(100%); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
+    }
+    @keyframes slideOut {
+      from { transform: translateX(0); opacity: 1; }
+      to { transform: translateX(100%); opacity: 0; }
+    }
+  `;
+  document.head.appendChild(style);
+</script>

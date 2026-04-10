@@ -47,8 +47,14 @@ $font-5xl: 48px;
   justify-content: space-between;
 }
 
-@mixin transition($property: all) {
-  transition: $property 0.2s ease;
+@mixin flex-start {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+@mixin transition($property: all, $duration: 0.3s) {
+  transition: $property $duration ease;
 }
 
 // 响应式断点

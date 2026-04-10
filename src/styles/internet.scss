@@ -1,0 +1,486 @@
+// 互联网方案样式 - 使用 SCSS 预处理器
+@use './variables' as *;
+
+// ========== 全局样式 ==========
+body {
+  background: $bg-dark;
+  color: $bg-white;
+  font-family: 'Inter', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  overflow-x: hidden;
+}
+
+.page-container {
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+}
+
+// ========== 进度条 ==========
+.progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #22d3ee, #3b82f6);
+  z-index: 1000;
+  width: 0;
+}
+
+// ========== 英雄区 ==========
+.hero-section {
+  padding: 160px $spacing-lg 80px;
+  max-width: 1280px;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+
+  @include respond-below($breakpoint-md) {
+    padding-top: 120px;
+  }
+}
+
+.floating-badge {
+  animation: floating 3s ease-in-out infinite;
+}
+
+@keyframes floating {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.badge {
+  display: inline-block;
+  padding: $spacing-sm $spacing-lg;
+  background: rgba(37, 99, 235, 0.2);
+  color: #60a5fa;
+  border-radius: 9999px;
+  font-size: $font-sm;
+  font-weight: 500;
+  margin-bottom: $spacing-lg;
+}
+
+.hero-title {
+  font-size: clamp(36px, 5vw, 64px);
+  font-weight: 700;
+  margin-bottom: $spacing-xl;
+  background: linear-gradient(135deg, #22d3ee 0%, #3b82f6 50%, #8b5cf6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-description {
+  font-size: $font-lg;
+  color: $text-muted;
+  max-width: 768px;
+  line-height: 1.75;
+  margin-bottom: $spacing-xl;
+}
+
+.hero-buttons {
+  @include flex-center;
+  flex-wrap: wrap;
+  gap: $spacing-md;
+}
+
+// ========== 按钮样式 ==========
+.btn-primary {
+  background: #2563eb;
+  color: white;
+  padding: 12px $spacing-3xl;
+  border-radius: 9999px;
+  font-size: $font-sm;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  @include transition(all);
+
+  &:hover {
+    background: #1d4ed8;
+  }
+}
+
+.glow-effect {
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+
+  &:hover {
+    box-shadow: 0 0 30px rgba(59, 130, 246, 0.5);
+  }
+}
+
+.btn-secondary {
+  background: transparent;
+  color: $bg-white;
+  padding: 12px $spacing-3xl;
+  border-radius: 9999px;
+  font-size: $font-sm;
+  font-weight: 500;
+  border: 1px solid #475569;
+  cursor: pointer;
+  @include transition(all);
+
+  &:hover {
+    border-color: $primary-blue;
+  }
+}
+
+// ========== 章节样式 ==========
+.services-section,
+.cases-section,
+.advantages-section {
+  padding: $spacing-3xl $spacing-lg;
+}
+
+.services-section {
+  background: rgba(15, 23, 42, 0.3);
+}
+
+.advantages-section {
+  background: rgba(37, 99, 235, 0.05);
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: $spacing-3xl;
+}
+
+.section-badge {
+  display: inline-block;
+  padding: $spacing-sm $spacing-lg;
+  background: rgba(37, 99, 235, 0.2);
+  color: #60a5fa;
+  border-radius: 9999px;
+  font-size: $font-sm;
+  font-weight: 500;
+  margin-bottom: $spacing-md;
+}
+
+.section-title {
+  font-size: clamp(28px, 4vw, 40px);
+  font-weight: 700;
+  margin-bottom: $spacing-md;
+}
+
+.section-subtitle {
+  color: $text-muted;
+  max-width: 512px;
+  margin: 0 auto;
+}
+
+// ========== 服务网格 ==========
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: $spacing-xl;
+  max-width: 1280px;
+  margin: 0 auto;
+
+  @include respond-below($breakpoint-md) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.service-card {
+  padding: $spacing-3xl;
+  background: rgba(30, 41, 59, 0.5);
+  border-radius: $spacing-lg;
+  border: 1px solid #334155;
+  @include transition(all);
+  position: relative;
+
+  &:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(59, 130, 246, 0.2);
+    border-color: $primary-blue;
+
+    .service-icon {
+      transform: scale(1.1) rotate(5deg);
+    }
+  }
+}
+
+.service-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: $spacing-md;
+  @include flex-center;
+  margin-bottom: $spacing-xl;
+  @include transition(all);
+
+  svg {
+    width: 32px;
+    height: 32px;
+  }
+
+  &.blue {
+    background: rgba(37, 99, 235, 0.2);
+
+    svg { color: #60a5fa; }
+  }
+
+  &.purple {
+    background: rgba(147, 51, 234, 0.2);
+
+    svg { color: #c084fc; }
+  }
+
+  &.green {
+    background: rgba(34, 197, 94, 0.2);
+
+    svg { color: #4ade80; }
+  }
+
+  &.orange {
+    background: rgba(249, 115, 22, 0.2);
+
+    svg { color: #fb923c; }
+  }
+
+  &.cyan {
+    background: rgba(6, 182, 212, 0.2);
+
+    svg { color: #22d3ee; }
+  }
+}
+
+.service-title {
+  font-size: $font-xl;
+  font-weight: 700;
+  margin-bottom: $spacing-md;
+}
+
+.service-description {
+  color: $text-muted;
+  font-size: $font-sm;
+  line-height: 1.6;
+}
+
+// ========== 渐变边框 ==========
+.gradient-border {
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(135deg, #22d3ee, #3b82f6, #8b5cf6);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    @include transition(opacity);
+  }
+
+  &:hover::before {
+    opacity: 1;
+  }
+}
+
+// ========== 案例网格 ==========
+.cases-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: $spacing-3xl;
+  max-width: 1280px;
+  margin: 0 auto;
+
+  @include respond-below($breakpoint-md) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.case-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: $spacing-lg;
+  cursor: pointer;
+
+  &:hover .case-image {
+    transform: scale(1.1);
+  }
+}
+
+.case-image {
+  width: 100%;
+  height: 288px;
+  object-fit: cover;
+  @include transition(transform, 0.5s);
+}
+
+.case-content {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgb(2 6 23), rgb(2 6 23 / 0.5), transparent);
+  padding: $spacing-3xl;
+  @include flex-center;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.case-tag {
+  font-size: $font-sm;
+  font-weight: 500;
+  margin-bottom: $spacing-sm;
+
+  &.blue { color: #60a5fa; }
+  &.purple { color: #c084fc; }
+}
+
+.case-title {
+  font-size: $font-xl;
+  font-weight: 700;
+  margin-bottom: $spacing-sm;
+}
+
+.case-description {
+  font-size: $font-sm;
+  color: #cbd5e1;
+}
+
+// ========== 优势网格 ==========
+.advantages-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: $spacing-lg;
+  max-width: 1280px;
+  margin: 0 auto;
+
+  @include respond-below($breakpoint-md) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include respond-below($breakpoint-sm) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.advantage-card {
+  text-align: center;
+  padding: $spacing-3xl;
+  background: rgba(30, 41, 59, 0.5);
+  border-radius: $spacing-lg;
+  border: 1px solid #334155;
+  @include transition(all);
+
+  &:hover {
+    border-color: $primary-blue;
+  }
+}
+
+.advantage-number {
+  width: 64px;
+  height: 64px;
+  border-radius: 9999px;
+  @include flex-center;
+  margin: 0 auto $spacing-md;
+  font-size: $font-2xl;
+  font-weight: 700;
+
+  &.blue {
+    background: rgba(37, 99, 235, 0.2);
+    color: #60a5fa;
+  }
+
+  &.purple {
+    background: rgba(147, 51, 234, 0.2);
+    color: #c084fc;
+  }
+
+  &.green {
+    background: rgba(34, 197, 94, 0.2);
+    color: #4ade80;
+  }
+
+  &.orange {
+    background: rgba(249, 115, 22, 0.2);
+    color: #fb923c;
+  }
+}
+
+.advantage-title {
+  font-size: $font-lg;
+  font-weight: 700;
+  margin-bottom: $spacing-sm;
+}
+
+.advantage-description {
+  color: $text-muted;
+  font-size: $font-sm;
+}
+
+// ========== CTA 区域 ==========
+.cta-section {
+  padding: $spacing-3xl $spacing-lg;
+}
+
+.cta-content {
+  max-width: 896px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.cta-title {
+  font-size: clamp(28px, 4vw, 40px);
+  font-weight: 700;
+  margin-bottom: $spacing-lg;
+  background: linear-gradient(135deg, #22d3ee 0%, #3b82f6 50%, #8b5cf6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.cta-description {
+  color: $text-muted;
+  margin-bottom: $spacing-xl;
+}
+
+.cta-buttons {
+  @include flex-center;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: $spacing-md;
+}
+
+// ========== Toast 通知 ==========
+.toast {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  background: #10b981;
+  color: white;
+  padding: $spacing-md $spacing-xl;
+  border-radius: $spacing-md;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  transform: translateY(100px);
+  opacity: 0;
+  @include transition(all);
+  z-index: 200;
+
+  &.show {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.toast-content {
+  @include flex-center;
+  gap: $spacing-md;
+}
+
+.toast-icon {
+  width: 24px;
+  height: 24px;
+}
+
+// ========== 动画效果 ==========
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  @include transition(opacity, 0.6s);
+  @include transition(transform, 0.6s);
+
+  &.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

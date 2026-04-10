@@ -4,33 +4,251 @@ import Navbar from '../../components/Navbar.astro';
 import Footer from '../../components/Footer.astro';
 ---
 
-<Layout title="互联网 - 企业官网">
+<Layout title="互联网 | 昆仑时代 - 全球化软件与信息技术服务商">
   <div class="page-container">
     <Navbar />
-    <div class="page-content">
-      <h1>互联网</h1>
-      <p class="subtitle">助力互联网企业实现技术升级与业务创新</p>
+    <div class="progress-bar" id="progressBar"></div>
+
+    <!-- Hero Section -->
+    <header class="hero-section" id="hero">
+      <div class="floating-badge">
+        <span class="badge">🌐 连接世界</span>
+      </div>
+      <h1 class="hero-title">互联网</h1>
+      <p class="hero-description">
+        为互联网企业提供高并发、高可用、可扩展的分布式架构设计与云原生化改造。涵盖社交电商、内容分发、在线教育等多个领域，支撑海量用户增长与业务快速演进。
+      </p>
+      <div class="hero-buttons">
+        <button class="btn-primary glow-effect" onclick="scrollToSection('services')">探索服务 →</button>
+        <button class="btn-secondary" onclick="openContactModal()">预约咨询</button>
+      </div>
+    </header>
+
+    <!-- Services Section -->
+    <section class="services-section" id="services">
+      <div class="section-header fade-in">
+        <span class="section-badge">💼 核心服务</span>
+        <h2 class="section-title">提供的服务</h2>
+        <p class="section-subtitle">覆盖互联网全栈技术领域，提供专业的解决方案</p>
+      </div>
+
+      <div class="services-grid">
+        <div class="service-card card-hover gradient-border fade-in" data-delay="100">
+          <div class="service-icon blue">
+            <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+          </div>
+          <h3 class="service-title">研发测试</h3>
+          <p class="service-description">以领先的技术研发能力与全流程的测试服务能力为产品质量保驾护航。</p>
+        </div>
+
+        <div class="service-card card-hover gradient-border fade-in" data-delay="200">
+          <div class="service-icon purple">
+            <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+            </svg>
+          </div>
+          <h3 class="service-title">数据分析</h3>
+          <p class="service-description">面向互联网产品提供用户数据分析，行为数据分析，以及业务数据分析。</p>
+        </div>
+
+        <div class="service-card card-hover gradient-border fade-in" data-delay="300">
+          <div class="service-icon green">
+            <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z"></path>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z"></path>
+            </svg>
+          </div>
+          <h3 class="service-title">产品运营</h3>
+          <p class="service-description">为互联网行业头部客户提供互联网各类产品如广告类、工具类、平台类的运营服务和解决方案。</p>
+        </div>
+
+        <div class="service-card card-hover gradient-border fade-in" data-delay="400">
+          <div class="service-icon orange">
+            <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+            </svg>
+          </div>
+          <h3 class="service-title">数据审核</h3>
+          <p class="service-description">为互联网行业头部客户提供互联网各类产品如广告类、工具类、平台类的运营服务和解决方案。</p>
+        </div>
+
+        <div class="service-card card-hover gradient-border fade-in" data-delay="500">
+          <div class="service-icon cyan">
+            <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path>
+            </svg>
+          </div>
+          <h3 class="service-title">互联网+</h3>
+          <p class="service-description">探索用户与产业的创新互动模式，助力零售、医疗、教育、交通等产业在互联网领域的发展。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Cases Section -->
+    <section class="cases-section" id="cases">
+      <div class="section-header fade-in">
+        <span class="section-badge">🎯 成功案例</span>
+        <h2 class="section-title">行业标杆案例</h2>
+        <p class="section-subtitle">我们已成功为众多互联网企业提供高并发、高可用的技术解决方案</p>
+      </div>
+
+      <div class="cases-grid">
+        <div class="case-card fade-in" onclick="showToast('知名电商平台双11技术护航项目已成功交付！')">
+          <img alt="电商平台案例" class="case-image" src="https://images.unsplash.com/photo-1557821552-17105176677c?auto=format&fit=crop&w=800&q=80">
+          <div class="case-content">
+            <span class="case-tag blue">电商平台</span>
+            <h4 class="case-title">知名电商平台双11技术护航</h4>
+            <p class="case-description">通过全链路压测与资源调度，平稳支撑百万级QPS峰值。</p>
+          </div>
+        </div>
+
+        <div class="case-card fade-in" onclick="showToast('某头部在线教育平台直播系统已成功交付！')">
+          <img alt="在线教育案例" class="case-image" src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80">
+          <div class="case-content">
+            <span class="case-tag purple">在线教育</span>
+            <h4 class="case-title">某头部在线教育平台直播系统</h4>
+            <p class="case-description">实现超低延迟实时互动，覆盖全国千万级学生用户。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Advantages Section -->
+    <section class="advantages-section" id="advantages">
+      <div class="section-header fade-in">
+        <span class="section-badge">🏆 核心优势</span>
+        <h2 class="section-title">我们的优势</h2>
+        <p class="section-subtitle">专业团队与成熟技术体系，为您的互联网业务保驾护航</p>
+      </div>
+
+      <div class="advantages-grid">
+        <div class="advantage-card fade-in" data-delay="100">
+          <div class="advantage-number blue">
+            <span>01</span>
+          </div>
+          <h4 class="advantage-title">经验丰富</h4>
+          <p class="advantage-description">深耕互联网行业多年</p>
+        </div>
+
+        <div class="advantage-card fade-in" data-delay="200">
+          <div class="advantage-number purple">
+            <span>02</span>
+          </div>
+          <h4 class="advantage-title">技术领先</h4>
+          <p class="advantage-description">高并发分布式架构技术</p>
+        </div>
+
+        <div class="advantage-card fade-in" data-delay="300">
+          <div class="advantage-number green">
+            <span>03</span>
+          </div>
+          <h4 class="advantage-title">全栈覆盖</h4>
+          <p class="advantage-description">从前端到后端全栈服务</p>
+        </div>
+
+        <div class="advantage-card fade-in" data-delay="400">
+          <div class="advantage-number orange">
+            <span>04</span>
+          </div>
+          <h4 class="advantage-title">品质保障</h4>
+          <p class="advantage-description">端到端全过程服务</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+      <div class="cta-content fade-in">
+        <h2 class="cta-title">准备好开启互联网新篇章了吗？</h2>
+        <p class="cta-description">与我们的专家团队交流，获取定制化的互联网解决方案</p>
+        <div class="cta-buttons">
+          <button class="btn-primary glow-effect" onclick="openContactModal()">预约咨询</button>
+          <button class="btn-secondary" onclick="scrollToSection('services')">了解更多</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Toast -->
+    <div class="toast" id="toast">
+      <div class="toast-content">
+        <svg class="toast-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+        </svg>
+        <span id="toastMessage">操作成功！</span>
+      </div>
     </div>
+
     <Footer />
   </div>
 </Layout>
 
 <style>
-  .page-content {
-    min-height: calc(100vh - 80px);
-    padding: 120px 12% 60px;
-    text-align: center;
-  }
-
-  .page-content h1 {
-    font-size: 48px;
-    font-weight: 700;
-    color: #111827;
-    margin-bottom: 16px;
-  }
-
-  .subtitle {
-    font-size: 18px;
-    color: #666;
-  }
+  @import '../../styles/internet.scss';
 </style>
+
+<script>
+  // Scroll to section
+  function scrollToSection(sectionId: string) {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+
+  // Contact Modal
+  function openContactModal() {
+    showToast('请联系：400-888-9999');
+  }
+
+  // Show toast
+  function showToast(message: string) {
+    const toast = document.getElementById('toast') as HTMLElement;
+    const toastMessage = document.getElementById('toastMessage') as HTMLElement;
+    if (toast && toastMessage) {
+      toastMessage.textContent = message;
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 3000);
+    }
+  }
+
+  // Progress bar
+  window.addEventListener('scroll', () => {
+    const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const scrolled = (winScroll / height) * 100;
+    const progressBar = document.getElementById('progressBar') as HTMLElement;
+    if (progressBar) {
+      progressBar.style.width = scrolled + '%';
+    }
+  });
+
+  // Intersection Observer for animations
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const delay = (entry.target as HTMLElement).dataset.delay || '0';
+        setTimeout(() => {
+          entry.target.classList.add('visible');
+        }, parseInt(delay));
+      }
+    });
+  }, observerOptions);
+
+  // Observe elements
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  // Initialize hero animation
+  window.addEventListener('load', () => {
+    const hero = document.getElementById('hero');
+    if (hero) {
+      hero.classList.add('visible');
+    }
+  });
+</script>
