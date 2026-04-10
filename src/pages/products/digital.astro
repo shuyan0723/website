@@ -7,30 +7,562 @@ import Footer from '../../components/Footer.astro';
 <Layout title="数字化运营服务 - 企业官网">
   <div class="page-container">
     <Navbar />
-    <div class="page-content">
-      <h1>数字化运营服务</h1>
-      <p class="subtitle">通过数字化手段提升企业运营效率与业务价值</p>
-    </div>
+
+    <!-- 头部标题区 -->
+    <section class="digital-header">
+      <h1 class="page-title">数字化运营服务</h1>
+      <p class="page-desc">
+        数字化运营服务聚焦互联网、金融、智能终端、能源科技等行业，为客户提供呼叫中心服务、金融后台服务和互联网相关服务等。近几年，公司数字化运营服务业务规模高速增长，服务团队规模不断扩大，目前已经在国内建立了多个离岸交付基地。拥有众多的行业伙伴、培训机构和合作院校等资源，致力为客户提供专业且高质量数字化运营服务，助力客户业务发展。
+      </p>
+    </section>
+
+    <!-- 服务结构 -->
+    <section class="service-structure">
+      <div class="structure-content">
+        <div class="structure-left">
+          <h2 class="structure-title">全方位的运营体系</h2>
+          <p class="structure-desc">我们建立了从基地建设、团队招聘、专业培训到交付管理的闭环数字化运营体系，确保每一个交付环节都达到行业最高标准。</p>
+          <ul class="structure-list">
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="#3a78f5" stroke-width="2">
+                <path d="M9 11l3 3L22 4"/>
+                <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+              </svg>
+              <span>多个国内离岸交付基地</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="#3a78f5" stroke-width="2">
+                <path d="M9 11l3 3L22 4"/>
+                <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+              </svg>
+              <span>丰富的行业伙伴与院校资源</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="#3a78f5" stroke-width="2">
+                <path d="M9 11l3 3L22 4"/>
+                <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+              </svg>
+              <span>专业化的人才培育与输出能力</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="structure-right">
+          <div class="ring-container">
+            <div class="ring-center">
+              <span>数字化运营<br/>核心</span>
+            </div>
+
+            <div class="ring-item item-1">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#3a78f5" stroke-width="2">
+                <path d="M3 18v-6a9 9 0 0 1 18 0v6"/>
+                <path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/>
+              </svg>
+              <span>呼叫中心</span>
+            </div>
+
+            <div class="ring-item item-2">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#3a78f5" stroke-width="2">
+                <rect x="2" y="7" width="20" height="14" rx="2"/>
+                <path d="M12 22v-5"/>
+                <path d="M8 22h8"/>
+              </svg>
+              <span>金融后台</span>
+            </div>
+
+            <div class="ring-item item-3">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#3a78f5" stroke-width="2">
+                <circle cx="12" cy="12" r="10"/>
+                <line x1="2" y1="12" x2="22" y2="12"/>
+                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+              </svg>
+              <span>互联网服务</span>
+            </div>
+
+            <div class="ring-item item-4">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#3a78f5" stroke-width="2">
+                <circle cx="11" cy="11" r="8"/>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+              </svg>
+              <span>数据标注</span>
+            </div>
+
+            <div class="ring-item item-5">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#3a78f5" stroke-width="2">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              </svg>
+              <span>内容审核</span>
+            </div>
+
+            <div class="ring-item item-6">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#3a78f5" stroke-width="2">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                <circle cx="9" cy="7" r="4"/>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+              </svg>
+              <span>流程外包</span>
+            </div>
+
+            <div class="ring-decoration ring-1"></div>
+            <div class="ring-decoration ring-2"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 服务案例 -->
+    <section class="service-cases">
+      <div class="cases-header">
+        <h2 class="cases-title">服务案例</h2>
+        <div class="title-line"></div>
+      </div>
+
+      <div class="cases-grid">
+        <div class="case-card">
+          <div class="case-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#3a78f5" stroke-width="2">
+              <rect x="2" y="5" width="20" height="14" rx="2"/>
+              <line x1="12" y1="12" x2="12" y2="12"/>
+            </svg>
+          </div>
+          <h3 class="case-title">某大型国有银行后台运营</h3>
+          <p class="case-desc">提供覆盖全国的金融后台凭证数字化、业务清算外包服务，年处理数据量超千万笔，准确率99.99%。</p>
+          <div class="case-tag">金融行业</div>
+        </div>
+
+        <div class="case-card">
+          <div class="case-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#3a78f5" stroke-width="2">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+            </svg>
+          </div>
+          <h3 class="case-title">电商巨头多语言客服中心</h3>
+          <p class="case-desc">建立支持英、日、韩、中多语言呼叫中心，覆盖全球用户售后咨询，满意度评分连续三年位居行业前列。</p>
+          <div class="case-tag">互联网行业</div>
+        </div>
+
+        <div class="case-card">
+          <div class="case-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#3a78f5" stroke-width="2">
+              <rect x="3" y="11" width="18" height="10" rx="2"/>
+              <circle cx="12" cy="5" r="2"/>
+              <path d="M12 7v4"/>
+              <line x1="8" y1="16" x2="8" y2="16"/>
+              <line x1="16" y1="16" x2="16" y2="16"/>
+            </svg>
+          </div>
+          <h3 class="case-title">智能汽车数据标注项目</h3>
+          <p class="case-desc">组织超过500人专业团队，为头部车企提供L4级自动驾驶视觉数据标注服务，助力算法快速迭代。</p>
+          <div class="case-tag">智能终端</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 服务优势 -->
+    <section class="service-advantages">
+      <div class="advantages-header">
+        <h2 class="advantages-title">为什么选择我们</h2>
+        <div class="title-line"></div>
+      </div>
+
+      <div class="advantages-grid">
+        <div class="advantage-card">
+          <h4 class="adv-title">全国布局</h4>
+          <p class="adv-desc">在多个城市设有大规模离岸交付中心，具备强大的抗风险能力和灵活的弹性资源调度能力。</p>
+        </div>
+
+        <div class="advantage-card">
+          <h4 class="adv-title">人才资源优势</h4>
+          <p class="adv-desc">与国内50余家院校建立人才输送协议，拥有完善的岗前培训体系，确保人才库持续充盈。</p>
+        </div>
+
+        <div class="advantage-card">
+          <h4 class="adv-title">数字化提效</h4>
+          <p class="adv-desc">自主研发运营管理平台，实现项目进度、质量、成本的实时监控，比传统运营效率提升25%以上。</p>
+        </div>
+
+        <div class="advantage-card">
+          <h4 class="adv-title">严格合规</h4>
+          <p class="adv-desc">通过ISO27001信息安全认证，拥有完善的数据隐私保护机制，确保客户核心业务数据安全。</p>
+        </div>
+      </div>
+    </section>
+
     <Footer />
   </div>
 </Layout>
 
 <style>
-  .page-content {
-    min-height: calc(100vh - 80px);
-    padding: 120px 12% 60px;
-    text-align: center;
+/* ========== 全局背景 ========== */
+.page-container {
+  background: #0a1028;
+}
+
+/* ========== 头部标题区 ========== */
+.digital-header {
+  padding: 120px 12% 60px;
+  text-align: center;
+}
+
+.page-title {
+  font-size: 48px;
+  font-weight: 700;
+  background: linear-gradient(135deg, #ffffff 0%, #3a78f5 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 24px;
+}
+
+.page-desc {
+  font-size: 18px;
+  color: #c2c7d6;
+  line-height: 1.8;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* ========== 服务结构 ========== */
+.service-structure {
+  background: rgba(58, 78, 213, 0.08);
+  padding: 80px 12%;
+}
+
+.structure-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 80px;
+}
+
+.structure-left {
+  flex: 1;
+}
+
+.structure-title {
+  font-size: 32px;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 20px;
+}
+
+.structure-desc {
+  font-size: 16px;
+  color: #c2c7d6;
+  line-height: 1.8;
+  margin-bottom: 32px;
+}
+
+.structure-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.structure-list li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #c2c7d6;
+  font-size: 16px;
+}
+
+.structure-list li svg {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+.structure-right {
+  flex: 0 0 400px;
+  display: flex;
+  justify-content: center;
+}
+
+/* 环形图 */
+.ring-container {
+  position: relative;
+  width: 360px;
+  height: 360px;
+}
+
+.ring-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100px;
+  height: 100px;
+  background: rgba(58, 120, 245, 0.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 600;
+  color: #ffffff;
+  border: 2px solid rgba(58, 120, 245, 0.4);
+}
+
+.ring-item {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  font-size: 13px;
+  color: #c2c7d6;
+}
+
+.ring-item svg {
+  width: 24px;
+  height: 24px;
+}
+
+.ring-item.item-1 {
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.ring-item.item-2 {
+  top: 25%;
+  right: 0;
+  transform: translate(50%, -50%);
+}
+
+.ring-item.item-3 {
+  bottom: 25%;
+  right: 0;
+  transform: translate(50%, 50%);
+}
+
+.ring-item.item-4 {
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 50%);
+}
+
+.ring-item.item-5 {
+  bottom: 25%;
+  left: 0;
+  transform: translate(-50%, 50%);
+}
+
+.ring-item.item-6 {
+  top: 25%;
+  left: 0;
+  transform: translate(-50%, -50%);
+}
+
+.ring-decoration {
+  position: absolute;
+  border: 1px solid rgba(58, 120, 245, 0.2);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.ring-1 {
+  inset: 0;
+}
+
+.ring-2 {
+  inset: 40px;
+  border-color: rgba(58, 120, 245, 0.1);
+}
+
+/* ========== 服务案例 ========== */
+.service-cases {
+  padding: 80px 12%;
+}
+
+.cases-header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.cases-title {
+  font-size: 32px;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 16px;
+}
+
+.title-line {
+  width: 80px;
+  height: 3px;
+  background: #3a78f5;
+  margin: 0 auto;
+  border-radius: 2px;
+}
+
+.cases-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.case-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 32px;
+  transition: all 0.3s ease;
+}
+
+.case-card:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(58, 120, 245, 0.3);
+  transform: translateY(-4px);
+}
+
+.case-icon {
+  width: 48px;
+  height: 48px;
+  background: rgba(58, 120, 245, 0.15);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.case-icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.case-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 12px;
+}
+
+.case-desc {
+  font-size: 14px;
+  color: #c2c7d6;
+  line-height: 1.7;
+  margin-bottom: 16px;
+}
+
+.case-tag {
+  font-size: 12px;
+  color: #3a78f5;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* ========== 服务优势 ========== */
+.service-advantages {
+  background: rgba(58, 78, 213, 0.05);
+  padding: 80px 12% 100px;
+}
+
+.advantages-header {
+  text-align: center;
+  margin-bottom: 64px;
+}
+
+.advantages-title {
+  font-size: 32px;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 16px;
+}
+
+.advantages-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.advantage-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(58, 120, 245, 0.2);
+  border-radius: 12px;
+  padding: 24px;
+  transition: all 0.3s ease;
+}
+
+.advantage-card:hover {
+  background: rgba(58, 120, 245, 0.08);
+  border-color: rgba(58, 120, 245, 0.4);
+}
+
+.adv-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #3a78f5;
+  margin-bottom: 12px;
+}
+
+.adv-desc {
+  font-size: 13px;
+  color: #c2c7d6;
+  line-height: 1.7;
+}
+
+/* ========== 响应式 ========== */
+@media (max-width: 1200px) {
+  .structure-content {
+    flex-direction: column;
+    gap: 60px;
   }
 
-  .page-content h1 {
-    font-size: 48px;
-    font-weight: 700;
-    color: #111827;
-    margin-bottom: 16px;
+  .structure-right {
+    flex: 0 0 auto;
   }
 
-  .subtitle {
-    font-size: 18px;
-    color: #666;
+  .cases-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
+
+  .advantages-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .digital-header,
+  .service-structure,
+  .service-cases,
+  .service-advantages {
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+
+  .page-title {
+    font-size: 32px;
+  }
+
+  .page-desc {
+    font-size: 16px;
+  }
+
+  .structure-title,
+  .cases-title,
+  .advantages-title {
+    font-size: 24px;
+  }
+
+  .cases-grid,
+  .advantages-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ring-container {
+    width: 280px;
+    height: 280px;
+  }
+}
 </style>
