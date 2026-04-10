@@ -57,6 +57,61 @@
   }
 }
 
+// ========== 下拉菜单 ==========
+.nav-item-dropdown {
+  position: relative;
+
+  .dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    min-width: 180px;
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+    padding: 8px 0;
+    list-style: none;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 100;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: -6px;
+      left: 50%;
+      transform: translateX(-50%);
+      border-left: 6px solid transparent;
+      border-right: 6px solid transparent;
+      border-bottom: 6px solid #ffffff;
+    }
+
+    li {
+      a {
+        display: block;
+        padding: 10px 20px;
+        font-size: 14px;
+        color: #666;
+        text-decoration: none;
+        transition: all 0.2s ease;
+
+        &:hover {
+          color: $primary-blue;
+          background: #f5f9ff;
+        }
+      }
+    }
+  }
+
+  &:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
 // 响应式
 @include respond-below($breakpoint-lg) {
   .contact-btn {

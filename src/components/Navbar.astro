@@ -5,7 +5,15 @@ const currentPath = Astro.url.pathname;
 <nav class="navbar">
   <ul class="nav-list">
     <li><a href="/" class={currentPath === '/' ? 'active' : ''}>首页</a></li>
-    <li><a href="/products" class={currentPath.startsWith('/products') ? 'active' : ''}>产品服务</a></li>
+    <li class="nav-item-dropdown">
+      <a href="/products" class={currentPath.startsWith('/products') ? 'active' : ''}>产品服务</a>
+      <ul class="dropdown-menu">
+        <li><a href="/products/hardware">软硬件产品开发</a></li>
+        <li><a href="/products/digital">数字化运营服务</a></li>
+        <li><a href="/products/cloud">云服务</a></li>
+        <li><a href="/products/testing">测试服务</a></li>
+      </ul>
+    </li>
     <li><a href="/research" class={currentPath.startsWith('/research') ? 'active' : ''}>研发中心</a></li>
     <li><a href="/dynamics" class={currentPath.startsWith('/dynamics') ? 'active' : ''}>企业动态</a></li>
     <li><a href="/news" class={currentPath.startsWith('/news') ? 'active' : ''}>新闻中心</a></li>
