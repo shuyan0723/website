@@ -623,7 +623,7 @@ body {
   margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 60px;
+  gap: 80px; // 增加间距从 60px → 80px
   align-items: center;
 }
 
@@ -631,29 +631,36 @@ body {
   width: 100%;
 }
 
+.about-content-area {
+  padding-left: 40px; // 右侧内容左边距，增加视觉间距
+}
+
 .image-wrapper {
   position: relative;
-  border-radius: 16px;
-  overflow: hidden;
+  border-radius: 16px; // ✅ 图片容器圆角
+  overflow: visible; // 🔥 关键：改为 visible，否则卡片会被裁剪
 
   img {
-    width: 100%;
-    height: auto;
+    width: 600px;  // 固定宽度
+    height: 500px; // 固定高度
+    object-fit: cover; // 保持比例，裁剪填充
     display: block;
+    border-radius: 16px; // ✅ 图片本身也加圆角
   }
 }
 
 .stats-card {
   position: absolute;
-  bottom: 0;
-  right: 0;
+  bottom: -45px; // 🔥 核心：负边距，让卡片一半在图外
+  right: -50px;
   background: #ffffff;
   padding: 24px 32px;
-  border-radius: 16px 0 16px 0;
+  border-radius: 16px 16px 16px 16px; // 右上角贴边，符合设计图
   display: flex;
   align-items: center;
   gap: 24px;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+  z-index: 10; // 确保在图片上方
 }
 
 .stat-item {
