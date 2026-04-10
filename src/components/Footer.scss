@@ -142,6 +142,12 @@
 // ========== 联系我们列 ==========
 .contact-col {
   gap: 4px;
+  text-align: left;
+
+  h3 {
+    text-align: left;
+    padding-left: 28px;
+  }
 }
 
 .contact-list {
@@ -154,6 +160,7 @@
 .contact-item {
   display: flex;
   align-items: center;
+  justify-content: flex-start; // 恢复为左对齐
   gap: 12px;
   font-size: 14px;
   color: #666;
