@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    .top {
+      height: 100vh;
+      background: #def;
+      display: grid;
+      place-items: center;
+      font-size: 24px;
+    }
+    .slide-container {
+      height: 100vh;
+      width: 100vw;
+      overflow: hidden;
+    }
+    .slider {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      padding: 0 20px;
+      overflow-x: auto;
+      scroll-behavior: smooth;
+    }
+    .item {
+      width: 80vw;
+      height: 70vh;
+      background: #87ceeb;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      font-size: 30px;
+      flex-shrink: 0;
+      transform: translateX(-30%);
+    }
+    .bottom {
+      height: 100vh;
+      background: #fce;
+      display: grid;
+      place-items: center;
+      font-size: 24px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="top">上面一屏</div>
+
+  <!-- 👇 这个是要监听的横向区域 -->
+  <div class="slide-container" id="horizontalSection">
+    <div class="slider" id="slider">
+      <div class="item">卡片 1</div>
+      <div class="item">卡片 2</div>
+      <div class="item">卡片 3</div>
+      <div class="item">卡片 4</div>
+      <div class="item">卡片 5</div>
+    </div>
+  </div>
+
+  <div class="bottom">成功滚到这里！</div>
+
+  <script>
+    const slider = document.getElementById('slider');
+    const section = document.getElementById('horizontalSection');
+
+    // ==============================================
+    // 🔥 核心：只有【进入可视区】才开启横向滚轮
+    // ==============================================
+    const observer = new IntersectionObserver((entries) => {
+      const isInView = entries[0].isIntersecting;
+
+      if (isInView) {
+        // ✅ 进入区域 → 开启横向滚动
+        document.addEventListener('wheel', handleWheel, { passive: false });
+      } else {
+        // ❌ 离开区域 → 关闭，恢复正常滚动
+        document.removeEventListener('wheel', handleWheel);
+      }
+    }, { threshold: 0.5 });
+
+    observer.observe(section);
+
+    // ==============================================
+    // 横向滚动逻辑（干净、稳定、不跳）
+    // ==============================================
+    function handleWheel(e) {
+      const left = slider.scrollLeft;
+      const max = slider.scrollWidth - slider.clientWidth;
+      const delta = e.deltaY;
+
+      // 向右没滚完 → 强制横向
+      if (delta > 0 && left < max) {
+        e.preventDefault();
+        slider.scrollLeft += Math.min(delta, 120);
+        return;
+      }
+
+      // 向左没滚完 → 强制横向
+      if (delta < 0 && left > 0) {
+        e.preventDefault();
+        slider.scrollLeft += Math.max(delta, -120);
+        return;
+      }
+    }
+  </script>
+</body>
+</html>
