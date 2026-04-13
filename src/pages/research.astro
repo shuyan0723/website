@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
+import ResearchCenter from '../components/ResearchCenter.astro';
 ---
 
 <Layout title="研发中心 - 企业官网">
@@ -9,119 +10,12 @@ import Footer from '../components/Footer.astro';
     <Navbar />
 
     <!-- 研发中心模块 -->
-    <section class="research-section" id="research-center">
-      <div class="bg-decoration"></div>
-      <div class="research-container">
-        <!-- 头部标题 -->
-        <div class="research-header">
-          <div class="header-left">
-            <h2 class="research-title">昆仑时代研发中心 <span class="title-en">Innovation R&D Center</span></h2>
-            <p class="research-desc">持续探索计算边界，以原创技术驱动产业革命。</p>
-          </div>
-          <div class="header-right">
-            <span class="badge">国家高新技术企业</span>
-            <span class="badge">CNAS实验室认证</span>
-          </div>
-        </div>
-
-        <!-- 核心技术与专利 -->
-        <div class="tech-section">
-          <div class="tech-content">
-            <div class="tech-label">Core Technology</div>
-            <h3 class="tech-heading">核心技术与专利成果</h3>
-            <p class="tech-text">我们在分布式共识算法、自适应流计算和隐私保护计算领域拥有 120 余项发明专利，多项技术指标刷新行业记录。</p>
-            <ul class="tech-list">
-              <li class="tech-item">
-                <div class="check-icon"></div>
-                <span><strong>HyperFlow 调度引擎：</strong> 专利号 ZL202410... 支持百万级 QPS 毫秒级响应。</span>
-              </li>
-              <li class="tech-item">
-                <div class="check-icon"></div>
-                <span><strong>TitanGuard 隐私计算：</strong> 基于 TEE 的全链路数据加密，荣获 2025 技术创新奖。</span>
-              </li>
-            </ul>
-          </div>
-          <div class="tech-chart-wrapper">
-            <div class="tech-chart" id="tech-chart"></div>
-          </div>
-        </div>
-
-        <!-- 环境与人才 -->
-        <div class="cards-section">
-          <div class="card glass-card">
-            <div class="card-image">
-              <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80" alt="研发环境与设备" />
-            </div>
-            <div class="card-content">
-              <h4 class="card-title">
-                <div class="card-icon flask-icon"></div>
-                研发环境与设备
-              </h4>
-              <p class="card-text">中心配备了自有的千卡级 AIGC 算力集群，并建立了模拟城市级负载的硬件实验室，确保系统在极端环境下的稳定性。</p>
-            </div>
-          </div>
-          <div class="card glass-card">
-            <div class="card-image">
-              <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=800&q=80" alt="技术专家与人才团队" />
-            </div>
-            <div class="card-content">
-              <h4 class="card-title">
-                <div class="card-icon team-icon"></div>
-                技术专家与人才团队
-              </h4>
-              <p class="card-text">汇聚了来自 Google、阿里巴巴、腾讯的顶尖科学家，博士占比超过 15%，成员多次在顶级技术会议（如 SIGMOD, ICSE）发表论文。</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- 技术规划蓝图 -->
-        <div class="roadmap-section">
-          <div class="roadmap-bg-icon"></div>
-          <div class="roadmap-container">
-            <h3 class="roadmap-title">2026-2028 技术规划蓝图</h3>
-            <div class="roadmap-grid">
-              <div class="roadmap-item active">
-                <div class="roadmap-dot"></div>
-                <h5 class="roadmap-date">Q2 2026</h5>
-                <p class="roadmap-project">自研大模型 Agent 架构</p>
-                <p class="roadmap-desc">实现跨异构系统的全自动化业务流程编排。</p>
-              </div>
-              <div class="roadmap-item">
-                <div class="roadmap-dot inactive"></div>
-                <h5 class="roadmap-date">Q4 2026</h5>
-                <p class="roadmap-project">量子安全通信网关</p>
-                <p class="roadmap-desc">完成抗量子加密算法在金融级网关的落地测试。</p>
-              </div>
-              <div class="roadmap-item">
-                <div class="roadmap-dot inactive"></div>
-                <h5 class="roadmap-date">2027+</h5>
-                <p class="roadmap-project">原生自治云系统</p>
-                <p class="roadmap-desc">构建完全无需人工干预的"无人驾驶"云底座。</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+    <ResearchCenter />
 
     <Footer />
   </div>
 </Layout>
 
 <style>
-  @import '../styles/research.scss';
+  @import '../styles/research-center.scss';
 </style>
-
-<script>
-  // 技术图表简单动画
-  const chart = document.getElementById('tech-chart');
-  if (chart) {
-    chart.addEventListener('mouseenter', () => {
-      chart.style.transform = 'scale(1.02)';
-      chart.style.transition = 'transform 0.3s ease';
-    });
-    chart.addEventListener('mouseleave', () => {
-      chart.style.transform = 'scale(1)';
-    });
-  }
-</script>

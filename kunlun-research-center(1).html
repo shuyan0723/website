@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>昆仑时代 | 全球化软件与信息技术服务商</title>
+  <script src="https://modao.cc/agent-py/static/source/js/tailwindcss.3.4.3.js"></script>
+  <script src="https://modao.cc/agent-py/static/source/js/iconify-icon.min.1.0.7.js"></script>
+  <style>
+    body {
+      background-color: #020617;
+      color: #f8fafc;
+      font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif;
+    }
+    .glass-morphism {
+      background: rgba(15, 23, 42, 0.6);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .tech-gradient-text {
+      background: linear-gradient(135deg, #22d3ee 0%, #3b82f6 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .glow-effect {
+      box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+    }
+    .scroll-mt-20 {
+      scroll-margin-top: 80px;
+    }
+    .bg-tech-dots {
+      background-image: radial-gradient(rgba(59, 130, 246, 0.1) 1px, transparent 1px);
+      background-size: 30px 30px;
+    }
+    .scrollbar-hide::-webkit-scrollbar {
+      display: none;
+    }
+    .scrollbar-hide {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+    .writing-mode-vertical {
+      writing-mode: vertical-rl;
+      text-orientation: mixed;
+    }
+    .timeline-wrapper {
+      cursor: grab;
+    }
+    .timeline-wrapper:active {
+      cursor: grabbing;
+    }
+    .animate-fade-in {
+      animation: fadeIn 0.3s ease-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body class="bg-tech-dots">
+
+  <!-- 6. 昆仑时代研发中心 -->
+  <section class="py-24 scroll-mt-20 overflow-hidden relative" id="research-center">
+    <!-- 背景装饰 -->
+    <div class="absolute -left-20 top-1/4 w-96 h-96 bg-blue-500/5 blur-[100px] rounded-full"></div>
+    <div class="absolute -right-20 bottom-1/4 w-96 h-96 bg-cyan-500/5 blur-[100px] rounded-full"></div>
+    
+    <div class="max-w-7xl mx-auto px-6">
+      <!-- 标题区 -->
+      <div class="flex justify-between items-end mb-12">
+        <div>
+          <h2 class="text-3xl font-bold mb-2">昆仑时代研发中心</h2>
+          <p class="text-slate-400 text-sm">KUNLUN R&D CENTER · 持续探索技术边界，驱动产业智能升级</p>
+        </div>
+        <div class="hidden md:flex space-x-2">
+          <span class="px-3 py-1 bg-blue-500/10 border border-blue-500/20 rounded text-xs text-blue-400">软件著作权 110+</span>
+          <span class="px-3 py-1 bg-slate-800 border border-slate-700 rounded text-xs text-slate-400">国家高新技术企业</span>
+        </div>
+      </div>
+
+      <!-- 产品Tab切换器 -->
+      <div class="flex mb-8 bg-slate-900/50 rounded-xl p-1.5">
+        <button onclick="switchProduct(0)" id="tab-0" class="flex-1 py-3 px-4 rounded-lg text-sm font-medium transition-all bg-blue-600 text-white shadow-lg">
+          反洗钱智能管理系统
+        </button>
+        <button onclick="switchProduct(1)" id="tab-1" class="flex-1 py-3 px-4 rounded-lg text-sm font-medium transition-all text-slate-400 hover:text-white hover:bg-slate-800">
+          昆仑智能运维管理平台
+        </button>
+        <button onclick="switchProduct(2)" id="tab-2" class="flex-1 py-3 px-4 rounded-lg text-sm font-medium transition-all text-slate-400 hover:text-white hover:bg-slate-800">
+          标讯信息智能分析平台
+        </button>
+      </div>
+
+      <!-- 产品内容容器 -->
+      <div class="relative">
+        <!-- 产品1: 反洗钱智能管理系统 -->
+        <div id="product-0" class="product-panel">
+          <div class="glass-morphism rounded-2xl p-8 mb-8">
+            <div class="flex items-start justify-between mb-6">
+              <div>
+                <h3 class="text-2xl font-bold mb-2 text-blue-400">反洗钱智能管理系统</h3>
+                <p class="text-slate-400 text-sm max-w-2xl leading-relaxed">
+                  面向金融机构复杂反洗钱场景，构建以数据驱动、模型驱动与智能决策为核心的新一代反洗钱智能管理系统。平台融合规则引擎、机器学习与图计算能力，打造覆盖交易监测、风险识别、关系分析与决策支撑的智能风控体系。
+                </p>
+              </div>
+              <div class="hidden md:block text-right">
+                <div class="text-xs text-slate-500 mb-1">应用状态</div>
+                <div class="flex items-center space-x-2 text-green-400 text-sm">
+                  <span class="relative flex h-2 w-2">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                  </span>
+                  <span>已投入生产 · 中国银行合作</span>
+                </div>
+              </div>
+            </div>
+            
+            <!-- 核心技术标签 -->
+            <div class="flex flex-wrap gap-2 mb-6">
+              <span class="px-3 py-1 bg-blue-500/10 border border-blue-500/20 rounded-full text-xs text-blue-400">规则引擎</span>
+              <span class="px-3 py-1 bg-blue-500/10 border border-blue-500/20 rounded-full text-xs text-blue-400">机器学习</span>
+              <span class="px-3 py-1 bg-blue-500/10 border border-blue-500/20 rounded-full text-xs text-blue-400">图计算</span>
+              <span class="px-3 py-1 bg-blue-500/10 border border-blue-500/20 rounded-full text-xs text-blue-400">智能风控</span>
+            </div>
+          </div>
+
+          <!-- 横向滑动时间轴 -->
+          <div class="relative">
+            <div class="flex items-center justify-between mb-4 px-4">
+              <h4 class="text-lg font-bold flex items-center">
+                <iconify-icon class="mr-2 text-blue-400" icon="mdi:timeline"></iconify-icon>
+                研发历程
+              </h4>
+              <div class="flex items-center space-x-2 text-xs text-slate-500">
+                <span class="flex items-center"><div class="w-2 h-2 rounded-full bg-blue-500 mr-1"></div>已完成</span>
+                <span class="flex items-center"><div class="w-2 h-2 rounded-full bg-green-500 mr-1 animate-pulse"></div>进行中</span>
+                <span class="flex items-center"><div class="w-2 h-2 rounded-full bg-slate-600 mr-1"></div>规划中</span>
+              </div>
+            </div>
+
+            <!-- 滑动容器 -->
+            <div class="timeline-wrapper overflow-x-auto scrollbar-hide pb-4" id="timeline-0">
+              <div class="timeline-track flex items-start min-w-max px-4 pb-8 pt-12">
+                
+                <!-- v1.0 节点 -->
+                <div class="timeline-node relative flex flex-col items-center mx-8 w-72">
+                  <div class="absolute -top-8 text-xs text-slate-500 font-mono">2024.7</div>
+                  <div class="w-4 h-4 rounded-full bg-blue-500 border-2 border-blue-400 shadow-lg shadow-blue-500/30 z-10"></div>
+                  <div class="absolute top-2 left-1/2 w-px h-8 bg-gradient-to-b from-blue-500 to-transparent -translate-x-1/2"></div>
+                  
+                  <div class="mt-8 w-full glass-morphism rounded-xl p-5 border-l-2 border-blue-500 hover:border-cyan-400 transition-all hover:-translate-y-1">
+                    <div class="flex items-center justify-between mb-3">
+                      <span class="text-lg font-bold text-blue-400">v1.0</span>
+                      <span class="px-2 py-0.5 bg-blue-500/20 rounded text-xs text-blue-400">已完成</span>
+                    </div>
+                    <div class="text-xs font-medium text-cyan-400 mb-3 uppercase tracking-wider">体系化能力基座构建</div>
+                    <ul class="space-y-2 text-sm text-slate-400">
+                      <li class="flex items-start">
+                        <iconify-icon class="mr-2 mt-0.5 text-blue-500 text-xs" icon="mdi:check"></iconify-icon>
+                        <span>构建反洗钱全流程业务体系</span>
+                      </li>
+                      <li class="flex items-start">
+                        <iconify-icon class="mr-2 mt-0.5 text-blue-500 text-xs" icon="mdi:check"></iconify-icon>
+                        <span>实现交易监测与监管报送能力</span>
+                      </li>
+                    </ul>
+                    <div class="mt-4 pt-3 border-t border-slate-700/50">
+                      <div class="text-xs text-slate-500 mb-2">创新体现</div>
+                      <p class="text-xs text-slate-400 leading-relaxed">首次构建"监测-预警-分析-报送"一体化闭环体系，实现从人工驱动向系统驱动的转变</p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- 连接线 -->
+                <div class="w-16 h-px bg-gradient-to-r from-blue-500 via-cyan-500 to-green-500 mt-2 relative">
+                  <div class="absolute -top-1.5 left-1/2 -translate-x-1/2">
+                    <iconify-icon class="text-cyan-400 text-xs" icon="mdi:chevron-right"></iconify-icon>
+                  </div>
+                </div>
+
+                <!-- v2.0 节点 -->
+                <div class="timeline-node relative flex flex-col items-center mx-8 w-72">
+                  <div class="absolute -top-8 text-xs text-green-400 font-mono font-bold">2025.8</div>
+                  <div class="w-5 h-5 rounded-full bg-green-500 border-2 border-green-400 shadow-lg shadow-green-500/40 z-10 animate-pulse"></div>
+                  <div class="absolute top-2 left-1/2 w-px h-8 bg-gradient-to-b from-green-500 to-transparent -translate-x-1/2"></div>
+                  
+                  <div class="mt-8 w-full glass-morphism rounded-xl p-5 border-l-2 border-green-500 glow-effect">
+                    <div class="flex items-center justify-between mb-3">
+                      <span class="text-lg font-bold text-green-400">v2.0</span>
+                      <span class="px-2 py-0.5 bg-green-500/20 rounded text-xs text-green-400 animate-pulse">进行中</span>
+                    </div>
+                    <div class="text-xs font-medium text-cyan-400 mb-3 uppercase tracking-wider">模型驱动与风险识别能力突破</div>
+                    <ul class="space-y-2 text-sm text-slate-300">
+                      <li class="flex items-start">
+                        <iconify-icon class="mr-2 mt-0.5 text-green-500 text-xs" icon="mdi:progress-check"></iconify-icon>
+                        <span>引入可疑交易监测模型</span>
+                      </li>
+                      <li class="flex items-start">
+                        <iconify-icon class="mr-2 mt-0.5 text-green-500 text-xs" icon="mdi:progress-check"></iconify-icon>
+                        <span>建立客户风险评级体系</span>
+                      </li>
+                    </ul>
+                    <div class="mt-4 pt-3 border-t border-slate-700/50">
+                      <div class="text-xs text-slate-500 mb-2">创新体现</div>
+                      <p class="text-xs text-slate-300 leading-relaxed">实现大额及可疑交易量化规则模型体系，建立统一客户视图(KYC)，推动风险识别由经验判断向数据驱动转型</p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- 连接线 -->
+                <div class="w-16 h-px bg-gradient-to-r from-green-500 to-slate-600 mt-2 relative">
+                  <div class="absolute -top-1.5 left-1/2 -translate-x-1/2 text-slate-600">
+                    <iconify-icon class="text-xs" icon="mdi:chevron-right"></iconify-icon>
+                  </div>
+                </div>
+
+                <!-- v3.0 节点 -->
+                <div class="timeline-node relative flex flex-col items-center mx-8 w-80">
+                  <div class="absolute -top-8 text-xs text-slate-500 font-mono">2026.2</div>
+                  <div class="w-4 h-4 rounded-full bg-slate-700 border-2 border-slate-600 border-dashed z-10"></div>
+                  <div class="absolute top-2 left-1/2 w-px h-8 bg-gradient-to-b from-slate-600 to-transparent -translate-x-1/2"></div>
+                  
+                  <div class="mt-8 w-full glass-morphism rounded-xl p-5 border-l-2 border-slate-600 opacity-80 hover:opacity-100 transition-all">
+                    <div class="flex items-center justify-between mb-3">
+                      <span class="text-lg font-bold text-slate-400">v3.0</span>
+                      <span class="px-2 py-0.5 bg-slate-700/50 rounded text-xs text-slate-400">规划中</span>
+                    </div>
+                    <div class="text-xs font-medium text-cyan-400/70 mb-3 uppercase tracking-wider">智能风控与决策能力跃迁</div>
+                    <ul class="space-y-2 text-sm text-slate-500">
+                      <li class="flex items-start">
+                        <iconify-icon class="mr-2 mt-0.5 text-slate-600 text-xs" icon="mdi:clock-outline"></iconify-icon>
+                        <span>引入机器学习模型，实现隐蔽性洗钱行为识别</span>
+                      </li>
+                      <li class="flex items-start">
+                        <iconify-icon class="mr-2 mt-0.5 text-slate-600 text-xs" icon="mdi:clock-outline"></iconify-icon>
+                        <span>引入图计算与关系网络建模技术，实现资金流向图谱分析</span>
+                      </li>
+                    </ul>
+                    
+                    <!-- 核心技术体系 -->
+                    <div class="mt-4 pt-3 border-t border-slate-700/30">
+                      <div class="text-xs text-slate-600 mb-2">核心技术体系</div>
+                      <div class="grid grid-cols-2 gap-1.5">
+                        <div class="flex items-center text-xs text-slate-500">
+                          <iconify-icon class="mr-1 text-slate-600" icon="mdi:database-sync"></iconify-icon>
+                          多源异构数据融合
+                        </div>
+                        <div class="flex items-center text-xs text-slate-500">
+                          <iconify-icon class="mr-1 text-slate-600" icon="mdi:engine"></iconify-icon>
+                          规则+模型双驱动
+                        </div>
+                        <div class="flex items-center text-xs text-slate-500">
+                          <iconify-icon class="mr-1 text-slate-600" icon="mdi:graph-outline"></iconify-icon>
+                          资金流向网络分析
+                        </div>
+                        <div class="flex items-center text-xs text-slate-500">
+                          <iconify-icon class="mr-1 text-slate-600" icon="mdi:brain"></iconify-icon>
+                          机器学习智能风控
+                        </div>
+                        <div class="flex items-center text-xs text-slate-500 col-span-2">
+                          <iconify-icon class="mr-1 text-slate-600" icon="mdi:shield-check"></iconify-icon>
+                          全流程闭环风险管理
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+            
+            <!-- 滑动提示 -->
+            <div class="absolute right-0 top-1/2 -translate-y-1/2 bg-gradient-to-l from-slate-900 to-transparent w-20 h-full flex items-center justify-end pointer-events-none md:hidden">
+              <iconify-icon class="text-slate-400 animate-bounce" icon="mdi:chevron-right"></iconify-icon>
+            </div>
+          </div>
+        </div>
+
+        <!-- 产品2: 昆仑智能运维管理平台 -->
+        <div id="product-1" class="product-panel hidden">
+          <div class="glass-morphism rounded-2xl p-8 mb-8">
+            <div class="flex items-start justify-between mb-6">
+              <div>
+                <h3 class="text-2xl font-bold mb-2 text-blue-400">昆仑智能运维管理平台</h3>
+                <p class="text-slate-400 text-sm max-w-2xl leading-relaxed">
+                  面向企业及金融机构复杂IT环境下的运维管理需求，构建以数据驱动、流程驱动与智能决策为核心的新一代运维管理平台。通过微服务架构与云原生技术体系，融合大数据分析、人工智能与物联网技术，实现运维从"流程管控"向"智能决策"的能力跃迁。
+                </p>
+              </div>
+              <div class="hidden md:block text-right">
+                <div class="text-xs text-slate-500 mb-1">应用状态</div>
+                <div class="flex items-center space-x-2 text-yellow-400 text-sm">
+                  <span class="relative flex h-2 w-2">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-yellow-400 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-2 w-2 bg-yellow-500"></span>
+                  </span>
+                  <span>内部验证阶段 · 持续迭代</span>
+                </div>
+              </div>
+            </div>
+            
+            <div class="flex flex-wrap gap-2 mb-6">
+              <span class="px-3 py-1 bg-blue-500/10 border border-blue-500/20 rounded-full text-xs text-blue-400">微服务架构</span>
+              <span class="px-3 py-1 bg-blue-500/10 border border-blue-500/20 rounded-full text-xs text-blue-400">云原生</span>
+              <span class="px-3 py-1 bg-blue-500/10 border border-blue-500/20 rounded-full text-xs text-blue-400">AIOps</span>
+              <span class="px-3 py-1 bg-blue-500/10 border border-blue-500/20 rounded-full text-xs text-blue-400">RFID融合</span>
+            </div>
+          </div>
+
+          <!-- 横向滑动时间轴 -->
+          <div class="relative">
+            <div class="flex items-center justify-between mb-4 px-4">
+              <h4 class="text-lg font-bold flex items-center">
+                <iconify-icon class="mr-2 text-blue-400" icon="mdi:timeline"></iconify-icon>
+                研发历程
+              </h4>
+              <div class="flex items-center space-x-2 text-xs text-slate-500">
+                <span class="flex items-center"><div class="w-2 h-2 rounded-full bg-blue-500 mr-1"></div>已完成</span>
+                <span class="flex items-center"><div class="w-2 h-2 rounded-full bg-green-500 mr-1 animate-pulse"></div>进行中</span>
+                <span class="flex items-center"><div class="w-2 h-2 rounded-full bg-slate-600 mr-1"></div>规划中</span>
+              </div>
+            </div>
+
+            <div class="timeline-wrapper overflow-x-auto scrollbar-hide pb-4" id="timeline-1">
+              <div class="timeline-track flex items-start min-w-max px-4 pb-8 pt-12">
+                
+                <!-- v1.0 -->
+                <div class="timeline-node relative flex flex-col items-center mx-8 w-72">
+                  <div class="absolute -top-8 text-xs text-slate-500 font-mono">2024.1</div>
+                  <div class="w-4 h-4 rounded-full bg-blue-500 border-2 border-blue-400 shadow-lg shadow-blue-500/30 z-10"></div>
+                  <div class="absolute top-2 left-1/2 w-px h-8 bg-gradient-to-b from-blue-500 to-transparent -translate-x-1/2"></div>
+                  
+                  <div class="mt-8 w-full glass-morphism rounded-xl p-5 border-l-2 border-blue-500 hover:border-cyan-400 transition-all hover:-translate-y-1">
+                    <div class="flex items-center justify-between mb-3">
+                      <span class="text-lg font-bold text-blue-400">v1.0</span>
+                      <span class="px-2 py-0.5 bg-blue-500/20 rounded text-xs text-blue-400">已完成</span>
+                    </div>
+                    <div class="text-xs font-medium text-cyan-400 mb-3 uppercase tracking-wider">运维体系构建与能力基座打造</div>
+                    <ul class="space-y-2 text-sm text-slate-400">
+                      <li class="flex items-start">
+                        <iconify-icon class="mr-2 mt-0.5 text-blue-500 text-xs" icon="mdi:check"></iconify-icon>
+                        <span>构建统一运维管理平台架构</span>
+                      </li>
+                      <li class="flex items-start">
+                        <iconify-icon class="mr-2 mt-0.5 text-blue-500 text-xs" icon="mdi:check"></iconify-icon>
+                        <span>实现监控、工单、流程全链路打通</span>
+                      </li>
+                      <li class="flex items-start">
+                        <iconify-icon class="mr-2 mt-0.5 text-blue-500 text-xs" icon="mdi:check"></iconify-icon>
+                        <span>建立多端协同体系</span>
+                      </li>
+                    </ul>
+                    <div class="mt-4 pt-3 border-t border-slate-700/50">
+                      <div class="text-xs text-slate-500 mb-2">创新体现</div>
+                      <p class="text-xs text-slate-400 leading-relaxed">首次构建"监控-工单-执行-反馈"一体化运维闭环体系，实现运维服务全过程数字化、可视化与标准化</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="w-16 h-px bg-gradient-to-r from-blue-500 via-cyan-500 to-green-500 mt-2 relative">
+                  <div class="absolute -top-1.5 left-1/2 -translate-x-1/2">
+                    <iconify-icon class="text-cyan-400 text-xs" icon="mdi:chevron-right"></iconify-icon>
+                  </div>
+                </div>
+
+                <!-- v2.0 -->
+                <div class="timeline-node relative flex flex-col items-center mx-8 w-80">
+                  <div class="absolute -top-8 text-xs text-green-400 font-mono font-bold">2025.6</div>
+                  <div class="w-5 h-5 rounded-full bg-green-500 border-2 border-green-400 shadow-lg shadow-green-500/40 z-10 animate-pulse"></div>
+                  <div class="absolute top-2 left-1/2 w-px h-8 bg-gradient-to-b from-green-500 to-transparent -translate-x-1/2"></div>
+                  
+                  <div class="mt-8 w-full glass-morphism rounded-xl p-5 border-l-2 border-green-500 glow-effect">
+                    <div class="flex items-center justify-between mb-3">
+                      <span class="text-lg font-bold text-green-400">v2.0</span>
+                      <span class="px-2 py-0.5 bg-green-500/20 rounded text-xs text-green-400 animate-pulse">进行中</span>
+                    </div>
+                    <div class="text-xs font-medium text-cyan-400 mb-3 uppercase tracking-wider">数据驱动与自动化运维体系升级</div>
+                    <ul class="space-y-2 text-sm text-slate-300">
+                      <li class="flex items-start">
+                        <iconify-icon class="mr-2 mt-0.5 text-green-500 text-xs" icon="mdi:progress-check"></iconify-icon>
+                        <span>实现资产全生命周期管理（采购-使用-维修-报废）</span>
+                      </li>
+                      <li class="flex items-start">
+                        <iconify-icon class="mr-2 mt-0.5 text-green-500 text-xs" icon="mdi:progress-check"></iconify-icon>
+                        <span>构建自动化工单流转与智能分派机制</span>
+                      </li>
+                      <li class="flex items-start">
+                        <iconify-icon class="mr-2 mt-0.5 text-green-500 text-xs" icon="mdi:progress-check"></iconify-icon>
+                        <span>建立运维数据分析与统计体系</span>
+                      </li>
+                    </ul>
+                    <div class="mt-4 pt-3 border-t border-slate-700/50">
+                      <div class="text-xs text-slate-500 mb-2">创新体现</div>
+                      <p class="text-xs text-slate-300 leading-relaxed">引入RFID与多源数据融合技术实现资产实时动态感知，构建统一运维数据中台支撑多维度数据建模与分析</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="w-16 h-px bg-gradient-to-r from-green-500 to-slate-600 mt-2 relative">
+                  <div class="absolute -top-1.5 left-1/2 -translate-x-1/2 text-slate-600">
+                    <iconify-icon class="text-xs" icon="mdi:chevron-right"></iconify-icon>
+                  </div>
+                </div>
+
+                <!-- v3.0 -->
+                <div class="timeline-node relative flex flex-col items-center mx-8 w-80">
+                  <div class="absolute -top-8 text-xs text-slate-500 font-mono">2026.2</div>
+                  <div class="w-4 h-4 rounded-full bg-slate-700 border-2 border-slate-600 border-dashed z-10"></div>
+                  <div class="absolute top-2 left-1/2 w-px h-8 bg-gradient-to-b from-slate-600 to-transparent -translate-x-1/2"></div>
+                  
+                  <div class="mt-8 w-full glass-morphism rounded-xl p-5 border-l-2 border-slate-600 opacity-80 hover:opacity-100 transition-all">
+                    <div class="flex items-center justify-between mb-3">
+                      <span class="text-lg font-bold text-slate-400">v3.0</span>
+                      <span class="px-2 py-0.5 bg-slate-700/50 rounded text-xs text-slate-400">规划中</span>
+                    </div>
+                    <div class="text-xs font-medium text-cyan-400/70 mb-3 uppercase tracking-wider">智能运维与决策体系演进</div>
+                    <ul class="space-y-2 text-sm text-slate-500">
+                      <li class="flex items-start">
+                        <iconify-icon class="mr-2 mt-0.5 text-slate-600 text-xs" icon="mdi:clock-outline"></iconify-icon>
+                        <span>引入AIOps能力，实现智能运维体系构建</span>
+                      </li>
+                      <li class="flex items-start">
+                        <iconify-icon class="mr-2 mt-0.5 text-slate-600 text-xs" icon="mdi:clock-outline"></iconify-icon>
+                        <span>建立运维知识库与智能推荐体系</span>
+                      </li>
+                      <li class="flex items-start">
+                        <iconify-icon class="mr-2 mt-0.5 text-slate-600 text-xs" icon="mdi:clock-outline"></iconify-icon>
+                        <span>构建设备健康度模型与预测性维护能力</span>
+                      </li>
+                    </ul>
+                    
+                    <div class="mt-4 pt-3 border-t border-slate-700/30">
+                      <div class="text-xs text-slate-600 mb-2">核心技术体系</div>
+                      <div class="space-y-1.5">
+                        <div class="flex items-center text-xs text-slate-500">
+                          <iconify-icon class="mr-1.5 text-slate-600" icon="mdi:brain"></iconify-icon>
+                          基于大数据与AI算法，实现故障预测、智能诊断与自动决策
+                        </div>
+                        <div class="flex items-center text-xs text-slate-500">
+                          <iconify-icon class="mr-1.5 text-slate-600" icon="mdi:layers-triple"></iconify-icon>
+                          构建"设备端+边缘计算+云平台"三层智能运维架构
+                        </div>
+                        <div class="flex items-center text-xs text-slate-500">
+                          <iconify-icon class="mr-1.5 text-slate-600" icon="mdi:transfer-right"></iconify-icon>
+                          实现运维模式由"被动响应"向"主动预防+智能决策"转型
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 产品3: 标讯信息智能分析平台 -->
+        <div id="product-2" class="product-panel hidden">
+          <div class="glass-morphism rounded-2xl p-8 mb-8">
+            <div class="flex items-start justify-between mb-6">
+              <div>
+                <h3 class="text-2xl font-bold mb-2 text-blue-400">标讯信息智能分析平台</h3>
+                <p class="text-slate-400 text-sm max-w-2xl leading-relaxed">
+                  基于多源数据融合与智能分析技术，构建新一代标讯信息智能分析平台。平台以数据驱动与算法驱动为核心，实现标讯信息的智能筛选、商机识别与市场洞察，逐步从信息处理工具演进为面向企业投标决策的智能化支撑系统。
+                </p>
+              </div>
+              <div class="hidden md:block text-right">
+                <div class="text-xs text-slate-500 mb-1">应用状态</div>
+                <div class="flex items-center space-x-2 text-yellow-400 text-sm">
+                  <span class="relative flex h-2 w-2">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-yellow-400 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-2 w-2 bg-yellow-500"></span>
+                  </span>
+                  <span>内部应用阶段 · 持续优化</span>
+                </div>
+              </div>
+            </div>
+            
+            <div class="flex flex-wrap gap-2 mb-6">
+              <span class="px-3 py-1 bg-blue-500/10 border border-blue-500/20 rounded-full text-xs text-blue-400">RPA采集</span>
+              <span class="px-3 py-1 bg-blue-500/10 border border-blue-500/20 rounded-full text-xs text-blue-400">智能标签</span>
+              <span class="px-3 py-1 bg-blue-500/10 border border-blue-500/20 rounded-full text-xs text-blue-400">商机识别</span>
+              <span class="px-3 py-1 bg-blue-500/10 border border-blue-500/20 rounded-full text-xs text-blue-400">AI算法</span>
+            </div>
+          </div>
+
+          <!-- 横向滑动时间轴 -->
+          <div class="relative">
+            <div class="flex items-center justify-between mb-4 px-4">
+              <h4 class="text-lg font-bold flex items-center">
+                <iconify-icon class="mr-2 text-blue-400" icon="mdi:timeline"></iconify-icon>
+                研发历程
+              </h4>
+              <div class="flex items-center space-x-2 text-xs text-slate-500">
+                <span class="flex items-center"><div class="w-2 h-2 rounded-full bg-blue-500 mr-1"></div>已完成</span>
+                <span class="flex items-center"><div class="w-2 h-2 rounded-full bg-green-500 mr-1 animate-pulse"></div>进行中</span>
+                <span class="flex items-center"><div class="w-2 h-2 rounded-full bg-slate-600 mr-1"></div>规划中</span>
+              </div>
+            </div>
+
+            <div class="timeline-wrapper overflow-x-auto scrollbar-hide pb-4" id="timeline-2">
+              <div class="timeline-track flex items-start min-w-max px-4 pb-8 pt-12">
+                
+                <!-- v1.0 -->
+                <div class="timeline-node relative flex flex-col items-center mx-8 w-72">
+                  <div class="absolute -top-8 text-xs text-slate-500 font-mono">2024.9</div>
+                  <div class="w-4 h-4 rounded-full bg-blue-500 border-2 border-blue-400 shadow-lg shadow-blue-500/30 z-10"></div>
+                  <div class="absolute top-2 left-1/2 w-px h-8 bg-gradient-to-b from-blue-500 to-transparent -translate-x-1/2"></div>
+                  
+                  <div class="mt-8 w-full glass-morphism rounded-xl p-5 border-l-2 border-blue-500 hover:border-cyan-400 transition-all hover:-translate-y-1">
+                    <div class="flex items-center justify-between mb-3">
+                      <span class="text-lg font-bold text-blue-400">v1.0</span>
+                      <span class="px-2 py-0.5 bg-blue-500/20 rounded text-xs text-blue-400">已完成</span>
+                    </div>
+                    <div class="text-xs font-medium text-cyan-400 mb-3 uppercase tracking-wider">基础能力建设</div>
+                    <ul class="space-y-2 text-sm text-slate-400">
+                      <li class="flex items-start">
+                        <iconify-icon class="mr-2 mt-0.5 text-blue-500 text-xs" icon="mdi:check"></iconify-icon>
+                        <span>标讯采集与信息管理</span>
+                      </li>
+                      <li class="flex items-start">
+                        <iconify-icon class="mr-2 mt-0.5 text-blue-500 text-xs" icon="mdi:check"></iconify-icon>
+                        <span>数据统计与基础分析</span>
+                      </li>
+                    </ul>
+                    <div class="mt-4 pt-3 border-t border-slate-700/50">
+                      <div class="text-xs text-slate-500 mb-2">创新体现</div>
+                      <p class="text-xs text-slate-400 leading-relaxed">初步构建多源标讯数据统一管理体系，建立"采集-存储-分析"一体化数据处理链路，相较人工检索实现信息获取效率显著提升</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="w-16 h-px bg-gradient-to-r from-blue-500 via-cyan-500 to-green-500 mt-2 relative">
+                  <div class="absolute -top-1.5 left-1/2 -translate-x-1/2">
+                    <iconify-icon class="text-cyan-400 text-xs" icon="mdi:chevron-right"></iconify-icon>
+                  </div>
+                </div>
+
+                <!-- v2.0 -->
+                <div class="timeline-node relative flex flex-col items-center mx-8 w-80">
+                  <div class="absolute -top-8 text-xs text-green-400 font-mono font-bold">2025.4</div>
+                  <div class="w-5 h-5 rounded-full bg-green-500 border-2 border-green-400 shadow-lg shadow-green-500/40 z-10 animate-pulse"></div>
+                  <div class="absolute top-2 left-1/2 w-px h-8 bg-gradient-to-b from-green-500 to-transparent -translate-x-1/2"></div>
+                  
+                  <div class="mt-8 w-full glass-morphism rounded-xl p-5 border-l-2 border-green-500 glow-effect">
+                    <div class="flex items-center justify-between mb-3">
+                      <span class="text-lg font-bold text-green-400">v2.0</span>
+                      <span class="px-2 py-0.5 bg-green-500/20 rounded text-xs text-green-400 animate-pulse">进行中</span>
+                    </div>
+                    <div class="text-xs font-medium text-cyan-400 mb-3 uppercase tracking-wider">数据整合 + 业务赋能</div>
+                    <ul class="space-y-2 text-sm text-slate-300">
+                      <li class="flex items-start">
+                        <iconify-icon class="mr-2 mt-0.5 text-green-500 text-xs" icon="mdi:progress-check"></iconify-icon>
+                        <span>多平台标讯数据集成（统一数据源）</span>
+                      </li>
+                      <li class="flex items-start">
+                        <iconify-icon class="mr-2 mt-0.5 text-green-500 text-xs" icon="mdi:progress-check"></iconify-icon>
+                        <span>智能筛选与标签匹配机制</span>
+                      </li>
+                      <li class="flex items-start">
+                        <iconify-icon class="mr-2 mt-0.5 text-green-500 text-xs" icon="mdi:progress-check"></iconify-icon>
+                        <span>客户与商机识别能力提升</span>
+                      </li>
+                      <li class="flex items-start">
+                        <iconify-icon class="mr-2 mt-0.5 text-green-500 text-xs" icon="mdi:progress-check"></iconify-icon>
+                        <span>支持重点客户与关键词规则配置</span>
+                      </li>
+                    </ul>
+                    <div class="mt-4 pt-3 border-t border-slate-700/50">
+                      <div class="text-xs text-slate-500 mb-2">创新体现</div>
+                      <p class="text-xs text-slate-300 leading-relaxed">构建统一数据视图系统性解决数据分散问题，引入规则引擎实现标讯数据自动标签化与结构化处理，构建客户、竞对与商机多维识别模型</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="w-16 h-px bg-gradient-to-r from-green-500 to-slate-600 mt-2 relative">
+                  <div class="absolute -top-1.5 left-1/2 -translate-x-1/2 text-slate-600">
+                    <iconify-icon class="text-xs" icon="mdi:chevron-right"></iconify-icon>
+                  </div>
+                </div>
+
+                <!-- v3.0 -->
+                <div class="timeline-node relative flex flex-col items-center mx-8 w-80">
+                  <div class="absolute -top-8 text-xs text-slate-500 font-mono">2026.1</div>
+                  <div class="w-4 h-4 rounded-full bg-slate-700 border-2 border-slate-600 border-dashed z-10"></div>
+                  <div class="absolute top-2 left-1/2 w-px h-8 bg-gradient-to-b from-slate-600 to-transparent -translate-x-1/2"></div>
+                  
+                  <div class="mt-8 w-full glass-morphism rounded-xl p-5 border-l-2 border-slate-600 opacity-80 hover:opacity-100 transition-all">
+                    <div class="flex items-center justify-between mb-3">
+                      <span class="text-lg font-bold text-slate-400">v3.0</span>
+                      <span class="px-2 py-0.5 bg-slate-700/50 rounded text-xs text-slate-400">规划中</span>
+                    </div>
+                    <div class="text-xs font-medium text-cyan-400/70 mb-3 uppercase tracking-wider">AI驱动 + 决策支持</div>
+                    <ul class="space-y-2 text-sm text-slate-500">
+                      <li class="flex items-start">
+                        <iconify-icon class="mr-2 mt-0.5 text-slate-600 text-xs" icon="mdi:clock-outline"></iconify-icon>
+                        <span>实现平台由"信息工具"向"智能决策系统"的能力跃迁</span>
+                      </li>
+                      <li class="flex items-start">
+                        <iconify-icon class="mr-2 mt-0.5 text-slate-600 text-xs" icon="mdi:clock-outline"></iconify-icon>
+                        <span>引入AI算法模型，显著提升商机识别精准度</span>
+                      </li>
+                      <li class="flex items-start">
+                        <iconify-icon class="mr-2 mt-0.5 text-slate-600 text-xs" icon="mdi:clock-outline"></iconify-icon>
+                        <span>支撑企业从数据分析到业务决策的全链路能力升级</span>
+                      </li>
+                    </ul>
+                    
+                    <div class="mt-4 pt-3 border-t border-slate-700/30">
+                      <div class="text-xs text-slate-600 mb-2">核心技术体系</div>
+                      <div class="grid grid-cols-2 gap-1.5">
+                        <div class="flex items-center text-xs text-slate-500">
+                          <iconify-icon class="mr-1 text-slate-600" icon="mdi:robot"></iconify-icon>
+                          多源数据采集（RPA+API）
+                        </div>
+                        <div class="flex items-center text-xs text-slate-500">
+                          <iconify-icon class="mr-1 text-slate-600" icon="mdi:tag-multiple"></iconify-icon>
+                          智能标签与规则引擎
+                        </div>
+                        <div class="flex items-center text-xs text-slate-500">
+                          <iconify-icon class="mr-1 text-slate-600" icon="mdi:cpu-64-bit"></iconify-icon>
+                          高性能数据处理引擎
+                        </div>
+                        <div class="flex items-center text-xs text-slate-500">
+                          <iconify-icon class="mr-1 text-slate-600" icon="mdi:code-block-braces"></iconify-icon>
+                          SpringBoot+Vue微服务
+                        </div>
+                        <div class="flex items-center text-xs text-slate-500 col-span-2">
+                          <iconify-icon class="mr-1 text-slate-600" icon="mdi:database-clock"></iconify-icon>
+                          Redis缓存与高并发处理能力
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // 产品切换功能
+    function switchProduct(index) {
+      // 更新Tab样式
+      [0, 1, 2].forEach(i => {
+        const tab = document.getElementById(`tab-${i}`);
+        if (i === index) {
+          tab.className = 'flex-1 py-3 px-4 rounded-lg text-sm font-medium transition-all bg-blue-600 text-white shadow-lg';
+        } else {
+          tab.className = 'flex-1 py-3 px-4 rounded-lg text-sm font-medium transition-all text-slate-400 hover:text-white hover:bg-slate-800';
+        }
+      });
+      
+      // 切换产品面板
+      [0, 1, 2].forEach(i => {
+        const panel = document.getElementById(`product-${i}`);
+        if (i === index) {
+          panel.classList.remove('hidden');
+          panel.classList.add('animate-fade-in');
+        } else {
+          panel.classList.add('hidden');
+        }
+      });
+
+      // 切换后滚动到v2.0节点
+      setTimeout(() => {
+        const wrapper = document.getElementById(`timeline-${index}`);
+        if (wrapper) {
+          const scrollWidth = wrapper.scrollWidth;
+          const clientWidth = wrapper.clientWidth;
+          wrapper.scrollLeft = (scrollWidth - clientWidth) / 3;
+        }
+      }, 100);
+    }
+
+    // 时间轴拖拽滚动
+    function initDragScroll(wrapperId) {
+      const wrapper = document.getElementById(wrapperId);
+      if (!wrapper) return;
+      
+      let isDown = false;
+      let startX;
+      let scrollLeft;
+      
+      wrapper.addEventListener('mousedown', (e) => {
+        isDown = true;
+        wrapper.classList.add('active');
+        startX = e.pageX - wrapper.offsetLeft;
+        scrollLeft = wrapper.scrollLeft;
+      });
+      
+      wrapper.addEventListener('mouseleave', () => {
+        isDown = false;
+        wrapper.classList.remove('active');
+      });
+      
+      wrapper.addEventListener('mouseup', () => {
+        isDown = false;
+        wrapper.classList.remove('active');
+      });
+      
+      wrapper.addEventListener('mousemove', (e) => {
+        if (!isDown) return;
+        e.preventDefault();
+        const x = e.pageX - wrapper.offsetLeft;
+        const walk = (x - startX) * 2;
+        wrapper.scrollLeft = scrollLeft - walk;
+      });
+      
+      // 滚轮横向转换
+      wrapper.addEventListener('wheel', (e) => {
+        if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
+          e.preventDefault();
+          wrapper.scrollLeft += e.deltaY;
+        }
+      });
+    }
+
+    // 初始化
+    document.addEventListener('DOMContentLoaded', () => {
+      initDragScroll('timeline-0');
+      initDragScroll('timeline-1');
+      initDragScroll('timeline-2');
+      
+      // 默认滚动到中间（v2.0节点）
+      setTimeout(() => {
+        [0, 1, 2].forEach(i => {
+          const wrapper = document.getElementById(`timeline-${i}`);
+          if (wrapper) {
+            const scrollWidth = wrapper.scrollWidth;
+            const clientWidth = wrapper.clientWidth;
+            wrapper.scrollLeft = (scrollWidth - clientWidth) / 3;
+          }
+        });
+      }, 500);
+    });
+  </script>
+</body>
+</html>
