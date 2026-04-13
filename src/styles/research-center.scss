@@ -1125,6 +1125,8 @@
   overflow-y: hidden;
   -ms-overflow-style: none;
   scrollbar-width: none;
+  display: flex;
+  justify-content: center; // 居中显示整个时间轴
 
   &::-webkit-scrollbar {
     display: none;
@@ -1134,6 +1136,7 @@
 .timeline-track {
   display: flex;
   align-items: flex-start;
+  justify-content: center;
   min-width: max-content;
   padding: 48px 16px 32px;
 }
@@ -1144,20 +1147,22 @@
   flex-direction: column;
   align-items: center;
   flex-shrink: 0;
-  width: 288px;
-  margin: 0 32px;
+  width: 300px;  // 统一宽度
+  margin: 0 20px;  // 统一外边距
 }
 
-// v2.0 节点更宽
-.timeline-track > .timeline-node:nth-child(3n+2) {
-  width: 320px;
-}
+// v2.0 节点更宽 - 移除这个规则，让所有节点宽度一致
+// .timeline-track > .timeline-node:nth-child(3n+2) {
+//   width: 320px;
+// }
 
 .timeline-date {
   position: absolute;
   top: -32px;
   font-size: 12px;
   font-family: monospace;
+  left: 50%;
+  transform: translateX(-50%);  // 让日期也居中
 
   &.completed { color: $text-muted; }
   &.in-progress { color: #4ade80; font-weight: 700; }
@@ -1223,7 +1228,7 @@
 
 // 水平连接线（连接节点之间）
 .timeline-connector {
-  width: 64px;
+  width: 80px;  // 增加连接线宽度，让圆点间距更大
   height: 1px;
   background: linear-gradient(90deg, #3b82f6, #22d3ee, #22c55e);
   position: relative;
@@ -1287,8 +1292,9 @@
 }
 
 .timeline-card-version {
-  font-size: 18px;
+  font-size: 24px;
   font-weight: 700;
+  margin-left: 100px;
 
   &.completed { color: #60a5fa; }
   &.in-progress { color: #4ade80; }
@@ -1318,7 +1324,7 @@
 }
 
 .timeline-card-title {
-  font-size: 12px;
+  font-size: 16px;
   font-weight: 500;
   color: #22d3ee;
   text-transform: uppercase;
@@ -1332,7 +1338,7 @@
   padding: 0;
 
   li {
-    font-size: 14px;
+    font-size: 16px;
     color: $text-muted;
     padding: 4px 0;
     display: flex;
