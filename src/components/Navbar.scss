@@ -1,5 +1,6 @@
 // 导航栏 SCSS 样式
 @use '../styles/variables' as *;
+@use 'sass:color';
 
 .navbar {
   position: fixed;
@@ -53,7 +54,7 @@
   @include transition(background);
 
   &:hover {
-    background: darken($primary-blue, 10%);
+    background: color.adjust($primary-blue, $lightness: -10%);
   }
 }
 

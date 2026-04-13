@@ -1,5 +1,6 @@
 // 导入变量
 @use './variables';
+@use 'sass:color';
 
 // 全局样式重置
 * {
@@ -47,7 +48,7 @@ img {
     border: none;
 
     &:hover {
-      background: darken($primary-blue, 10%);
+      background: color.adjust($primary-blue, $lightness: -10%);
     }
   }
 
