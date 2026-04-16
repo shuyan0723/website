@@ -259,7 +259,10 @@ const services = [
               <span>丰富的团建活动</span>
             </div>
           </div>
-          <a href="#" class="join-action-btn">查看职位</a>
+          <div class="join-buttons">
+            <a href="#" class="join-action-btn primary">社招职位</a>
+            <a href="#" class="join-action-btn secondary">校招职位</a>
+          </div>
         </div>
         <div class="join-right">
           <h4>热招职位</h4>
@@ -751,7 +754,7 @@ const services = [
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 16px;
-  margin-bottom: 24px;
+  margin: 0 0 24px 15px;
 }
 
 .benefit-item {
@@ -776,20 +779,40 @@ const services = [
   font-size: 14px;
 }
 
-.join-action-btn {
-  display: inline-block;
-  background: #2455A5;
-  color: #fff;
-  padding: 14px 32px;
-  border-radius: 8px;
-  text-decoration: none;
-  transition: background 0.3s;
-  font-size: 15px;
-  font-weight: 600;
+.join-buttons {
+  display: flex;
+  gap: 24px;
+  margin-left: 15px;
 }
 
-.join-action-btn:hover {
+.join-action-btn {
+  display: inline-block;
+  padding: 10px 24px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.3s;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.join-action-btn.primary {
+  background: #2455A5;
+  color: #fff;
+}
+
+.join-action-btn.primary:hover {
   background: #1a3f7a;
+}
+
+.join-action-btn.secondary {
+  background: #ffffff;
+  color: #2455A5;
+  border: 2px solid #2455A5;
+}
+
+.join-action-btn.secondary:hover {
+  background: #f0f7ff;
 }
 
 .join-right h4 {
