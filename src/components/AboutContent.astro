@@ -120,47 +120,56 @@
   <section id="development" class="about-section">
     <div class="section-container">
       <h2 class="section-title">发展历程</h2>
-      <div class="timeline">
-        <div class="timeline-item">
-          <div class="timeline-content">
+      <div class="timeline-section">
+        <!-- SVG 弧线时间轴 -->
+        <svg class="timeline-svg" viewBox="0 0 1200 500">
+          <!-- 贝塞尔曲线实现平滑弧线 -->
+          <path
+            class="timeline-path"
+            d="M 100 450 C 250 400, 350 350, 400 320 S 650 250, 800 230 S 1100 300, 1100 300"
+          />
+          <!-- 时间节点圆点 -->
+          <circle class="timeline-dot active" cx="100" cy="450" r="14" />
+          <circle class="timeline-dot" cx="400" cy="320" r="14" />
+          <circle class="timeline-dot" cx="800" cy="230" r="14" />
+          <circle class="timeline-dot" cx="1100" cy="300" r="14" />
+        </svg>
+
+        <!-- 时间轴内容 -->
+        <div class="timeline-container">
+          <div class="timeline-item item-2020 active" data-index="0">
             <div class="timeline-year">2020</div>
-            <h4>公司成立</h4>
-            <p>昆仑时代（上海）系统集成有限公司正式成立，注册资金1亿元人民币，开启数字化服务新征程。</p>
+            <div class="timeline-content">昆仑时代（上海）系统集成有限公司正式成立，注册资金1亿元人民币，开启数字化服务新征程。</div>
           </div>
-          <div class="timeline-dot"></div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-content">
+          <div class="timeline-item item-2021" data-index="1">
             <div class="timeline-year">2021</div>
-            <h4>业务拓展</h4>
-            <p>业务覆盖智能穿戴、汽车电子、金融科技等多个领域，员工规模突破1000人。</p>
+            <div class="timeline-content">业务覆盖智能穿戴、汽车电子、金融科技等多个领域，员工规模突破1000人。</div>
           </div>
-          <div class="timeline-dot"></div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-content">
+          <div class="timeline-item item-2022" data-index="2">
             <div class="timeline-year">2022</div>
-            <h4>全国布局</h4>
-            <p>在北京、深圳、成都、杭州等地设立分公司，形成覆盖全国主要城市的服务网络。</p>
+            <div class="timeline-content">在北京、深圳、成都、杭州等地设立分公司，形成覆盖全国主要城市的服务网络。</div>
           </div>
-          <div class="timeline-dot"></div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-content">
+          <div class="timeline-item item-2023" data-index="3">
             <div class="timeline-year">2023</div>
-            <h4>国际化发展</h4>
-            <p>进军海外市场，在新加坡、美国、马来西亚等地设立分支机构，开启全球化战略。</p>
+            <div class="timeline-content">进军海外市场，在新加坡、美国、马来西亚等地设立分支机构，开启全球化战略。</div>
           </div>
-          <div class="timeline-dot"></div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-content">
+          <div class="timeline-item item-2024" data-index="4">
             <div class="timeline-year">2024</div>
-            <h4>持续创新</h4>
-            <p>员工规模近3000人，服务全球25个地区，成为行业领先的IT服务及数字化运营专家。</p>
+            <div class="timeline-content">员工规模近3000人，服务全球25个地区，成为行业领先的IT服务及数字化运营专家。</div>
           </div>
-          <div class="timeline-dot"></div>
         </div>
+
+        <!-- 轮播控制按钮 -->
+        <button class="control-btn prev-btn" id="timelinePrev" disabled>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="15 18 9 12 15 6"></polyline>
+          </svg>
+        </button>
+        <button class="control-btn next-btn" id="timelineNext">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </button>
       </div>
     </div>
   </section>
@@ -463,70 +472,151 @@
 }
 
 /* ========== 发展历程 ========== */
-.timeline {
+.timeline-section {
   position: relative;
-  padding: 20px 0 60px;
-}
-
-.timeline::before {
-  content: '';
-  position: absolute;
-  left: 50%;
-  top: 0;
-  bottom: 0;
-  width: 2px;
-  background: #2455A5;
-  transform: translateX(-50%);
-}
-
-.timeline-item {
-  display: flex;
-  margin-bottom: 40px;
-  position: relative;
-}
-
-.timeline-item:nth-child(odd) {
-  flex-direction: row-reverse;
-}
-
-.timeline-content {
-  width: 45%;
+  width: 100%;
+  min-height: 500px;
   background: #fff;
-  padding: 25px;
-  border-radius: 8px;
+  border-radius: 12px;
+  overflow: hidden;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 }
 
-.timeline-year {
-  font-size: 20px;
-  color: #2455A5;
-  font-weight: bold;
-  margin-bottom: 10px;
+/* SVG 弧线时间轴 */
+.timeline-svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
 }
 
-.timeline-content h4 {
-  color: #1f2937;
-  margin-bottom: 8px;
-  font-size: 16px;
-}
-
-.timeline-content p {
-  color: #6b7280;
-  font-size: 14px;
-  line-height: 1.6;
+.timeline-path {
+  fill: none;
+  stroke: #2455A5;
+  stroke-width: 3;
+  stroke-linecap: round;
+  opacity: 0.3;
 }
 
 .timeline-dot {
+  fill: #fff;
+  stroke: #2455A5;
+  stroke-width: 3;
+  transition: all 0.3s ease;
+}
+
+.timeline-dot.active {
+  fill: #2455A5;
+  r: 18;
+}
+
+/* 时间轴内容容器 */
+.timeline-container {
+  position: relative;
+  z-index: 2;
+  height: 500px;
+  padding: 60px 40px;
+}
+
+/* 时间节点内容 */
+.timeline-item {
   position: absolute;
+  z-index: 2;
+  max-width: 320px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.timeline-item.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.timeline-year {
+  font-size: 42px;
+  font-weight: 700;
+  color: #2455A5;
+  margin-bottom: 12px;
+  line-height: 1.2;
+}
+
+.timeline-content {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #374151;
+}
+
+/* 节点位置定位 */
+.item-2020 {
+  top: 80px;
+  left: 60px;
+}
+
+.item-2021 {
+  top: 350px;
+  left: 25%;
+}
+
+.item-2022 {
+  top: 60px;
+  right: 25%;
+}
+
+.item-2023 {
+  top: 300px;
+  right: 60px;
+}
+
+.item-2024 {
+  top: 180px;
   left: 50%;
-  top: 25px;
-  width: 16px;
-  height: 16px;
-  background: #2455A5;
-  border-radius: 50%;
   transform: translateX(-50%);
-  border: 3px solid #fff;
-  box-shadow: 0 0 0 3px #2455A5;
+}
+
+/* 轮播控制按钮 */
+.control-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #fff;
+  border: 2px solid #e5e7eb;
+  color: #6b7280;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  z-index: 10;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.control-btn:hover {
+  background: #2455A5;
+  border-color: #2455A5;
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(36, 85, 165, 0.3);
+}
+
+.control-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* 左侧上一页按钮 */
+.prev-btn {
+  left: 20px;
+}
+
+/* 右侧下一页按钮 */
+.next-btn {
+  right: 20px;
 }
 
 /* ========== 社会责任 ========== */
@@ -767,4 +857,47 @@
   }
 }
 </style>
+
+<script>
+// 发展历程轮播功能
+const items = document.querySelectorAll('.timeline-item');
+const dots = document.querySelectorAll('.timeline-dot');
+const prevBtn = document.getElementById('timelinePrev') as HTMLButtonElement | null;
+const nextBtn = document.getElementById('timelineNext') as HTMLButtonElement | null;
+let currentIndex = 0;
+const total = items.length;
+
+// 更新轮播状态
+function updateCarousel() {
+  // 重置所有节点状态
+  items.forEach((item, index) => {
+    item.classList.toggle('active', index === currentIndex);
+  });
+  dots.forEach((dot, index) => {
+    dot.classList.toggle('active', index === currentIndex);
+  });
+
+  // 按钮状态控制
+  if (prevBtn) prevBtn.disabled = currentIndex === 0;
+  if (nextBtn) nextBtn.disabled = currentIndex === total - 1;
+}
+
+// 按钮事件绑定
+prevBtn?.addEventListener('click', () => {
+  if (currentIndex > 0) {
+    currentIndex--;
+    updateCarousel();
+  }
+});
+
+nextBtn?.addEventListener('click', () => {
+  if (currentIndex < total - 1) {
+    currentIndex++;
+    updateCarousel();
+  }
+});
+
+// 初始化
+updateCarousel();
+</script>
 

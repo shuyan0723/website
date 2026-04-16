@@ -340,7 +340,7 @@ import Footer from '../components/Footer.astro';
 /* ========== 更多案例 + CTA 行动区 ========== */
 .case-cta-section {
   width: 100%;
-  background: #0a1028;
+  background: #ffffff;
   padding: 20px 120px 80px;
   display: flex;
   flex-direction: column;
@@ -356,14 +356,16 @@ import Footer from '../components/Footer.astro';
 }
 
 .case-cta-section .case-card {
-  background: #121a33;
+  background: #f8f9fa;
   border-radius: 20px;
   overflow: hidden;
   transition: transform 0.3s ease;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 }
 
 .case-cta-section .case-card:hover {
   transform: translateY(-6px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 
 .card-image {
@@ -408,7 +410,7 @@ import Footer from '../components/Footer.astro';
 
 .tag-sub {
   font-size: 13px;
-  color: #c2c7d6;
+  color: #6b7280;
   background: transparent;
   padding: 0;
   font-weight: 400;
@@ -417,18 +419,18 @@ import Footer from '../components/Footer.astro';
 .card-title {
   font-size: 22px;
   font-weight: 600;
-  color: #ffffff;
+  color: #1f2937;
   margin-bottom: 16px;
   line-height: 1.4;
 }
 
 .card-desc {
   font-size: 14px;
-  color: #c2c7d6;
+  color: #6b7280;
   line-height: 1.7;
   margin-bottom: 24px;
   padding-bottom: 20px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid #e5e7eb;
 }
 
 .card-stats {
@@ -458,7 +460,7 @@ import Footer from '../components/Footer.astro';
 
 .stat-label {
   font-size: 12px;
-  color: #c2c7d6;
+  color: #6b7280;
   font-weight: 500;
 }
 
@@ -472,13 +474,13 @@ import Footer from '../components/Footer.astro';
 .cta-title {
   font-size: 28px;
   font-weight: 700;
-  color: #ffffff;
+  color: #1f2937;
   margin-bottom: 16px;
 }
 
 .cta-desc {
   font-size: 16px;
-  color: #c2c7d6;
+  color: #6b7280;
   line-height: 1.7;
   margin-bottom: 32px;
 }
@@ -491,7 +493,7 @@ import Footer from '../components/Footer.astro';
 
 .btn-primary {
   padding: 14px 32px;
-  background: #2563eb;
+  background: #2455A5;
   color: #ffffff;
   border: none;
   border-radius: 12px;
@@ -502,23 +504,24 @@ import Footer from '../components/Footer.astro';
 }
 
 .btn-primary:hover {
-  background: #1d4ed8;
+  background: #1a3f7a;
 }
 
 .btn-outline {
   padding: 14px 32px;
-  background: rgba(255, 255, 255, 0.1);
-  color: #ffffff;
-  border: none;
+  background: #ffffff;
+  color: #2455A5;
+  border: 2px solid #2455A5;
   border-radius: 12px;
   font-size: 16px;
   font-weight: 600;
   cursor: pointer;
-  transition: background 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .btn-outline:hover {
-  background: rgba(255, 255, 255, 0.2);
+  background: #f8f9fa;
+  border-color: #1a3f7a;
 }
 
 /* 新模块响应式适配 */
