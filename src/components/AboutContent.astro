@@ -1,5 +1,43 @@
 ---
 // 关于我们内容组件
+import Swiper from 'swiper';
+import { Navigation, Pagination, Autoplay } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/pagination';
+
+// 主营业务与服务数据
+const services = [
+  {
+    icon: "☁️",
+    title: "云计算服务",
+    desc: "提供弹性计算、存储、数据库等一站式云服务"
+  },
+  {
+    icon: "🖥️",
+    title: "系统集成",
+    desc: "软硬件一体化集成解决方案，高效稳定"
+  },
+  {
+    icon: "🔒",
+    title: "网络安全",
+    desc: "全方位安全防护，保障企业数据与业务安全"
+  },
+  {
+    icon: "📊",
+    title: "数据中心",
+    desc: "高可用数据中心建设、运维与优化服务"
+  },
+  {
+    icon: "⚙️",
+    title: "IT运维服务",
+    desc: "7×24小时专业运维，保障系统稳定运行"
+  },
+  {
+    icon: "🤝",
+    title: "数字化转型",
+    desc: "企业数字化顶层设计与落地实施服务"
+  }
+];
 ---
 
 <div class="about-page">
@@ -67,51 +105,25 @@
     </div>
   </section>
 
-  <!-- 资质荣誉 -->
-  <section id="seniorHonor" class="about-section">
-    <div class="section-container">
-      <h2 class="section-title">资质荣誉</h2>
-      <div class="honor-grid">
-        <div class="honor-item">
-          <div class="honor-icon">★</div>
-          <h4>国家高新技术企业</h4>
-          <p>获得国家级高新技术企业认证</p>
+  <!-- 主营业务与服务 -->
+  <section id="mainBusiness" class="services-section">
+    <h2 class="services-title">主营业务与服务</h2>
+
+    <div class="services-container">
+      <div class="swiper services-swiper">
+        <div class="swiper-wrapper">
+          {services.map((item) => (
+            <div class="swiper-slide">
+              <div class="service-card">
+                <div class="service-icon">{item.icon}</div>
+                <h3 class="service-title">{item.title}</h3>
+                <p class="service-desc">{item.desc}</p>
+              </div>
+            </div>
+          ))}
         </div>
-        <div class="honor-item">
-          <div class="honor-icon">★</div>
-          <h4>ISO9001认证</h4>
-          <p>质量管理体系认证</p>
-        </div>
-        <div class="honor-item">
-          <div class="honor-icon">★</div>
-          <h4>CMMI5级认证</h4>
-          <p>软件能力成熟度最高等级</p>
-        </div>
-        <div class="honor-item">
-          <div class="honor-icon">★</div>
-          <h4>ITSS二级认证</h4>
-          <p>信息技术服务标准认证</p>
-        </div>
-        <div class="honor-item">
-          <div class="honor-icon">★</div>
-          <h4>华为金牌合作伙伴</h4>
-          <p>战略合作伙伴关系</p>
-        </div>
-        <div class="honor-item">
-          <div class="honor-icon">★</div>
-          <h4>行业领军企业</h4>
-          <p>IT服务领域领先企业</p>
-        </div>
-        <div class="honor-item">
-          <div class="honor-icon">★</div>
-          <h4>优秀雇主品牌</h4>
-          <p>最佳雇主企业称号</p>
-        </div>
-        <div class="honor-item">
-          <div class="honor-icon">★</div>
-          <h4>创新示范企业</h4>
-          <p>技术创新示范单位</p>
-        </div>
+
+        <div class="swiper-pagination"></div>
       </div>
     </div>
   </section>
@@ -427,48 +439,86 @@
   color: rgba(255, 255, 255, 0.95);
 }
 
-/* ========== 资质荣誉 ========== */
-.honor-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 30px;
-}
-
-.honor-item {
-  text-align: center;
-  padding: 30px;
-  background: #fff;
-  border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-  transition: transform 0.3s;
-}
-
-.honor-item:hover {
-  transform: translateY(-3px);
-}
-
-.honor-icon {
-  width: 60px;
-  height: 60px;
-  background: #2455A5;
-  border-radius: 50%;
-  margin: 0 auto 15px;
+/* ========== 主营业务与服务 ========== */
+.services-section {
+  width: 100%;
+  min-height: 600px;
+  background-color: #003366;
+  padding: 80px 20px;
   display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.services-title {
+  font-size: 36px;
+  font-weight: 600;
+  color: white;
+  margin-bottom: 60px;
+  text-align: center;
+}
+
+.services-container {
+  width: 100%;
+  max-width: 1200px;
+}
+
+.services-swiper {
+  width: 100%;
+  padding-bottom: 60px;
+}
+
+.services-swiper .swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.service-card {
+  background: white;
+  border-radius: 12px;
+  width: 260px;
+  height: 320px;
+  display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  color: #fff;
-  font-size: 24px;
+  gap: 20px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
 }
 
-.honor-item h4 {
-  color: #1f2937;
-  margin-bottom: 8px;
-  font-size: 16px;
+.service-card:hover {
+  transform: translateY(-5px);
 }
 
-.honor-item p {
-  color: #6b7280;
-  font-size: 13px;
+.service-icon {
+  font-size: 50px;
+}
+
+.service-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: #003366;
+}
+
+.service-desc {
+  font-size: 14px;
+  color: #666;
+  line-height: 1.5;
+}
+
+.services-swiper .swiper-pagination-bullet {
+  background: white !important;
+  opacity: 0.5;
+  width: 10px;
+  height: 10px;
+}
+
+.services-swiper .swiper-pagination-bullet-active {
+  opacity: 1 !important;
 }
 
 /* ========== 发展历程 ========== */
@@ -859,6 +909,68 @@
 </style>
 
 <script>
+// 主营业务与服务 Swiper 轮播初始化
+import Swiper from 'swiper';
+import { Pagination, Autoplay } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/pagination';
+
+// 等待 DOM 加载完成
+function initServicesSwiper() {
+  const servicesSwiper = new Swiper('.services-swiper', {
+    modules: [Pagination, Autoplay],
+    slidesPerView: 3,
+    spaceBetween: 20,
+    loop: true,
+    autoplay: {
+      delay: 3000,
+      disableOnInteraction: false,
+      pauseOnMouseEnter: true,
+    },
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+    breakpoints: {
+      320: {
+        slidesPerView: 1,
+        spaceBetween: 10,
+      },
+      768: {
+        slidesPerView: 2,
+        spaceBetween: 15,
+      },
+      1024: {
+        slidesPerView: 3,
+        spaceBetween: 20,
+      },
+    },
+  });
+
+  // 确保自动播放启动
+  if (servicesSwiper.autoplay) {
+    servicesSwiper.autoplay.start();
+  }
+
+  // 鼠标移入暂停，移出继续
+  const swiperContainer = document.querySelector('.services-swiper');
+  if (swiperContainer && servicesSwiper.autoplay) {
+    swiperContainer.addEventListener('mouseenter', () => {
+      servicesSwiper.autoplay.stop();
+    });
+    swiperContainer.addEventListener('mouseleave', () => {
+      servicesSwiper.autoplay.start();
+    });
+  }
+}
+
+// 页面加载完成后初始化
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initServicesSwiper);
+} else {
+  initServicesSwiper();
+}
+
 // 发展历程轮播功能
 const items = document.querySelectorAll('.timeline-item');
 const dots = document.querySelectorAll('.timeline-dot');
