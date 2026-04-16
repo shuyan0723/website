@@ -27,7 +27,18 @@ const currentPath = Astro.url.pathname;
     <li><a href="/dynamics" class={currentPath.startsWith('/dynamics') ? 'active' : ''}>企业动态</a></li>
     <li><a href="/news" class={currentPath.startsWith('/news') ? 'active' : ''}>新闻中心</a></li>
     <li><a href="/cases" class={currentPath.startsWith('/cases') ? 'active' : ''}>客户案例</a></li>
-    <li><a href="/about" class={currentPath.startsWith('/about') ? 'active' : ''}>关于我们</a></li>
+    <li class="nav-item-dropdown">
+      <a href="/about" class={currentPath.startsWith('/about') ? 'active' : ''}>关于我们</a>
+      <ul class="dropdown-menu">
+        <li><a href="/about#aboutCompany">企业简介</a></li>
+        <li><a href="/about#subCompany">分子公司</a></li>
+        <li><a href="/about#seniorHonor">资质荣誉</a></li>
+        <li><a href="/about#development">发展历程</a></li>
+        <li><a href="/about#responsibility">社会责任</a></li>
+        <li><a href="/about#joinUs">加入我们</a></li>
+        <li><a href="/about#contactUs">联系我们</a></li>
+      </ul>
+    </li>
   </ul>
   <a href="/contact" class="contact-btn">联系我们</a>
 </nav>
