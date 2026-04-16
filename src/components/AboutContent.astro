@@ -8,10 +8,10 @@
     <div class="section-container">
       <h2 class="section-title">企业简介</h2>
       <div class="about-company">
-        <div class="about-left">
+        <div class="about-image">
           <img src="/about/jfwl.png" alt="企业简介">
         </div>
-        <div class="about-right">
+        <div class="about-content">
           <p>
             昆仑时代（上海）系统集成有限公司（以下简称 昆仑时代），成立于2020年，注册资金1亿元人民币，先后在北京、上海、深圳、成都、杭州、青岛、南京、苏州、重庆、美国、新加坡、马来西亚、越南、印度尼西亚、尼日利亚、摩洛哥等全球25个地区设有分子公司，目前公司员工规模近3000余人，是一家致力于在数字化时代为企业提供一站式信息化解决方案的服务运营商。
           </p>
@@ -336,33 +336,31 @@
 
 /* ========== 企业简介 ========== */
 .about-company {
-  display: flex;
-  gap: 40px;
-  align-items: flex-start;
   background: #fff;
   padding: 40px;
   border-radius: 12px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 }
 
-.about-left {
-  flex: 1;
+.about-image {
+  margin-bottom: 30px;
 }
 
-.about-left img {
+.about-image img {
   width: 100%;
+  max-width: 600px;
+  height: auto;
   border-radius: 8px;
+  display: block;
+  margin: 0 auto;
 }
 
-.about-right {
-  flex: 1;
-}
-
-.about-right p {
+.about-content p {
   margin-bottom: 20px;
   text-align: justify;
   line-height: 1.8;
   color: #374151;
+  text-indent: 2em;
 }
 
 /* ========== 分子公司 ========== */
@@ -703,7 +701,6 @@
   }
 
   .about-company {
-    flex-direction: column;
     padding: 24px;
   }
 
