@@ -132,56 +132,89 @@ const services = [
   <section id="development" class="about-section">
     <div class="section-container">
       <h2 class="section-title">发展历程</h2>
-      <div class="timeline-section">
-        <!-- SVG 弧线时间轴 -->
-        <svg class="timeline-svg" viewBox="0 0 1200 500">
-          <!-- 贝塞尔曲线实现平滑弧线 -->
-          <path
-            class="timeline-path"
-            d="M 100 450 C 250 400, 350 350, 400 320 S 650 250, 800 230 S 1100 300, 1100 300"
-          />
-          <!-- 时间节点圆点 -->
-          <circle class="timeline-dot active" cx="100" cy="450" r="14" />
-          <circle class="timeline-dot" cx="400" cy="320" r="14" />
-          <circle class="timeline-dot" cx="800" cy="230" r="14" />
-          <circle class="timeline-dot" cx="1100" cy="300" r="14" />
-        </svg>
+      <div class="narrative-timeline-wrapper">
+        <!-- 叙事型曲线时间轴 -->
+        <div class="narrative-timeline">
+          <!-- SVG 波浪曲线 -->
+          <svg class="curve-svg" viewBox="0 0 1200 300" preserveAspectRatio="xMidYMid meet">
+            <defs>
+              <linearGradient id="curveGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" style="stop-color:#2455A5;stop-opacity:1" />
+                <stop offset="50%" style="stop-color:#4A90E2;stop-opacity:1" />
+                <stop offset="100%" style="stop-color:#22D3EE;stop-opacity:1" />
+              </linearGradient>
+              <filter id="curveGlow">
+                <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                <feMerge>
+                  <feMergeNode in="coloredBlur"/>
+                  <feMergeNode in="SourceGraphic"/>
+                </feMerge>
+              </filter>
+            </defs>
+            <!-- 波浪曲线：低-高-中-低-高，创造上下空白区域 -->
+            <path class="curve-path"
+                  d="M 100 200 C 200 200, 300 120, 400 120 C 500 120, 550 180, 650 180 C 750 180, 850 100, 1000 100 C 1100 100, 1150 180, 1100 180"
+                  fill="none"
+                  stroke="url(#curveGradient)"
+                  stroke-width="4"
+                  stroke-linecap="round"
+                  filter="url(#curveGlow)"/>
+            <!-- 曲线上的装饰点 -->
+            <circle class="curve-dot" cx="100" cy="200" r="6"/>
+            <circle class="curve-dot" cx="400" cy="120" r="6"/>
+            <circle class="curve-dot" cx="650" cy="180" r="6"/>
+            <circle class="curve-dot" cx="1000" cy="100" r="6"/>
+          </svg>
 
-        <!-- 时间轴内容 -->
-        <div class="timeline-container">
-          <div class="timeline-item item-2020 active" data-index="0">
-            <div class="timeline-year">2020</div>
-            <div class="timeline-content">昆仑时代（上海）系统集成有限公司正式成立，注册资金1亿元人民币，开启数字化服务新征程。</div>
-          </div>
-          <div class="timeline-item item-2021" data-index="1">
-            <div class="timeline-year">2021</div>
-            <div class="timeline-content">业务覆盖智能穿戴、汽车电子、金融科技等多个领域，员工规模突破1000人。</div>
-          </div>
-          <div class="timeline-item item-2022" data-index="2">
-            <div class="timeline-year">2022</div>
-            <div class="timeline-content">在北京、深圳、成都、杭州等地设立分公司，形成覆盖全国主要城市的服务网络。</div>
-          </div>
-          <div class="timeline-item item-2023" data-index="3">
-            <div class="timeline-year">2023</div>
-            <div class="timeline-content">进军海外市场，在新加坡、美国、马来西亚等地设立分支机构，开启全球化战略。</div>
-          </div>
-          <div class="timeline-item item-2024" data-index="4">
-            <div class="timeline-year">2024</div>
-            <div class="timeline-content">员工规模近3000人，服务全球25个地区，成为行业领先的IT服务及数字化运营专家。</div>
+          <!-- 固定位置的节点容器 - 错位布局 -->
+          <div class="timeline-nodes-container">
+            <!-- 节点1 - 左侧区域（曲线低谷下方） -->
+            <div class="timeline-node timeline-node-left" data-slot="0">
+              <div class="node-year">2020</div>
+              <div class="node-text">昆仑时代（上海）系统集成有限公司正式成立，注册资金1亿元人民币，开启数字化服务新征程。</div>
+            </div>
+
+            <!-- 节点2 - 中上区域（曲线低谷下方） -->
+            <div class="timeline-node timeline-node-mid-top" data-slot="1">
+              <div class="node-year">2021</div>
+              <div class="node-text">业务覆盖智能穿戴、汽车电子、金融科技等多个领域，员工规模突破1000人。</div>
+            </div>
+
+            <!-- 节点3 - 右侧区域（曲线低谷下方） -->
+            <div class="timeline-node timeline-node-right" data-slot="2">
+              <div class="node-year">2022</div>
+              <div class="node-text">在北京、深圳、成都、杭州等地设立分公司，形成覆盖全国主要城市的服务网络。</div>
+            </div>
           </div>
         </div>
 
-        <!-- 轮播控制按钮 -->
-        <button class="control-btn prev-btn" id="timelinePrev" disabled>
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <polyline points="15 18 9 12 15 6"></polyline>
+        <!-- 内嵌式导航按钮 -->
+        <button class="curve-nav-btn curve-prev-btn" id="curvePrev">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 4 L6 10 L12 16"/>
           </svg>
         </button>
-        <button class="control-btn next-btn" id="timelineNext">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <polyline points="9 18 15 12 9 6"></polyline>
+        <button class="curve-nav-btn curve-next-btn" id="curveNext">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M8 4 L14 10 L8 16"/>
           </svg>
         </button>
+
+        <!-- 分页指示器 -->
+        <!-- <div class="curve-pagination">
+          <div class="pagination-item active" data-page="0">
+            <span class="pagination-year">起步期</span>
+            <span class="pagination-line"></span>
+          </div>
+          <div class="pagination-item" data-page="1">
+            <span class="pagination-year">发展期</span>
+            <span class="pagination-line"></span>
+          </div>
+          <div class="pagination-item" data-page="2">
+            <span class="pagination-year">腾飞期</span>
+            <span class="pagination-line"></span>
+          </div>
+        </div> -->
       </div>
     </div>
   </section>
@@ -522,119 +555,215 @@ const services = [
   opacity: 1 !important;
 }
 
-/* ========== 发展历程 ========== */
-.timeline-section {
+/* ========== 发展历程 - 叙事型曲线时间轴 ========== */
+.narrative-timeline-wrapper {
   position: relative;
   width: 100%;
-  min-height: 500px;
+  max-width: 1200px;
+  margin: 0 auto;
+  /* padding: 80px 40px; */
   background: #fff;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(36, 85, 165, 0.08);
 }
 
-/* SVG 弧线时间轴 */
-.timeline-svg {
+.narrative-timeline {
+  position: relative;
+  width: 100%;
+  height: 600px;
+}
+
+/* SVG 曲线 - 垂直居中 */
+.curve-svg {
   position: absolute;
-  top: 0;
+  top: 200px;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: 300px;
   pointer-events: none;
   z-index: 1;
 }
 
-.timeline-path {
-  fill: none;
-  stroke: #2455A5;
-  stroke-width: 3;
-  stroke-linecap: round;
-  opacity: 0.3;
+.curve-path {
+  stroke-dasharray: 4000;
+  stroke-dashoffset: 4000;
+  animation: drawCurve 3s ease-out forwards;
 }
 
-.timeline-dot {
+@keyframes drawCurve {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.curve-dot {
   fill: #fff;
   stroke: #2455A5;
-  stroke-width: 3;
+  stroke-width: 2;
   transition: all 0.3s ease;
 }
 
-.timeline-dot.active {
-  fill: #2455A5;
-  r: 18;
+.curve-dot:hover {
+  r: 8;
+  filter: url(#curveGlow);
 }
 
-/* 时间轴内容容器 */
-.timeline-container {
-  position: relative;
-  z-index: 2;
-  height: 500px;
-  padding: 60px 40px;
-}
-
-/* 时间节点内容 */
-.timeline-item {
+/* 时间轴节点容器 - 覆盖整个区域 */
+.timeline-nodes-container {
   position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 600px;
   z-index: 2;
-  max-width: 320px;
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
-.timeline-item.active {
+/* 节点基础样式 */
+.timeline-node {
+  position: absolute;
   opacity: 1;
   transform: translateY(0);
+  transition: all 0.4s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.timeline-year {
-  font-size: 42px;
+.timeline-node.fade-in {
+  animation: contentFadeIn 0.5s ease-out;
+}
+
+@keyframes contentFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.timeline-node.hover .node-year {
+  transform: scale(1.08);
+  color: #1a3f7a;
+}
+
+/* 节点位置 - 根据曲线高低点上下分布 */
+.timeline-node-left {
+  left: 100px;
+  top: 80px;
+}
+
+.timeline-node-mid-top {
+  left: 480px;
+  top: 380px;
+}
+
+.timeline-node-right {
+  left: 860px;
+  top: 100px;
+}
+
+/* 节点年份 */
+.node-year {
+  font-size: 52px;
   font-weight: 700;
   color: #2455A5;
-  margin-bottom: 12px;
-  line-height: 1.2;
+  line-height: 1;
+  margin-bottom: 16px;
+  transition: all 0.3s ease;
+  letter-spacing: -2px;
+  position: relative;
 }
 
-.timeline-content {
-  font-size: 16px;
-  line-height: 1.6;
-  color: #374151;
-}
-
-/* 节点位置定位 */
-.item-2020 {
-  top: 80px;
-  left: 60px;
-}
-
-.item-2021 {
-  top: 350px;
-  left: 25%;
-}
-
-.item-2022 {
-  top: 60px;
-  right: 25%;
-}
-
-.item-2023 {
-  top: 300px;
-  right: 60px;
-}
-
-.item-2024 {
-  top: 180px;
+/* 连接线 - 从节点到曲线 */
+.node-year::before {
+  content: '';
+  position: absolute;
   left: 50%;
   transform: translateX(-50%);
+  width: 2px;
+  background: linear-gradient(to bottom, #2455A5, rgba(36, 85, 165, 0.3));
+  z-index: -1;
 }
 
-/* 轮播控制按钮 */
-.control-btn {
+/* 连接线箭头 */
+.node-year::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  z-index: -1;
+}
+
+/* 曲线上方节点的连接线和箭头 */
+.timeline-node-left .node-year::before,
+.timeline-node-right .node-year::before {
+  bottom: -100px;
+  height: 100px;
+}
+
+.timeline-node-left .node-year::after,
+.timeline-node-right .node-year::after {
+  bottom: -106px;
+  border-top: 8px solid #2455A5;
+}
+
+/* 曲线下方节点的连接线和箭头 */
+.timeline-node-mid-top .node-year::before {
+  top: -100px;
+  height: 100px;
+}
+
+.timeline-node-mid-top .node-year::after {
+  top: -106px;
+  border-bottom: 8px solid #2455A5;
+}
+
+/* 节点内容 */
+.node-text {
+  font-size: 15px;
+  line-height: 1.7;
+  color: #6b7280;
+  max-width: 280px;
+  padding: 18px 22px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+/* 内容切换动画 */
+.timeline-node .node-year,
+.timeline-node .node-text {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.timeline-node.fade-in .node-year,
+.timeline-node.fade-in .node-text {
+  animation: contentFadeIn 0.5s ease-out;
+}
+
+.timeline-node:hover .node-text {
+  background: #fff;
+  box-shadow: 0 8px 30px rgba(36, 85, 165, 0.12);
+  border-color: #2455A5;
+  transform: translateY(-5px);
+}
+
+/* 内嵌式导航按钮 */
+.curve-nav-btn {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  width: 48px;
-  height: 48px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
   background: #fff;
   border: 2px solid #e5e7eb;
@@ -645,29 +774,222 @@ const services = [
   justify-content: center;
   transition: all 0.3s ease;
   z-index: 10;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
 }
 
-.control-btn:hover {
+.curve-nav-btn:hover {
   background: #2455A5;
   border-color: #2455A5;
   color: #fff;
-  box-shadow: 0 4px 12px rgba(36, 85, 165, 0.3);
+  box-shadow: 0 6px 20px rgba(36, 85, 165, 0.25);
+  transform: translateY(-50%) scale(1.1);
 }
 
-.control-btn:disabled {
-  opacity: 0.4;
-  cursor: not-allowed;
+.curve-prev-btn {
+  left: -25px;
 }
 
-/* 左侧上一页按钮 */
-.prev-btn {
-  left: 20px;
+.curve-next-btn {
+  right: -25px;
 }
 
-/* 右侧下一页按钮 */
-.next-btn {
-  right: 20px;
+/* 分页指示器 */
+.curve-pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 60px;
+  /* margin-top: 60px; */
+  padding: 0 20px;
+}
+
+.pagination-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.pagination-year {
+  font-size: 16px;
+  font-weight: 600;
+  color: #9ca3af;
+  transition: all 0.3s ease;
+}
+
+.pagination-line {
+  width: 60px;
+  height: 3px;
+  background: #e5e7eb;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.pagination-line::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 0;
+  background: linear-gradient(90deg, #2455A5, #4A90E2);
+  transition: width 0.3s ease;
+}
+
+.pagination-item.active .pagination-year {
+  color: #2455A5;
+}
+
+.pagination-item.active .pagination-line::after {
+  width: 100%;
+}
+
+.pagination-item:hover .pagination-year {
+  color: #2455A5;
+}
+
+.pagination-item:hover {
+  transform: translateY(-3px);
+}
+
+/* 呼吸感和留白 */
+.narrative-timeline-wrapper::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 30% 40%, rgba(36, 85, 165, 0.02) 0%, transparent 50%),
+              radial-gradient(circle at 70% 60%, rgba(74, 144, 226, 0.02) 0%, transparent 50%);
+  pointer-events: none;
+  border-radius: 16px;
+}
+
+/* 响应式设计 */
+@media (max-width: 1200px) {
+  .narrative-timeline-wrapper {
+    max-width: 100%;
+    padding: 60px 30px;
+  }
+
+  .timeline-node-left {
+    left: 60px;
+    top: 100px;
+  }
+
+  .timeline-node-mid-top {
+    left: 400px;
+    top: 360px;
+  }
+
+  .timeline-node-right {
+    left: 740px;
+    top: 120px;
+  }
+
+  .node-year {
+    font-size: 44px;
+  }
+
+  .node-text {
+    font-size: 14px;
+    max-width: 220px;
+    padding: 16px 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .narrative-timeline-wrapper {
+    padding: 40px 20px;
+  }
+
+  .narrative-timeline {
+    height: 550px;
+  }
+
+  .curve-svg {
+    height: 250px;
+    top: 100px;
+  }
+
+  .timeline-nodes-container {
+    top: 0;
+  }
+
+  .timeline-node-left {
+    left: 50%;
+    transform: translateX(-50%);
+    top: 40px;
+  }
+
+  .timeline-node-mid-top {
+    left: 50%;
+    transform: translateX(-50%);
+    top: 200px;
+  }
+
+  .timeline-node-right {
+    left: 50%;
+    transform: translateX(-50%);
+    top: 360px;
+  }
+
+  .curve-prev-btn {
+    left: 10px;
+  }
+
+  .curve-next-btn {
+    right: 10px;
+  }
+
+  .curve-pagination {
+    gap: 40px;
+  }
+
+  .pagination-year {
+    font-size: 14px;
+  }
+
+  .pagination-line {
+    width: 40px;
+  }
+
+  .node-year {
+    font-size: 36px;
+    margin-bottom: 12px;
+  }
+
+  .node-text {
+    font-size: 13px;
+    max-width: 180px;
+    padding: 14px 18px;
+  }
+
+  /* 移动端连接线调整 */
+  .timeline-node-left .node-year::before,
+  .timeline-node-right .node-year::before {
+    bottom: -60px;
+    height: 60px;
+  }
+
+  .timeline-node-left .node-year::after,
+  .timeline-node-right .node-year::after {
+    bottom: -66px;
+  }
+
+  .timeline-node-mid-top .node-year::before {
+    top: -100px;
+    height: 100px;
+  }
+
+  .timeline-node-mid-top .node-year::after {
+    top: -106px;
+  }
 }
 
 /* ========== 社会责任 ========== */
@@ -992,45 +1314,112 @@ if (document.readyState === 'loading') {
   initServicesSwiper();
 }
 
-// 发展历程轮播功能
-const items = document.querySelectorAll('.timeline-item');
-const dots = document.querySelectorAll('.timeline-dot');
-const prevBtn = document.getElementById('timelinePrev') as HTMLButtonElement | null;
-const nextBtn = document.getElementById('timelineNext') as HTMLButtonElement | null;
-let currentIndex = 0;
-const total = items.length;
 
-// 更新轮播状态
-function updateCarousel() {
-  // 重置所有节点状态
-  items.forEach((item, index) => {
-    item.classList.toggle('active', index === currentIndex);
-  });
-  dots.forEach((dot, index) => {
-    dot.classList.toggle('active', index === currentIndex);
+// ========== 叙事型曲线时间轴功能 ==========
+function initNarrativeTimeline() {
+  const wrapper = document.querySelector('.narrative-timeline-wrapper') as HTMLElement;
+  const nodes = document.querySelectorAll('.timeline-node');
+  const prevBtn = document.getElementById('curvePrev') as HTMLButtonElement | null;
+  const nextBtn = document.getElementById('curveNext') as HTMLButtonElement | null;
+  const paginationItems = document.querySelectorAll('.pagination-item');
+
+  if (!wrapper || nodes.length === 0) return;
+
+  // 每页的数据内容
+  const pageData = [
+    // 第1页 - 起步期 (2020-2022)
+    [
+      { year: '2020', text: '昆仑时代（上海）系统集成有限公司正式成立，注册资金1亿元人民币，开启数字化服务新征程。' },
+      { year: '2021', text: '业务覆盖智能穿戴、汽车电子、金融科技等多个领域，员工规模突破1000人。' },
+      { year: '2022', text: '在北京、深圳、成都、杭州等地设立分公司，形成覆盖全国主要城市的服务网络。' }
+    ],
+    // 第2页 - 发展期 (2023-2025)
+    [
+      { year: '2023', text: '进军海外市场，在新加坡、美国、马来西亚等地设立分支机构，开启全球化战略。' },
+      { year: '2024', text: '员工规模近3000人，服务全球25个地区，成为行业领先的IT服务及数字化运营专家。' },
+      { year: '2025', text: '发布自主研发的"昆仑智能大脑"AI平台，在金融反洗钱、智能运维等领域实现技术突破，服务客户突破5000家。' }
+    ],
+    // 第3页 - 腾飞期 (2026-2027)
+    [
+      { year: '2026', text: '正式启动上市计划，在欧洲、东南亚等15个国家和地区拓展业务，构建覆盖全球40+地区的数字化服务生态体系。' },
+      { year: '2027', text: '持续引领行业发展，深化AI技术应用，为全球客户提供更优质的数字化服务，实现可持续增长。' },
+      { year: '展望', text: '以技术创新为驱动，以客户价值为导向，致力于成为全球领先的数字化转型服务提供商。' }
+    ]
+  ];
+
+  // 状态管理
+  let currentPage = 0;
+  const totalPages = 3;
+
+  // 更新节点内容
+  function updateNodeContent() {
+    const data = pageData[currentPage];
+
+    nodes.forEach((node: Element, index: number) => {
+      if (index < data.length) {
+        const yearEl = node.querySelector('.node-year') as HTMLElement;
+        const textEl = node.querySelector('.node-text') as HTMLElement;
+
+        if (yearEl) yearEl.textContent = data[index].year;
+        if (textEl) textEl.textContent = data[index].text;
+
+        // 添加淡入动画效果
+        node.classList.remove('fade-in');
+        void node.offsetWidth; // 触发重排
+        node.classList.add('fade-in');
+      }
+    });
+
+    // 更新分页指示器
+    paginationItems.forEach((item: Element, index: number) => {
+      if (index === currentPage) {
+        item.classList.add('active');
+      } else {
+        item.classList.remove('active');
+      }
+    });
+  }
+
+  // 切换页面
+  function goToPage(pageIndex: number) {
+    if (pageIndex >= 0 && pageIndex < totalPages && pageIndex !== currentPage) {
+      currentPage = pageIndex;
+      updateNodeContent();
+    }
+  }
+
+  // 事件监听
+  prevBtn?.addEventListener('click', () => {
+    if (currentPage > 0) goToPage(currentPage - 1);
   });
 
-  // 按钮状态控制
-  if (prevBtn) prevBtn.disabled = currentIndex === 0;
-  if (nextBtn) nextBtn.disabled = currentIndex === total - 1;
+  nextBtn?.addEventListener('click', () => {
+    if (currentPage < totalPages - 1) goToPage(currentPage + 1);
+  });
+
+  paginationItems.forEach((item: Element, index: number) => {
+    item.addEventListener('click', () => {
+      goToPage(index);
+    });
+  });
+
+  // 节点悬停效果
+  nodes.forEach((node: Element) => {
+    node.addEventListener('mouseenter', () => {
+      (node as HTMLElement).classList.add('hover');
+    });
+    node.addEventListener('mouseleave', () => {
+      (node as HTMLElement).classList.remove('hover');
+    });
+  });
+
+  // 初始化
+  updateNodeContent();
 }
 
-// 按钮事件绑定
-prevBtn?.addEventListener('click', () => {
-  if (currentIndex > 0) {
-    currentIndex--;
-    updateCarousel();
-  }
-});
-
-nextBtn?.addEventListener('click', () => {
-  if (currentIndex < total - 1) {
-    currentIndex++;
-    updateCarousel();
-  }
-});
-
-// 初始化
-updateCarousel();
+// 延迟初始化
+setTimeout(() => {
+  initNarrativeTimeline();
+}, 500);
 </script>
 
