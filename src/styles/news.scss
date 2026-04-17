@@ -97,7 +97,7 @@ body {
     top: 4px;
     bottom: 0;
     width: 1px;
-    background: #1e293b;
+    background: #e5e7eb;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -110,12 +110,11 @@ body {
     width: 12px;
     height: 12px;
     border-radius: 50%;
-    background: #020617;
-    border: 2px solid #3b82f6;
+    background: #e5e7eb;
     @include transition(all);
 
     &.inactive {
-      border-color: #334155;
+      border-color: #d1d5db;
     }
 
     .news-item:hover & {
@@ -161,10 +160,10 @@ body {
 
   .news-tag {
     padding: 2px 8px;
-    background: #1e293b;
+    // background: #1e293b;
     border-radius: 4px;
-    font-size: 10px;
-    color: #94a3b8;
+    font-size: 12px;
+    color: #64748b;
   }
 
   .news-link {
