@@ -200,21 +200,6 @@ const services = [
           </svg>
         </button>
 
-        <!-- 分页指示器 -->
-        <!-- <div class="curve-pagination">
-          <div class="pagination-item active" data-page="0">
-            <span class="pagination-year">起步期</span>
-            <span class="pagination-line"></span>
-          </div>
-          <div class="pagination-item" data-page="1">
-            <span class="pagination-year">发展期</span>
-            <span class="pagination-line"></span>
-          </div>
-          <div class="pagination-item" data-page="2">
-            <span class="pagination-year">腾飞期</span>
-            <span class="pagination-line"></span>
-          </div>
-        </div> -->
       </div>
     </div>
   </section>
@@ -793,68 +778,6 @@ const services = [
   right: -25px;
 }
 
-/* 分页指示器 */
-.curve-pagination {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 60px;
-  /* margin-top: 60px; */
-  padding: 0 20px;
-}
-
-.pagination-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 12px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.pagination-year {
-  font-size: 16px;
-  font-weight: 600;
-  color: #9ca3af;
-  transition: all 0.3s ease;
-}
-
-.pagination-line {
-  width: 60px;
-  height: 3px;
-  background: #e5e7eb;
-  border-radius: 2px;
-  transition: all 0.3s ease;
-  position: relative;
-  overflow: hidden;
-}
-
-.pagination-line::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 0;
-  height: 100%;
-  width: 0;
-  background: linear-gradient(90deg, #2455A5, #4A90E2);
-  transition: width 0.3s ease;
-}
-
-.pagination-item.active .pagination-year {
-  color: #2455A5;
-}
-
-.pagination-item.active .pagination-line::after {
-  width: 100%;
-}
-
-.pagination-item:hover .pagination-year {
-  color: #2455A5;
-}
-
-.pagination-item:hover {
-  transform: translateY(-3px);
-}
 
 /* 呼吸感和留白 */
 .narrative-timeline-wrapper::before {
@@ -947,17 +870,6 @@ const services = [
     right: 10px;
   }
 
-  .curve-pagination {
-    gap: 40px;
-  }
-
-  .pagination-year {
-    font-size: 14px;
-  }
-
-  .pagination-line {
-    width: 40px;
-  }
 
   .node-year {
     font-size: 36px;
@@ -1321,7 +1233,6 @@ function initNarrativeTimeline() {
   const nodes = document.querySelectorAll('.timeline-node');
   const prevBtn = document.getElementById('curvePrev') as HTMLButtonElement | null;
   const nextBtn = document.getElementById('curveNext') as HTMLButtonElement | null;
-  const paginationItems = document.querySelectorAll('.pagination-item');
 
   if (!wrapper || nodes.length === 0) return;
 
@@ -1370,14 +1281,6 @@ function initNarrativeTimeline() {
       }
     });
 
-    // 更新分页指示器
-    paginationItems.forEach((item: Element, index: number) => {
-      if (index === currentPage) {
-        item.classList.add('active');
-      } else {
-        item.classList.remove('active');
-      }
-    });
   }
 
   // 切换页面
@@ -1397,11 +1300,6 @@ function initNarrativeTimeline() {
     if (currentPage < totalPages - 1) goToPage(currentPage + 1);
   });
 
-  paginationItems.forEach((item: Element, index: number) => {
-    item.addEventListener('click', () => {
-      goToPage(index);
-    });
-  });
 
   // 节点悬停效果
   nodes.forEach((node: Element) => {
