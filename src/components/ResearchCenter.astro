@@ -854,9 +854,12 @@
   // Tab切换功能
   const tabBtns = document.querySelectorAll('.research-tab-btn');
   const productPanels = document.querySelectorAll('.research-product-panel');
+  let currentIndex = 0;
+  let autoPlayInterval: number | null = null;
 
   function switchProduct(index: number) {
     const tabs = ['aml', 'ops', 'bid'];
+    currentIndex = index;
 
     // 更新按钮样式
     tabBtns.forEach((btn, i) => {
@@ -889,10 +892,33 @@
     }, 100);
   }
 
-  // 绑定Tab点击事件
+  // 自动切换功能
+  function startAutoPlay() {
+    if (autoPlayInterval) clearInterval(autoPlayInterval);
+    autoPlayInterval = window.setInterval(() => {
+      currentIndex = (currentIndex + 1) % 3;
+      switchProduct(currentIndex);
+    }, 2000);
+  }
+
+  function stopAutoPlay() {
+    if (autoPlayInterval) {
+      clearInterval(autoPlayInterval);
+      autoPlayInterval = null;
+    }
+  }
+
+  // 绑定Tab点击事件（点击时暂停自动切换）
   tabBtns.forEach((btn, index) => {
-    btn.addEventListener('click', () => switchProduct(index));
+    btn.addEventListener('click', () => {
+      stopAutoPlay();
+      switchProduct(index);
+      startAutoPlay();
+    });
   });
+
+  // 启动自动切换
+  startAutoPlay();
 
   // 页面加载后默认滚动到v2.0
   setTimeout(() => {
