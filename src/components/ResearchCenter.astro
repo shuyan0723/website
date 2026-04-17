@@ -429,13 +429,16 @@
         <!-- 产品Tab切换器 -->
         <div class="research-tabs">
           <button class="research-tab-btn active" data-tab="aml">
-            反洗钱智能管理系统
+            <span class="tab-text">反洗钱智能管理系统</span>
+            <span class="tab-progress"></span>
           </button>
           <button class="research-tab-btn" data-tab="ops">
-            昆仑智能运维管理平台
+            <span class="tab-text">昆仑智能运维管理平台</span>
+            <span class="tab-progress"></span>
           </button>
           <button class="research-tab-btn" data-tab="bid">
-            标讯信息智能分析平台
+            <span class="tab-text">标讯信息智能分析平台</span>
+            <span class="tab-progress"></span>
           </button>
         </div>
 
@@ -447,7 +450,7 @@
             <div class="research-product-intro">
               <div class="research-product-header">
                 <div>
-                  <h3 class="research-product-title">反洗钱智能管理系统</h3>
+                  <h3 class="research-product-title" data-original="反洗钱智能管理系统"></h3>
                   <p class="research-product-desc">
                     面向金融机构复杂反洗钱场景，构建以数据驱动、模型驱动与智能决策为核心的新一代反洗钱智能管理系统。平台融合规则引擎、机器学习与图计算能力，打造覆盖交易监测、风险识别、关系分析与决策支撑的智能风控体系。
                   </p>
@@ -593,7 +596,7 @@
             <div class="research-product-intro">
               <div class="research-product-header">
                 <div>
-                  <h3 class="research-product-title">昆仑智能运维管理平台</h3>
+                  <h3 class="research-product-title" data-original="昆仑智能运维管理平台"></h3>
                   <p class="research-product-desc">
                     面向企业及金融机构复杂IT环境下的运维管理需求，构建以数据驱动、流程驱动与智能决策为核心的新一代运维管理平台。通过微服务架构与云原生技术体系，融合大数据分析、人工智能与物联网技术，实现运维从"流程管控"向"智能决策"的能力跃迁。
                   </p>
@@ -715,7 +718,7 @@
             <div class="research-product-intro">
               <div class="research-product-header">
                 <div>
-                  <h3 class="research-product-title">标讯信息智能分析平台</h3>
+                  <h3 class="research-product-title" data-original="标讯信息智能分析平台"></h3>
                   <p class="research-product-desc">
                     基于多源数据融合与智能分析技术，构建新一代标讯信息智能分析平台。平台以数据驱动与算法驱动为核心，实现标讯信息的智能筛选、商机识别与市场洞察，逐步从信息处理工具演进为面向企业投标决策的智能化支撑系统。
                   </p>
@@ -851,121 +854,5 @@
 </style>
 
 <script>
-  // Tab切换功能
-  const tabBtns = document.querySelectorAll('.research-tab-btn');
-  const productPanels = document.querySelectorAll('.research-product-panel');
-  let currentIndex = 0;
-  let autoPlayInterval: number | null = null;
-
-  function switchProduct(index: number) {
-    const tabs = ['aml', 'ops', 'bid'];
-    currentIndex = index;
-
-    // 更新按钮样式
-    tabBtns.forEach((btn, i) => {
-      if (i === index) {
-        btn.classList.add('active');
-      } else {
-        btn.classList.remove('active');
-      }
-    });
-
-    // 切换产品面板
-    productPanels.forEach((panel, i) => {
-      if (i === index) {
-        panel.classList.add('active');
-        panel.style.animation = 'fadeIn 0.3s ease-out';
-      } else {
-        panel.classList.remove('active');
-        panel.style.animation = '';
-      }
-    });
-
-    // 自动滚动到v2.0位置（约1/3处）
-    setTimeout(() => {
-      const wrapper = document.getElementById(`timeline-${tabs[index]}`);
-      if (wrapper) {
-        const scrollWidth = wrapper.scrollWidth;
-        const clientWidth = wrapper.clientWidth;
-        wrapper.scrollLeft = (scrollWidth - clientWidth) / 3;
-      }
-    }, 100);
-  }
-
-  // 自动切换功能
-  function startAutoPlay() {
-    if (autoPlayInterval) clearInterval(autoPlayInterval);
-    autoPlayInterval = window.setInterval(() => {
-      currentIndex = (currentIndex + 1) % 3;
-      switchProduct(currentIndex);
-    }, 2000);
-  }
-
-  function stopAutoPlay() {
-    if (autoPlayInterval) {
-      clearInterval(autoPlayInterval);
-      autoPlayInterval = null;
-    }
-  }
-
-  // 绑定Tab点击事件（点击时暂停自动切换）
-  tabBtns.forEach((btn, index) => {
-    btn.addEventListener('click', () => {
-      stopAutoPlay();
-      switchProduct(index);
-      startAutoPlay();
-    });
-  });
-
-  // 启动自动切换
-  startAutoPlay();
-
-  // 页面加载后默认滚动到v2.0
-  setTimeout(() => {
-    ['aml', 'ops', 'bid'].forEach(id => {
-      const wrapper = document.getElementById(`timeline-${id}`);
-      if (wrapper) {
-        const scrollWidth = wrapper.scrollWidth;
-        const clientWidth = wrapper.clientWidth;
-        wrapper.scrollLeft = (scrollWidth - clientWidth) / 3;
-      }
-    });
-  }, 500);
-
-  // 淡入动画（保留原有滚动触发动画）
-  const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-  };
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-
-        if (entry.target.classList.contains('count-up')) {
-          const target = parseInt((entry.target as HTMLElement).dataset.target || '0');
-          animateCountUp(entry.target as HTMLElement, target);
-        }
-      }
-    });
-  }, observerOptions);
-
-  document.querySelectorAll('.fade-in, .count-up').forEach(el => {
-    observer.observe(el);
-  });
-
-  function animateCountUp(element: HTMLElement, target: number, duration = 2000) {
-    let start = 0;
-    const increment = target / (duration / 16);
-    const timer = setInterval(() => {
-      start += increment;
-      if (start >= target) {
-        element.textContent = target + '+';
-        clearInterval(timer);
-      } else {
-        element.textContent = Math.floor(start).toString();
-      }
-    }, 16);
-  }
+  import './research-center-script.ts';
 </script>
