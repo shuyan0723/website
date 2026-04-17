@@ -462,7 +462,7 @@ const services = [
 .services-section {
   width: 100%;
   min-height: 600px;
-  background-color: #003366;
+  /* background-color: #003366; */
   padding: 80px 20px;
   display: flex;
   flex-direction: column;
@@ -472,7 +472,7 @@ const services = [
 .services-title {
   font-size: 36px;
   font-weight: 600;
-  color: white;
+  color: #333;
   margin-bottom: 60px;
   text-align: center;
 }
@@ -489,21 +489,21 @@ const services = [
 
 .services-swiper .swiper-slide {
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
 }
 
 .service-card {
   background: white;
   border-radius: 12px;
-  width: 260px;
-  height: 320px;
+  width: 220px;
+  height: 280px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 20px;
-  padding: 20px;
+  gap: 16px;
+  padding: 16px;
   text-align: center;
   box-shadow: 0 4px 20px rgba(0,0,0,0.1);
   transition: transform 0.3s ease;
@@ -1166,22 +1166,17 @@ const services = [
 <script>
 // 主营业务与服务 Swiper 轮播初始化
 import Swiper from 'swiper';
-import { Pagination, Autoplay } from 'swiper/modules';
+import { Pagination } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
 
 // 等待 DOM 加载完成
 function initServicesSwiper() {
   const servicesSwiper = new Swiper('.services-swiper', {
-    modules: [Pagination, Autoplay],
+    modules: [Pagination],
     slidesPerView: 3,
-    spaceBetween: 20,
+    spaceBetween: 0,
     loop: true,
-    autoplay: {
-      delay: 3000,
-      disableOnInteraction: false,
-      pauseOnMouseEnter: true,
-    },
     pagination: {
       el: '.swiper-pagination',
       clickable: true,
@@ -1189,15 +1184,15 @@ function initServicesSwiper() {
     breakpoints: {
       320: {
         slidesPerView: 1,
-        spaceBetween: 10,
+        spaceBetween: 0,
       },
       768: {
         slidesPerView: 2,
-        spaceBetween: 15,
+        spaceBetween: 0,
       },
       1024: {
         slidesPerView: 3,
-        spaceBetween: 20,
+        spaceBetween: 0,
       },
     },
   });
