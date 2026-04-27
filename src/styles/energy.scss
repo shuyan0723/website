@@ -1,65 +1,101 @@
-// 能源科技方案样式 - 使用 SCSS 预处理器
+// 能源科技页面样式
 @use './variables' as *;
 
 // ========== 全局样式 ==========
-body {
-  background: $bg-dark;
-  color: $bg-white;
-  font-family: 'Inter', 'PingFang SC', 'Microsoft YaHei', sans-serif;
-}
-
-.page-container {
+.energy-page {
   width: 100%;
   min-height: 100vh;
+  background-color: #020617;
+  color: #f8fafc;
+  font-family: 'Inter', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  overflow-x: hidden;
   position: relative;
-}
 
-.max-container {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 0 $spacing-lg;
-}
-
-// ========== 英雄区 ==========
-.hero-section {
-  padding: 160px $spacing-lg 80px;
-  background: $bg-dark;
-  position: relative;
-  overflow: hidden;
-
-  @include respond-below($breakpoint-md) {
-    padding: 140px $spacing-lg 60px;
-  }
-
+  // 点状背景
   &::before {
     content: '';
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
     background-image: radial-gradient(rgba(59, 130, 246, 0.1) 1px, transparent 1px);
     background-size: 30px 30px;
-    opacity: 0.5;
+    pointer-events: none;
+    z-index: 0;
   }
+}
+
+// ========== 进度条 ==========
+.page-progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #22d3ee, #3b82f6);
+  z-index: 1000;
+  width: 0;
+  transition: width 0.1s ease;
+}
+
+// ========== 移动端遮罩 ==========
+.mobile-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 40;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+
+  &.active {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+// ========== 英雄区 ==========
+.hero-section {
+  padding: 160px $spacing-lg 80px;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+
+  @include respond-below($breakpoint-md) {
+    padding: 140px $spacing-lg 60px;
+  }
+}
+
+.hero-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 $spacing-lg;
+  position: relative;
+  z-index: 2;
 }
 
 .hero-badge {
   margin-bottom: $spacing-xl;
+
+  .badge-text {
+    display: inline-block;
+    padding: $spacing-sm $spacing-lg;
+    background: rgba(34, 197, 94, 0.2);
+    color: #4ade80;
+    border-radius: 9999px;
+    font-size: $font-sm;
+    font-weight: 500;
+    animation: floating 3s ease-in-out infinite;
+  }
 }
 
-.badge-text {
-  display: inline-block;
-  padding: $spacing-sm $spacing-lg;
-  background: rgba(34, 197, 94, 0.2);
-  color: #4ade80;
-  border-radius: 9999px;
-  font-size: $font-sm;
-  font-weight: 500;
+@keyframes floating {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
 }
 
 .hero-title {
-  font-size: clamp(36px, 6vw, 56px);
+  font-size: clamp(36px, 6vw, 64px);
   font-weight: 700;
   background: linear-gradient(135deg, #22d3ee 0%, #3b82f6 50%, #8b5cf6 100%);
   -webkit-background-clip: text;
@@ -70,58 +106,62 @@ body {
 }
 
 .hero-desc {
-  font-size: $font-lg;
-  color: $text-muted;
+  font-size: clamp($font-base, 2vw, $font-xl);
+  color: #94a3b8;
   max-width: 800px;
   line-height: 1.7;
   margin-bottom: $spacing-xl;
 }
 
 .hero-actions {
-  @include flex-center;
+  display: flex;
   flex-wrap: wrap;
   gap: $spacing-md;
 }
 
-.btn-primary {
-  display: inline-block;
-  padding: 12px $spacing-3xl;
-  background: $primary-blue;
-  color: white;
+// ========== 按钮样式 ==========
+.btn {
+  padding: 12px 32px;
   border-radius: 9999px;
   font-size: $font-sm;
   font-weight: 600;
-  text-decoration: none;
-  @include transition(all);
-  box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+  outline: none;
 
-  &:hover {
-    background: #2563eb;
-    box-shadow: 0 0 30px rgba(59, 130, 246, 0.5);
+  &.btn-primary {
+    background: #3b82f6;
+    color: white;
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+
+    &:hover {
+      background: #2563eb;
+      box-shadow: 0 0 30px rgba(59, 130, 246, 0.5);
+    }
+  }
+
+  &.btn-secondary {
+    background: transparent;
+    color: #f8fafc;
+    border: 1px solid #475569;
+
+    &:hover {
+      border-color: #3b82f6;
+    }
   }
 }
 
-.btn-secondary {
-  display: inline-block;
-  padding: 12px $spacing-3xl;
-  background: transparent;
-  color: $bg-white;
-  border: 1px solid #475569;
-  border-radius: 9999px;
-  font-size: $font-sm;
-  font-weight: 500;
-  text-decoration: none;
-  @include transition(all);
-
-  &:hover {
-    border-color: $primary-blue;
-  }
+// ========== 章节容器 ==========
+.section-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 $spacing-lg;
 }
 
-// ========== 章节头部 ==========
 .section-header {
   text-align: center;
-  margin-bottom: $spacing-3xl;
+  margin-bottom: 64px;
 }
 
 .section-badge {
@@ -138,21 +178,23 @@ body {
 .section-title {
   font-size: clamp(28px, 4vw, 40px);
   font-weight: 700;
-  color: $bg-white;
+  color: #f8fafc;
   margin-bottom: $spacing-md;
 }
 
 .section-desc {
   font-size: $font-base;
-  color: $text-muted;
+  color: #94a3b8;
   max-width: 600px;
   margin: 0 auto;
 }
 
 // ========== 服务模块 ==========
 .services-section {
-  padding: $spacing-3xl $spacing-lg;
+  padding: 80px $spacing-lg;
   background: rgba(15, 23, 42, 0.5);
+  position: relative;
+  z-index: 1;
 }
 
 .services-grid {
@@ -166,73 +208,99 @@ body {
 }
 
 .service-card {
-  padding: $spacing-3xl;
+  padding: 32px;
   background: rgba(30, 41, 59, 0.5);
-  border-radius: $spacing-lg;
+  border-radius: 16px;
   border: 1px solid rgba(148, 163, 184, 0.1);
-  @include transition(all);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(135deg, #22d3ee, #3b82f6, #8b5cf6);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
 
   &:hover {
     transform: translateY(-8px);
     box-shadow: 0 20px 40px rgba(59, 130, 246, 0.2);
     border-color: rgba(59, 130, 246, 0.5);
+
+    &::before {
+      opacity: 1;
+    }
   }
 }
 
 .service-icon {
   width: 64px;
   height: 64px;
-  border-radius: $spacing-md;
-  @include flex-center;
-  margin-bottom: $spacing-xl;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+  transition: all 0.3s ease;
 
   svg {
     width: 32px;
     height: 32px;
   }
 
-  &.blue {
+  &-blue {
     background: rgba(59, 130, 246, 0.2);
-
-    svg { color: #60a5fa; }
+    color: #60a5fa;
   }
 
-  &.green {
+  &-green {
     background: rgba(34, 197, 94, 0.2);
-
-    svg { color: #4ade80; }
+    color: #4ade80;
   }
 
-  &.purple {
+  &-purple {
     background: rgba(168, 85, 247, 0.2);
-
-    svg { color: #c084fc; }
+    color: #c084fc;
   }
+}
+
+.service-card:hover .service-icon {
+  transform: scale(1.1) rotate(5deg);
 }
 
 .service-title {
   font-size: $font-xl;
   font-weight: 700;
-  color: $bg-white;
+  color: #f8fafc;
   margin-bottom: $spacing-md;
 }
 
 .service-desc {
   font-size: $font-sm;
-  color: $text-muted;
+  color: #94a3b8;
   line-height: 1.6;
 }
 
 // ========== 服务案例 ==========
 .cases-section {
-  padding: $spacing-3xl $spacing-lg;
-  background: $bg-dark;
+  padding: 80px $spacing-lg;
+  background: #020617;
+  position: relative;
+  z-index: 1;
 }
 
 .cases-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: $spacing-3xl;
+  gap: 48px;
 
   @include respond-to($breakpoint-md) {
     grid-template-columns: repeat(2, 1fr);
@@ -241,10 +309,11 @@ body {
 
 .case-card {
   position: relative;
-  border-radius: $spacing-lg;
+  border-radius: 16px;
   overflow: hidden;
   cursor: pointer;
   aspect-ratio: 16 / 10;
+  background: #1e293b;
 
   &:hover .case-image {
     transform: scale(1.1);
@@ -255,34 +324,34 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  @include transition(transform, 0.5s);
+  transition: transform 0.5s ease;
 }
 
 .case-content {
   position: absolute;
   inset: 0;
   background: linear-gradient(to top, rgba(2, 6, 23, 0.95) 0%, rgba(2, 6, 23, 0.5) 50%, transparent 100%);
-  padding: $spacing-3xl;
-  @include flex-center;
+  padding: 32px;
+  display: flex;
   flex-direction: column;
   justify-content: flex-end;
+  align-items: flex-start;
 }
 
 .case-tag {
   display: inline-block;
-  padding: $spacing-xs $spacing-md;
+  padding: 4px 12px;
   border-radius: 6px;
   font-size: $font-xs;
   font-weight: 500;
   margin-bottom: $spacing-sm;
-  width: fit-content;
 
-  &.blue {
+  &-blue {
     background: rgba(59, 130, 246, 0.3);
     color: #60a5fa;
   }
 
-  &.green {
+  &-green {
     background: rgba(34, 197, 94, 0.3);
     color: #4ade80;
   }
@@ -291,7 +360,7 @@ body {
 .case-title {
   font-size: $font-xl;
   font-weight: 700;
-  color: $bg-white;
+  color: #f8fafc;
   margin-bottom: $spacing-sm;
 }
 
@@ -302,14 +371,16 @@ body {
 
 // ========== 服务优势 ==========
 .advantages-section {
-  padding: $spacing-3xl $spacing-lg;
+  padding: 80px $spacing-lg;
   background: rgba(59, 130, 246, 0.05);
+  position: relative;
+  z-index: 1;
 }
 
 .advantages-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: $spacing-lg;
+  gap: 24px;
 
   @include respond-to($breakpoint-md) {
     grid-template-columns: repeat(4, 1fr);
@@ -318,11 +389,11 @@ body {
 
 .advantage-card {
   text-align: center;
-  padding: $spacing-3xl $spacing-md;
+  padding: 32px 16px;
   background: rgba(30, 41, 59, 0.5);
-  border-radius: $spacing-lg;
+  border-radius: 16px;
   border: 1px solid rgba(148, 163, 184, 0.1);
-  @include transition(all);
+  transition: all 0.3s ease;
 
   &:hover {
     border-color: rgba(59, 130, 246, 0.5);
@@ -333,27 +404,29 @@ body {
   width: 64px;
   height: 64px;
   border-radius: 50%;
-  @include flex-center;
-  margin: 0 auto $spacing-md;
-  font-size: $font-2xl;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+  font-size: 24px;
   font-weight: 700;
 
-  &.blue {
+  &-blue {
     background: rgba(59, 130, 246, 0.2);
     color: #60a5fa;
   }
 
-  &.green {
+  &-green {
     background: rgba(34, 197, 94, 0.2);
     color: #4ade80;
   }
 
-  &.purple {
+  &-purple {
     background: rgba(168, 85, 247, 0.2);
     color: #c084fc;
   }
 
-  &.orange {
+  &-orange {
     background: rgba(249, 115, 22, 0.2);
     color: #fb923c;
   }
@@ -362,25 +435,30 @@ body {
 .advantage-title {
   font-size: $font-lg;
   font-weight: 700;
-  color: $bg-white;
+  color: #f8fafc;
   margin-bottom: $spacing-sm;
 }
 
 .advantage-desc {
   font-size: $font-sm;
-  color: $text-muted;
+  color: #94a3b8;
 }
 
 // ========== CTA 区域 ==========
 .cta-section {
-  padding: $spacing-3xl $spacing-lg;
-  background: $bg-dark;
+  padding: 80px $spacing-lg;
+  background: #020617;
+  position: relative;
+  z-index: 1;
+}
+
+.cta-container {
+  max-width: 900px;
+  margin: 0 auto;
 }
 
 .cta-content {
   text-align: center;
-  max-width: 700px;
-  margin: 0 auto;
 }
 
 .cta-title {
@@ -395,23 +473,55 @@ body {
 
 .cta-desc {
   font-size: $font-base;
-  color: $text-muted;
+  color: #94a3b8;
   margin-bottom: $spacing-xl;
 }
 
 .cta-actions {
-  @include flex-center;
+  display: flex;
   flex-wrap: wrap;
   gap: $spacing-md;
   justify-content: center;
+}
+
+// ========== Toast 通知 ==========
+.toast-notification {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  background: #10b981;
+  color: white;
+  padding: 1rem 1.5rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  transform: translateY(100px);
+  opacity: 0;
+  transition: all 0.3s ease;
+  z-index: 100;
+
+  &.show {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.toast-content {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.toast-icon {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
 }
 
 // ========== 动画效果 ==========
 .fade-in {
   opacity: 0;
   transform: translateY(30px);
-  @include transition(opacity, 0.6s);
-  @include transition(transform, 0.6s);
+  transition: opacity 0.6s ease, transform 0.6s ease;
 
   &.visible {
     opacity: 1;
@@ -419,8 +529,31 @@ body {
   }
 }
 
-.card-hover {
-  @include transition(all);
+.hero-section {
+  &.visible {
+    .hero-badge,
+    .hero-title,
+    .hero-desc,
+    .hero-actions {
+      animation: fadeInUp 0.8s ease forwards;
+    }
+
+    .hero-badge { animation-delay: 0s; }
+    .hero-title { animation-delay: 0.2s; }
+    .hero-desc { animation-delay: 0.4s; }
+    .hero-actions { animation-delay: 0.6s; }
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 // ========== 响应式 ==========
@@ -442,5 +575,20 @@ body {
 
   .section-title {
     font-size: 28px;
+  }
+
+  .toast-notification {
+    bottom: 1rem;
+    right: 1rem;
+    left: 1rem;
+  }
+
+  .cta-actions {
+    flex-direction: column;
+    align-items: stretch;
+
+    .btn {
+      width: 100%;
+    }
   }
 }
