@@ -1036,3 +1036,100 @@ body {
     height: 220px;
   }
 }
+
+// ========== 合作伙伴 Logo 展示 ==========
+.partners-section {
+  padding: 80px 20px;
+  background: #fff;
+
+  @media (max-width: 767px) {
+    padding: 60px 16px;
+  }
+}
+
+.partners-container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.partners-header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.partners-title {
+  font-size: clamp(28px, 4vw, 36px);
+  font-weight: 700;
+  color: #1a202c;
+  margin-bottom: 12px;
+}
+
+.partners-subtitle {
+  font-size: 16px;
+  color: #718096;
+}
+
+.partners-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 1rem;
+  padding: 0;
+
+  & > :nth-child(-n+12) {
+    grid-column: span 3;
+  }
+
+  & > :nth-child(n+13) {
+    grid-column: span 2;
+  }
+
+  @media (max-width: 1024px) {
+    grid-template-columns: repeat(6, 1fr);
+
+    & > :nth-child(-n+12) {
+      grid-column: span 2;
+    }
+
+    & > :nth-child(n+13) {
+      grid-column: span 2;
+    }
+  }
+
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+
+    & > :nth-child(-n+12) {
+      grid-column: span 1;
+    }
+
+    & > :nth-child(n+13) {
+      grid-column: span 1;
+    }
+  }
+
+  @media (max-width: 480px) {
+    grid-template-columns: 1fr;
+
+    & > :nth-child(-n+12) {
+      grid-column: span 1;
+    }
+
+    & > :nth-child(n+13) {
+      grid-column: span 1;
+    }
+  }
+}
+
+.partner-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px;
+
+  img {
+    width: 100%;
+    height: auto;
+    max-height: 50px;
+    object-fit: contain;
+  }
+}
