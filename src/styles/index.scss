@@ -1039,7 +1039,7 @@ body {
 
 // ========== 合作伙伴 Logo 展示 ==========
 .partners-section {
-  padding: 80px 20px;
+  padding: 40px 20px 120px;
   background: #fff;
 
   @media (max-width: 767px) {
@@ -1054,7 +1054,7 @@ body {
 
 .partners-header {
   text-align: center;
-  margin-bottom: 48px;
+  margin-bottom: 70px;
 }
 
 .partners-title {
@@ -1071,51 +1071,51 @@ body {
 
 .partners-grid {
   display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  gap: 1rem;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.5rem;
   padding: 0;
 
-  & > :nth-child(-n+12) {
-    grid-column: span 3;
-  }
-
-  & > :nth-child(n+13) {
-    grid-column: span 2;
-  }
-
   @media (max-width: 1024px) {
-    grid-template-columns: repeat(6, 1fr);
-
-    & > :nth-child(-n+12) {
-      grid-column: span 2;
-    }
-
-    & > :nth-child(n+13) {
-      grid-column: span 2;
-    }
+    grid-template-columns: repeat(3, 1fr);
   }
 
   @media (max-width: 768px) {
     grid-template-columns: repeat(2, 1fr);
-
-    & > :nth-child(-n+12) {
-      grid-column: span 1;
-    }
-
-    & > :nth-child(n+13) {
-      grid-column: span 1;
-    }
   }
 
   @media (max-width: 480px) {
     grid-template-columns: 1fr;
+  }
+}
 
-    & > :nth-child(-n+12) {
-      grid-column: span 1;
+.partner-row-last {
+  grid-column: 1 / -1;
+  display: flex;
+  gap: 0.5rem;
+
+  // 第一个logo和上面一样大
+  & > .partner-item:first-child {
+    flex: 1;
+  }
+
+  // 右边5个缩小
+  & > .partner-item:not(:first-child) {
+    flex: 0.65;
+  }
+
+  @media (max-width: 768px) {
+    flex-wrap: wrap;
+
+    & > .partner-item,
+    & > .partner-item:not(:first-child) {
+      flex: 1 1 calc(50% - 0.5rem);
     }
+  }
 
-    & > :nth-child(n+13) {
-      grid-column: span 1;
+  @media (max-width: 480px) {
+    & > .partner-item,
+    & > .partner-item:not(:first-child) {
+      flex: 1 1 100%;
     }
   }
 }
@@ -1124,12 +1124,12 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 8px;
+  padding: 1rem 4px;
 
   img {
     width: 100%;
     height: auto;
-    max-height: 50px;
+    max-height: 70px;
     object-fit: contain;
   }
 }
