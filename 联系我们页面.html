@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>联系我们 - 昆仑时代</title>
+    <!-- 引入 Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- 引入 FontAwesome 图标库 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* 自定义过渡动画 */
+        .fade-in { animation: fadeIn 0.5s ease-in-out; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        
+        /* 隐藏滚动条但保持滚动功能 */
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans min-h-screen flex flex-col">
+
+    <!-- 顶部导航 (占位) -->
+    <nav class="bg-white shadow-sm py-4 px-6">
+        <div class="max-w-7xl mx-auto flex items-center">
+            <div class="text-2xl font-bold text-blue-900"><i class="fa-solid fa-layer-group mr-2"></i>KUNLUN ERA</div>
+        </div>
+    </nav>
+
+    <!-- 主内容区域 -->
+    <main class="flex-grow container mx-auto px-4 py-12 max-w-7xl">
+        
+        <!-- 页面标题 -->
+        <div class="text-center mb-16 fade-in">
+            <h1 class="text-4xl font-bold text-gray-900 mb-4">联系我们</h1>
+            <p class="text-gray-500 text-lg">Connect with us for better future</p>
+        </div>
+
+        <!-- ================= 核心三卡片区域 ================= -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20 fade-in">
+            
+            <!-- 卡片 1: 业务咨询 -->
+            <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border-t-4 border-blue-600 group">
+                <div class="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center mb-6 group-hover:bg-blue-600 transition-colors">
+                    <i class="fa-solid fa-headset text-3xl text-blue-600 group-hover:text-white"></i>
+                </div>
+                <h2 class="text-2xl font-bold mb-3 text-gray-800">业务咨询</h2>
+                <p class="text-gray-500 mb-6 h-10">获取最新的产品解决方案与技术支持服务。</p>
+                <ul class="space-y-3 mb-8 text-sm text-gray-600">
+                    <li><i class="fa-solid fa-phone text-blue-500 w-6"></i> 400-123-4567</li>
+                    <li><i class="fa-solid fa-envelope text-blue-500 w-6"></i> sales@kunlun-era.com</li>
+                </ul>
+                <button onclick="router('page-business')" class="w-full py-3 px-4 bg-blue-50 text-blue-600 font-semibold rounded-lg hover:bg-blue-600 hover:text-white transition-colors">
+                    立即咨询 <i class="fa-solid fa-arrow-right ml-2"></i>
+                </button>
+            </div>
+
+            <!-- 卡片 2: 合作洽谈 -->
+            <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border-t-4 border-orange-500 group">
+                <div class="w-16 h-16 bg-orange-50 rounded-full flex items-center justify-center mb-6 group-hover:bg-orange-500 transition-colors">
+                    <i class="fa-solid fa-handshake text-3xl text-orange-500 group-hover:text-white"></i>
+                </div>
+                <h2 class="text-2xl font-bold mb-3 text-gray-800">合作洽谈</h2>
+                <p class="text-gray-500 mb-6 h-10">携手生态伙伴，共创商业价值，实现互利共赢。</p>
+                <ul class="space-y-3 mb-8 text-sm text-gray-600">
+                    <li><i class="fa-solid fa-briefcase text-orange-500 w-6"></i> 渠道 / 供应商 / 媒体</li>
+                    <li><i class="fa-solid fa-envelope text-orange-500 w-6"></i> partner@kunlun-era.com</li>
+                </ul>
+                <button onclick="router('page-partner')" class="w-full py-3 px-4 bg-orange-50 text-orange-600 font-semibold rounded-lg hover:bg-orange-500 hover:text-white transition-colors">
+                    洽谈合作 <i class="fa-solid fa-arrow-right ml-2"></i>
+                </button>
+            </div>
+
+            <!-- 卡片 3: 诚聘英才 -->
+            <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border-t-4 border-purple-600 group">
+                <div class="w-16 h-16 bg-purple-50 rounded-full flex items-center justify-center mb-6 group-hover:bg-purple-600 transition-colors">
+                    <i class="fa-solid fa-user-tie text-3xl text-purple-600 group-hover:text-white"></i>
+                </div>
+                <h2 class="text-2xl font-bold mb-3 text-gray-800">诚聘英才</h2>
+                <p class="text-gray-500 mb-6 h-10">寻找发光的你，加入我们的精英团队，共筑未来。</p>
+                <ul class="space-y-3 mb-8 text-sm text-gray-600">
+                    <li><i class="fa-solid fa-building text-purple-500 w-6"></i> 扁平化管理 / 弹性工作</li>
+                    <li><i class="fa-solid fa-envelope text-purple-500 w-6"></i> hr@kunlun-era.com</li>
+                </ul>
+                <button onclick="router('page-careers')" class="w-full py-3 px-4 bg-purple-50 text-purple-600 font-semibold rounded-lg hover:bg-purple-600 hover:text-white transition-colors">
+                    查看职位 <i class="fa-solid fa-arrow-right ml-2"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- ================= 底部通用信息 ================= -->
+        <div class="border-t border-gray-200 pt-12 pb-8 fade-in">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <!-- 联系详情 -->
+                <div>
+                    <h3 class="text-xl font-bold mb-6 text-gray-800">总部联系方式</h3>
+                    <div class="space-y-4 text-gray-600">
+                        <p><span class="font-semibold w-20 inline-block">公司地址：</span>上海市浦东新区锦绣东路2777弄12号</p>
+                        <p><span class="font-semibold w-20 inline-block">总机电话：</span>021-12345678</p>
+                        <p><span class="font-semibold w-20 inline-block">邮政编码：</span>200120</p>
+                    </div>
+                </div>
+                <!-- 地图占位 -->
+                <div class="bg-gray-200 rounded-xl h-48 w-full flex items-center justify-center text-gray-400 overflow-hidden relative">
+                    <i class="fa-solid fa-map-location-dot text-4xl mb-2 absolute"></i>
+                    <span class="absolute mt-8">地图加载中...</span>
+                    <!-- 实际开发中此处嵌入百度/高德地图 iframe -->
+                </div>
+            </div>
+            <div class="text-center mt-12 text-gray-400 text-sm">
+                &copy; 2026 昆仑时代系统集成有限公司 版权所有
+            </div>
+        </div>
+
+    </main>
+
+    <!-- ================= 子页面模态框 (默认隐藏) ================= -->
+
+    <!-- 子页 1: 业务咨询表单 -->
+    <div id="page-business" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center backdrop-blur-sm">
+        <div class="bg-white rounded-2xl shadow-2xl w-full max-w-lg mx-4 overflow-hidden fade-in">
+            <div class="bg-blue-600 p-6 flex justify-between items-center">
+                <h3 class="text-white text-xl font-bold"><i class="fa-solid fa-headset mr-2"></i>业务咨询提交</h3>
+                <button onclick="closeAllPages()" class="text-white hover:text-gray-200"><i class="fa-solid fa-xmark text-xl"></i></button>
+            </div>
+            <div class="p-8">
+                <form onsubmit="event.preventDefault(); alert('提交成功！我们会尽快联系您。'); closeAllPages();">
+                    <div class="mb-4">
+                        <label class="block text-gray-700 text-sm font-bold mb-2">您的姓名</label>
+                        <input type="text" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="请输入姓名">
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-gray-700 text-sm font-bold mb-2">联系电话</label>
+                        <input type="tel" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="请输入手机号">
+                    </div>
+                    <div class="mb-6">
+                        <label class="block text-gray-700 text-sm font-bold mb-2">咨询内容</label>
+                        <textarea class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" rows="4" placeholder="请简述您的需求..."></textarea>
+                    </div>
+                    <button type="submit" class="w-full bg-blue-600 text-white font-bold py-3 rounded-lg hover:bg-blue-700 transition">发送留言</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- 子页 2: 合作洽谈列表 -->
+    <div id="page-partner" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center backdrop-blur-sm">
+        <div class="bg-white rounded-2xl shadow-2xl w-full max-w-2xl mx-4 overflow-hidden fade-in max-h-[90vh] flex flex-col">
+            <div class="bg-orange-500 p-6 flex justify-between items-center">
+                <h3 class="text-white text-xl font-bold"><i class="fa-solid fa-handshake mr-2"></i>商务合作通道</h3>
+                <button onclick="closeAllPages()" class="text-white hover:text-gray-200"><i class="fa-solid fa-xmark text-xl"></i></button>
+            </div>
+            <div class="p-8 overflow-y-auto">
+                <div class="space-y-6">
+                    <div class="flex items-start p-4 border rounded-xl hover:bg-orange-50 transition cursor-pointer">
+                        <div class="bg-orange-100 p-3 rounded-lg mr-4 text-orange-600"><i class="fa-solid fa-store text-xl"></i></div>
+                        <div>
+                            <h4 class="font-bold text-lg">渠道代理合作</h4>
+                            <p class="text-gray-500 text-sm mt-1">申请成为我们的区域代理商或行业合作伙伴。</p>
+                            <span class="inline-block mt-2 text-xs bg-orange-100 text-orange-700 px-2 py-1 rounded">partner@kunlun-era.com</span>
+                        </div>
+                    </div>
+                    <div class="flex items-start p-4 border rounded-xl hover:bg-orange-50 transition cursor-pointer">
+                        <div class="bg-orange-100 p-3 rounded-lg mr-4 text-orange-600"><i class="fa-solid fa-box-open text-xl"></i></div>
+                        <div>
+                            <h4 class="font-bold text-lg">供应商入驻</h4>
+                            <p class="text-gray-500 text-sm mt-1">硬件、软件及服务类供应商资质提交。</p>
+                            <span class="inline-block mt-2 text-xs bg-orange-100 text-orange-700 px-2 py-1 rounded">supply@kunlun-era.com</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 子页 3: 诚聘英才列表 -->
+    <div id="page-careers" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center backdrop-blur-sm">
+        <div class="bg-white rounded-2xl shadow-2xl w-full max-w-3xl mx-4 overflow-hidden fade-in max-h-[90vh] flex flex-col">
+            <div class="bg-purple-600 p-6 flex justify-between items-center">
+                <h3 class="text-white text-xl font-bold"><i class="fa-solid fa-rocket mr-2"></i>加入我们</h3>
+                <button onclick="closeAllPages()" class="text-white hover:text-gray-200"><i class="fa-solid fa-xmark text-xl"></i></button>
+            </div>
+            <div class="p-8 overflow-y-auto">
+                <div class="mb-6 bg-purple-50 p-4 rounded-lg border border-purple-100">
+                    <p class="text-purple-800 text-sm"><i class="fa-solid fa-quote-left mr-2"></i>在昆仑时代，我们不仅是在做系统集成，更是在构建数字世界的基石。如果你渴望挑战，这里就是你的舞台。</p>
+                </div>
+                <h4 class="font-bold text-gray-800 mb-4 border-l-4 border-purple-500 pl-3">热招职位</h4>
+                <ul class="space-y-3">
+                    <!-- 模拟职位列表 -->
+                    <li class="flex justify-between items-center p-4 border rounded-lg hover:shadow-md transition group">
+                        <div>
+                            <span class="font-bold text-lg text-gray-800 group-hover:text-purple-600">高级系统集成工程师</span>
+                            <span class="ml-3 text-xs bg-gray-100 text-gray-500 px-2 py-1 rounded">上海</span>
+                            <span class="ml-1 text-xs bg-gray-100 text-gray-500 px-2 py-1 rounded">3-5年经验</span>
+                        </div>
+                        <button class="text-purple-600 border border-purple-600 px-4 py-1 rounded hover:bg-purple-600 hover:text-white transition">立即申请</button>
+                    </li>
+                    <li class="flex justify-between items-center p-4 border rounded-lg hover:shadow-md transition group">
+                        <div>
+                            <span class="font-bold text-lg text-gray-800 group-hover:text-purple-600">大客户销售经理</span>
+                            <span class="ml-3 text-xs bg-gray-100 text-gray-500 px-2 py-1 rounded">北京</span>
+                            <span class="ml-1 text-xs bg-gray-100 text-gray-500 px-2 py-1 rounded">5年以上经验</span>
+                        </div>
+                        <button class="text-purple-600 border border-purple-600 px-4 py-1 rounded hover:bg-purple-600 hover:text-white transition">立即申请</button>
+                    </li>
+                    <li class="flex justify-between items-center p-4 border rounded-lg hover:shadow-md transition group">
+                        <div>
+                            <span class="font-bold text-lg text-gray-800 group-hover:text-purple-600">UI/UX 设计师</span>
+                            <span class="ml-3 text-xs bg-gray-100 text-gray-500 px-2 py-1 rounded">杭州</span>
+                            <span class="ml-1 text-xs bg-gray-100 text-gray-500 px-2 py-1 rounded">作品集投递</span>
+                        </div>
+                        <button class="text-purple-600 border border-purple-600 px-4 py-1 rounded hover:bg-purple-600 hover:text-white transition">立即申请</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- 简单的路由逻辑脚本 -->
+    <script>
+        function router(pageId) {
+            // 关闭所有页面
+            closeAllPages();
+            // 打开指定页面
+            const page = document.getElementById(pageId);
+            if (page) {
+                page.classList.remove('hidden');
+            }
+        }
+
+        function closeAllPages() {
+            const pages = ['page-business', 'page-partner', 'page-careers'];
+            pages.forEach(id => {
+                document.getElementById(id).classList.add('hidden');
+            });
+        }
+
+        // 点击遮罩层也可以关闭
+        window.onclick = function(event) {
+            if (event.target.classList.contains('backdrop-blur-sm')) {
+                closeAllPages();
+            }
+        }
+    </script>
+</body>
+</html>
