@@ -1,0 +1,519 @@
+---
+const dynamicsData = [
+    {
+        id: 1,
+        date: "2026年04月23日",
+        title: "昆仑时代党支部开展“党的二十届四中全会精神”专题学习会",
+        summary: "党支部组织全体党员及入党申请人，集中观看中央党校教授专题辅导视频，深入学习“十四五”“十五五”时期重大战略任务，推动党建与业务深度融合。",
+        detail: "<p>为深入学习贯彻党的二十届四中全会精神，进一步统一思想、凝聚共识，2026年4月21日-22日上午，昆仑时代党支部开展“党的二十届四中全会精神”专题学习会。党支部全体党员及入党申请人参与学习。</p><p>本次专题学习会历时两天，内容丰富、重点突出。全体人员集中观看了由中央党校（国家行政学院）经济学教研部曹立教授主讲的《“十四五”时期经济社会发展的重大战略任务》，以及赵振华教授主讲的《“十五五”时期经济社会发展的指导思想、重大原则和根本保证》专题辅导视频。</p><p>此次主题党日活动的开展，进一步凝聚了支部党员的思想共识，明确了以党建引领企业发展、以理论学习推动实践创新的工作方向。下一步，党支部将持续常态化开展理论学习，切实把学习成果转化为推动企业高质量发展的强大动力。</p>",
+        readCount: 20,
+        likeCount: 2
+    },
+    {
+        id: 2,
+        date: "2026年04月08日",
+        title: "昆仑时代（上海）系统集成有限公司党支部正式成立",
+        summary: "经上级党组织批准，公司党支部正式成立。将设立“党员先锋岗”“策源先锋队”，以党建引领核心技术攻坚与客户服务，打造企业高质量发展的“红色引擎”。",
+        detail: "<p>春回大地，万象更新。近日，经上级党组织批准，昆仑时代（上海）系统集成有限公司党支部正式成立。这标志着公司党建工作开启了全新篇章，企业发展迈入党建引领、创新驱动的新阶段。</p><p>党支部的成立，将与公司业务深度融合，围绕核心技术创新与关键项目攻坚，设立“党员先锋岗”“策源先锋队”，激发团队潜能，打造“红色引擎”。将党的组织力转化为卓越的服务保障力、可信赖的合作凝聚力，推动公司持续为客户创造与提升价值。</p><p>中共上海金桥经济技术开发区综合委员会已于2026年3月31日正式批复同意成立支部。</p>",
+        readCount: 106,
+        likeCount: 8
+    },
+    {
+        id: 3,
+        date: "2026年04月03日",
+        title: "【喜报】昆仑时代成功中标某城商行2026-2028年技术人力框架项目",
+        summary: "凭借专业服务实力与金融行业经验，中标后将为该银行提供系统开发、运维、测试、架构等核心岗位技术人力支撑，助力客户数字化建设。",
+        detail: "<p>昆仑时代凭借专业的服务实力、丰富的金融行业经验及完善的人才供给体系，成功中标某城商行2026-2028年技术人力框架项目。在合作周期内，公司将为该银行提供全方位、专业化的技术人力支撑服务，覆盖金融科技核心业务领域，助力客户数字化建设稳步推进。</p><p>本次项目聚焦客户实际技术人力需求，精准补齐银行在系统开发、运维、测试、架构等核心岗位的人才缺口，保障业务系统高效迭代与稳定运行。同时以长期框架合作模式帮助客户优化人力成本结构，实现双方价值共赢。</p><p>此次合作是双方携手共进的新起点，昆仑时代将深耕金融科技人力服务领域，为金融数字化发展贡献更多力量。</p>",
+        readCount: 78,
+        likeCount: 1
+    },
+    {
+        id: 4,
+        date: "2026年02月12日",
+        title: "双喜临门！昆仑时代开年取得金融行业重要进展",
+        summary: "中标某国家级金融信息技术管理机构及某国家级金融市场基础设施运营单位，实现金融行业技术服务领域重要突破。",
+        detail: "<p>近日，昆仑时代迎来开年双喜，持续取得金融行业重要进展，成功中标某国家级金融信息技术管理机构以及某国家级金融市场基础设施运营单位，在金融行业技术服务领域取得阶段性成果。</p><p>在合作伙伴遴选过程中，相关机构重点关注服务单位在金融行业经验、技术专业性及交付管理体系等方面的综合能力。昆仑时代凭借在金融科技领域长期积累的行业理解、规范化的项目管理与服务交付机制，以及对高安全、高稳定业务场景的适配能力，获得了客户的认可与选择。</p><p>在金融行业加快推进数字化、规范化建设的背景下，本次中标标志着昆仑时代服务能力已达到行业级高标准要求。</p>",
+        readCount: 48,
+        likeCount: 4
+    },
+    {
+        id: 5,
+        date: "2026年01月16日",
+        title: "【喜报】昆仑时代中标某省级农商联合银行大数据软件研发服务项目",
+        summary: "协助客户完善数据基础能力与应用支撑体系，推动数据资源向业务价值转化，助力银行数字化转型与数据能力建设。",
+        detail: "<p>该项目以银行数字化转型与数据能力建设需求为核心，通过持续、稳定的软件开发与技术支撑服务，协助客户完善数据基础能力与应用支撑体系，推动数据资源向业务价值的有效转化。</p><p>在当前金融机构持续推进数据治理、风险管理与数字化转型的背景下，该项目体现了银行对高质量数据开发能力与稳定技术支撑能力的持续投入。昆仑时代将高标准完成项目交付，持续深化金融领域技术实力。</p>",
+        readCount: 46,
+        likeCount: 4
+    },
+    { id: 6, date: "2025年12月11日", title: "昆仑时代成功中标华中区域某重点城商行数据中心运维研发人力服务项目", summary: "2025-2028年度数据中心运维类通用人力外包，为客户提供数据中心运行保障、问题排查、工具研发及自动化能力建设。", detail: "<p>本项目属于为期三年的数据中心运维研发人力外包服务，旨在为客户科技部门提供长期、稳定且专业的人才支持。昆仑时代将根据客户的运维和研发需求，提供具备实战经验的技术人员，协助银行完成数据中心日常运行保障、问题排查处理、流程优化、工具研发及自动化能力建设等工作。本次中标标志着昆仑时代在运维研发支持及银行科技人才供给能力方面获得了高度认可。</p>", readCount: 58, likeCount: 8 },
+    { id: 7, date: "2025年12月08日", title: "昆仑时代中标某国有银行省级分行反洗钱辅助管理系统新增智能管理项目", summary: "通过智能模块增强反洗钱研判能力，满足监管对智能合规的要求。", detail: "<p>本项目围绕银行现有反洗钱辅助管理系统进行定向能力升级，新增“智能管理模块”并与现有系统深度适配，实现智能研判能力增强、系统兼容性提升、业务处理更加精细化。该升级也代表着金融反洗钱体系从“系统建设期”迈向“智能化深化期”的重要信号。</p>", readCount: 69, likeCount: 9 },
+    { id: 8, date: "2025年11月20日", title: "昆仑时代成功中标某股份制银行一级分行硬件开发供应商入围项目", summary: "正式纳入该行核心技术供应商资源池，提供硬件开发服务。", detail: "<p>昆仑时代成功中标某股份制银行一级分行硬件开发供应商入围项目。此次合作，昆仑时代将纳入该行核心技术供应商资源池，为其未来硬件系统建设与数字化创新提供关键支撑，进一步强化在金融科技领域的综合服务能力。</p>", readCount: 0, likeCount: 0 },
+    { id: 9, date: "2025年11月14日", title: "昆仑时代成功中标某股份制银行一级分行供应商入围项目", summary: "成为该行一级分行供应商，开展长期合作。", detail: "<p>昆仑时代成功中标某股份制银行一级分行供应商入围项目，标志着公司在该行的服务能力获得全面认可，为后续深入合作奠定坚实基础。</p>", readCount: 37, likeCount: 4 },
+    { id: 10, date: "2025年11月10日", title: "昆仑时代成功中标某城商行ECC值班人力外包服务项目", summary: "构建运行监控与事件响应支撑体系，确保核心业务系统安全连续运行。", detail: "<p>作为区域性城商行的重要金融机构，该行对运行保障体系的稳定性、事件响应机制的成熟度要求极高。昆仑时代将助力客户构建可持续的运行监控与事件响应支撑体系，确保核心业务系统保持安全、连续、可控，夯实数字化业务底座与体系韧性。</p>", readCount: 68, likeCount: 10 },
+    { id: 11, date: "2025年07月28日", title: "昆仑时代成功中标某国有银行（六大行之一）重点信贷级分行反洗钱智能化升级项目", summary: "合规科技标杆案例，实现从传统系统向智能化风控跃迁。", detail: "<p>此次中标标志着昆仑时代在合规科技解决方案、智能风控系统与金融场景上打造了标杆案例。项目助力国有大行夯实合规运营底座、实现智能化风控跃迁，充分验证了在复杂监管环境下提供可靠高效科技服务的能力。</p>", readCount: 0, likeCount: 0 },
+    { id: 12, date: "2025年07月25日", title: "昆仑时代成功中标瑞丰银行股份有限公司外包服务采购项目", summary: "深化长三角农商行/城商行布局，强化“双重点区域驱动”模式。", detail: "<p>瑞丰银行作为颇具影响力的地方金融机构，此次选择与昆仑时代携手，有效深化了公司在农商行和城商行领域的业务布局，为长三角和珠三角双重区域驱动的业务模式注入强劲动能。</p>", readCount: 46, likeCount: 5 },
+    { id: 13, date: "2025年07月24日", title: "昆仑时代成功中标浙江南浔农村商业银行软件人员外包服务框架协议项目", summary: "提供软件人员外包服务，深耕农商行细分市场。", detail: "<p>昆仑时代中标浙江南浔农村商业银行软件人员外包服务框架协议项目，公司将充分发挥在金融科技人才供给方面的优势，为南浔农商行提供高质量的软件研发人员，助力其数字化转型。</p>", readCount: 26, likeCount: 3 },
+    { id: 14, date: "2025年07月22日", title: "昆仑时代中标北京兴油工程项目管理有限公司2025年东北地区人力资源技术服务项目", summary: "能源领域突破，形成西南、西北、东北三角构型。", detail: "<p>本次中标背后凝结着客户对昆仑时代实力的深度认可，为公司在能源领域的深耕提供强有力支撑，使公司同类业务形成西南、西北和东北的三角构型，标志着在满足央企高标准需求方面实现了重要突破。</p>", readCount: 42, likeCount: 5 },
+    { id: 15, date: "2025年07月21日", title: "昆仑时代成功中标恒丰银行股份有限公司2025-2027年总行办公终端运维人力外包服务（北京地区）", summary: "从区域化服务迈向全国性股份制银行深度合作，夯实“央国企+金融”双轮驱动。", detail: "<p>恒丰银行作为全国性股份制商业银行标杆，对合作伙伴的专业度要求极高。此次中标是昆仑时代在金融领域业务布局的重要跨越，从区域化服务到全国性金融机构深度合作，进一步强化公司在金融赛道的专业壁垒。</p>", readCount: 37, likeCount: 7 },
+    { id: 16, date: "2025年05月26日", title: "昆仑时代中标吉林梦溪工程管理有限公司2025-2027年国际及其他项目人力资源技术服务（千万级标段）", summary: "覆盖施工、设计、采购、合同、质量、HSE等全链条管理，千万级重大标段。", detail: "<p>昆仑时代成功中标吉林梦溪工程管理有限公司千万级标段，将深度参与国际及其他项目，提供全面的人力资源技术服务，涵盖施工管理、设计管理、采购管理、合同招投标、投资管理、质量管理、HSE管理等，为项目的稳健运行筑牢根基。</p>", readCount: 47, likeCount: 4 },
+    { id: 17, date: "2025年05月22日", title: "昆仑时代中标寰球工程项目管理（北京）有限公司2025年人力资源技术服务项目（千万级双标段）", summary: "成为第一及第二中标供应商，服务能源央国企，双千万级标段。", detail: "<p>昆仑时代成功中标寰球工程项目管理（北京）有限公司两大千万级标段，分别为寰球其他及西南地区两大项目的第一及第二中标供应商。此次中标是践行服务头部央国企战略方针的重大成果，推动双方深度合作，共同探索行业发展新路径。</p>", readCount: 153, likeCount: 4 },
+    { id: 18, date: "2025年03月20日", title: "昆仑时代成功中标南水北调东线智能水务公司岗位外包服务采购", summary: "进入国家级水利基础设施领域，保障国家水安全项目。", detail: "<p>昆仑时代成功中标南水北调东线智能水务（北京）有限公司岗位外包服务采购项目。南水北调集团负责国家水安全战略工程，本次中标标志着昆仑时代在国家级水利基础设施领域获得高度认可。公司将全力以赴确保交付精品工程。</p>", readCount: 61, likeCount: 2 },
+    { id: 19, date: "2025年03月19日", title: "昆仑时代中标中银消费金融2025年驻点服务外包项目", summary: "国有持牌消费金融机构，覆盖全国20余家区域中心。", detail: "<p>昆仑时代成功中标中银消费金融有限公司2025年驻点服务外包项目。中银消费金融作为国有持牌金融机构，业务覆盖全国。此次中标是市场对昆仑时代综合实力的高度认可，公司将全力打造标杆项目，在金融领域创造卓越价值。</p>", readCount: 59, likeCount: 4 }
+];
+
+const latestThree = dynamicsData.slice(0, 3);
+---
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>昆仑时代 · 企业动态</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: #f5f7fc;
+            color: #1a2634;
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem 4rem;
+        }
+
+        .dynamic-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 1rem;
+        }
+        .title-section h1 {
+            font-size: 1.9rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #0a2540, #2b5f8a);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            letter-spacing: -0.3px;
+        }
+        .title-section p {
+            color: #5a6e7c;
+            font-size: 0.9rem;
+            margin-top: 0.3rem;
+        }
+        .view-all-btn {
+            background: transparent;
+            border: 1.5px solid #2d6e9e;
+            color: #2d6e9e;
+            padding: 0.5rem 1.4rem;
+            border-radius: 40px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background-color: white;
+        }
+        .view-all-btn i {
+            font-size: 0.8rem;
+        }
+        .view-all-btn:hover {
+            background-color: #2d6e9e;
+            color: white;
+            border-color: #2d6e9e;
+            box-shadow: 0 4px 10px rgba(45,110,158,0.2);
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 2rem;
+            margin-top: 1rem;
+        }
+        .dynamic-card {
+            background: white;
+            border-radius: 24px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.03), 0 2px 4px rgba(0,0,0,0.05);
+            transition: all 0.25s ease;
+            cursor: pointer;
+            overflow: hidden;
+            border: 1px solid #edeff2;
+            display: flex;
+            flex-direction: column;
+        }
+        .dynamic-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 30px -12px rgba(0,0,0,0.12);
+            border-color: #cfdfed;
+        }
+        .card-content {
+            padding: 1.6rem 1.6rem 1.4rem;
+            flex: 1;
+        }
+        .card-date {
+            font-size: 0.85rem;
+            color: #2d6e9e;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .card-date i {
+            font-size: 0.75rem;
+            color: #5c8fae;
+        }
+        .card-title {
+            font-size: 1.35rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            line-height: 1.3;
+            color: #0f2c3b;
+        }
+        .card-summary {
+            color: #4f5e6b;
+            font-size: 0.9rem;
+            margin-bottom: 1.2rem;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        .card-stats {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: 0.8rem;
+            color: #8a99a6;
+            border-top: 1px solid #ecf1f5;
+            padding-top: 1rem;
+            margin-top: auto;
+        }
+        .card-stats i {
+            margin-right: 5px;
+            font-size: 0.75rem;
+        }
+
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0,0,0,0.6);
+            backdrop-filter: blur(4px);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            visibility: hidden;
+            opacity: 0;
+            transition: visibility 0.2s, opacity 0.2s;
+        }
+        .modal-overlay.active {
+            visibility: visible;
+            opacity: 1;
+        }
+        .modal-container {
+            background: white;
+            width: 90%;
+            max-width: 750px;
+            max-height: 85vh;
+            border-radius: 32px;
+            overflow-y: auto;
+            box-shadow: 0 30px 50px rgba(0,0,0,0.3);
+            position: relative;
+            animation: fadeInUp 0.25s ease;
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .modal-header {
+            padding: 1.6rem 2rem 0.5rem 2rem;
+            border-bottom: 1px solid #eef2f6;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            background: white;
+            z-index: 10;
+        }
+        .modal-header h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #0f2c3b;
+        }
+        .close-modal {
+            background: transparent;
+            border: none;
+            font-size: 1.6rem;
+            cursor: pointer;
+            color: #7f8c8d;
+            transition: color 0.2s;
+        }
+        .close-modal:hover {
+            color: #1e4663;
+        }
+        .modal-body {
+            padding: 1.5rem 2rem 2rem 2rem;
+        }
+        .modal-date {
+            color: #2d6e9e;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+        .modal-title {
+            font-size: 1.8rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
+        .modal-detail {
+            font-size: 1rem;
+            color: #2c3e44;
+            line-height: 1.65;
+            margin: 1.2rem 0;
+        }
+        .modal-detail p {
+            margin-bottom: 1rem;
+        }
+        .modal-stats {
+            display: flex;
+            gap: 1.5rem;
+            border-top: 1px solid #e9edf2;
+            padding-top: 1rem;
+            margin-top: 0.5rem;
+            font-size: 0.85rem;
+            color: #6b7b88;
+        }
+
+        .all-dynamics-list {
+            max-height: 70vh;
+            overflow-y: auto;
+            padding-right: 6px;
+        }
+        .all-dynamic-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            border-bottom: 1px solid #edf2f7;
+            cursor: pointer;
+            transition: background 0.1s;
+        }
+        .all-dynamic-item:hover {
+            background-color: #f8fafd;
+            padding-left: 8px;
+            margin-left: -8px;
+            border-radius: 12px;
+        }
+        .all-item-left {
+            flex: 1;
+        }
+        .all-item-title {
+            font-weight: 600;
+            color: #1a4462;
+            margin-bottom: 6px;
+            font-size: 1rem;
+        }
+        .all-item-date {
+            font-size: 0.75rem;
+            color: #86a1b5;
+        }
+        .all-item-read {
+            font-size: 0.75rem;
+            color: #5c8fae;
+            background: #eef3fc;
+            padding: 4px 10px;
+            border-radius: 40px;
+        }
+        .modal-container.large {
+            max-width: 880px;
+        }
+        .no-data {
+            text-align: center;
+            color: #a0b8cc;
+            padding: 2rem;
+        }
+        footer {
+            text-align: center;
+            margin-top: 3rem;
+            font-size: 0.75rem;
+            color: #9aaebf;
+            border-top: 1px solid #e2edf5;
+            padding-top: 2rem;
+        }
+        @media (max-width: 720px) {
+            .container {
+                padding: 1.5rem 1rem;
+            }
+            .card-title {
+                font-size: 1.2rem;
+            }
+            .modal-title {
+                font-size: 1.4rem;
+            }
+            .modal-body {
+                padding: 1rem 1.2rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="dynamic-header">
+        <div class="title-section">
+            <h1><i class="fas fa-chart-line" style="color: #2d6e9e; margin-right: 8px;"></i>企业动态</h1>
+            <p>紧贴前沿技术，实时共享昆仑时代的每一步成长与创新。</p>
+        </div>
+        <button class="view-all-btn" id="viewAllBtn"><i class="fas fa-list-ul"></i> 查看全部动态</button>
+    </div>
+
+    <div class="cards-grid" id="latestCardsContainer">
+        {latestThree.map(dynamic => (
+            <div class="dynamic-card" key={dynamic.id} data-id={dynamic.id}>
+                <div class="card-content">
+                    <div class="card-date"><i class="far fa-calendar-alt"></i> {dynamic.date}</div>
+                    <div class="card-title">{dynamic.title}</div>
+                    <div class="card-summary">{dynamic.summary}</div>
+                    <div class="card-stats">
+                        <span><i class="fas fa-eye"></i> {dynamic.readCount > 0 ? dynamic.readCount : '—'}阅读</span>
+                        <span><i class="fas fa-thumbs-up"></i> {dynamic.likeCount > 0 ? dynamic.likeCount : '—'}点赞</span>
+                    </div>
+                </div>
+            </div>
+        ))}
+    </div>
+    <div style="text-align: center; margin-top: 2rem; font-size: 0.8rem; color:#8ea3b6;">
+        <i class="fas fa-newspaper"></i> 点击任意卡片，查看完整新闻内容
+    </div>
+    <footer>昆仑时代 · 汇聚专业信赖 | 持续为金融、能源、水利等领域赋能</footer>
+</div>
+
+<div id="detailModal" class="modal-overlay">
+    <div class="modal-container">
+        <div class="modal-header">
+            <h3>新闻详情</h3>
+            <button class="close-modal" id="closeDetailModalBtn">&times;</button>
+        </div>
+        <div class="modal-body" id="detailModalBody"></div>
+    </div>
+</div>
+
+<div id="allModal" class="modal-overlay">
+    <div class="modal-container large">
+        <div class="modal-header">
+            <h3><i class="fas fa-timeline"></i> 全部动态 · 共{dynamicsData.length}条</h3>
+            <button class="close-modal" id="closeAllModalBtn">&times;</button>
+        </div>
+        <div class="modal-body">
+            <div id="allDynamicsList" class="all-dynamics-list"></div>
+        </div>
+    </div>
+</div>
+
+<script is:inline>
+    const dynamicsData = ${JSON.stringify(dynamicsData)};
+
+    function showDetailModal(dynamic) {
+        const modal = document.getElementById('detailModal');
+        const bodyDiv = document.getElementById('detailModalBody');
+        if (!modal || !bodyDiv) return;
+        
+        bodyDiv.innerHTML = `
+            <div class="modal-date"><i class="far fa-calendar-alt"></i> ${dynamic.date}  ·  <i class="far fa-newspaper"></i> 企业动态</div>
+            <div class="modal-title">${dynamic.title}</div>
+            <div class="modal-detail">${dynamic.detail}</div>
+            <div class="modal-stats">
+                <span><i class="fas fa-eye"></i> 阅读 ${dynamic.readCount > 0 ? dynamic.readCount : '—'}</span>
+                <span><i class="fas fa-thumbs-up"></i> 点赞 ${dynamic.likeCount > 0 ? dynamic.likeCount : '—'}</span>
+            </div>
+        `;
+        modal.classList.add('active');
+    }
+
+    function renderAllDynamicsList() {
+        const container = document.getElementById('allDynamicsList');
+        if (!container) return;
+        container.innerHTML = '';
+        
+        dynamicsData.forEach(item => {
+            const div = document.createElement('div');
+            div.className = 'all-dynamic-item';
+            div.setAttribute('data-id', item.id);
+            div.innerHTML = `
+                <div class="all-item-left">
+                    <div class="all-item-title">${item.title}</div>
+                    <div class="all-item-date"><i class="far fa-calendar-alt"></i> ${item.date}</div>
+                </div>
+                <div class="all-item-read"><i class="fas fa-eye"></i> ${item.readCount > 0 ? item.readCount : '—'}</div>
+            `;
+            div.addEventListener('click', () => {
+                document.getElementById('allModal').classList.remove('active');
+                showDetailModal(item);
+            });
+            container.appendChild(div);
+        });
+        
+        if (dynamicsData.length === 0) {
+            container.innerHTML = '<div class="no-data">暂无动态数据</div>';
+        }
+    }
+
+    const detailModal = document.getElementById('detailModal');
+    const allModal = document.getElementById('allModal');
+    const closeDetail = document.getElementById('closeDetailModalBtn');
+    const closeAll = document.getElementById('closeAllModalBtn');
+    const viewAllBtn = document.getElementById('viewAllBtn');
+
+    document.querySelectorAll('.dynamic-card').forEach(card => {
+        card.addEventListener('click', () => {
+            const id = parseInt(card.getAttribute('data-id'));
+            const dynamic = dynamicsData.find(d => d.id === id);
+            if (dynamic) showDetailModal(dynamic);
+        });
+    });
+
+    closeDetail.addEventListener('click', () => {
+        detailModal.classList.remove('active');
+    });
+    closeAll.addEventListener('click', () => {
+        allModal.classList.remove('active');
+    });
+    viewAllBtn.addEventListener('click', () => {
+        renderAllDynamicsList();
+        allModal.classList.add('active');
+    });
+
+    detailModal.addEventListener('click', (e) => {
+        if (e.target === detailModal) detailModal.classList.remove('active');
+    });
+    allModal.addEventListener('click', (e) => {
+        if (e.target === allModal) allModal.classList.remove('active');
+    });
+</script>
+</body>
+</html>
