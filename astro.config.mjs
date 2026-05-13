@@ -2,7 +2,7 @@ import { defineConfig } from 'astro/config';
 
 export default defineConfig({
   // 站点配置
-  site: 'https://your-domain.com', // 替换为你的域名
+  site: 'https://www.kunlunera.com', // 替换为你的域名
 
   // 图片优化配置
   image: {
