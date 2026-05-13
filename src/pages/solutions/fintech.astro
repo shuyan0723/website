@@ -19,8 +19,8 @@ import Footer from '../../components/Footer.astro';
           基于金融业的银行、证券、基金、保险等业务系统，提供端到端的软件服务。我们拥有一支经验丰富的金融业服务团队和技术支撑团队，在金融云服务、互联网金融、以及基于大数据的数据分析和营销服务等业务领域拥有众多专业解决方案。
         </p>
         <div class="hero-actions">
-          <a href="#services" class="btn-primary">探索服务 →</a>
-          <a href="#contact" class="btn-secondary">预约咨询</a>
+          <a href="/cases" class="btn-primary">探索服务 →</a>
+          <a href="/about#contactUs" class="btn-secondary">预约咨询</a>
         </div>
       </div>
     </section>
@@ -310,7 +310,7 @@ import Footer from '../../components/Footer.astro';
   @import '../../styles/fintech.scss';
 </style>
 
-<script>
+<script is:inline>
   // Intersection Observer for animations
   const observerOptions = {
     threshold: 0.1,

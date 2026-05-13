@@ -19,8 +19,8 @@ import Footer from '../../components/Footer.astro';
           致力于智能硬件与移动终端的操作系统开发、人机交互设计及生态构建。提供从底层驱动到上层应用的全栈解决方案，助力终端厂商快速实现数字化转型与产品迭代。
         </p>
         <div class="hero-actions">
-          <a href="#services" class="btn-primary">探索服务 →</a>
-          <a href="#contact" class="btn-secondary">预约咨询</a>
+          <a href="/cases" class="btn-primary">探索服务 →</a>
+          <a href="/about#contactUs" class="btn-secondary">预约咨询</a>
         </div>
       </div>
     </section>
@@ -264,7 +264,7 @@ import Footer from '../../components/Footer.astro';
           <h2 class="cta-title">准备好开启智能终端新篇章了吗？</h2>
           <p class="cta-desc">与我们的专家团队交流，获取定制化的智能终端解决方案</p>
           <div class="cta-actions">
-            <a href="mailto:contact@kunlunera.com" class="btn-primary">预约咨询</a>
+            <a href="/about#contactUs" class="btn-primary">预约咨询</a>
             <a href="#services" class="btn-secondary">了解更多</a>
           </div>
         </div>
@@ -279,7 +279,7 @@ import Footer from '../../components/Footer.astro';
   @import '../../styles/terminal.scss';
 </style>
 
-<script>
+<script is:inline>
   // Intersection Observer for animations
   const observerOptions = {
     threshold: 0.1,

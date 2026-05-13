@@ -46,6 +46,8 @@ body {
 
 .hero-badge {
   margin-bottom: $spacing-xl;
+  position: relative;
+  z-index: 1;
 }
 
 .badge-text {
@@ -61,6 +63,8 @@ body {
 .hero-title {
   font-size: clamp(36px, 6vw, 56px);
   font-weight: 700;
+  position: relative;
+  z-index: 1;
   background: linear-gradient(135deg, #22d3ee 0%, #3b82f6 50%, #8b5cf6 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -75,12 +79,16 @@ body {
   max-width: 800px;
   line-height: 1.7;
   margin-bottom: $spacing-xl;
+  position: relative;
+  z-index: 1;
 }
 
 .hero-actions {
   @include flex-center;
   flex-wrap: wrap;
   gap: $spacing-md;
+  position: relative;
+  z-index: 1;
 }
 
 .btn-primary {
