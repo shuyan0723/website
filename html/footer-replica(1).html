@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>企业官网底部复刻</title>
+  <style>
+    :root {
+      --bg: #020927;
+      --bg-bottom: #020b2f;
+      --title: #f3f7ff;
+      --text: #7f8ca9;
+      --muted: #6a7693;
+      --line: rgba(96, 113, 150, 0.18);
+      --brand: #2b6cff;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+      background: linear-gradient(180deg, var(--bg) 0%, var(--bg-bottom) 100%);
+      color: var(--text);
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+    }
+
+    .footer {
+      width: 100%;
+      max-width: 1080px;
+      padding: 42px 24px 0;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.3fr repeat(6, 1fr);
+      gap: 36px;
+      align-items: start;
+      padding-bottom: 40px;
+    }
+
+    .brand-wrap {
+      max-width: 215px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+
+    .logo-mark {
+      width: 20px;
+      height: 28px;
+      border-radius: 5px;
+      background: linear-gradient(165deg, #5793ff 0%, #1f5fff 100%);
+      position: relative;
+      box-shadow: 0 0 0 1px rgba(130, 162, 235, 0.2) inset;
+    }
+
+    .logo-mark::before,
+    .logo-mark::after {
+      content: "";
+      position: absolute;
+      left: 6px;
+      width: 8px;
+      border-radius: 99px;
+      background: rgba(255, 255, 255, 0.78);
+    }
+
+    .logo-mark::before {
+      top: 6px;
+      height: 4px;
+    }
+
+    .logo-mark::after {
+      top: 14px;
+      height: 8px;
+    }
+
+    .logo-text {
+      color: var(--title);
+      font-weight: 700;
+      line-height: 1.05;
+      letter-spacing: 1px;
+      font-size: 34px;
+      transform: scale(0.34);
+      transform-origin: left center;
+      width: 100px;
+      margin-right: -40px;
+    }
+
+    .intro {
+      font-size: 12px;
+      line-height: 1.85;
+      color: var(--muted);
+      margin-bottom: 22px;
+    }
+
+    .social {
+      display: flex;
+      gap: 12px;
+    }
+
+    .social span {
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      color: #9aa8c7;
+      background: rgba(116, 135, 173, 0.15);
+      border: 1px solid rgba(116, 135, 173, 0.24);
+    }
+
+    .col h3 {
+      color: var(--title);
+      font-size: 22px;
+      font-weight: 700;
+      transform: scale(0.34);
+      transform-origin: left top;
+      width: 120px;
+      margin: 2px 0 6px;
+      letter-spacing: 0.4px;
+    }
+
+    .col ul {
+      list-style: none;
+    }
+
+    .col li {
+      color: var(--muted);
+      font-size: 12px;
+      margin-top: 11px;
+      letter-spacing: 0.2px;
+      cursor: default;
+      white-space: nowrap;
+    }
+
+    .contact li {
+      white-space: normal;
+      line-height: 1.5;
+      display: flex;
+      gap: 7px;
+      align-items: flex-start;
+    }
+
+    .contact .icon {
+      color: #4d87ff;
+      line-height: 1.4;
+    }
+
+    .copyright {
+      border-top: 1px solid var(--line);
+      text-align: center;
+      color: #5e6c8e;
+      font-size: 12px;
+      padding: 28px 0 30px;
+      letter-spacing: 0.1px;
+    }
+
+    @media (max-width: 980px) {
+      .footer-grid {
+        grid-template-columns: repeat(3, minmax(170px, 1fr));
+      }
+
+      .brand-wrap {
+        grid-column: span 3;
+        max-width: 100%;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .footer-grid {
+        grid-template-columns: repeat(2, minmax(140px, 1fr));
+        gap: 24px;
+      }
+
+      .brand-wrap {
+        grid-column: span 2;
+      }
+    }
+  </style>
+</head>
+<body>
+  <footer class="footer">
+    <div class="footer-grid">
+      <section class="brand-wrap">
+        <div class="logo">
+          <span class="logo-mark" aria-hidden="true"></span>
+          <div class="logo-text">KUNLUN<br />ERA</div>
+        </div>
+        <p class="intro">
+          领先的全球化软件与信息技术服务商，立足于前沿AI、云原生与大数据技术，推动全球企业实现智能化。
+        </p>
+        <div class="social" aria-label="社交链接">
+          <span>微</span>
+          <span>抖</span>
+          <span>G</span>
+        </div>
+      </section>
+
+      <section class="col">
+        <h3>行业方案</h3>
+        <ul>
+          <li>金融科技</li>
+          <li>智能终端</li>
+          <li>互联网</li>
+          <li>能源科技</li>
+        </ul>
+      </section>
+
+      <section class="col">
+        <h3>产品服务</h3>
+        <ul>
+          <li>软件产品开发</li>
+          <li>数字化运营服务</li>
+          <li>云服务</li>
+          <li>测试服务</li>
+        </ul>
+      </section>
+
+      <section class="col">
+        <h3>研发中心</h3>
+        <ul>
+          <li>核心技术</li>
+          <li>研发团队</li>
+          <li>自研产品</li>
+        </ul>
+      </section>
+
+      <section class="col">
+        <h3>关于我们</h3>
+        <ul>
+          <li>公司简介</li>
+          <li>分子公司</li>
+          <li>发展历程</li>
+          <li>荣誉资质</li>
+          <li>社会责任</li>
+          <li>加入我们</li>
+        </ul>
+      </section>
+
+      <section class="col">
+        <h3>常用链接</h3>
+        <ul>
+          <li>成功案例</li>
+          <li>企业动态</li>
+          <li>新闻中心</li>
+          <li>合作伙伴</li>
+          <li>投资者关系</li>
+        </ul>
+      </section>
+
+      <section class="col contact">
+        <h3>联系我们</h3>
+        <ul>
+          <li><span class="icon">⌖</span><span>上海市浦东新区张江高科技园区星火大厦</span></li>
+          <li><span class="icon">◔</span><span>400-888-9999</span></li>
+          <li><span class="icon">✉</span><span>contact@kunlun-era.com</span></li>
+        </ul>
+      </section>
+    </div>
+
+    <div class="copyright">
+      Copyright © 2026 昆仑时代（上海）泰佳盛应布有限公司 版权所有 沪ICP备2024070296号-1
+    </div>
+  </footer>
+</body>
+</html>

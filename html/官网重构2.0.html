@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>数字化运营服务 | 昆仑时代</title>
+<script src="https://modao.cc/agent-py/static/source/js/tailwindcss.3.4.3.js"></script>
+<script src="https://modao.cc/agent-py/static/source/js/iconify-icon.min.1.0.7.js"></script>
+<style>
+        body { background-color: #020617; color: #f8fafc; font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif; }
+        .glass-morphism { background: rgba(15, 23, 42, 0.6); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.1); }
+        .tech-gradient-text { background: linear-gradient(135deg, #22d3ee 0%, #3b82f6 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .glow-effect { box-shadow: 0 0 20px rgba(59, 130, 246, 0.3); }
+        .bg-tech-dots { background-image: radial-gradient(rgba(59, 130, 246, 0.1) 1px, transparent 1px); background-size: 30px 30px; }
+        .ring-container { position: relative; width: 400px; height: 400px; margin: 0 auto; }
+        .ring-center { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 120px; height: 120px; background: rgba(59, 130, 246, 0.2); border: 2px solid #3b82f6; border-radius: 50%; display: flex; items-center; justify-center; z-index: 10; }
+        .ring-item { position: absolute; width: 80px; height: 80px; background: rgba(15, 23, 42, 0.8); border: 1px solid rgba(59, 130, 246, 0.5); border-radius: 50%; display: flex; flex-direction: column; items-center; justify-center; font-size: 10px; transition: all 0.3s; }
+        .ring-item:hover { transform: scale(1.1); border-color: #3b82f6; box-shadow: 0 0 15px rgba(59, 130, 246, 0.5); }
+    </style>
+</head>
+<body class="bg-tech-dots">
+<!-- 顶部导航栏 -->
+<nav class="fixed top-0 w-full z-50 glass-morphism">
+<div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+<div class="flex items-center space-x-2">
+<a class="flex items-center space-x-2" href="https://modao.cc/agent-py/workspace/69d6161d699cd049d5d64ae1/企业官网复刻_研发中心_v13.html/index.html?render_html=true">
+<div class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center glow-effect">
+<iconify-icon class="text-2xl text-white" icon="mdi:hexagon-multiple"></iconify-icon>
+</div>
+<span class="text-2xl font-bold tracking-wider">KUNLUN ERA</span>
+</a>
+</div>
+<div class="hidden md:flex items-center space-x-10 text-sm font-medium h-full">
+<a class="hover:text-blue-400 transition-colors" href="https://modao.cc/agent-py/workspace/69d6161d699cd049d5d64ae1/企业官网复刻_研发中心_v13.html/index.html?render_html=true">首页</a>
+<div class="relative group h-full flex items-center">
+<a class="hover:text-blue-400 transition-colors" href="javascript:void(0)">行业方案</a>
+<div class="absolute top-20 left-1/2 -translate-x-1/2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 w-40">
+<div class="bg-slate-900/90 backdrop-blur-md py-4 rounded-b-xl shadow-2xl">
+<a class="block px-6 py-2 hover:text-blue-400 text-sm transition-colors" href="#">金融科技</a>
+<a class="block px-6 py-2 hover:text-blue-400 text-sm transition-colors" href="#">智能终端</a>
+<a class="block px-6 py-2 hover:text-blue-400 text-sm transition-colors" href="#">互联网</a>
+<a class="block px-6 py-2 hover:text-blue-400 text-sm transition-colors" href="#">能源科技</a>
+</div>
+</div>
+</div>
+<div class="relative group h-full flex items-center">
+<a class="text-blue-400 border-b-2 border-blue-400 h-20 flex items-center" href="https://modao.cc/agent-py/workspace/69d6161d699cd049d5d64ae1/企业官网复刻_研发中心_v13.html/products.html?render_html=true">产品服务</a>
+<div class="absolute top-20 left-1/2 -translate-x-1/2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 w-48">
+<div class="bg-slate-900/90 backdrop-blur-md py-4 rounded-b-xl shadow-2xl">
+<a class="block px-6 py-2 hover:text-blue-400 text-sm transition-colors" href="https://modao.cc/agent-py/workspace/69d6161d699cd049d5d64ae1/企业官网复刻_研发中心_v13.html/hardware_software.html?render_html=true">软硬件产品开发</a>
+<a class="block px-6 py-2 text-blue-400 text-sm transition-colors" href="https://modao.cc/agent-py/workspace/69d6161d699cd049d5d64ae1/企业官网复刻_研发中心_v13.html/digital_operations.html?render_html=true">数字化运营服务</a>
+<a class="block px-6 py-2 hover:text-blue-400 text-sm transition-colors" href="https://modao.cc/agent-py/workspace/69d6161d699cd049d5d64ae1/企业官网复刻_研发中心_v13.html/cloud_services.html?render_html=true">云服务</a>
+<a class="block px-6 py-2 hover:text-blue-400 text-sm transition-colors" href="https://modao.cc/agent-py/workspace/69d6161d699cd049d5d64ae1/企业官网复刻_研发中心_v13.html/testing_services.html?render_html=true">测试服务</a>
+</div>
+</div>
+</div>
+<a class="hover:text-blue-400 transition-colors" href="https://modao.cc/agent-py/workspace/69d6161d699cd049d5d64ae1/企业官网复刻_研发中心_v13.html/outsourcing_services.html?render_html=true">研发中心</a>
+<a class="hover:text-blue-400 transition-colors" href="https://modao.cc/agent-py/workspace/69d6161d699cd049d5d64ae1/企业官网复刻_研发中心_v13.html/cases.html?render_html=true">客户案例</a>
+<a class="hover:text-blue-400 transition-colors" href="https://modao.cc/agent-py/workspace/69d6161d699cd049d5d64ae1/企业官网复刻_研发中心_v13.html/about.html?render_html=true">关于我们</a>
+</div>
+<button class="bg-blue-600 hover:bg-blue-700 px-6 py-2 rounded-full text-sm font-bold transition-all glow-effect">联系我们</button>
+</div>
+</nav>
+<!-- Hero Section -->
+<header class="pt-32 pb-20 px-6">
+<div class="max-w-7xl mx-auto text-center">
+<h1 class="text-4xl md:text-5xl font-bold mb-6 tech-gradient-text">数字化运营服务</h1>
+<p class="text-lg text-slate-400 max-w-4xl mx-auto leading-relaxed">
+                数字化运营服务聚焦互联网、金融、智能终端、能源科技等行业，为客户提供呼叫中心服务、金融后台服务和互联网相关服务等。近几年，公司数字化运营服务业务规模高速增长，服务团队规模不断扩大，目前已经在国内建立了多个离岸交付基地。拥有众多的行业伙伴、培训机构和合作院校等资源，致力为客户提供专业且高质量数字化运营服务，助力客户业务发展。
+            </p>
+</div>
+</header>
+<!-- 服务结构 -->
+<section class="py-20 bg-slate-900/30">
+<div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between">
+<div class="md:w-1/2 mb-12 md:mb-0">
+<h2 class="text-3xl font-bold mb-6">全方位的运营体系</h2>
+<p class="text-slate-400 mb-8">我们建立了从基地建设、团队招聘、专业培训到交付管理的闭环数字化运营体系，确保每一个交付环节都达到行业最高标准。</p>
+<ul class="space-y-4">
+<li class="flex items-center space-x-3">
+<iconify-icon class="text-blue-500 text-xl" icon="mdi:check-circle"></iconify-icon>
+<span>多个国内离岸交付基地</span>
+</li>
+<li class="flex items-center space-x-3">
+<iconify-icon class="text-blue-500 text-xl" icon="mdi:check-circle"></iconify-icon>
+<span>丰富的行业伙伴与院校资源</span>
+</li>
+<li class="flex items-center space-x-3">
+<iconify-icon class="text-blue-500 text-xl" icon="mdi:check-circle"></iconify-icon>
+<span>专业化的人才培育与输出能力</span>
+</li>
+</ul>
+</div>
+<div class="md:w-1/2 flex justify-center">
+<div class="ring-container">
+<div class="ring-center">
+<span class="text-sm font-bold text-center">数字化运营<br/>核心</span>
+</div>
+<!-- Using JS to position items or manual for fixed layout -->
+<div class="ring-item" style="top: 0; left: 50%; transform: translate(-50%, -50%);">
+<iconify-icon class="text-xl mb-1 text-blue-400" icon="mdi:headset"></iconify-icon>
+<span>呼叫中心</span>
+</div>
+<div class="ring-item" style="top: 25%; right: 0; transform: translate(50%, -50%);">
+<iconify-icon class="text-xl mb-1 text-blue-400" icon="mdi:bank"></iconify-icon>
+<span>金融后台</span>
+</div>
+<div class="ring-item" style="bottom: 25%; right: 0; transform: translate(50%, 50%);">
+<iconify-icon class="text-xl mb-1 text-blue-400" icon="mdi:web"></iconify-icon>
+<span>互联网服务</span>
+</div>
+<div class="ring-item" style="bottom: 0; left: 50%; transform: translate(-50%, 50%);">
+<iconify-icon class="text-xl mb-1 text-blue-400" icon="mdi:database-search"></iconify-icon>
+<span>数据标注</span>
+</div>
+<div class="ring-item" style="bottom: 25%; left: 0; transform: translate(-50%, 50%);">
+<iconify-icon class="text-xl mb-1 text-blue-400" icon="mdi:security"></iconify-icon>
+<span>内容审核</span>
+</div>
+<div class="ring-item" style="top: 25%; left: 0; transform: translate(-50%, -50%);">
+<iconify-icon class="text-xl mb-1 text-blue-400" icon="mdi:account-group"></iconify-icon>
+<span>流程外包</span>
+</div>
+<!-- Inner rings decoration -->
+<div class="absolute inset-0 border border-blue-500/20 rounded-full"></div>
+<div class="absolute inset-10 border border-blue-500/10 rounded-full"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- 服务案例 -->
+<section class="py-20">
+<div class="max-w-7xl mx-auto px-6">
+<h2 class="text-3xl font-bold mb-12 text-center">服务案例</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="glass-morphism p-8 rounded-2xl hover:bg-slate-800/50 transition-all">
+<div class="w-12 h-12 bg-blue-600/20 rounded-lg flex items-center justify-center mb-6">
+<iconify-icon class="text-2xl text-blue-400" icon="mdi:bank-transfer"></iconify-icon>
+</div>
+<h3 class="text-xl font-bold mb-4">某大型国有银行后台运营</h3>
+<p class="text-slate-400 text-sm mb-6">提供覆盖全国的金融后台凭证数字化、业务清算外包服务，年处理数据量超千万笔，准确率99.99%。</p>
+<div class="text-blue-500 font-bold text-xs uppercase tracking-widest">金融行业</div>
+</div>
+<div class="glass-morphism p-8 rounded-2xl hover:bg-slate-800/50 transition-all">
+<div class="w-12 h-12 bg-blue-600/20 rounded-lg flex items-center justify-center mb-6">
+<iconify-icon class="text-2xl text-blue-400" icon="mdi:phone-voip"></iconify-icon>
+</div>
+<h3 class="text-xl font-bold mb-4">电商巨头多语言客服中心</h3>
+<p class="text-slate-400 text-sm mb-6">建立支持英、日、韩、中多语言呼叫中心，覆盖全球用户售后咨询，满意度评分连续三年位居行业前列。</p>
+<div class="text-blue-500 font-bold text-xs uppercase tracking-widest">互联网行业</div>
+</div>
+<div class="glass-morphism p-8 rounded-2xl hover:bg-slate-800/50 transition-all">
+<div class="w-12 h-12 bg-blue-600/20 rounded-lg flex items-center justify-center mb-6">
+<iconify-icon class="text-2xl text-blue-400" icon="mdi:robot-mop"></iconify-icon>
+</div>
+<h3 class="text-xl font-bold mb-4">智能汽车数据标注项目</h3>
+<p class="text-slate-400 text-sm mb-6">组织超过500人专业团队，为头部车企提供L4级自动驾驶视觉数据标注服务，助力算法快速迭代。</p>
+<div class="text-blue-500 font-bold text-xs uppercase tracking-widest">智能终端</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 服务优势 -->
+<section class="py-20 bg-slate-900/30">
+<div class="max-w-7xl mx-auto px-6">
+<div class="text-center mb-16">
+<h2 class="text-3xl font-bold mb-4">为什么选择我们</h2>
+<div class="w-20 h-1 bg-blue-600 mx-auto"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<div class="p-6 bg-slate-800/30 rounded-xl border border-slate-800 hover:border-blue-500/50 transition-all">
+<h4 class="text-lg font-bold mb-3 text-blue-400">全国布局</h4>
+<p class="text-sm text-slate-500">在多个城市设有大规模离岸交付中心，具备强大的抗风险能力和灵活的弹性资源调度能力。</p>
+</div>
+<div class="p-6 bg-slate-800/30 rounded-xl border border-slate-800 hover:border-blue-500/50 transition-all">
+<h4 class="text-lg font-bold mb-3 text-blue-400">人才资源优势</h4>
+<p class="text-sm text-slate-500">与国内50余家院校建立人才输送协议，拥有完善的岗前培训体系，确保人才库持续充盈。</p>
+</div>
+<div class="p-6 bg-slate-800/30 rounded-xl border border-slate-800 hover:border-blue-500/50 transition-all">
+<h4 class="text-lg font-bold mb-3 text-blue-400">数字化提效</h4>
+<p class="text-sm text-slate-500">自主研发运营管理平台，实现项目进度、质量、成本的实时监控，比传统运营效率提升25%以上。</p>
+</div>
+<div class="p-6 bg-slate-800/30 rounded-xl border border-slate-800 hover:border-blue-500/50 transition-all">
+<h4 class="text-lg font-bold mb-3 text-blue-400">严格合规</h4>
+<p class="text-sm text-slate-500">通过ISO27001信息安全认证，拥有完善的数据隐私保护机制，确保客户核心业务数据安全。</p>
+</div>
+</div>
+</div>
+</section>
+<!-- 页脚 -->
+<footer class="bg-black pt-20 pb-10 border-t border-slate-900">
+<div class="max-w-7xl mx-auto px-6">
+<div class="grid grid-cols-2 md:grid-cols-6 gap-12 mb-16">
+<div class="col-span-2">
+<div class="flex items-center space-x-2 mb-8">
+<div class="w-8 h-8 bg-blue-600 rounded flex items-center justify-center">
+<iconify-icon class="text-xl text-white" icon="mdi:hexagon-multiple"></iconify-icon>
+</div>
+<span class="text-xl font-bold tracking-wider">KUNLUN ERA</span>
+</div>
+<p class="text-slate-500 text-xs leading-relaxed max-w-xs mb-8">
+                        昆仑时代是全球领先的软件与信息技术服务商，致力于为全球客户提供端到端的数字化转型解决方案。
+                    </p>
+</div>
+<div>
+<h5 class="text-sm font-bold mb-6 text-slate-200">产品服务</h5>
+<ul class="space-y-4 text-xs text-slate-500">
+<li><a class="hover:text-blue-400 transition-colors" href="https://modao.cc/agent-py/workspace/69d6161d699cd049d5d64ae1/企业官网复刻_研发中心_v13.html/hardware_software.html?render_html=true">软硬件产品开发</a></li>
+<li><a class="hover:text-blue-400 transition-colors" href="https://modao.cc/agent-py/workspace/69d6161d699cd049d5d64ae1/企业官网复刻_研发中心_v13.html/digital_operations.html?render_html=true">数字化运营服务</a></li>
+<li><a class="hover:text-blue-400 transition-colors" href="https://modao.cc/agent-py/workspace/69d6161d699cd049d5d64ae1/企业官网复刻_研发中心_v13.html/cloud_services.html?render_html=true">云服务</a></li>
+<li><a class="hover:text-blue-400 transition-colors" href="https://modao.cc/agent-py/workspace/69d6161d699cd049d5d64ae1/企业官网复刻_研发中心_v13.html/testing_services.html?render_html=true">测试服务</a></li>
+</ul>
+</div>
+<div>
+<h5 class="text-sm font-bold mb-6 text-slate-200">研发中心</h5>
+<ul class="space-y-4 text-xs text-slate-500">
+<li><a class="hover:text-blue-400 transition-colors" href="https://modao.cc/agent-py/workspace/69d6161d699cd049d5d64ae1/企业官网复刻_研发中心_v13.html/outsourcing_services.html?render_html=true">核心专利</a></li>
+<li><a class="hover:text-blue-400 transition-colors" href="#">开源项目</a></li>
+</ul>
+</div>
+<div>
+<h5 class="text-sm font-bold mb-6 text-slate-200">关于我们</h5>
+<ul class="space-y-4 text-xs text-slate-500">
+<li><a class="hover:text-blue-400 transition-colors" href="https://modao.cc/agent-py/workspace/69d6161d699cd049d5d64ae1/企业官网复刻_研发中心_v13.html/about.html?render_html=true">公司简介</a></li>
+<li><a class="hover:text-blue-400 transition-colors" href="https://modao.cc/agent-py/workspace/69d6161d699cd049d5d64ae1/企业官网复刻_研发中心_v13.html/about.html?render_html=true">发展历程</a></li>
+</ul>
+</div>
+<div>
+<h5 class="text-sm font-bold mb-6 text-slate-200">联系我们</h5>
+<ul class="space-y-4 text-xs text-slate-500">
+<li class="flex items-start space-x-2">
+<iconify-icon class="mt-0.5 text-blue-500" icon="mdi:map-marker"></iconify-icon>
+<span>上海市浦东新区张江高科技园区昆仑大厦</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="pt-8 border-t border-slate-900 flex flex-col md:flex-row justify-between items-center text-[10px] text-slate-600">
+<p>Copyright @2026 昆仑时代（上海）系统集成有限公司 版权所有 沪ICP备2024070296号-1</p>
+</div>
+</div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>昆仑时代研发中心</title>
+  <script src="https://modao.cc/agent-py/static/source/js/tailwindcss.3.4.3.js"></script>
+  <script src="https://modao.cc/agent-py/static/source/js/iconify-icon.min.1.0.7.js"></script>
+  <style>
+    body {
+      background-color: #020617;
+      color: #f8fafc;
+      font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif;
+    }
+    .glass-morphism {
+      background: rgba(15, 23, 42, 0.6);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .tech-gradient-text {
+      background: linear-gradient(135deg, #22d3ee 0%, #3b82f6 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .glow-effect {
+      box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+    }
+    .scroll-mt-20 {
+      scroll-margin-top: 80px;
+    }
+    .bg-tech-dots {
+      background-image: radial-gradient(rgba(59, 130, 246, 0.1) 1px, transparent 1px);
+      background-size: 30px 30px;
+    }
+    .animate-float {
+      animation: float 6s ease-in-out infinite;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+    }
+    .animate-pulse-slow {
+      animation: pulse-slow 2s ease-in-out infinite;
+    }
+    @keyframes pulse-slow {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.8; transform: scale(1.05); }
+    }
+    .animate-flow-gradient {
+      background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.6), transparent);
+      background-size: 200% 100%;
+      animation: flow 2s linear infinite;
+    }
+    @keyframes flow {
+      0% { background-position: -200% 0; }
+      100% { background-position: 200% 0; }
+    }
+    .scrollbar-hide::-webkit-scrollbar {
+      display: none;
+    }
+    .scrollbar-hide {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+    .count-up {
+      transition: all 0.3s ease;
+    }
+    .timeline-line {
+      stroke-dasharray: 1000;
+      stroke-dashoffset: 1000;
+      transition: stroke-dashoffset 1.5s ease-out;
+    }
+    .timeline-line.animated {
+      stroke-dashoffset: 0;
+    }
+    .tab-content {
+      opacity: 0;
+      transform: translateY(10px);
+      transition: all 0.3s ease;
+      display: none;
+    }
+    .tab-content.active {
+      opacity: 1;
+      transform: translateY(0);
+      display: block;
+    }
+    .tech-card:hover .tech-icon {
+      color: #22d3ee;
+    }
+    .team-card:hover .team-overlay {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .cert-item:hover .cert-overlay {
+      opacity: 1;
+    }
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.6s ease-out;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .stagger-1 { transition-delay: 0.1s; }
+    .stagger-2 { transition-delay: 0.2s; }
+    .stagger-3 { transition-delay: 0.3s; }
+    .stagger-4 { transition-delay: 0.4s; }
+    .vertical-text {
+      writing-mode: vertical-rl;
+      text-orientation: mixed;
+    }
+  </style>
+</head>
+<body class="bg-tech-dots">
+  <!-- 研发中心主模块 -->
+  <section class="py-24 scroll-mt-20 overflow-hidden relative" id="research-center">
+    <!-- 背景装饰 -->
+    <div class="absolute -left-20 top-1/2 w-96 h-96 bg-blue-500/5 blur-[100px] rounded-full"></div>
+    <div class="absolute -right-20 top-1/4 w-80 h-80 bg-cyan-500/5 blur-[80px] rounded-full"></div>
+    
+    <div class="max-w-7xl mx-auto px-6">
+      
+      <!-- ═══════════════════════════════════════════════════════════════════════ -->
+      <!-- 一、研发中心简介（Hero入口） -->
+      <!-- ═══════════════════════════════════════════════════════════════════════ -->
+      <div class="mb-24 fade-in">
+        <div class="flex flex-col lg:flex-row gap-16 items-center">
+          <!-- 左侧内容 -->
+          <div class="w-full lg:w-1/2 space-y-6">
+            <div class="flex items-center space-x-4">
+              <div class="h-8 w-1 bg-blue-500 rounded-full"></div>
+              <h2 class="text-4xl font-bold">昆仑时代研发中心</h2>
+            </div>
+            <p class="text-sm text-slate-400 tracking-widest">KUNLUN R&D CENTER</p>
+            <div class="space-y-4 max-w-xl text-slate-400 leading-relaxed">
+              <p>昆仑时代成立于2020年，致力于成为中国领先、国际化的IT服务与数字化运营专家。</p>
+              <p>聚焦金融、智能制造及政企领域，提供覆盖软件研发、系统集成、数字化运营及AI赋能的一体化解决方案。</p>
+              <p>通过标准化、流程化、专业化的交付体系，构建"产品+解决方案+服务"的协同能力。</p>
+            </div>
+            <div class="flex items-center space-x-6 pt-4">
+              <span class="px-4 py-2 bg-blue-500/10 border border-blue-500/20 rounded-full text-sm text-blue-400">国家高新技术企业</span>
+              <span class="px-4 py-2 bg-blue-500/10 border border-blue-500/20 rounded-full text-sm text-blue-400">CNAS实验室认证</span>
+            </div>
+          </div>
+          
+          <!-- 右侧数据卡片 -->
+          <div class="w-full lg:w-1/2">
+            <div class="glass-morphism rounded-2xl p-8 relative overflow-hidden">
+              <div class="absolute top-0 right-0 w-32 h-32 bg-blue-500/10 blur-[40px] rounded-full"></div>
+              <div class="grid grid-cols-2 gap-8 relative z-10">
+                <div class="text-center">
+                  <div class="text-5xl font-bold tech-gradient-text count-up" data-target="110">0</div>
+                  <p class="text-sm text-slate-400 mt-2">软件著作权</p>
+                </div>
+                <div class="text-center">
+                  <div class="text-5xl font-bold tech-gradient-text count-up" data-target="120">0</div>
+                  <p class="text-sm text-slate-400 mt-2">核心专利</p>
+                </div>
+                <div class="text-center">
+                  <div class="text-5xl font-bold tech-gradient-text count-up" data-target="200">0</div>
+                  <p class="text-sm text-slate-400 mt-2">研发团队</p>
+                </div>
+                <div class="text-center">
+                  <div class="text-5xl font-bold tech-gradient-text count-up" data-target="50">0</div>
+                  <p class="text-sm text-slate-400 mt-2">年均项目</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ═══════════════════════════════════════════════════════════════════════ -->
+      <!-- 二、核心技术（四大支柱网格） -->
+      <!-- ═══════════════════════════════════════════════════════════════════════ -->
+      <div class="mb-24">
+        <div class="text-center mb-12 fade-in">
+          <div class="flex items-center justify-center space-x-4 mb-4">
+            <div class="h-6 w-1 bg-blue-500 rounded-full"></div>
+            <h3 class="text-2xl font-bold">核心技术</h3>
+            <span class="text-sm text-slate-400 tracking-widest">Core Technology</span>
+          </div>
+          <p class="text-slate-400">以原创技术驱动产业变革</p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <!-- 数据智能架构 -->
+          <div class="tech-card glass-morphism rounded-2xl p-8 hover:-translate-y-2 transition-all duration-300 cursor-default group fade-in stagger-1">
+            <div class="tech-icon text-5xl text-blue-400 mb-6 transition-colors">
+              <iconify-icon icon="mdi:database-lock"></iconify-icon>
+            </div>
+            <h4 class="text-xl font-bold mb-4">数据智能架构</h4>
+            <p class="text-slate-400 text-sm mb-4">Data Intelligence</p>
+            <ul class="space-y-2 text-sm text-slate-400">
+              <li class="flex items-start space-x-2">
+                <iconify-icon class="text-blue-500 mt-0.5" icon="mdi:check-circle" width="14"></iconify-icon>
+                <span>多源异构数据融合</span>
+              </li>
+              <li class="flex items-start space-x-2">
+                <iconify-icon class="text-blue-500 mt-0.5" icon="mdi:check-circle" width="14"></iconify-icon>
+                <span>实时流处理引擎</span>
+              </li>
+              <li class="flex items-start space-x-2">
+                <iconify-icon class="text-blue-500 mt-0.5" icon="mdi:check-circle" width="14"></iconify-icon>
+                <span>统一数据建模</span>
+              </li>
+            </ul>
+          </div>
+          
+          <!-- AI算法引擎 -->
+          <div class="tech-card glass-morphism rounded-2xl p-8 hover:-translate-y-2 transition-all duration-300 cursor-default group fade-in stagger-2">
+            <div class="tech-icon text-5xl text-blue-400 mb-6 transition-colors">
+              <iconify-icon icon="mdi:robot"></iconify-icon>
+            </div>
+            <h4 class="text-xl font-bold mb-4">AI算法引擎</h4>
+            <p class="text-slate-400 text-sm mb-4">AI Engine</p>
+            <ul class="space-y-2 text-sm text-slate-400">
+              <li class="flex items-start space-x-2">
+                <iconify-icon class="text-blue-500 mt-0.5" icon="mdi:check-circle" width="14"></iconify-icon>
+                <span>机器学习模型库</span>
+              </li>
+              <li class="flex items-start space-x-2">
+                <iconify-icon class="text-blue-500 mt-0.5" icon="mdi:check-circle" width="14"></iconify-icon>
+                <span>图计算与关系分析</span>
+              </li>
+              <li class="flex items-start space-x-2">
+                <iconify-icon class="text-blue-500 mt-0.5" icon="mdi:check-circle" width="14"></iconify-icon>
+                <span>智能决策系统</span>
+              </li>
+            </ul>
+          </div>
+          
+          <!-- 云原生平台 -->
+          <div class="tech-card glass-morphism rounded-2xl p-8 hover:-translate-y-2 transition-all duration-300 cursor-default group fade-in stagger-3">
+            <div class="tech-icon text-5xl text-blue-400 mb-6 transition-colors">
+              <iconify-icon icon="mdi:cloud-outline"></iconify-icon>
+            </div>
+            <h4 class="text-xl font-bold mb-4">云原生平台</h4>
+            <p class="text-slate-400 text-sm mb-4">Cloud Native</p>
+            <ul class="space-y-2 text-sm text-slate-400">
+              <li class="flex items-start space-x-2">
+                <iconify-icon class="text-blue-500 mt-0.5" icon="mdi:check-circle" width="14"></iconify-icon>
+                <span>微服务架构设计</span>
+              </li>
+              <li class="flex items-start space-x-2">
+                <iconify-icon class="text-blue-500 mt-0.5" icon="mdi:check-circle" width="14"></iconify-icon>
+                <span>容器化部署运维</span>
+              </li>
+              <li class="flex items-start space-x-2">
+                <iconify-icon class="text-blue-500 mt-0.5" icon="mdi:check-circle" width="14"></iconify-icon>
+                <span>DevOps持续交付</span>
+              </li>
+            </ul>
+          </div>
+          
+          <!-- 安全合规体系 -->
+          <div class="tech-card glass-morphism rounded-2xl p-8 hover:-translate-y-2 transition-all duration-300 cursor-default group fade-in stagger-4">
+            <div class="tech-icon text-5xl text-blue-400 mb-6 transition-colors">
+              <iconify-icon icon="mdi:shield-check"></iconify-icon>
+            </div>
+            <h4 class="text-xl font-bold mb-4">安全合规体系</h4>
+            <p class="text-slate-400 text-sm mb-4">Security & Compliance</p>
+            <ul class="space-y-2 text-sm text-slate-400">
+              <li class="flex items-start space-x-2">
+                <iconify-icon class="text-blue-500 mt-0.5" icon="mdi:check-circle" width="14"></iconify-icon>
+                <span>等保2.0三级认证</span>
+              </li>
+              <li class="flex items-start space-x-2">
+                <iconify-icon class="text-blue-500 mt-0.5" icon="mdi:check-circle" width="14"></iconify-icon>
+                <span>全链路数据加密</span>
+              </li>
+              <li class="flex items-start space-x-2">
+                <iconify-icon class="text-blue-500 mt-0.5" icon="mdi:check-circle" width="14"></iconify-icon>
+                <span>智能风控体系</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- ═══════════════════════════════════════════════════════════════════════ -->
+      <!-- 三、研发团队（人才实力展示） -->
+      <!-- ═══════════════════════════════════════════════════════════════════════ -->
+      <div class="mb-24">
+        <div class="text-center mb-12 fade-in">
+          <div class="flex items-center justify-center space-x-4 mb-4">
+            <div class="h-6 w-1 bg-blue-500 rounded-full"></div>
+            <h3 class="text-2xl font-bold">研发团队</h3>
+            <span class="text-sm text-slate-400 tracking-widest">R&D Team</span>
+          </div>
+          <div class="flex items-center justify-center space-x-8 text-sm text-slate-400 mt-4">
+            <span>研发人员占比 <strong class="text-blue-400">85%</strong></span>
+            <span>硕博学历 <strong class="text-blue-400">30%</strong></span>
+            <span>年均产出专利 <strong class="text-blue-400">20+</strong></span>
+          </div>
+        </div>
+        
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+          <!-- 首席架构师 -->
+          <div class="team-card glass-morphism rounded-2xl p-6 text-center relative overflow-hidden group fade-in stagger-1">
+            <div class="relative">
+              <img src="https://modao.cc/agent-py/media/generated_images/2026-04-08/8c6c4653fc8344c18be1b31c38506dab.jpg" 
+                   alt="首席架构师" 
+                   class="w-24 h-24 rounded-full border-2 border-blue-500/30 mx-auto mb-4 object-cover">
+              <div class="team-overlay absolute inset-0 bg-slate-900/90 rounded-2xl p-4 opacity-0 transform translate-y-4 transition-all duration-300 flex flex-col justify-center">
+                <p class="text-xs text-slate-400">20年+金融系统架构经验</p>
+                <p class="text-xs text-slate-500 mt-2">主导过多个大型分布式系统设计</p>
+              </div>
+            </div>
+            <h5 class="font-bold text-sm">张明远</h5>
+            <p class="text-xs text-blue-400">首席架构师</p>
+          </div>
+          
+          <!-- 算法专家1 -->
+          <div class="team-card glass-morphism rounded-2xl p-6 text-center relative overflow-hidden group fade-in stagger-2">
+            <div class="relative">
+              <img src="https://modao.cc/agent-py/media/generated_images/2026-04-08/9436339574264450ad07990fecf84856.jpg" 
+                   alt="算法专家" 
+                   class="w-24 h-24 rounded-full border-2 border-blue-500/30 mx-auto mb-4 object-cover">
+              <div class="team-overlay absolute inset-0 bg-slate-900/90 rounded-2xl p-4 opacity-0 transform translate-y-4 transition-all duration-300 flex flex-col justify-center">
+                <p class="text-xs text-slate-400">AI方向专家</p>
+                <p class="text-xs text-slate-500 mt-2">深度学习模型研发</p>
+              </div>
+            </div>
+            <h5 class="font-bold text-sm">李华</h5>
+            <p class="text-xs text-blue-400">算法专家</p>
+          </div>
+          
+          <!-- 算法专家2 -->
+          <div class="team-card glass-morphism rounded-2xl p-6 text-center relative overflow-hidden group fade-in stagger-3">
+            <div class="relative">
+              <img src="https://modao.cc/agent-py/media/generated_images/2026-04-08/e746c839b9f240c1a6aff895c0e77eeb.jpg" 
+                   alt="大数据专家" 
+                   class="w-24 h-24 rounded-full border-2 border-blue-500/30 mx-auto mb-4 object-cover">
+              <div class="team-overlay absolute inset-0 bg-slate-900/90 rounded-2xl p-4 opacity-0 transform translate-y-4 transition-all duration-300 flex flex-col justify-center">
+                <p class="text-xs text-slate-400">大数据方向专家</p>
+                <p class="text-xs text-slate-500 mt-2">数据挖掘与分析</p>
+              </div>
+            </div>
+            <h5 class="font-bold text-sm">王芳</h5>
+            <p class="text-xs text-blue-400">大数据专家</p>
+          </div>
+          
+          <!-- 产品负责人 -->
+          <div class="team-card glass-morphism rounded-2xl p-6 text-center relative overflow-hidden group fade-in stagger-4">
+            <div class="relative">
+              <img src="https://modao.cc/agent-py/media/generated_images/2026-04-08/1444242ae2a24c279fff474d261da6f7.jpg" 
+                   alt="产品负责人" 
+                   class="w-24 h-24 rounded-full border-2 border-blue-500/30 mx-auto mb-4 object-cover">
+              <div class="team-overlay absolute inset-0 bg-slate-900/90 rounded-2xl p-4 opacity-0 transform translate-y-4 transition-all duration-300 flex flex-col justify-center">
+                <p class="text-xs text-slate-400">产品矩阵负责人</p>
+                <p class="text-xs text-slate-500 mt-2">反洗钱/运维/标讯产品</p>
+              </div>
+            </div>
+            <h5 class="font-bold text-sm">陈思</h5>
+            <p class="text-xs text-blue-400">产品负责人</p>
+          </div>
+        </div>
+        
+        <!-- 合作高校标签 -->
+        <div class="flex flex-wrap items-center justify-center gap-3 mt-10 fade-in">
+          <span class="text-xs text-slate-500 mr-2">合作院校：</span>
+          <span class="px-3 py-1 bg-slate-800/50 rounded-full text-xs text-slate-400 border border-slate-700">清华大学</span>
+          <span class="px-3 py-1 bg-slate-800/50 rounded-full text-xs text-slate-400 border border-slate-700">上海交通大学</span>
+          <span class="px-3 py-1 bg-slate-800/50 rounded-full text-xs text-slate-400 border border-slate-700">浙江大学</span>
+          <span class="px-3 py-1 bg-slate-800/50 rounded-full text-xs text-slate-400 border border-slate-700">复旦大学</span>
+          <span class="px-3 py-1 bg-slate-800/50 rounded-full text-xs text-slate-400 border border-slate-700">中国科学技术大学</span>
+        </div>
+      </div>
+
+      <!-- ═══════════════════════════════════════════════════════════════════════ -->
+      <!-- 四、专利与资质（荣誉背书） -->
+      <!-- ═══════════════════════════════════════════════════════════════════════ -->
+      <div class="mb-24">
+        <div class="flex flex-col lg:flex-row gap-12 items-start">
+          <!-- 左侧数据 -->
+          <div class="w-full lg:w-1/3 fade-in">
+            <div class="text-center lg:text-left">
+              <div class="text-8xl font-bold tech-gradient-text mb-2">110+</div>
+              <p class="text-xl font-bold mb-1">软件著作权</p>
+              <p class="text-slate-400 text-sm mb-8">Software Copyrights</p>
+            </div>
+            <div class="grid grid-cols-3 gap-4">
+              <div class="text-center glass-morphism rounded-xl p-4">
+                <div class="text-3xl font-bold text-blue-400">120+</div>
+                <p class="text-xs text-slate-400 mt-1">核心专利</p>
+              </div>
+              <div class="text-center glass-morphism rounded-xl p-4">
+                <div class="text-3xl font-bold text-blue-400">45+</div>
+                <p class="text-xs text-slate-400 mt-1">发明专利</p>
+              </div>
+              <div class="text-center glass-morphism rounded-xl p-4">
+                <div class="text-3xl font-bold text-blue-400">5+</div>
+                <p class="text-xs text-slate-400 mt-1">国际专利</p>
+              </div>
+            </div>
+          </div>
+          
+          <!-- 右侧证书墙 -->
+          <div class="w-full lg:w-2/3 fade-in">
+            <div class="grid grid-cols-3 md:grid-cols-4 gap-4">
+              <div class="cert-item aspect-[3/4] rounded-lg border border-slate-700 hover:border-blue-500 transition-all cursor-pointer relative overflow-hidden group">
+                <div class="w-full h-full bg-gradient-to-br from-blue-900/30 to-slate-900 flex items-center justify-center">
+                  <iconify-icon class="text-3xl text-blue-400" icon="mdi:certificate"></iconify-icon>
+                </div>
+                <div class="cert-overlay absolute inset-0 bg-slate-900/95 flex items-center justify-center opacity-0 transition-opacity">
+                  <span class="text-xs text-center px-2">ISO27001认证</span>
+                </div>
+              </div>
+              <div class="cert-item aspect-[3/4] rounded-lg border border-slate-700 hover:border-blue-500 transition-all cursor-pointer relative overflow-hidden">
+                <div class="w-full h-full bg-gradient-to-br from-blue-900/30 to-slate-900 flex items-center justify-center">
+                  <iconify-icon class="text-3xl text-blue-400" icon="mdi:certificate"></iconify-icon>
+                </div>
+                <div class="cert-overlay absolute inset-0 bg-slate-900/95 flex items-center justify-center opacity-0 transition-opacity">
+                  <span class="text-xs text-center px-2">CMMI5认证</span>
+                </div>
+              </div>
+              <div class="cert-item aspect-[3/4] rounded-lg border border-slate-700 hover:border-blue-500 transition-all cursor-pointer relative overflow-hidden">
+                <div class="w-full h-full bg-gradient-to-br from-blue-900/30 to-slate-900 flex items-center justify-center">
+                  <iconify-icon class="text-3xl text-blue-400" icon="mdi:certificate"></iconify-icon>
+                </div>
+                <div class="cert-overlay absolute inset-0 bg-slate-900/95 flex items-center justify-center opacity-0 transition-opacity">
+                  <span class="text-xs text-center px-2">国家高新技术企业</span>
+                </div>
+              </div>
+              <div class="cert-item aspect-[3/4] rounded-lg border border-slate-700 hover:border-blue-500 transition-all cursor-pointer relative overflow-hidden">
+                <div class="w-full h-full bg-gradient-to-br from-blue-900/30 to-slate-900 flex items-center justify-center">
+                  <iconify-icon class="text-3xl text-blue-400" icon="mdi:certificate"></iconify-icon>
+                </div>
+                <div class="cert-overlay absolute inset-0 bg-slate-900/95 flex items-center justify-center opacity-0 transition-opacity">
+                  <span class="text-xs text-center px-2">CNAS实验室</span>
+                </div>
+              </div>
+              <div class="cert-item aspect-[3/4] rounded-lg border border-slate-700 hover:border-blue-500 transition-all cursor-pointer relative overflow-hidden">
+                <div class="w-full h-full bg-gradient-to-br from-blue-900/30 to-slate-900 flex items-center justify-center">
+                  <iconify-icon class="text-3xl text-blue-400" icon="mdi:certificate"></iconify-icon>
+                </div>
+                <div class="cert-overlay absolute inset-0 bg-slate-900/95 flex items-center justify-center opacity-0 transition-opacity">
+                  <span class="text-xs text-center px-2">软件企业认定</span>
+                </div>
+              </div>
+              <div class="cert-item aspect-[3/4] rounded-lg border border-slate-700 hover:border-blue-500 transition-all cursor-pointer relative overflow-hidden">
+                <div class="w-full h-full bg-gradient-to-br from-blue-900/30 to-slate-900 flex items-center justify-center">
+                  <iconify-icon class="text-3xl text-blue-400" icon="mdi:certificate"></iconify-icon>
+                </div>
+                <div class="cert-overlay absolute inset-0 bg-slate-900/95 flex items-center justify-center opacity-0 transition-opacity">
+                  <span class="text-xs text-center px-2">信息安全认证</span>
+                </div>
+              </div>
+              <div class="cert-item aspect-[3/4] rounded-lg border border-slate-700 hover:border-blue-500 transition-all cursor-pointer relative overflow-hidden">
+                <div class="w-full h-full bg-gradient-to-br from-blue-900/30 to-slate-900 flex items-center justify-center">
+                  <iconify-icon class="text-3xl text-blue-400" icon="mdi:certificate"></iconify-icon>
+                </div>
+                <div class="cert-overlay absolute inset-0 bg-slate-900/95 flex items-center justify-center opacity-0 transition-opacity">
+                  <span class="text-xs text-center px-2">ITSS认证</span>
+                </div>
+              </div>
+              <div class="cert-item aspect-[3/4] rounded-lg border border-slate-700 hover:border-blue-500 transition-all cursor-pointer relative overflow-hidden">
+                <div class="w-full h-full bg-gradient-to-br from-blue-900/30 to-slate-900 flex items-center justify-center">
+                  <iconify-icon class="text-3xl text-blue-400" icon="mdi:certificate"></iconify-icon>
+                </div>
+                <div class="cert-overlay absolute inset-0 bg-slate-900/95 flex items-center justify-center opacity-0 transition-opacity">
+                  <span class="text-xs text-center px-2">系统集成资质</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- 底部资质标签行 -->
+        <div class="flex flex-wrap items-center justify-center gap-4 mt-10 fade-in">
+          <span class="px-4 py-2 bg-slate-800/50 rounded-lg text-sm text-slate-300 border border-slate-700">ISO27001</span>
+          <span class="px-4 py-2 bg-slate-800/50 rounded-lg text-sm text-slate-300 border border-slate-700">CMMI5</span>
+          <span class="px-4 py-2 bg-slate-800/50 rounded-lg text-sm text-slate-300 border border-slate-700">国家高新技术企业</span>
+          <span class="px-4 py-2 bg-slate-800/50 rounded-lg text-sm text-slate-300 border border-slate-700">CNAS实验室</span>
+          <span class="px-4 py-2 bg-slate-800/50 rounded-lg text-sm text-slate-300 border border-slate-700">软件企业认定</span>
+          <span class="px-4 py-2 bg-slate-800/50 rounded-lg text-sm text-slate-300 border border-slate-700">信息安全等级保护</span>
+        </div>
+      </div>
+
+      <!-- ═══════════════════════════════════════════════════════════════════════ -->
+      <!-- 五、研发成果（核心亮点：产品研发历程） -->
+      <!-- ═══════════════════════════════════════════════════════════════════════ -->
+      <div class="relative">
+        <div class="flex">
+          <!-- 左侧固定侧边栏 -->
+          <div class="hidden lg:flex items-center justify-center pr-8">
+            <div class="bg-blue-600 px-6 py-12 rounded-2xl">
+              <p class="vertical-text text-2xl font-bold text-white tracking-widest">研发历程</p>
+            </div>
+          </div>
+          
+          <!-- 右侧主内容区 -->
+          <div class="flex-1">
+            <div class="text-center mb-10 fade-in">
+              <h3 class="text-2xl font-bold mb-2">产品研发历程</h3>
+              <p class="text-slate-400">Product Development Journey</p>
+            </div>
+            
+            <!-- 产品Tab切换器 -->
+            <div class="flex rounded-xl overflow-hidden mb-10 border border-slate-800 fade-in">
+              <button class="tab-btn flex-1 px-6 py-4 bg-blue-600 text-white font-medium transition-all text-sm" data-tab="aml">
+                反洗钱智能管理系统
+              </button>
+              <button class="tab-btn flex-1 px-6 py-4 bg-slate-800/50 text-slate-400 hover:bg-blue-500/10 transition-all text-sm border-l border-slate-700" data-tab="ops">
+                昆仑智能运维管理平台
+              </button>
+              <button class="tab-btn flex-1 px-6 py-4 bg-slate-800/50 text-slate-400 hover:bg-blue-500/10 transition-all text-sm border-l border-slate-700" data-tab="bid">
+                标讯信息智能分析平台
+              </button>
+            </div>
+            
+            <!-- Tab内容区 -->
+            <div class="relative">
+              <!-- 反洗钱智能管理系统 -->
+              <div class="tab-content active" id="tab-aml">
+                <div class="relative pt-8 pb-4">
+                  <!-- 时间轴线 -->
+                  <div class="absolute top-[52px] left-0 right-0 h-1 bg-gradient-to-r from-blue-600 via-blue-400 to-cyan-400 rounded-full"></div>
+                  <div class="absolute top-[52px] left-0 w-1/2 h-1 animate-flow-gradient rounded-full"></div>
+                  
+                  <!-- 时间节点容器 -->
+                  <div class="relative flex justify-between px-4">
+                    <!-- 节点1 v1.0 -->
+                    <div class="flex-1 flex flex-col items-center relative group">
+                      <div class="w-12 h-12 rounded-full bg-blue-600 border-2 border-white flex items-center justify-center z-10 mb-4 cursor-pointer">
+                        <iconify-icon class="text-white" icon="mdi:check" width="20"></iconify-icon>
+                      </div>
+                      <div class="text-center mb-4">
+                        <span class="text-xs text-slate-400">2024.7</span>
+                        <p class="font-bold text-sm">v1.0</p>
+                      </div>
+                      <div class="glass-morphism rounded-xl p-5 w-64 opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300 absolute top-20">
+                        <span class="inline-block px-2 py-0.5 bg-blue-500/20 text-blue-400 text-xs rounded-full mb-2">已完成</span>
+                        <h5 class="font-bold text-sm mb-2">体系化能力基座构建</h5>
+                        <p class="text-xs text-slate-400 mb-2">首次构建"监测-预警-分析-报送"一体化闭环</p>
+                        <ul class="text-xs text-slate-500 space-y-1">
+                          <li>• 可疑交易规则引擎</li>
+                          <li>• 客户身份识别模块</li>
+                          <li>• 自动化报告生成</li>
+                        </ul>
+                      </div>
+                    </div>
+                    
+                    <!-- 节点2 v2.0 -->
+                    <div class="flex-1 flex flex-col items-center relative">
+                      <div class="w-12 h-12 rounded-full bg-blue-600 border-2 border-white flex items-center justify-center z-10 mb-4 animate-pulse-slow glow-effect">
+                        <iconify-icon class="text-white" icon="mdi:loading" width="20"></iconify-icon>
+                      </div>
+                      <div class="text-center mb-4">
+                        <span class="text-xs text-white font-bold">2025.8</span>
+                        <p class="font-bold text-sm text-white">v2.0</p>
+                      </div>
+                      <div class="glass-morphism rounded-xl p-5 w-72 absolute top-20 z-20 border border-blue-500/30">
+                        <span class="inline-block px-2 py-0.5 bg-yellow-500/20 text-yellow-400 text-xs rounded-full mb-2">进行中</span>
+                        <h5 class="font-bold text-sm mb-2">模型驱动与风险识别能力突破</h5>
+                        <p class="text-xs text-slate-400 mb-2">引入机器学习模型，建立客户风险评级体系</p>
+                        <ul class="text-xs text-slate-500 space-y-1 mb-3">
+                          <li>• 可疑交易监测模型</li>
+                          <li>• 客户风险评级体系</li>
+                          <li>• 大额交易量化规则</li>
+                        </ul>
+                        <div class="pt-3 border-t border-slate-700">
+                          <p class="text-xs text-blue-400 font-medium mb-1">创新体现：</p>
+                          <ul class="text-xs text-slate-500 space-y-1">
+                            <li>• 统一客户视图(KYC)</li>
+                            <li>• 风险识别由经验向数据驱动转型</li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <!-- 节点3 v3.0 -->
+                    <div class="flex-1 flex flex-col items-center relative group">
+                      <div class="w-12 h-12 rounded-full bg-slate-800 border-2 border-dashed border-slate-600 flex items-center justify-center z-10 mb-4 opacity-60">
+                        <iconify-icon class="text-slate-500" icon="mdi:clock-outline" width="20"></iconify-icon>
+                      </div>
+                      <div class="text-center mb-4">
+                        <span class="text-xs text-slate-500">2026.2</span>
+                        <p class="font-bold text-sm text-slate-500">v3.0</p>
+                      </div>
+                      <div class="glass-morphism rounded-xl p-5 w-72 opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300 absolute top-20">
+                        <span class="inline-block px-2 py-0.5 bg-slate-500/20 text-slate-400 text-xs rounded-full mb-2">规划中</span>
+                        <h5 class="font-bold text-sm mb-2">智能风控与决策能力跃迁</h5>
+                        <p class="text-xs text-slate-400 mb-3">引入机器学习模型、图计算与关系网络建模</p>
+                        <div class="grid grid-cols-2 gap-2">
+                          <div class="bg-slate-800/50 rounded p-2 text-center">
+                            <iconify-icon class="text-blue-400" icon="mdi:database" width="16"></iconify-icon>
+                            <p class="text-[10px] text-slate-400 mt-1">多源异构融合</p>
+                          </div>
+                          <div class="bg-slate-800/50 rounded p-2 text-center">
+                            <iconify-icon class="text-blue-400" icon="mdi:brain" width="16"></iconify-icon>
+                            <p class="text-[10px] text-slate-400 mt-1">规则+模型双驱动</p>
+                          </div>
+                          <div class="bg-slate-800/50 rounded p-2 text-center">
+                            <iconify-icon class="text-blue-400" icon="mdi:graph-outline" width="16"></iconify-icon>
+                            <p class="text-[10px] text-slate-400 mt-1">资金流向网络</p>
+                          </div>
+                          <div class="bg-slate-800/50 rounded p-2 text-center">
+                            <iconify-icon class="text-blue-400" icon="mdi:shield-check" width="16"></iconify-icon>
+                            <p class="text-[10px] text-slate-400 mt-1">全流程闭环</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- 昆仑智能运维管理平台 -->
+              <div class="tab-content" id="tab-ops">
+                <div class="relative pt-8 pb-4">
+                  <div class="absolute top-[52px] left-0 right-0 h-1 bg-gradient-to-r from-blue-600 via-blue-400 to-cyan-400 rounded-full"></div>
+                  
+                  <div class="relative flex justify-between px-4">
+                    <!-- 节点1 -->
+                    <div class="flex-1 flex flex-col items-center relative group">
+                      <div class="w-12 h-12 rounded-full bg-blue-600 border-2 border-white flex items-center justify-center z-10 mb-4 cursor-pointer">
+                        <iconify-icon class="text-white" icon="mdi:check" width="20"></iconify-icon>
+                      </div>
+                      <div class="text-center mb-4">
+                        <span class="text-xs text-slate-400">2024.1</span>
+                        <p class="font-bold text-sm">v1.0</p>
+                      </div>
+                      <div class="glass-morphism rounded-xl p-5 w-64 opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300 absolute top-20">
+                        <span class="inline-block px-2 py-0.5 bg-blue-500/20 text-blue-400 text-xs rounded-full mb-2">已完成</span>
+                        <h5 class="font-bold text-sm mb-2">运维体系构建</h5>
+                        <ul class="text-xs text-slate-500 space-y-1">
+                          <li>• 统一平台架构</li>
+                          <li>• 监控工单流程打通</li>
+                          <li>• 基础运维自动化</li>
+                        </ul>
+                      </div>
+                    </div>
+                    
+                    <!-- 节点2 -->
+                    <div class="flex-1 flex flex-col items-center relative">
+                      <div class="w-12 h-12 rounded-full bg-blue-600 border-2 border-white flex items-center justify-center z-10 mb-4 animate-pulse-slow glow-effect">
+                        <iconify-icon class="text-white" icon="mdi:loading" width="20"></iconify-icon>
+                      </div>
+                      <div class="text-center mb-4">
+                        <span class="text-xs text-white font-bold">2025.6</span>
+                        <p class="font-bold text-sm text-white">v2.0</p>
+                      </div>
+                      <div class="glass-morphism rounded-xl p-5 w-72 absolute top-20 z-20 border border-blue-500/30">
+                        <span class="inline-block px-2 py-0.5 bg-yellow-500/20 text-yellow-400 text-xs rounded-full mb-2">进行中</span>
+                        <h5 class="font-bold text-sm mb-2">数据驱动自动化</h5>
+                        <ul class="text-xs text-slate-500 space-y-1 mb-3">
+                          <li>• 资产全生命周期管理</li>
+                          <li>• 自动化工单处理</li>
+                          <li>• RFID智能融合</li>
+                        </ul>
+                      </div>
+                    </div>
+                    
+                    <!-- 节点3 -->
+                    <div class="flex-1 flex flex-col items-center relative group">
+                      <div class="w-12 h-12 rounded-full bg-slate-800 border-2 border-dashed border-slate-600 flex items-center justify-center z-10 mb-4 opacity-60">
+                        <iconify-icon class="text-slate-500" icon="mdi:clock-outline" width="20"></iconify-icon>
+                      </div>
+                      <div class="text-center mb-4">
+                        <span class="text-xs text-slate-500">2026.2</span>
+                        <p class="font-bold text-sm text-slate-500">v3.0</p>
+                      </div>
+                      <div class="glass-morphism rounded-xl p-5 w-64 opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300 absolute top-20">
+                        <span class="inline-block px-2 py-0.5 bg-slate-500/20 text-slate-400 text-xs rounded-full mb-2">规划中</span>
+                        <h5 class="font-bold text-sm mb-2">智能运维决策</h5>
+                        <ul class="text-xs text-slate-500 space-y-1">
+                          <li>• AIOps智能分析</li>
+                          <li>• 知识库自动构建</li>
+                          <li>• 预测性维护</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- 标讯信息智能分析平台 -->
+              <div class="tab-content" id="tab-bid">
+                <div class="relative pt-8 pb-4">
+                  <div class="absolute top-[52px] left-0 w-1/3 h-1 bg-gradient-to-r from-blue-600 via-blue-400 to-cyan-400 rounded-full"></div>
+                  <div class="absolute top-[52px] left-0 w-1/3 h-1 animate-flow-gradient rounded-full"></div>
+                  
+                  <div class="relative flex justify-between px-4">
+                    <!-- 节点1 -->
+                    <div class="flex-1 flex flex-col items-center relative group">
+                      <div class="w-12 h-12 rounded-full bg-blue-600 border-2 border-white flex items-center justify-center z-10 mb-4 cursor-pointer">
+                        <iconify-icon class="text-white" icon="mdi:check" width="20"></iconify-icon>
+                      </div>
+                      <div class="text-center mb-4">
+                        <span class="text-xs text-slate-400">2024.9</span>
+                        <p class="font-bold text-sm">v1.0</p>
+                      </div>
+                      <div class="glass-morphism rounded-xl p-5 w-64 opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300 absolute top-20">
+                        <span class="inline-block px-2 py-0.5 bg-blue-500/20 text-blue-400 text-xs rounded-full mb-2">已完成</span>
+                        <h5 class="font-bold text-sm mb-2">基础能力建设</h5>
+                        <ul class="text-xs text-slate-500 space-y-1">
+                          <li>• 标讯智能采集</li>
+                          <li>• 数据统计分析</li>
+                          <li>• 基础筛选功能</li>
+                        </ul>
+                      </div>
+                    </div>
+                    
+                    <!-- 节点2 -->
+                    <div class="flex-1 flex flex-col items-center relative">
+                      <div class="w-12 h-12 rounded-full bg-blue-600 border-2 border-white flex items-center justify-center z-10 mb-4">
+                        <iconify-icon class="text-white" icon="mdi:loading" width="20"></iconify-icon>
+                      </div>
+                      <div class="text-center mb-4">
+                        <span class="text-xs text-slate-400">2025.4</span>
+                        <p class="font-bold text-sm">v2.0</p>
+                      </div>
+                      <div class="glass-morphism rounded-xl p-5 w-64 opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300 absolute top-20">
+                        <span class="inline-block px-2 py-0.5 bg-yellow-500/20 text-yellow-400 text-xs rounded-full mb-2">进行中</span>
+                        <h5 class="font-bold text-sm mb-2">数据整合赋能</h5>
+                        <ul class="text-xs text-slate-500 space-y-1">
+                          <li>• 多平台集成对接</li>
+                          <li>• 智能筛选引擎</li>
+                          <li>• 客户商机识别</li>
+                        </ul>
+                      </div>
+                    </div>
+                    
+                    <!-- 节点3 -->
+                    <div class="flex-1 flex flex-col items-center relative group">
+                      <div class="w-12 h-12 rounded-full bg-slate-800 border-2 border-dashed border-slate-600 flex items-center justify-center z-10 mb-4 opacity-60">
+                        <iconify-icon class="text-slate-500" icon="mdi:clock-outline" width="20"></iconify-icon>
+                      </div>
+                      <div class="text-center mb-4">
+                        <span class="text-xs text-slate-500">2026.1</span>
+                        <p class="font-bold text-sm text-slate-500">v3.0</p>
+                      </div>
+                      <div class="glass-morphism rounded-xl p-5 w-64 opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300 absolute top-20">
+                        <span class="inline-block px-2 py-0.5 bg-slate-500/20 text-slate-400 text-xs rounded-full mb-2">规划中</span>
+                        <h5 class="font-bold text-sm mb-2">AI驱动决策</h5>
+                        <ul class="text-xs text-slate-500 space-y-1">
+                          <li>• 智能决策系统</li>
+                          <li>• AI算法模型升级</li>
+                          <li>• 全链路能力升级</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- 底部状态提示 -->
+            <div class="text-center mt-20 pb-8 fade-in">
+              <p class="text-sm text-slate-500">当前系统已在金融领域投入场景使用，并与中国银行建立长期合作关系</p>
+              <div class="flex items-center justify-center space-x-6 mt-4">
+                <div class="flex items-center space-x-2">
+                  <div class="w-2 h-2 rounded-full bg-green-500"></div>
+                  <span class="text-xs text-slate-400">生产环境运行中</span>
+                </div>
+                <div class="flex items-center space-x-2">
+                  <div class="w-2 h-2 rounded-full bg-blue-500"></div>
+                  <span class="text-xs text-slate-400">v2.0开发进度 65%</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </section>
+
+  <script>
+    // 数字滚动动画
+    function animateCountUp(element, target, duration = 2000) {
+      let start = 0;
+      const increment = target / (duration / 16);
+      const timer = setInterval(() => {
+        start += increment;
+        if (start >= target) {
+          element.textContent = target + '+';
+          clearInterval(timer);
+        } else {
+          element.textContent = Math.floor(start);
+        }
+      }, 16);
+    }
+
+    // 滚动触发动画
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          
+          // 数字滚动
+          if (entry.target.classList.contains('count-up')) {
+            const target = parseInt(entry.target.dataset.target);
+            animateCountUp(entry.target, target);
+          }
+        }
+      });
+    }, observerOptions);
+
+    // 观察所有需要动画的元素
+    document.querySelectorAll('.fade-in, .count-up').forEach(el => {
+      observer.observe(el);
+    });
+
+    // Tab切换功能
+    const tabBtns = document.querySelectorAll('.tab-btn');
+    const tabContents = document.querySelectorAll('.tab-content');
+
+    tabBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const tabId = btn.dataset.tab;
+        
+        // 切换按钮样式
+        tabBtns.forEach(b => {
+          b.classList.remove('bg-blue-600', 'text-white');
+          b.classList.add('bg-slate-800/50', 'text-slate-400');
+        });
+        btn.classList.remove('bg-slate-800/50', 'text-slate-400');
+        btn.classList.add('bg-blue-600', 'text-white');
+        
+        // 切换内容
+        tabContents.forEach(content => {
+          content.classList.remove('active');
+        });
+        document.getElementById('tab-' + tabId).classList.add('active');
+      });
+    });
+
+    // 时间轴线动画
+    const timelineObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animated');
+        }
+      });
+    }, { threshold: 0.3 });
+
+    document.querySelectorAll('.timeline-line').forEach(el => {
+      timelineObserver.observe(el);
+    });
+  </script>
+</body>
+</html>

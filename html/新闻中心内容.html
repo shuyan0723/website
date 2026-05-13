@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>新闻中心 | 昆仑时代（上海）系统集成有限公司</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f8fafc;
+            font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            color: #1e2f3e;
+            line-height: 1.5;
+        }
+
+        /* 整体容器 - 仿官网宽度 */
+        .page-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem 4rem;
+        }
+
+        /* 头部标题区 + 面包屑 (参照官网简洁风格) */
+        .hero-header {
+            margin-bottom: 2.5rem;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 1rem;
+        }
+        .hero-header h1 {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #0a2b44;
+            letter-spacing: -0.3px;
+        }
+        .hero-header p {
+            color: #54708f;
+            margin-top: 0.4rem;
+            font-size: 0.95rem;
+        }
+
+        /* 新闻卡片列表 */
+        .news-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.75rem;
+            margin-bottom: 2.5rem;
+        }
+
+        /* 卡片样式：完全复现截图中的极简卡片 + 悬浮效果 */
+        .news-card {
+            background: #ffffff;
+            border-radius: 1rem;
+            border: 1px solid #eef2f6;
+            transition: all 0.2s ease;
+            overflow: hidden;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
+        }
+        .news-card:hover {
+            border-color: #cddfed;
+            box-shadow: 0 12px 24px -12px rgba(0, 0, 0, 0.08);
+        }
+
+        .card-inner {
+            padding: 1.5rem 1.8rem;
+        }
+
+        /* 日期行 */
+        .news-date {
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: #5c7f9c;
+            letter-spacing: 0.3px;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .news-badge {
+            background: #ecf3fa;
+            color: #1f6392;
+            font-size: 0.7rem;
+            padding: 0.2rem 0.7rem;
+            border-radius: 20px;
+            font-weight: 500;
+        }
+
+        /* 标题 */
+        .news-title {
+            font-size: 1.35rem;
+            font-weight: 650;
+            color: #0f2f48;
+            margin-bottom: 0.75rem;
+            line-height: 1.3;
+        }
+
+        /* 摘要 (预览用) */
+        .news-excerpt {
+            color: #446d8c;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            border-left: 3px solid #dce5ef;
+            padding-left: 0.9rem;
+        }
+
+        /* 标签区 (行业要闻 / 官方通告 / 中标动态) */
+        .news-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.2rem;
+        }
+        .tag {
+            background: #f1f5f9;
+            padding: 0.2rem 0.8rem;
+            border-radius: 30px;
+            font-size: 0.7rem;
+            font-weight: 500;
+            color: #2c6288;
+        }
+
+        /* 查看详情按钮 */
+        .detail-btn {
+            background: transparent;
+            border: 1px solid #cbdde9;
+            padding: 0.4rem 1.2rem;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: #1f6392;
+            cursor: pointer;
+            transition: 0.2s;
+            font-family: inherit;
+        }
+        .detail-btn:hover {
+            background: #eef3fc;
+            border-color: #8bb4d0;
+        }
+
+        /* 详情内容 (默认隐藏) */
+        .full-detail {
+            display: none;
+            margin-top: 1.5rem;
+            padding-top: 1.2rem;
+            border-top: 1px solid #e9edf2;
+            font-size: 0.9rem;
+            color: #2c4a6e;
+            line-height: 1.6;
+        }
+        .full-detail.show {
+            display: block;
+        }
+
+        .detail-content {
+            background: #fafcff;
+            padding: 1rem 1.2rem;
+            border-radius: 0.8rem;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+        .detail-content ul {
+            margin-left: 1.2rem;
+            margin-top: 0.5rem;
+        }
+        .detail-content li {
+            margin-bottom: 0.4rem;
+        }
+
+        /* 历史新闻按钮 + 往年全部新闻区域 */
+        .history-wrapper {
+            text-align: center;
+            margin: 2rem 0 1rem;
+        }
+        .history-btn {
+            background: white;
+            border: 1px solid #cbdde9;
+            padding: 0.7rem 2rem;
+            border-radius: 2rem;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #1f6392;
+            cursor: pointer;
+            transition: 0.2s;
+            font-family: inherit;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.02);
+        }
+        .history-btn:hover {
+            background: #ecf5fb;
+            border-color: #9bbdd6;
+        }
+
+        /* 历史新闻列表 (折叠/展开) */
+        .history-news-section {
+            display: none;
+            margin-top: 2rem;
+            border-top: 1px solid #e2edf5;
+            padding-top: 2rem;
+        }
+        .history-news-section.show {
+            display: block;
+        }
+
+        .history-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: #1f4662;
+        }
+
+        .history-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 1.3rem;
+        }
+
+        .history-card {
+            background: #ffffff;
+            border-radius: 0.9rem;
+            border: 1px solid #eef2f8;
+            padding: 1rem 1.3rem;
+            transition: 0.1s;
+        }
+        .history-card .h-title {
+            font-weight: 700;
+            font-size: 1rem;
+            color: #1a4766;
+        }
+        .history-card .h-meta {
+            font-size: 0.75rem;
+            color: #6f8fb0;
+            margin-top: 0.3rem;
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        footer {
+            margin-top: 3rem;
+            text-align: center;
+            font-size: 0.7rem;
+            color: #8aa0b5;
+            border-top: 1px solid #e4edf5;
+            padding-top: 2rem;
+        }
+
+        @media (max-width: 700px) {
+            .page-container {
+                padding: 1.2rem;
+            }
+            .news-title {
+                font-size: 1.1rem;
+            }
+            .card-inner {
+                padding: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page-container">
+    <div class="hero-header">
+        <h1>新闻中心</h1>
+        <p>洞察行业趋势，传递极致价值</p>
+    </div>
+
+    <!-- 最新3条新闻卡片列表 (动态渲染，但为保证完全统一，使用JS动态注入但匹配官网卡片样式) 
+         内容基于67张图片汇总的利好，提取3条最具代表性“新闻” -->
+    <div id="latestNewsContainer" class="news-list"></div>
+
+    <!-- 查看历史新闻报道按钮 -->
+    <div class="history-wrapper">
+        <button id="historyToggleBtn" class="history-btn">📰 查看历史新闻报道</button>
+    </div>
+
+    <!-- 历史新闻全部列表（往年扩展） -->
+    <div id="historySection" class="history-news-section">
+        <div class="history-title">📌 往年全部新闻 · 业绩与里程碑</div>
+        <div id="historyNewsList" class="history-grid"></div>
+    </div>
+    <footer>© 昆仑时代（上海）系统集成有限公司 版权所有 | 创新驱动 · 服务金融科技主战场</footer>
+</div>
+
+<script>
+    // --------------------------------------------------------------
+    // 依据67张完整图片所提取的利好消息，每条新闻独立对应一项利好
+    // 合并为“新闻条目”，其中最新3条置顶展示，其余归入“历史新闻报道”
+    // 每条包含：标题、日期、摘要、标签、详情内容(完整中标+专利+分支机构等信息)
+    // --------------------------------------------------------------
+    const allNews = [
+        {
+            id: 1,
+            title: "昆仑时代连续中标多家国有大行及金融机构外包服务项目",
+            date: "2026-05-06",
+            excerpt: "公司相继中标中信银行上海分行科技运维外包、中国银行深圳公积金驻点、徽商银行淮南/黄山分行、兴业银行哈尔滨分行等20余项重点项目，服务能级持续受到头部金融机构认可。",
+            tags: ["金融科技", "中标动态", "行业要闻"],
+            fullDetail: `<div class="detail-content">
+                <strong>🎯 近期中标/入围亮点（2025-2026）：</strong><br>
+                • 中信银行上海分行科技运维外包服务项目（中标候选人）<br>
+                • 合肥庐阳公共资源交易有限公司劳务外包（费率95%）<br>
+                • 徽商银行淮南分行驻点外包 1,278,333.21元<br>
+                • 中国银行深圳市分行2026-2029公积金中心驻点外包（中标）<br>
+                • 贵州银行贵阳分行外包项目（中标候选人）<br>
+                • 郑州银行测试类人力框架供应商入围（共24家）<br>
+                • 南水北调东线智能水务项目（中标）<br>
+                • 中国银保信2025业务支持类资源池服务采购项目（中标）<br>
+                • 中国银行河南分行反洗钱辅助管理系统（26.8816万元）<br>
+                • 金华银行ECC值班人力外包（50.4万元）<br>
+                • 兴业银行哈尔滨分行大堂助理外包（60万元）<br>
+                • 江西农商联合银行大数据类研发服务中标（16家之一）<br>
+                • 赣州银行数据中心运维人力外包（12家之一）<br>
+                • 中原证券信息技术外包资源池入围候选人（260,100元/人）<br>
+                • 中信银行贵阳分行零售业务外包 4346元 等20余项。<br><br>
+                <strong>🏆 客户覆盖：</strong> 中国银行、中信银行、邮储银行、兴业银行、徽商银行、贵州银行、金华银行、赣州银行、江西农商联合银行、郑州银行、中国银保信、中邮保险、中原证券、南水北调集团等。
+            </div>`
+        },
+        {
+            id: 2,
+            title: "入选2026年上海市“创新型中小企业”名单",
+            date: "2026-03-26",
+            excerpt: "上海市经济和信息化委员会正式公布2026年第一批创新型中小企业名单，昆仑时代成功入选，有效期三年，标志公司技术创新能力与专业化水平获官方高度认可。",
+            tags: ["官方通告", "荣誉资质"],
+            fullDetail: `<div class="detail-content">
+                ✅ 2026年3月26日，上海市经济和信息化委员会发布《2026年上海市创新型中小企业名单（第一批）》，昆仑时代（上海）系统集成有限公司位列其中。<br>
+                ✅ 同步入选“2026年上海市浦东新区创新型中小企业（第一批）”公示名单（2026-03-16）。<br>
+                ✅ 该资质有效期为三年，在政府项目采购、招投标评审中可作为重要加分项，也代表了公司在技术、研发、成长性方面的综合实力。
+            </div>`
+        },
+        {
+            id: 3,
+            title: "全国8家分支机构落成，本地化服务能力再度升级",
+            date: "2026-04-15",
+            excerpt: "昆仑时代加速全国布局，淮南、黄山、贵阳、西宁、石家庄、西安、哈尔滨等分公司密集成立，负责人邢明明，进一步强化对华东、华北、西北、西南区域的客户响应能力。",
+            tags: ["企业动态", "区域扩张"],
+            fullDetail: `<div class="detail-content">
+                <strong>📍 已设立分公司（8家）：</strong><br>
+                • 淮南分公司（2026-04-15，安徽淮南）<br>
+                • 黄山分公司（2026-01-21，安徽黄山）<br>
+                • 石家庄分公司（2025-12-02，河北石家庄）<br>
+                • 西安分公司（2025-11-22，陕西西安）<br>
+                • 哈尔滨分公司（2025-11-15，黑龙江哈尔滨）<br>
+                • 西宁分公司（2025-11-07，青海西宁）<br>
+                • 贵阳分公司（2025-10-15，贵州贵阳）<br>
+                • 上海总部统筹管理，形成覆盖全国主要经济区的服务网络。<br><br>
+                各分公司均配备专业IT技术服务团队，为银行、保险及政企客户提供驻场外包、数据中心运维等敏捷交付。
+            </div>`
+        },
+        // ========= 以下为历史扩展新闻 (往年全部利好消息合并为独立新闻条目) =========
+        {
+            id: 4,
+            title: "反洗钱监测技术突破：获发明专利授权+实质审查双进展",
+            date: "2025-11-11",
+            excerpt: "公司自主研发的“用于反洗钱监测的交易报告生成方法及系统”获得国家发明专利授权（CN120235688B）；另一项“反洗钱可疑交易监测方法及装置”进入实质审查阶段。",
+            tags: ["技术研发", "知识产权"],
+            fullDetail: `<div class="detail-content">
+                🔬 <strong>核心知识产权成果</strong><br>
+                ✔ 授权发明专利：用于反洗钱监测的交易报告生成方法及系统（授权号 CN120235688B，授权日2025-11-11）<br>
+                ✔ 实质审查中：一种反洗钱可疑交易监测方法及装置（申请号 CN202511511681.2，公布日2026-02-03）<br>
+                ✔ 注册商标矩阵：“昆仑甘露”（35/42类）、“KUNLUN ERA”（35类）、“KunLun AIOps”（42类）均已注册成功，品牌壁垒持续构建。
+            </div>`
+        },
+        {
+            id: 5,
+            title: "战略资本优化：新增集成电路布局及子公司重组",
+            date: "2026-01-21",
+            excerpt: "公司完成两项重要资本运作：新增投资上海昆仑时代集成电路有限公司（持股2%），同时有序退出原控股子公司上海昆仑国瑞科技服务有限公司（原持股51%），进一步聚焦金融科技主业。",
+            tags: ["战略资本", "企业动态"],
+            fullDetail: `<div class="detail-content">
+                💼 资本动向（基于工商动态）：<br>
+                ➤ 新增对外投资：上海昆仑时代集成电路有限公司（认缴2万元，持股2%），布局前沿科技赛道。<br>
+                ➤ 退出控股子公司：上海昆仑国瑞科技服务有限公司（退出前持股51%），实现业务聚焦与资源优化。<br>
+                ➤ 上述调整体现公司更加专注人力外包、IT运维及金融软件解决方案的战略决心。
+            </div>`
+        },
+        {
+            id: 6,
+            title: "2025年度核心标杆：中国银保信、南水北调、中国银行河南反洗钱等项目落地",
+            date: "2025-12-09",
+            excerpt: "2025年四季度连续中标国家级基础设施项目“中国银保信资源池服务”、南水北调集团人力外包及中国银行河南省分行反洗钱智能管理系统，彰显高价值服务能力。",
+            tags: ["行业要闻", "中标动态"],
+            fullDetail: `<div class="detail-content">
+                🏅 2025代表性标杆业绩：<br>
+                • 中国银保信2025年业务支持类（项目管理综合）资源池服务采购项目（中标单位）<br>
+                • 中国南水北调集团水网智慧科技有限公司2024-2025年人力资源服务外包项目（10元/人）<br>
+                • 中国银行河南分行反洗钱辅助管理系统新增智能管理项目（中标金额26.8816万元）<br>
+                • 金华银行ECC值班人力外包服务项目（50.4万元）<br>
+                • 赣州银行2025-2028年度数据中心运维类通用人力外包（中标12家之一）<br>
+                • 中原证券信息技术外包资源池入围候选人（260,100元/人）
+            </div>`
+        },
+        {
+            id: 7,
+            title: "昆仑时代贵阳、西宁、哈尔滨分公司相继成立，全国布局提速",
+            date: "2025-10-15",
+            excerpt: "2025年10月至11月，贵阳、西宁、哈尔滨、西安、石家庄分公司密集成立，邢明明担任各分支机构负责人，公司本地化交付网络进一步完善。",
+            tags: ["区域扩张", "企业动态"],
+            fullDetail: `<div class="detail-content">
+                🚩 2025年10月-12月新增分支机构一览：<br>
+                - 贵阳分公司（2025-10-14，贵州贵阳）<br>
+                - 西宁分公司（2025-11-06，青海西宁）<br>
+                - 哈尔滨分公司（2025-11-14，黑龙江哈尔滨）<br>
+                - 西安分公司（2025-11-21，陕西西安）<br>
+                - 石家庄分公司（2025-12-01，河北石家庄）<br>
+                截至目前，全国共计设立8家分支机构，深度服务属地金融机构。
+            </div>`
+        },
+        {
+            id: 8,
+            title: "兴业银行、中信银行贵阳零售外包中标，股份制银行合作持续深化",
+            date: "2025-10-21",
+            excerpt: "公司中标兴业银行哈尔滨分行大堂助理服务外包项目（60万元）及中信银行贵阳分行零售业务外包项目，股份制银行外包版图进一步扩大。",
+            tags: ["中标动态", "金融科技"],
+            fullDetail: `<div class="detail-content">
+                🤝 重点股份制银行中标记录：<br>
+                • 兴业银行哈尔滨分行2025-2026年度大堂助理服务外包项目（60万元）<br>
+                • 中信银行贵阳分行零售业务外包服务采购项目（中标金额4346元，与银雁科技并列）<br>
+                • 中信银行上海分行科技运维外包服务项目（2026年5月中标候选人）<br>
+                充分印证公司在全国性股份制银行外包服务市场的综合竞争力。
+            </div>`
+        },
+        {
+            id: 9,
+            title: "昆仑时代荣获浦东新区及上海市创新型中小企业双认定",
+            date: "2026-03-16",
+            excerpt: "继2026年3月16日浦东新区创新型中小企业公示后，3月26日正式入选上海市级名单，公司研发能力与成长性再获权威背书。",
+            tags: ["官方通告", "荣誉资质"],
+            fullDetail: `<div class="detail-content">
+                🎖️ 创新型中小企业资质进程：<br>
+                2026年3月16日 浦东新区公示（第一批）<br>
+                2026年3月26日 上海市经济和信息化委员会正式公布2026年上海市创新型中小企业名单（第一批）。<br>
+                有效期三年，对于招投标、项目申报及品牌公信力均有显著增益。
+            </div>`
+        }
+    ];
+
+    // 按日期降序排序（最新在前）
+    function sortByDateDesc(newsArray) {
+        return [...newsArray].sort((a,b) => new Date(b.date) - new Date(a.date));
+    }
+
+    const sortedAll = sortByDateDesc(allNews);
+    // 最新3条 (id: 1,2,3 排序后实际的top3)
+    const latestNews = sortedAll.slice(0, 3);
+    // 历史新闻 = 剩余全部 (往年+其他利好)
+    const historyNews = sortedAll.slice(3);
+
+    // 渲染最新三条卡片
+    function renderLatestNews() {
+        const container = document.getElementById('latestNewsContainer');
+        if (!container) return;
+        container.innerHTML = '';
+        latestNews.forEach(news => {
+            const card = document.createElement('div');
+            card.className = 'news-card';
+            card.innerHTML = `
+                <div class="card-inner">
+                    <div class="news-date">
+                        <span>${news.date}</span>
+                        <span class="news-badge">最新动态</span>
+                    </div>
+                    <div class="news-title">${escapeHtml(news.title)}</div>
+                    <div class="news-excerpt">${escapeHtml(news.excerpt)}</div>
+                    <div class="news-tags">
+                        ${news.tags.map(tag => `<span class="tag">${escapeHtml(tag)}</span>`).join('')}
+                    </div>
+                    <button class="detail-btn" data-id="${news.id}">查看详情</button>
+                    <div class="full-detail" id="detail-${news.id}"></div>
+                </div>
+            `;
+            container.appendChild(card);
+        });
+
+        // 绑定详情按钮事件
+        document.querySelectorAll('.detail-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const id = parseInt(btn.getAttribute('data-id'));
+                const newsItem = allNews.find(n => n.id === id);
+                const detailDiv = document.getElementById(`detail-${id}`);
+                if (detailDiv) {
+                    if (detailDiv.classList.contains('show')) {
+                        detailDiv.classList.remove('show');
+                        detailDiv.innerHTML = '';
+                    } else {
+                        detailDiv.innerHTML = newsItem.fullDetail;
+                        detailDiv.classList.add('show');
+                    }
+                }
+            });
+        });
+    }
+
+    // 渲染历史全部新闻 (往年扩展)
+    function renderHistoryNews() {
+        const historyContainer = document.getElementById('historyNewsList');
+        if (!historyContainer) return;
+        historyContainer.innerHTML = '';
+        if (historyNews.length === 0) {
+            historyContainer.innerHTML = '<div style="background:#f9fbfe; border-radius:1rem; padding:2rem; text-align:center; color:#6f8fae;">✨ 暂无更多历史新闻，敬请期待后续更新。</div>';
+            return;
+        }
+        historyNews.forEach(news => {
+            const card = document.createElement('div');
+            card.className = 'history-card';
+            card.innerHTML = `
+                <div class="h-title">📌 ${escapeHtml(news.title)}</div>
+                <div class="h-meta">
+                    <span>📅 ${news.date}</span>
+                    <span>🏷️ ${news.tags.join(' · ')}</span>
+                </div>
+                <div class="news-excerpt" style="margin-top: 0.5rem; font-size:0.85rem;">${escapeHtml(news.excerpt)}</div>
+                <button class="detail-btn history-detail-btn" data-id="${news.id}" style="margin-top: 0.8rem; font-size:0.7rem;">查看详情</button>
+                <div class="full-detail" id="history-detail-${news.id}" style="margin-top:0.8rem;"></div>
+            `;
+            historyContainer.appendChild(card);
+        });
+
+        // 为历史新闻中的详情按钮绑定事件
+        document.querySelectorAll('.history-detail-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const id = parseInt(btn.getAttribute('data-id'));
+                const newsItem = allNews.find(n => n.id === id);
+                const targetId = `history-detail-${id}`;
+                const detailDiv = document.getElementById(targetId);
+                if (detailDiv) {
+                    if (detailDiv.classList.contains('show')) {
+                        detailDiv.classList.remove('show');
+                        detailDiv.innerHTML = '';
+                    } else {
+                        detailDiv.innerHTML = newsItem.fullDetail;
+                        detailDiv.classList.add('show');
+                    }
+                }
+            });
+        });
+    }
+
+    // 辅助防XSS
+    function escapeHtml(str) {
+        if (!str) return '';
+        return str.replace(/[&<>]/g, function(m) {
+            if (m === '&') return '&amp;';
+            if (m === '<') return '&lt;';
+            if (m === '>') return '&gt;';
+            return m;
+        }).replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, function(c) {
+            return c;
+        });
+    }
+
+    // 历史区域折叠展开按钮
+    function initHistoryToggle() {
+        const toggleBtn = document.getElementById('historyToggleBtn');
+        const historySection = document.getElementById('historySection');
+        if (toggleBtn && historySection) {
+            toggleBtn.addEventListener('click', () => {
+                if (historySection.classList.contains('show')) {
+                    historySection.classList.remove('show');
+                    toggleBtn.textContent = '📰 查看历史新闻报道';
+                } else {
+                    historySection.classList.add('show');
+                    toggleBtn.textContent = '✖️ 收起历史新闻';
+                    // 历史新闻列表仅首次渲染或者重新渲染（确保内容存在）
+                    if (historySection.getAttribute('data-rendered') !== 'true') {
+                        renderHistoryNews();
+                        historySection.setAttribute('data-rendered', 'true');
+                    }
+                }
+            });
+        }
+    }
+
+    // 初始化
+    renderLatestNews();
+    initHistoryToggle();
+    // 预置history新闻可以等点击时渲染，但为了首次不渲染，已经做了懒加载（点击时才渲染）
+    // 让样式完全一致
+</script>
+</body>
+</html>
