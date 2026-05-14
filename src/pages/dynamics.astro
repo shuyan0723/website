@@ -52,10 +52,6 @@ const latestThree = dynamicsData.slice(0, 3);
                 <div class="card-date"><i class="far fa-calendar-alt"></i> {dynamic.date}</div>
                 <div class="card-title">{dynamic.title}</div>
                 <div class="card-summary">{dynamic.summary}</div>
-                <div class="card-stats">
-                  <span><i class="fas fa-eye"></i> {dynamic.readCount > 0 ? dynamic.readCount : '—'}阅读</span>
-                  <span><i class="fas fa-thumbs-up"></i> {dynamic.likeCount > 0 ? dynamic.likeCount : '—'}点赞</span>
-                </div>
               </div>
             </div>
           ))}
@@ -160,26 +156,11 @@ const latestThree = dynamicsData.slice(0, 3);
   .card-summary {
     color: #4f5e6b;
     font-size: 0.9rem;
-    margin-bottom: 1.2rem;
+    margin-bottom: 0;
     display: -webkit-box;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
-  }
-
-  .card-stats {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    font-size: 0.8rem;
-    color: #8a99a6;
-    border-top: 1px solid #ecf1f5;
-    padding-top: 1rem;
-  }
-
-  .card-stats i {
-    margin-right: 5px;
-    font-size: 0.75rem;
   }
 
   .dynamics-header {
@@ -292,11 +273,7 @@ const latestThree = dynamicsData.slice(0, 3);
     bodyDiv.innerHTML =
       '<div class="modal-date"><i class="far fa-calendar-alt"></i> ' + dynamic.date + '  ·  <i class="far fa-newspaper"></i> 企业动态</div>' +
       '<div class="modal-title">' + dynamic.title + '</div>' +
-      '<div class="modal-detail">' + dynamic.detail + '</div>' +
-      '<div class="modal-stats">' +
-        '<span><i class="fas fa-eye"></i> 阅读 ' + (dynamic.readCount > 0 ? dynamic.readCount : '—') + '</span>' +
-        '<span><i class="fas fa-thumbs-up"></i> 点赞 ' + (dynamic.likeCount > 0 ? dynamic.likeCount : '—') + '</span>' +
-      '</div>';
+      '<div class="modal-detail">' + dynamic.detail + '</div>';
     modal.classList.add('active');
     currentDetailDynamic = dynamic;
   }
@@ -314,8 +291,7 @@ const latestThree = dynamicsData.slice(0, 3);
         '<div class="all-item-left">' +
           '<div class="all-item-title">' + item.title + '</div>' +
           '<div class="all-item-date"><i class="far fa-calendar-alt"></i> ' + item.date + '</div>' +
-        '</div>' +
-        '<div class="all-item-read"><i class="fas fa-eye"></i> ' + (item.readCount > 0 ? item.readCount : '—') + '</div>';
+        '</div>';
       div.addEventListener('click', function() {
         document.getElementById('allModal').classList.remove('active');
         showDetailModal(item);

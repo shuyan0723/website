@@ -129,26 +129,41 @@
   transition: all 0.3s ease;
   border: none;
   outline: none;
+}
 
-  &.btn-primary {
-    background: #3b82f6;
-    color: white;
-    box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+.btn-primary {
+  display: inline-block;
+  padding: 12px $spacing-3xl;
+  background: $primary-blue;
+  color: white;
+  border-radius: 9999px;
+  font-size: $font-sm;
+  font-weight: 600;
+  text-decoration: none;
+  @include transition(all);
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
 
-    &:hover {
-      background: #2563eb;
-      box-shadow: 0 0 30px rgba(59, 130, 246, 0.5);
-    }
+  &:hover {
+    background: #2563eb;
+    box-shadow: 0 0 30px rgba(59, 130, 246, 0.5);
   }
+}
 
-  &.btn-secondary {
-    background: transparent;
-    color: #f8fafc;
-    border: 1px solid #475569;
+.btn-secondary {
+  display: inline-block;
+  padding: 12px $spacing-3xl;
+  background: transparent;
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 9999px;
+  font-size: $font-sm;
+  font-weight: 600;
+  text-decoration: none;
+  @include transition(all);
 
-    &:hover {
-      border-color: #3b82f6;
-    }
+  &:hover {
+    border-color: $primary-blue;
+    color: $primary-blue;
   }
 }
 
