@@ -121,7 +121,13 @@ import Footer from '../components/Footer.astro';
 
         <!-- 查看更多按钮 -->
         <div class="news-footer">
-          <button class="view-more-btn">查看历史新闻报道</button>
+          <button class="view-more-btn" id="historyToggleBtn">📰 查看历史新闻报道</button>
+        </div>
+
+        <!-- 历史新闻区域 -->
+        <div id="historySection" class="history-news-section">
+          <div class="history-title">📌 往年全部新闻 · 业绩与里程碑</div>
+          <div id="historyNewsList" class="history-grid"></div>
         </div>
       </div>
     </section>
@@ -130,7 +136,7 @@ import Footer from '../components/Footer.astro';
   </div>
 </Layout>
 
-<style>
+<style is:global>
   @import '../styles/news.scss';
 
   .detail-btn {
@@ -170,29 +176,181 @@ import Footer from '../components/Footer.astro';
     max-height: 400px;
     overflow-y: auto;
   }
+
+  /* 历史新闻区域 */
+  .history-news-section {
+    display: none;
+    margin-top: 2rem;
+    border-top: 1px solid #e2edf5;
+    padding-top: 2rem;
+  }
+  .history-news-section.show {
+    display: block;
+  }
+  .history-title {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    color: #1f4662;
+  }
+  .history-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1.3rem;
+  }
+  .history-card {
+    background: #ffffff;
+    border-radius: 0.9rem;
+    border: 1px solid #eef2f8;
+    padding: 1rem 1.3rem;
+    transition: 0.15s ease;
+  }
+  .history-card:hover {
+    border-color: #cddfed;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  }
+  .history-card .h-title {
+    font-weight: 700;
+    font-size: 1rem;
+    color: #1a4766;
+    margin-bottom: 0.3rem;
+  }
+  .history-card .h-meta {
+    font-size: 0.75rem;
+    color: #6f8fb0;
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .history-card .h-excerpt {
+    color: #446d8c;
+    font-size: 0.85rem;
+    margin-top: 0.5rem;
+    line-height: 1.6;
+  }
+  .history-card .detail-btn {
+    margin-top: 0.8rem;
+    font-size: 0.75rem;
+  }
+  .history-card .full-detail {
+    margin-top: 0.8rem;
+  }
 </style>
 
 <script is:inline>
+  // 历史新闻数据
+  var historyNewsData = [
+    {
+      id: 4,
+      title: "反洗钱监测技术突破：获发明专利授权+实质审查双进展",
+      date: "2025-11-11",
+      excerpt: '公司自主研发的"用于反洗钱监测的交易报告生成方法及系统"获得国家发明专利授权（CN120235688B）；另一项"反洗钱可疑交易监测方法及装置"进入实质审查阶段。',
+      tags: ["技术研发", "知识产权"],
+      fullDetail: '<div class="detail-content">🔬 <strong>核心知识产权成果</strong><br>✔ 授权发明专利：用于反洗钱监测的交易报告生成方法及系统（授权号 CN120235688B，授权日2025-11-11）<br>✔ 实质审查中：一种反洗钱可疑交易监测方法及装置（申请号 CN202511511681.2，公布日2026-02-03）<br>✔ 注册商标矩阵："昆仑甘露"（35/42类）、"KUNLUN ERA"（35类）、"KunLun AIOps"（42类）均已注册成功，品牌壁垒持续构建。</div>'
+    },
+    {
+      id: 5,
+      title: "战略资本优化：新增集成电路布局及子公司重组",
+      date: "2026-01-21",
+      excerpt: "公司完成两项重要资本运作：新增投资上海昆仑时代集成电路有限公司（持股2%），同时有序退出原控股子公司上海昆仑国瑞科技服务有限公司（原持股51%），进一步聚焦金融科技主业。",
+      tags: ["战略资本", "企业动态"],
+      fullDetail: '<div class="detail-content">💼 <strong>资本动向（基于工商动态）：</strong><br>➤ 新增对外投资：上海昆仑时代集成电路有限公司（认缴2万元，持股2%），布局前沿科技赛道。<br>➤ 退出控股子公司：上海昆仑国瑞科技服务有限公司（退出前持股51%），实现业务聚焦与资源优化。<br>➤ 上述调整体现公司更加专注人力外包、IT运维及金融软件解决方案的战略决心。</div>'
+    },
+    {
+      id: 6,
+      title: "2025年度核心标杆：中国银保信、南水北调、中国银行河南反洗钱等项目落地",
+      date: "2025-12-09",
+      excerpt: '2025年四季度连续中标国家级基础设施项目"中国银保信资源池服务"、南水北调集团人力外包及中国银行河南省分行反洗钱智能管理系统，彰显高价值服务能力。',
+      tags: ["行业要闻", "中标动态"],
+      fullDetail: '<div class="detail-content">🏅 <strong>2025代表性标杆业绩：</strong><br>• 中国银保信2025年业务支持类（项目管理综合）资源池服务采购项目（中标单位）<br>• 中国南水北调集团水网智慧科技有限公司2024-2025年人力资源服务外包项目<br>• 中国银行河南分行反洗钱辅助管理系统新增智能管理项目（中标金额26.8816万元）<br>• 金华银行ECC值班人力外包服务项目（50.4万元）<br>• 赣州银行2025-2028年度数据中心运维类通用人力外包（中标12家之一）<br>• 中原证券信息技术外包资源池入围候选人（260,100元/人）</div>'
+    },
+    {
+      id: 7,
+      title: "昆仑时代贵阳、西宁、哈尔滨分公司相继成立，全国布局提速",
+      date: "2025-10-15",
+      excerpt: "2025年10月至11月，贵阳、西宁、哈尔滨、西安、石家庄分公司密集成立，邢明明担任各分支机构负责人，公司本地化交付网络进一步完善。",
+      tags: ["区域扩张", "企业动态"],
+      fullDetail: '<div class="detail-content">🚩 <strong>2025年10月-12月新增分支机构一览：</strong><br>- 贵阳分公司（2025-10-14，贵州贵阳）<br>- 西宁分公司（2025-11-06，青海西宁）<br>- 哈尔滨分公司（2025-11-14，黑龙江哈尔滨）<br>- 西安分公司（2025-11-21，陕西西安）<br>- 石家庄分公司（2025-12-01，河北石家庄）<br>截至目前，全国共计设立8家分支机构，深度服务属地金融机构。</div>'
+    },
+    {
+      id: 8,
+      title: "兴业银行、中信银行贵阳零售外包中标，股份制银行合作持续深化",
+      date: "2025-10-21",
+      excerpt: "公司中标兴业银行哈尔滨分行大堂助理服务外包项目（60万元）及中信银行贵阳分行零售业务外包项目，股份制银行外包版图进一步扩大。",
+      tags: ["中标动态", "金融科技"],
+      fullDetail: '<div class="detail-content">🤝 <strong>重点股份制银行中标记录：</strong><br>• 兴业银行哈尔滨分行2025-2026年度大堂助理服务外包项目（60万元）<br>• 中信银行贵阳分行零售业务外包服务采购项目<br>• 中信银行上海分行科技运维外包服务项目（2026年5月中标候选人）<br>充分印证公司在全国性股份制银行外包服务市场的综合竞争力。</div>'
+    },
+    {
+      id: 9,
+      title: "昆仑时代荣获浦东新区及上海市创新型中小企业双认定",
+      date: "2026-03-16",
+      excerpt: "继2026年3月16日浦东新区创新型中小企业公示后，3月26日正式入选上海市级名单，公司研发能力与成长性再获权威背书。",
+      tags: ["官方通告", "荣誉资质"],
+      fullDetail: '<div class="detail-content">🎖️ <strong>创新型中小企业资质进程：</strong><br>2026年3月16日 浦东新区公示（第一批）<br>2026年3月26日 上海市经济和信息化委员会正式公布2026年上海市创新型中小企业名单（第一批）。<br>有效期三年，对于招投标、项目申报及品牌公信力均有显著增益。</div>'
+    }
+  ];
+
+  // 渲染历史新闻
+  function renderHistoryNews() {
+    var container = document.getElementById('historyNewsList');
+    if (!container) return;
+    container.innerHTML = '';
+    if (historyNewsData.length === 0) {
+      container.innerHTML = '<div style="background:#f9fbfe; border-radius:1rem; padding:2rem; text-align:center; color:#6f8fae;">暂无更多历史新闻，敬请期待后续更新。</div>';
+      return;
+    }
+    historyNewsData.forEach(function(news) {
+      var card = document.createElement('div');
+      card.className = 'history-card';
+      card.innerHTML =
+        '<div class="h-title">📌 ' + news.title + '</div>' +
+        '<div class="h-meta">' +
+          '<span>📅 ' + news.date + '</span>' +
+          '<span>🏷️ ' + news.tags.join(' · ') + '</span>' +
+        '</div>' +
+        '<div class="h-excerpt">' + news.excerpt + '</div>' +
+        '<button class="detail-btn" data-id="history-' + news.id + '" style="margin-top:0.8rem;font-size:0.75rem;">查看详情</button>' +
+        '<div class="full-detail" id="history-detail-' + news.id + '" style="margin-top:0.8rem;"></div>';
+      container.appendChild(card);
+    });
+
+    // 绑定历史新闻详情按钮
+    container.querySelectorAll('.detail-btn').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var rawId = btn.getAttribute('data-id').replace('history-', '');
+        var newsItem = historyNewsData.find(function(n) { return n.id == rawId; });
+        var detailDiv = document.getElementById('history-detail-' + rawId);
+        if (detailDiv && newsItem) {
+          if (detailDiv.classList.contains('show')) {
+            detailDiv.classList.remove('show');
+            detailDiv.innerHTML = '';
+          } else {
+            detailDiv.innerHTML = newsItem.fullDetail;
+            detailDiv.classList.add('show');
+          }
+        }
+      });
+    });
+  }
+
   // 新闻项渐进显示效果
-  document.addEventListener('DOMContentLoaded', () => {
-    const newsItems = document.querySelectorAll('.news-item');
-    newsItems.forEach((item, index) => {
+  document.addEventListener('DOMContentLoaded', function() {
+    var newsItems = document.querySelectorAll('.news-item');
+    newsItems.forEach(function(item, index) {
       item.style.opacity = '0';
       item.style.transform = 'translateY(20px)';
-      item.style.transition = `opacity 0.5s ease ${index * 0.1}s, transform 0.5s ease ${index * 0.1}s`;
-
-      setTimeout(() => {
+      item.style.transition = 'opacity 0.5s ease ' + (index * 0.1) + 's, transform 0.5s ease ' + (index * 0.1) + 's';
+      setTimeout(function() {
         item.style.opacity = '1';
         item.style.transform = 'translateY(0)';
       }, 100);
     });
 
     // 详情按钮点击事件
-    document.querySelectorAll('.detail-btn').forEach(btn => {
-      btn.addEventListener('click', (e) => {
-        const id = btn.getAttribute('data-id');
-        const detailDiv = document.getElementById(`detail-${id}`);
-        
+    document.querySelectorAll('.detail-btn').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var id = btn.getAttribute('data-id');
+        var detailDiv = document.getElementById('detail-' + id);
         if (detailDiv) {
           if (detailDiv.classList.contains('show')) {
             detailDiv.classList.remove('show');
@@ -202,5 +360,24 @@ import Footer from '../components/Footer.astro';
         }
       });
     });
+
+    // 历史新闻展开/收起
+    var toggleBtn = document.getElementById('historyToggleBtn');
+    var historySection = document.getElementById('historySection');
+    if (toggleBtn && historySection) {
+      toggleBtn.addEventListener('click', function() {
+        if (historySection.classList.contains('show')) {
+          historySection.classList.remove('show');
+          toggleBtn.textContent = '📰 查看历史新闻报道';
+        } else {
+          historySection.classList.add('show');
+          toggleBtn.textContent = '✖️ 收起历史新闻';
+          if (historySection.getAttribute('data-rendered') !== 'true') {
+            renderHistoryNews();
+            historySection.setAttribute('data-rendered', 'true');
+          }
+        }
+      });
+    }
   });
 </script>
