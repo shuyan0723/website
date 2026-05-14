@@ -190,8 +190,8 @@ import Footer from '../../components/Footer.astro';
 
 <script is:inline>
   // Scroll to section
-  function scrollToSection(sectionId: string) {
-    const section = document.getElementById(sectionId);
+  function scrollToSection(sectionId) {
+    var section = document.getElementById(sectionId);
     if (section) {
       section.scrollIntoView({ behavior: 'smooth' });
     }
@@ -203,38 +203,38 @@ import Footer from '../../components/Footer.astro';
   }
 
   // Show toast
-  function showToast(message: string) {
-    const toast = document.getElementById('toast') as HTMLElement;
-    const toastMessage = document.getElementById('toastMessage') as HTMLElement;
+  function showToast(message) {
+    var toast = document.getElementById('toast');
+    var toastMessage = document.getElementById('toastMessage');
     if (toast && toastMessage) {
       toastMessage.textContent = message;
       toast.classList.add('show');
-      setTimeout(() => toast.classList.remove('show'), 3000);
+      setTimeout(function() { toast.classList.remove('show'); }, 3000);
     }
   }
 
   // Progress bar
-  window.addEventListener('scroll', () => {
-    const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-    const scrolled = (winScroll / height) * 100;
-    const progressBar = document.getElementById('progressBar') as HTMLElement;
+  window.addEventListener('scroll', function() {
+    var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+    var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    var scrolled = (winScroll / height) * 100;
+    var progressBar = document.getElementById('progressBar');
     if (progressBar) {
       progressBar.style.width = scrolled + '%';
     }
   });
 
   // Intersection Observer for animations
-  const observerOptions = {
+  var observerOptions = {
     threshold: 0.1,
     rootMargin: '0px 0px -50px 0px'
   };
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
       if (entry.isIntersecting) {
-        const delay = (entry.target as HTMLElement).dataset.delay || '0';
-        setTimeout(() => {
+        var delay = entry.target.dataset.delay || '0';
+        setTimeout(function() {
           entry.target.classList.add('visible');
         }, parseInt(delay));
       }
