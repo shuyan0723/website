@@ -191,6 +191,15 @@
   font-weight: 700;
   @extend .tech-gradient-text;
   margin-bottom: 8px;
+  min-height: 58px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &.growing-text {
+    font-size: 40px;
+    white-space: nowrap;
+  }
 }
 
 .research-stat-label {
